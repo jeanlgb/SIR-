@@ -41,5 +41,9 @@ private String texte_CR;
         this.texte_CR = texte_CR;
     }
 
+    public String toString(){
+        return (texte_CR + "\n" + "Ecrit par : " + this.auteur);
+    }
+
 
 }

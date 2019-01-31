@@ -13,7 +13,7 @@ private String mot_de_passe;
         this.mot_de_passe = mot_de_passe;
     }
     
-    public void autorisation_de_xonnexion(){
+    public void autorisation_de_connexion(){
         //code à ajouter
     }
 

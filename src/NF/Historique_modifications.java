@@ -14,7 +14,7 @@ private ArrayList<Modification> liste_modifications;
     }
 
     
-    public void ajouter_modificaction(Modification modification){
+    public void ajouter_modification(Modification modification){
         this.liste_modifications.add(modification);
     }
     
