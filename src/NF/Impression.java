@@ -1,5 +1,6 @@
 package NF;
 
+import java.util.Vector;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,8 +13,7 @@ import java.awt.print.Paper;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.util.Vector;
-import javax.swing.JTextArea
+import javax.swing.JTextArea;
 
 /**
  *
