@@ -19,7 +19,9 @@ private Historique_modifications historique_modifications;
     }
 
     public void ajouter_examen(Examen examen){
-        //code à écrire
+        //
+        getExamens_patient().add(examen);
+        
     }
 
 

@@ -15,6 +15,14 @@ private String mot_de_passe;
     
     public void autorisation_de_connexion(){
         //code à ajouter
+        
+        /*
+         Requete BD pour test si l'ID utilisé existe (récup dans le champ d'interface dans lequel il est rentré)
+         dans la base et second temps 
+         récupération du mdp associé et comparaison + récup du 'type' de page à charger en fonction du login
+         Manip radio, Phy, etc.
+        */
+        
     }
 
 }
