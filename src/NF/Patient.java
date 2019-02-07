@@ -175,7 +175,14 @@ private DMR dmr;
         this.dmr = dmr;
     }
 
-
+public boolean patientExistant(ID id){
+        if (id.getNumero_id()==0){
+            return false;
+        }
+        else{
+            return true;
+        }
+}
 
 
 }

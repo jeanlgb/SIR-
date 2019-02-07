@@ -17,11 +17,11 @@ public enum Type_Salle {
     SALLE_5("Radio Argentique",false),
     SALLE_6("Radio Argentique",false),
     SALLE_7("Radio Argentique",false),
-    SALLE_8("Radiothérapie";true);
+    SALLE_8("Radiothérapie",true);
     
     private String Equipement_Salle;
     private boolean Salle_num;
-    Type_salle(String Equipement_Salle, boolean Salle_num){
+    Type_Salle(String Equipement_Salle, boolean Salle_num){
         this.Equipement_Salle=Equipement_Salle;
         this.Salle_num=Salle_num;                      
     }

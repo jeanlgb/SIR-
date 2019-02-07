@@ -20,7 +20,7 @@ import javax.swing.JTextArea;
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 
-public class Imprimer implements Printable {
+public class Impression implements Printable {
 
     private JTextArea panel;
     private Vector nombrePages;
@@ -34,7 +34,7 @@ public class Imprimer implements Printable {
     public static final int PORTRAIT = 1;
     public static final int LANDSCAPE = 0;
 
-    public Imprimer(JTextArea panel) {
+    public Impression(JTextArea panel) {
 
         documentTitle = "";
         this.panel = panel;
@@ -105,7 +105,7 @@ public class Imprimer implements Printable {
         }
         double scaleX = largeurPage / largeurDoc;
         double scaleY = hauteurPage / hauteurDoc;
-        if (pageIndex >= totalNumombrePages) {
+        if (pageIndex >= totalNombrePages) {
             return 1;
         }
         Graphics2D g2d = (Graphics2D) g;
@@ -137,7 +137,7 @@ public class Imprimer implements Printable {
         }
         g2d.setColor(Color.BLACK);
         g2d.setFont(new Font("TimesRoman", 2, 10)); // Initialise la police
-        g2d.drawString(documentTitle + " - [" + (pageIndex + 1) + "/" + totalNumPages + "]", 0, (int) pf.getImageableHeight() - 20);
+        g2d.drawString(documentTitle + " - [" + (pageIndex + 1) + "/" + totalNombrePages + "]", 0, (int) pf.getImageableHeight() - 20);
         return 0;
     }
 

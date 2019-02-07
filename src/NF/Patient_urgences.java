@@ -21,4 +21,7 @@ public class Patient_urgences extends Patient {
         super(nom_d_usage, prenom, date_de_naissance, genre, adresse);
     }
 
+    public String toString(){
+        return super.toString();
+    }
 }
