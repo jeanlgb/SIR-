@@ -60,7 +60,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceuil");
-        setPreferredSize(new java.awt.Dimension(1200, 540));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
@@ -320,7 +319,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGap(0, 390, Short.MAX_VALUE)
         );
 
-        jTabbedPane_Corps.addTab("Patient (Idem que l'autre page mais affiche une ligne = un patient, on voit tout les exams du patients dans l'apercu ", jPanel2);
+        jTabbedPane_Corps.addTab("//", jPanel2);
 
         jPanel1.add(jTabbedPane_Corps, java.awt.BorderLayout.CENTER);
 
