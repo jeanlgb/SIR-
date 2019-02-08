@@ -9,6 +9,7 @@ package UI;
  *
  * @author porra
  */
+import NF.Connexion;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -253,49 +254,45 @@ public class Login extends javax.swing.JFrame {
     }
 
     private void loginActionPerformed(ActionEvent evt) {
-           Connection connection = null;
-           PreparedStatement ps;
-           String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
+        Connection connexion = null;
+        //PreparedStatement ps;
+        String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
 
-        try{
+        try {
             Class.forName(s);
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC","MedTechS","MedTechS");// ?serverTimezone=UTC régle server time zone Madrid/Paris problème
-            ps = connection.prepareStatement("SELECT 'id','mdp' FROM 'authentification' WHERE 'id' = ? AND 'mdp' =?");
-            ps.setString(1,txtidentifiant.getText());
-            ps.setString(2,String.valueOf(txtmdp.getPassword()));
-            ResultSet result = ps.executeQuery();
+            connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC", "MedTechS", "MedTechS");// ?serverTimezone=UTC régle server time zone Madrid/Paris problème
+            Connexion nouvelle_connexion = new Connexion(Integer.parseInt(txtidentifiant.getText()), String.valueOf(txtmdp.getPassword()));
+            boolean connexion_autorisee = nouvelle_connexion.autorisation_de_connexion();
+            //ps = connexion.prepareStatement("SELECT 'id','mdp' FROM 'authentification' WHERE 'id' = ? AND 'mdp' =?");
+            //ps.setString(1, txtidentifiant.getText());
+            //ps.setString(2, String.valueOf(txtmdp.getPassword()));
+            //ResultSet result = ps.executeQuery();
 
-               if (result.next()){
-               label_erreurIdentifiant.setText("Connecté");
-               label_erreurIdentifiant.setForeground(Color.GREEN);
-               timer1.start();
-           }
-           else{
-               label_erreurIdentifiant.setText("Erreur dans l'identifiant");
-               label_erreurIdentifiant.setForeground(Color.RED);
-               timer1.start();
-           }
-           if (result.next()){
-               label_erreur_mdp.setText("Connecté");
-               label_erreur_mdp.setForeground(Color.GREEN);
-               timer1.start();
-           }
-           else{
-               label_erreur_mdp.setText("Erreur dans le mot de passe");
-               label_erreur_mdp.setForeground(Color.RED);
-               timer1.start();
-           }
-    }
-           catch (Exception e){
-               e.printStackTrace();
-           }
-           /*catch (SQLException ex){
+            if (connexion_autorisee) {
+                label_erreurIdentifiant.setText("Connecté");
+                label_erreurIdentifiant.setForeground(Color.GREEN);
+                label_erreur_mdp.setText("Connecté");
+                label_erreur_mdp.setForeground(Color.GREEN);
+                timer1.start();
+            } else if(!nouvelle_connexion.isId_ok()){
+                label_erreurIdentifiant.setText("Erreur dans l'identifiant");
+                label_erreurIdentifiant.setForeground(Color.RED);
+                timer1.start();
+            }else{
+                label_erreur_mdp.setText("Erreur dans le mot de passe");
+                label_erreur_mdp.setForeground(Color.RED);
+                timer1.start();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /*catch (SQLException ex){
            Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);    
            }*/
-        if (connection != null) {
+        if (connexion != null) {
             System.out.println("Successfully connected to MySQL database test");
         }
-           }
+    }
 
     /**
      * @param args the command line arguments
