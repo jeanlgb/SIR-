@@ -26,8 +26,22 @@ import javax.swing.Timer;
  *
  * @author porra
  */
-public class Login extends javax.swing.JFrame {
 
+
+public class Login extends javax.swing.JFrame {
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelIdentifiant;
+    private javax.swing.JLabel labelIdentification;
+    private javax.swing.JLabel labelMdp;
+    private javax.swing.JLabel label_erreurIdentifiant;
+    private javax.swing.JLabel label_erreur_mdp;
+    private javax.swing.JButton login;
+    private javax.swing.JLabel logo_MedTechs;
+    private javax.swing.JPanel panel_identification;
+    private javax.swing.JPanel panel_logo;
+    private javax.swing.JTextField txtidentifiant;
+    private javax.swing.JPasswordField txtmdp;
+    private javax.swing.JCheckBox verifierMdp;
     /**
      * Creates new form Login
      */
@@ -310,19 +324,5 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify                     
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelIdentifiant;
-    private javax.swing.JLabel labelIdentification;
-    private javax.swing.JLabel labelMdp;
-    private javax.swing.JLabel label_erreurIdentifiant;
-    private javax.swing.JLabel label_erreur_mdp;
-    private javax.swing.JButton login;
-    private javax.swing.JLabel logo_MedTechs;
-    private javax.swing.JPanel panel_identification;
-    private javax.swing.JPanel panel_logo;
-    private javax.swing.JTextField txtidentifiant;
-    private javax.swing.JPasswordField txtmdp;
-    private javax.swing.JCheckBox verifierMdp;
-    // End of variables declaration                   
+
 }

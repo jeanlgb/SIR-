@@ -27,7 +27,8 @@ public class Adresse {
 
     @Override
     public String toString() {
-        return (this.getRue() + " " + this.getCode_postal() + " " + this.getLieu_dit() + " " + this.getCommune() + " " + this.getPays());
+        return (this.getNuméro() + " " + this.getRue() + " " + this.getCode_postal() + " " + this.getLieu_dit() + " " + this.getCommune() + " "
+                + this.getDepartement() + " " + this.getPays());
     }
 
     public String getDepartement() {

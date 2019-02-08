@@ -5,7 +5,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.image.RescaleOp;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.io.File;
+import java.io.IOException;
+import javax.swing.JPanel;
 /**
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
@@ -16,6 +22,7 @@ private Numerisateur numerisateur;
 private Examen examen_associe;
 private String annotation;
 private JLabel c; //à remplacer
+
 
     public Numerisation(Image image, Numerisateur numerisateur, Examen examen_associe, String annotation) {
         this.image = image;
@@ -68,7 +75,13 @@ public void augmenter_contraste(BufferedImage image, JLabel c){
     }
 public void ajuster_niveaux_de_gris(){
     //fonction a creer
-}
+        BufferedImage imageTest = null;
+        BufferedImage ajusterGris = new BufferedImage(imageTest.getWidth(), imageTest.getHeight(), BufferedImage.TYPE_USHORT_GRAY);
+        Graphics2D g1 = ajusterGris.createGraphics();
+        g1.drawImage(this.image, null, null);
+        image = ajusterGris;
+        c.repaint();
+    }
 
     /**
      * @return the image
@@ -78,14 +91,15 @@ public void ajuster_niveaux_de_gris(){
     }
 
 
-    public void rotationImage( double degree, ImageObserver o){
+    public void rotation_Image( double degree, ImageObserver o){
         ImageIcon icon = new ImageIcon(this.image);
-        BufferedImage imageVide = new BufferedImage(icon.getIconWidth(), icon.getIconWidth(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = (Graphics2D)imageVide.getGraphics();
+        BufferedImage rotationImage = new BufferedImage(icon.getIconWidth(), icon.getIconWidth(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = (Graphics2D)rotationImage.getGraphics();
         g2.rotate(Math.toRadians(degree), icon.getIconWidth()/2, icon.getIconHeight()/2);
         g2.drawImage(this.image,0,0, o);
-        this.image = imageVide;
+        this.image = rotationImage;
     }
+
     /**
      * @param image the image to set
      */

@@ -19,7 +19,7 @@ private Historique_modifications historique_modifications;
     }
 
     public void ajouter_examen(Examen examen){
-        //
+
         getExamens_patient().add(examen);
         
     }
