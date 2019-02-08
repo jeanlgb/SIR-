@@ -5,6 +5,7 @@
  */
 package UI;
 
+import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,6 +60,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceuil");
+        setPreferredSize(new java.awt.Dimension(1200, 540));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
@@ -233,6 +235,14 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jLabel_RecherchePar.setText("Recherche par :");
 
+        jTextField_Recherche.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        jTextField_Recherche.setText("Recherche à effectuer");
+        jTextField_Recherche.setToolTipText("");
+        jTextField_Recherche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField_RechercheFocusGained(evt);
+            }
+        });
         jTextField_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_RechercheActionPerformed(evt);
@@ -255,20 +265,18 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_RecherchePar))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton_Rechercher, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                    .addComponent(jComboBox_Recherche, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                                .addComponent(jButton_AddRapport, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jButton_AddRapport, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
+                        .addComponent(jLabel_RecherchePar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField_Recherche)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel_Apercu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,12 +291,10 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                         .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_RecherchePar))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_Rechercher))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel_RecherchePar)
+                            .addComponent(jButton_Rechercher)
+                            .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
                         .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_Apercu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
@@ -373,6 +379,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
            // new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField_RechercheFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_RechercheFocusGained
+        // TODO add your handling code here:
+        jTextField_Recherche.selectAll();
+        jTextField_Recherche.getFont().deriveFont(Font.ITALIC);
+    }//GEN-LAST:event_jTextField_RechercheFocusGained
 
     /**
      * @param args the command line arguments
