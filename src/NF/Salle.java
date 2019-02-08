@@ -11,6 +11,9 @@ private int numero_salle;
 private ArrayList<Type_examen> type_examens;
 private boolean examen_numerique;
 private EDT edt_salle;
+/*
+a modif avec enum type salle
+*/
 
     public Salle(int numero_salle, ArrayList<Type_examen> type_examens, boolean examen_numerique, EDT edt_salle) {
         this.numero_salle = numero_salle;

@@ -21,11 +21,14 @@ public enum Type_Salle {
     
     private String Equipement_Salle;
     private boolean Salle_num;
-    Type_Salle(String Equipement_Salle, boolean Salle_num){
+    
+    private Type_Salle(String Equipement_Salle, boolean Salle_num){
         this.Equipement_Salle=Equipement_Salle;
         this.Salle_num=Salle_num;                      
     }
-    
+     public String toString() {
+        return "Type_Salle" + "est une salle de" + Equipement_Salle + ", et son équipement est numérique" + Salle_num;
+    }
     
     
     
