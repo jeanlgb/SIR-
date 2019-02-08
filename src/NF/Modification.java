@@ -27,5 +27,9 @@ private ID auteur;
         return auteur;
     }
 
+    public String toString(){
+        return "Dernière modification :" + date + "par le Dr " + auteur;
+    }
+
 
 }

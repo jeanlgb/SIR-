@@ -170,4 +170,9 @@ public void imprimer_CR(){
     public double getCout_examen() {
         return cout_examen;
     }
+
+    public String toString(){
+        return "L'examen de type " + type_examen + "d'une durée de "+ duree_prevue + "effectué le " + date + "par le Dr " + medecin_en_charge
+        + "en salle " + salle +"." + "/n L'examen est terminé : " + examen_termine + "." + "/n Compte rendu : " + compte_rendu;
+    }
 }
