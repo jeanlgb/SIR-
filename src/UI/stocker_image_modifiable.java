@@ -174,10 +174,12 @@ public class stocker_image_modifiable extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void button_ajouterActionPerformed(java.awt.event.ActionEvent evt) {                                               
-            try{
-                // class.forName()?
-               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_images?serverTimezone=UTC","MedTechS","adlp90Bi");
-               PreparedStatement ps = con.prepareStatement("insert into myimages(ID,Name,Description,Image) values(?,?,?,?)");
+        //Connection con = null;
+        //String s = "com.mysql.cj.jdbc.Driver";
+        try{
+               //Class.forName(s);
+               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC","root","");
+               PreparedStatement ps = con.prepareStatement("insert into bd_images(ID,Name,Description,Image) values(?,?,?,?)");
                InputStream is = new FileInputStream(new File(s));
                ps.setString(1, txt_ID.getText());
                ps.setString(2, txt_nom.getText());
@@ -187,7 +189,8 @@ public class stocker_image_modifiable extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null, "Image enregistrée");
            }catch(Exception ex){
                ex.printStackTrace();
-           }    }                                              
+                   }            
+        }
     
     private void button_fichierActionPerformed(java.awt.event.ActionEvent evt) {                                               
         JFileChooser fileChooser = new JFileChooser();
