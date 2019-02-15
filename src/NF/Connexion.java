@@ -27,38 +27,34 @@ public class Connexion {
     }
 
     public boolean autorisation_de_connexion() {
-        String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
-        String url = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
-        String utilisateur = "MedTechS";
-        String motDePasse = "MedTechS";
+        Acces_BD acces_BD = new Acces_BD();
         Connection connexion = null;
-        int id=0;
+        int id = 0;
         try {
-            Class.forName(s);
-            connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+             Class.forName(acces_BD.s);
+            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
             /* Ici, mettre les requêtes vers la BDD */
             Statement statement = connexion.createStatement();
-            //a améliorer avec un prepared statement??
             ResultSet resultat = statement.executeQuery("SELECT id, mdp FROM connexion WHERE id=" + this.identifiant + ";");
-            if(resultat.next()){
-            id = resultat.getInt("id");
-            String mdp = resultat.getString("mdp");
-            if (id!= 0) { //si on a trouvé un identifiant
-                                    id_ok=true;
-                if (mdp.equals(this.mot_de_passe)) {
-                    System.out.println("id ok, mdp, ok -> connexion autorisée");
-                    return true; //si le mot de passe correspond, on renvoie true
-                } else {
-                    System.out.println("id ok, mdp pas ok -> connexion refusée");
-                    return false; //si le mot de passe est incorrect on renvoie false
+            if (resultat.next()) {
+                id = resultat.getInt("id");
+                String mdp = resultat.getString("mdp");
+                if (id != 0) { //si on a trouvé un identifiant
+                    id_ok = true;
+                    if (mdp.equals(this.mot_de_passe)) {
+                        System.out.println("id ok, mdp, ok -> connexion autorisée");
+                        return true; //si le mot de passe correspond, on renvoie true
+                    } else {
+                        System.out.println("id ok, mdp pas ok -> connexion refusée");
+                        return false; //si le mot de passe est incorrect on renvoie false
+                    }
                 }
-            }
             } else { //si il n'y a plus d'éléments à parcourir, c'est que l'identifiant n'est pas dans la liste, donc on renvoie false
                 System.out.println("id pas ok -> connexion refusée");
                 return false;
             }
 
-            /* ... */
+            /* fin de l'espace pour écrire les requêtes */
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,6 +67,4 @@ public class Connexion {
         return id_ok;
     }
 
-
-    
 }

@@ -15,7 +15,7 @@ public class test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Connexion test_connexion = new Connexion(124, "124");
+        Connexion test_connexion = new Connexion(123, "123");
         test_connexion.autorisation_de_connexion();
     }
     
