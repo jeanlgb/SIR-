@@ -38,12 +38,20 @@ public class Traitement_images {
 
     /**
      * fonction qui permet l'augmentation de luminosité
+     * factors multiplie la matrice de base (multiplie les pixels 1 à 1), offsets ajoute aux pixels
      */
     public static void augmenter_luminosite(BufferedImage image, JLabel c ){
         float[] offsets = new float[]{
-                1.4f, 1.4f, 1.4f, 1.4f};
+                0f, 0f, 0f, 0f};
         float[] factors = new float[]{
                 0.0f, 0.0f, 0.0f, 0.0f};
+        //float factors = 1.0f + ((float) luminosité/100.0f) seule valeur pour remplacer au dessus si pb
+
+        //luminosité = slider.get(value) retourne la valeur en int
+        //
+
+        //slider : quand on le construit on lui donne un min (0), un max (100), valeur de départ (50)
+        //changelistener
         RescaleOp op = new RescaleOp(factors, offsets, null);
         BufferedImage brighter = op.filter(image, null);
         c.setIcon(new ImageIcon(brighter));

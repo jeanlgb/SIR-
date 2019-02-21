@@ -7,7 +7,7 @@ package stocker_image_modifiable;
 
 /**
  *
- * @author porra
+ * @author porral
  */
 import java.awt.Image;
 import java.awt.event.ActionEvent;
