@@ -6,22 +6,19 @@
 package UI;
 
 import java.awt.Font;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.xml.stream.XMLStreamException;
+import javax.swing.table.JTableHeader;
 
 /**
  *
  * @author camin
  */
-public class Acceuil_Radiologue extends javax.swing.JFrame {
+public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     /**
      * Creates new form Acceuille_Radiologue
      */
-    public Acceuil_Radiologue() {
+    public Acceuil_ManipRadio() {
         initComponents();
     }
 
@@ -50,14 +47,15 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jPanel_Apercu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton_AddRapport = new javax.swing.JButton();
         jButton_Ouvrir = new javax.swing.JButton();
-        jButton_Imprimer = new javax.swing.JButton();
         jButton_Rechercher = new javax.swing.JButton();
         jLabel_RecherchePar = new javax.swing.JLabel();
         jTextField_Recherche = new javax.swing.JTextField();
         jComboBox_Recherche = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
@@ -127,7 +125,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 600, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 668, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -153,33 +151,41 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jScrollPane_Corps_Exam_Tab.setToolTipText("");
 
+        jTable_Exam.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTable_Exam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"01.01.2001",  new Integer(123219418), "DUPOND", "IRM", "/"},
-                {"01.01.2001",  new Integer(123219418), "DUPONT", "SCANNER", "OK"},
-                {"01.01.2001",  new Integer(123219418), "DUPON", "RADIO", "OK"},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {"08:00", "DUPOND", "Scanner Cervicale "},
+                {"08:30", "DUPONT", "Scanner Main"},
+                {"09:00", "DUPON", "Scanner Rocher"},
+                {"09:30", "DHUPOND", "Scanner"},
+                {"10:00", "DHUPONT", "Scanner"},
+                {"10:30", "DHUPON", "Scanner"},
+                {"11:00", "DUHPOND", "Scanner"},
+                {"11:30", "DUHPONT", "Scanner"},
+                {"12:00", "DUHPON", "Scanner"},
+                {"12:30", "DHUHPOND", "Scanner"},
+                {"13:00", "DHUHPONT", "Scanner"},
+                {"13:30", "DHUHPON", "Scanner"},
+                {"14:00", "DUUPOND", "Scanner"},
+                {"14:30", "DUUPONT", "Scanner"},
+                {"15:00", "DUUPON", "Scanner"},
+                {"15:30", null, null},
+                {"16:00", null, null},
+                {"16:30", null, null},
+                {"17:00", null, null},
+                {"17:30", null, null},
+                {"18:00", null, null},
+                {"18:30", null, null}
             },
             new String [] {
-                "Date", "ID", "Nom", "Exam", "Rapport"
+                "Heure", "Nom", "Exam"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -191,6 +197,10 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
         jTable_Exam.setToolTipText("");
+        Font f = new Font("Dialog", Font.PLAIN, 20);
+        JTableHeader header = jTable_Exam.getTableHeader();
+        header.setFont(f);
+        jTable_Exam.getTableHeader().setReorderingAllowed(false);
         jTable_Exam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable_ExamMouseClicked(evt);
@@ -201,8 +211,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             jTable_Exam.getColumnModel().getColumn(0).setResizable(false);
             jTable_Exam.getColumnModel().getColumn(1).setResizable(false);
             jTable_Exam.getColumnModel().getColumn(2).setResizable(false);
-            jTable_Exam.getColumnModel().getColumn(3).setResizable(false);
-            jTable_Exam.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jPanel_Apercu.setBackground(new java.awt.Color(163, 209, 180));
@@ -217,30 +225,28 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jPanel_Apercu.setLayout(jPanel_ApercuLayout);
         jPanel_ApercuLayout.setHorizontalGroup(
             jPanel_ApercuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
         jPanel_ApercuLayout.setVerticalGroup(
             jPanel_ApercuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
-
-        jButton_AddRapport.setText("Ajouter Rapport");
 
         jButton_Ouvrir.setText("Ouvrir");
         jButton_Ouvrir.setToolTipText("");
-
-        jButton_Imprimer.setText("Imprimer");
-        jButton_Imprimer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_ImprimerMouseClicked(evt);
+        jButton_Ouvrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_OuvrirActionPerformed(evt);
             }
         });
 
+        jButton_Rechercher.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton_Rechercher.setText("Rerchercher");
 
+        jLabel_RecherchePar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel_RecherchePar.setText("Recherche par :");
 
-        jTextField_Recherche.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        jTextField_Recherche.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextField_Recherche.setText("Recherche à effectuer");
         jTextField_Recherche.setToolTipText("");
         jTextField_Recherche.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -254,10 +260,19 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
 
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom", "Exal" }));
+        jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Salle 1", "Salle 2" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -267,62 +282,176 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                        .addComponent(jButton_AddRapport, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel_RecherchePar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField_Recherche)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel_Apercu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Imprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_Recherche)
+                            .addComponent(jButton_Rechercher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane_Corps_Exam_Tab))
+                .addGap(29, 29, 29)
+                .addComponent(jPanel_Apercu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         jPanel_Corps_ExamLayout.setVerticalGroup(
             jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_RecherchePar)
-                            .addComponent(jButton_Rechercher)
-                            .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel_Apercu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton_Imprimer)
-                    .addComponent(jButton_Ouvrir)
-                    .addComponent(jButton_AddRapport))
-                .addGap(20, 20, 20))
+                        .addContainerGap()
+                        .addComponent(jButton_Ouvrir))
+                    .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel_Apercu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
+                                .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_RecherchePar)
+                                    .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_Rechercher)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_Corps.addTab("Exam", jPanel_Corps_Exam);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("A>Z");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("A");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("AAAA");
+        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("aaaa");
+        javax.swing.tree.DefaultMutableTreeNode treeNode5 = new javax.swing.tree.DefaultMutableTreeNode("zzzzz");
+        treeNode4.add(treeNode5);
+        treeNode3.add(treeNode4);
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("aaaa");
+        treeNode3.add(treeNode4);
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("aaaa");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("B");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("bbbb");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("C");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ccccc");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("D");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ddddd");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("E");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("eeeee");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("F");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("fffff");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("G");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("gggg");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("H");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hhh");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("I");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("iiiiii");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("J");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("jjjjj");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("K");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("kkkk");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("L");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("llll");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("M");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("mmmm");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("N");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("nnnnn");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("O");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ooooo");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("P");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ppppp");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("qqqqq");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("R");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("rrrrr");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("S");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ssss");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("T");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("tttttttt");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("U");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("uuuu");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("X");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("xxxxx");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Y");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yyyyy");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Z");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("zzzzz");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jTree1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1186, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(778, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane_Corps.addTab("DMR", jPanel2);
@@ -337,12 +466,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jTextField_RechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RechercheActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_RechercheActionPerformed
-
-    private void jButton_ImprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ImprimerMouseClicked
-        /*
-        EXE FCT IMPRIMER
-         */
-    }//GEN-LAST:event_jButton_ImprimerMouseClicked
 
     private void jComboBox_RechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheActionPerformed
         // TODO add your handling code here:
@@ -391,6 +514,14 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTextField_Recherche.getFont().deriveFont(Font.ITALIC);
     }//GEN-LAST:event_jTextField_RechercheFocusGained
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_OuvrirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -408,14 +539,22 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acceuil_ManipRadio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acceuil_ManipRadio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acceuil_ManipRadio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acceuil_ManipRadio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -428,7 +567,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acceuil_Radiologue().setVisible(true);
+                new Acceuil_ManipRadio().setVisible(true);
             }
         });
     }
@@ -437,10 +576,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_Head;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton_AddRapport;
-    private javax.swing.JButton jButton_Imprimer;
     private javax.swing.JButton jButton_Ouvrir;
     private javax.swing.JButton jButton_Rechercher;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_Recherche;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -453,10 +591,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_Base;
     private javax.swing.JPanel jPanel_Corps_Exam;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane_Corps_Exam_Tab;
     private javax.swing.JTabbedPane jTabbedPane_Corps;
     private javax.swing.JTable jTable_Exam;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField_Recherche;
+    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
