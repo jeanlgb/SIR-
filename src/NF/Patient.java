@@ -1,22 +1,32 @@
 package NF;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Objects;
 
 /**
  *
- * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
+ * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral
+ * Olivia
  */
-public class Patient {
-private ID identifiant;
-private String nom_d_usage;
-private String nom_de_naissance;
-private String prenom;
-private Date date_de_naissance;
-private Genre genre;
-private Adresse adresse;
-private DMR dmr;
 
-/**Constructeur qui demande le nom d'usage et le nom de naissance*/
+//reste à trouver comment définir un nouvel identifiant jamais utilisé
+public class Patient {
+
+    private String identifiant;
+    private String nom_d_usage;
+    private String nom_de_naissance;
+    private String prenom;
+    private Date date_de_naissance;
+    private Genre genre;
+    private Adresse adresse;
+    private DMR dmr;
+
+    /**
+     * Constructeur qui demande le nom d'usage et le nom de naissance
+     */
     public Patient(String nom_d_usage, String nom_de_naissance, String prenom, Date date_de_naissance, Genre genre, Adresse adresse) {
         this.nom_d_usage = nom_d_usage;
         this.nom_de_naissance = nom_de_naissance;
@@ -26,13 +36,83 @@ private DMR dmr;
         this.adresse = adresse;
     }
 
-    /**Constructeur qui demande seulement le nom d'usage*/
+    /**
+     * Constructeur qui demande seulement le nom d'usage
+     */
     public Patient(String nom_d_usage, String prenom, Date date_de_naissance, Genre genre, Adresse adresse) {
         this.nom_d_usage = nom_d_usage;
         this.prenom = prenom;
         this.date_de_naissance = date_de_naissance;
         this.genre = genre;
         this.adresse = adresse;
+    }
+
+    /**
+     * Met à jour la base de données en modifiant la ligne d'un patient existant
+     */
+    public boolean mettreAJour() {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = null;
+        try {
+            Class.forName(acces_BD.s);
+            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
+            /* Ici, mettre les requêtes vers la BDD */
+            String requete = "UPDATE patient SET ";
+            requete += "nom_d_usage =" + this.nom_d_usage;
+            requete += "nom_de_naissance =" + this.nom_de_naissance;
+            requete += "prenom =" + this.prenom;
+            requete += "date_de_naissance =" + this.date_de_naissance;
+            requete += "genre =" + this.genre;
+            requete += "adresse =" + this.adresse;
+            requete += "dmr =" + this.dmr;
+            requete += "WHERE id=" + this.identifiant + ";";
+            
+            Statement statement = connexion.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            return true;
+
+            /* fin de l'espace pour écrire les requêtes */
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("pb dans la connexion à la bd");
+        return false;
+    }
+
+    /**
+     * Ajoute un nouveau patient à la base de données
+     */
+    public boolean ajouterNouveauPatient() {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = null;
+        try {
+            Class.forName(acces_BD.s);
+            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
+            /* Ici, mettre les requêtes vers la BDD */
+            String requete = "INSERT INTO patient";
+            requete += this.identifiant +",";
+            requete += this.nom_d_usage +",";
+            requete += this.nom_de_naissance +",";
+            requete += this.prenom +",";
+            requete += this.date_de_naissance+",";
+            requete += this.genre +",";
+            requete += this.adresse +",";
+            requete += this.dmr +",;";
+            
+            Statement statement = connexion.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            return true;
+
+            /* fin de l'espace pour écrire les requêtes */
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("pb dans la connexion à la bd");
+        return false;
     }
 
     @Override
@@ -61,19 +141,17 @@ private DMR dmr;
         return true;
     }
 
-    
-    
     /**
      * @return the identifiant
      */
-    public ID getIdentifiant() {
+    public String getIdentifiant() {
         return identifiant;
     }
 
     /**
      * @param identifiant the identifiant to set
      */
-    public void setIdentifiant(ID identifiant) {
+    public void setIdentifiant(String identifiant) {
         this.identifiant = identifiant;
     }
 
@@ -175,14 +253,12 @@ private DMR dmr;
         this.dmr = dmr;
     }
 
-public boolean patientExistant(ID id){
-        if (id.getNumero_id()==0){
+    public boolean patientExistant(ID id) {
+        if (id.getNumero_id() == 0) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
-}
-
+    }
 
 }
