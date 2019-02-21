@@ -11,9 +11,10 @@ private int numero_salle;
 private ArrayList<Type_examen> type_examens;
 private boolean examen_numerique;
 private EDT edt_salle;
-/*
-a modif avec enum type salle
-*/
+
+    /**
+     * constructeur qui demande un numéro de salle, un ArrayList des type d'examen, un boolean d'examen numérique et l'emploi du temps d'un salle d'examen
+     */
 
     public Salle(int numero_salle, ArrayList<Type_examen> type_examens, boolean examen_numerique, EDT edt_salle) {
         this.numero_salle = numero_salle;

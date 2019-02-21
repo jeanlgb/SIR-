@@ -11,6 +11,10 @@ private ID identifiant;
 private String nom;
 private String prenom;
 
+
+    /**
+     * constructeur qui demande l'identifiant du médecin, le nom et le prénom
+     */
     public Medecin(ID identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;

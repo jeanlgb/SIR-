@@ -13,24 +13,39 @@ public class Secretaire_medicale {
     private String nom;
     private String prenom;
 
+    /**
+     * constructeur qui demande un identifiant médical, un nom et un prénom
+     */
     public Secretaire_medicale(ID identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
     }
 
+    /**
+     * fonction qui permet la création du DMR
+     */
     public void creer_DMR() {
         //fonction a creer
     }
 
+    /**
+     * fonction qui permet la consultation du DMR
+     */
     public void consulter_DMR(ID id_patient) {
         //fonction à créer
     }
 
+    /**
+     * fonction qui permet la création d'un médecin
+     */
     public void creer_medecin() {
         //fonction a creer
     }
 
+    /**
+     * fonction qui permet la création d'un patient
+     */
     public void creer_patient() {
         //fonction a creer
     }

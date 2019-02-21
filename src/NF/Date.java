@@ -13,6 +13,9 @@ public class Date implements Comparable {
     private int heure;
     private int minute;
 
+    /**
+     * Constructeur qui demande la date de l'examen (annee, mois, jour, heure, minute)
+     */
     public Date(int annee, int mois, int jour, int heure, int minute) {
         this.annee = annee;
         this.mois = mois;

@@ -9,6 +9,9 @@ private int numero_archive;
 private String mention;
 private Historique_modifications historique_modifications;
 
+    /**
+     * constructeur qui demande un numéro d'archive, une mention, un historique de modifications
+     */
     public PACS(int numero_archive, String mention, Historique_modifications historique_modifications) {
         this.numero_archive = numero_archive;
         this.mention = mention;

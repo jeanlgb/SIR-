@@ -24,6 +24,9 @@ private String annotation;
 private JLabel c; //à remplacer
 
 
+    /**
+     * constructeur qui demande une image, le numérisateur, l'examen associé et une annotation
+     */
     public Numerisation(Image image, Numerisateur numerisateur, Examen examen_associe, String annotation) {
         this.image = image;
         this.numerisateur = numerisateur;

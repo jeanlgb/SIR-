@@ -12,6 +12,9 @@ private boolean demande_traitee;
 private Date planification_edt;
 private Salle planification_salle;
 
+    /**
+     * Constructeur qui demande le type d'examen, la date de l'examen et le service demandé
+     */
     public Demande_examen(Type_examen type_examen, Date date_demande, Service service_demandeur) {
         this.type_examen = type_examen;
         this.date_demande = date_demande;

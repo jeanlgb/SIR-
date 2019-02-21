@@ -8,6 +8,9 @@ public class Compte_rendu {
 private Medecin auteur;
 private String texte_CR;
 
+    /**
+     * Constructeur qui demande un auteur, le texte du compte rendu
+     */
     public Compte_rendu(Medecin auteur, String texte_CR) {
         this.auteur = auteur;
         this.texte_CR = texte_CR;

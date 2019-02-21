@@ -8,6 +8,9 @@ public class Numerisateur {
 private String modele;
 private String description;
 
+    /**
+     * constructeur qui demande le modèle de numérisation et une description de la modification
+     */
     public Numerisateur(String modele, String description) {
         this.modele = modele;
         this.description = description;

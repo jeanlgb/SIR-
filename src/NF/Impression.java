@@ -34,6 +34,9 @@ public class Impression implements Printable {
     public static final int PORTRAIT = 1;
     public static final int LANDSCAPE = 0;
 
+    /**
+     * Constructeur qui demande un panel JTextArea
+     */
     public Impression(JTextArea panel) {
 
         documentTitle = "";
@@ -41,6 +44,9 @@ public class Impression implements Printable {
         initPrintablePanel();
     }
 
+    /**
+     * fonction qui initialise le panel
+     */
     public void initPrintablePanel() {
 
         showPrintZone = false;
@@ -88,7 +94,9 @@ public class Impression implements Printable {
         documentTitle = title;
     }
 
-
+    /**
+     * fonction qui identifie la taille du panel, les actions précédentes et crée la page pour l'impression (marge, hauteur...)
+     */
     public int print(Graphics g, PageFormat pf, int pageIndex)
 
             throws PrinterException {
@@ -141,6 +149,9 @@ public class Impression implements Printable {
         return 0;
     }
 
+    /**
+     * Fonction qui imprime
+     */
     public void print() {
 
         printJob.setPrintable(this, pageFormat);
@@ -162,7 +173,9 @@ public class Impression implements Printable {
         }
     }
 
-
+    /**
+     * fonction qui calcule le nombre de page à imprimer par rapport à la taille du panel initial
+     */
     private void calculatePages() {
 
         nombrePages = new Vector();

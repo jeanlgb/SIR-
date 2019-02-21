@@ -21,11 +21,17 @@ public class Connexion {
     private String mot_de_passe;
     private boolean id_ok;
 
+    /**
+     * Constructeur qui demande l'identifiant du personnel et le mot de passe
+     */
     public Connexion(int identifiant, String mot_de_passe) {
         this.identifiant = identifiant;
         this.mot_de_passe = mot_de_passe;
     }
 
+    /**
+     * renvoi un boolean qui permet de savoir s'il y a connexion à la base de données
+     */
     public boolean autorisation_de_connexion() {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = null;

@@ -6,6 +6,9 @@ package NF;
  */
 public class Chef_de_service extends Medecin{
 
+    /**
+     * Constructeur qui demande l'Identifiant, le nom et le prénom du chef de service
+     */
     public Chef_de_service(ID identifiant, String nom, String prenom) {
         super(identifiant, nom, prenom);
     }
