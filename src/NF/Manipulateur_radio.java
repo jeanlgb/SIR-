@@ -11,20 +11,32 @@ private ID identifiant;
 private String nom;
 private String prenom;
 
+    /**
+     * Constructeur qui demande l'identifiant du Manipulateur radio, le nom et le prénom
+     */
     public Manipulateur_radio(ID identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
     }
 
+    /**
+     * fonction qui permet la création du DMR
+     */
     public void creer_DMR(){
         //fonction a creer
     }
-    
+
+    /**
+     * fonction qui permet la consultation du DMR
+     */
     public void consulter_DMR(ID id_patient){
         //fonction à créer
     }
-    
+
+    /**
+     * fonction qui crée un examen
+     */
     public void creer_examen(){
         //fonction a creer
     }

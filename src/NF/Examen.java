@@ -17,6 +17,9 @@ private boolean examen_termine;
 private Historique_modifications historique_modifications;
 private double cout_examen;
 
+    /**
+     * Constructeur qui demande la date de l'examen, le médecin en charge de l'examen et le type de l'examen
+     */
     public Examen(Date date, Medecin medecin_en_charge, Type_examen type_examen) {
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
@@ -25,11 +28,6 @@ private double cout_examen;
         // this.cout_examen= type_examen.getCout();
     }
 
-
-
-public void imprimer_CR(){
-    //foncton à créer
-}
 
     /**
      * @return the date

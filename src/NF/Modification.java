@@ -8,6 +8,9 @@ public class Modification {
 private Date date;
 private ID auteur;
 
+    /**
+     * constructeur qui demande la date de modification et l'auteur de la modification
+     */
     public Modification(Date date, ID auteur) {
         this.date = date;
         this.auteur = auteur;

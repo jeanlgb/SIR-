@@ -8,6 +8,9 @@ public class ID {
     private int numero_id;
     private Type_ID type_ID;
 
+    /**
+     * Constructeur qui demande le numéro ID et énumère les examens
+     */
     public ID(int numero_id, Type_ID type_ID) {
         this.numero_id = numero_id;
         this.type_ID = type_ID;

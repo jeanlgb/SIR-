@@ -10,6 +10,10 @@ package NF;
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
+
+/**
+ * Enumération des types id
+ */
 public enum Type_ID {
     MEDECIN,
     PATIENT,

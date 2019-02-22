@@ -9,6 +9,10 @@ package NF;
  *
  * @author camin
  */
+
+/**
+ * Enumération des type de salle
+ */
 public enum Type_Salle {
     SALLE_1("Scanner",true ),
     SALLE_2("Scanner",true),

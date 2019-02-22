@@ -4,6 +4,10 @@ package NF;
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
+
+/**
+ * Enumération des services de l'hôpital
+ */
 public enum Service {
     Autre,
     Anatomopathologie,

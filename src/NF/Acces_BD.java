@@ -10,6 +10,9 @@ public class Acces_BD {
         public String utilisateur ; //identifiant de celui qui a l'accès à la base de données
         public String motDePasse ; //mot de passe
 
+    /**
+     * Constructeur qui demande un URL, un Driver, un utilisateur, un mot de passe
+     */
     public Acces_BD() {
         s = "com.mysql.cj.jdbc.Driver"; 
         url = "jdbc:mysql://www.db4free.net:3306/medtechsdb?serverTimezone=UTC";

@@ -9,14 +9,16 @@ import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.xml.stream.XMLStreamException;
-
+import NF.Impression;
 /**
  *
  * @author camin
  */
 public class Acceuil_Radiologue extends javax.swing.JFrame {
+
+
 
     /**
      * Creates new form Acceuille_Radiologue
@@ -236,7 +238,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
 
-        jButton_Rechercher.setText("Rerchercher");
+        jButton_Rechercher.setText("Rechercher");
 
         jLabel_RecherchePar.setText("Recherche par :");
 
@@ -340,8 +342,10 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     private void jButton_ImprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ImprimerMouseClicked
         /*
-        EXE FCT IMPRIMER
-         */
+        EXE FCT IMPRIMER*/
+        Impression imprimer = new Impression(JTextArea);
+        imprimer.print();
+
     }//GEN-LAST:event_jButton_ImprimerMouseClicked
 
     private void jComboBox_RechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheActionPerformed
@@ -458,5 +462,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JTable jTable_Exam;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField_Recherche;
+    //pour impression
+    private javax.swing.JTextArea JTextArea;
     // End of variables declaration//GEN-END:variables
 }

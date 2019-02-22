@@ -9,11 +9,16 @@ import java.util.ArrayList;
 public class Historique_modifications {
 private ArrayList<Modification> liste_modifications;
 
+    /**
+     * Constructeur qui demande un ArrayList des modification
+     */
     public Historique_modifications(ArrayList<Modification> liste_modifications) {
         this.liste_modifications = liste_modifications;
     }
 
-    
+    /**
+     * fonction qui ajoute une modification àà l'ArrayList
+     */
     public void ajouter_modification(Modification modification){
         this.liste_modifications.add(modification);
     }
