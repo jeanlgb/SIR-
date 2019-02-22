@@ -395,8 +395,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
-        imageRadio.setIcon(imageIcon);
+        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
 
         javax.swing.GroupLayout jPanel_ImageLayout = new javax.swing.GroupLayout(jPanel_Image);
         jPanel_Image.setLayout(jPanel_ImageLayout);
