@@ -22,11 +22,11 @@ private Historique_modifications historique_modifications;
     }
 
     /**
-     * fonction qui ajoute un examen à la liste d'examen d'un patient
+     * Fonction qui ajoute un examen à la liste d'examen d'un patient
      */
     public void ajouter_examen(Examen examen){
 
-        examens_patient.add(examen);
+        getExamens_patient().add(examen);
         
     }
 

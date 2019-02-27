@@ -29,6 +29,11 @@ private double cout_examen;
     }
 
 
+
+public void imprimer_CR(){
+    //foncton à créer
+}
+
     /**
      * @return the date
      */
