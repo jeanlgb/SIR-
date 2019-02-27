@@ -5,38 +5,36 @@
             <url>src/UI/Acceuil_Radiologue.java</url>
             <bookmark id="4">
                 <name/>
-                <line>335</line>
+                <line>367</line>
                 <key/>
             </bookmark>
             <bookmark id="2">
                 <name/>
-                <line>349</line>
+                <line>368</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>360</line>
+                <line>368</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>372</line>
+                <line>368</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>382</line>
+                <line>368</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/maudl/OneDrive/Documents/TIS4/sis/SIR-/src/NF/test.java</file>
-            <file>file:/C:/Users/maudl/OneDrive/Documents/TIS4/sis/SIR-/src/NF/Acces_BD.java</file>
-            <file>file:/C:/Users/maudl/OneDrive/Documents/TIS4/sis/SIR-/src/NF/Connexion.java</file>
-            <file>file:/C:/Users/maudl/OneDrive/Documents/TIS4/sis/SIR-/src/NF/Patient.java</file>
-            <file>file:/C:/Users/maudl/OneDrive/Documents/TIS4/sis/SIR-/src/UI/Login.java</file>
+            <file>file:/C:/Users/camin/Documents/NetBeansProjects/SIR-/src/UI/Acceuil_Radiologue.java</file>
+            <file>file:/C:/Users/camin/Documents/NetBeansProjects/SIR-/src/UI/Crea_Rapport.java</file>
+            <file>file:/C:/Users/camin/Documents/NetBeansProjects/SIR-/src/UI/Acceuil_ManipRadio.java</file>
         </group>
     </open-files>
 </project-private>

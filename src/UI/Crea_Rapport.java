@@ -538,7 +538,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton6)
                         .addComponent(jButton3)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         JPanel_Base.add(jPanel_Corps, java.awt.BorderLayout.CENTER);
