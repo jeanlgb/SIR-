@@ -1,8 +1,9 @@
-package NF;
+    package NF;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
 /**
  * Il faut dcm4che pour faire marcher ce code
  * dcm4che contient les méthodes permettant d'utiliser les attributs et créer le DICOM
@@ -15,7 +16,7 @@ import java.io.File;
 
 
 /**
- * est open source et téléchargeable sur github
+ * dcm4che3 est open source et téléchargeable sur github
  */
 public class DICOM {
 

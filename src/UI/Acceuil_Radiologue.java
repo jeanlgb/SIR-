@@ -6,19 +6,19 @@
 package UI;
 
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import javax.xml.stream.XMLStreamException;
 import NF.Impression;
+
 /**
  *
  * @author camin
  */
 public class Acceuil_Radiologue extends javax.swing.JFrame {
-
-
 
     /**
      * Creates new form Acceuille_Radiologue
@@ -242,6 +242,26 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jLabel_RecherchePar.setText("Recherche par :");
 
+        jTextField_Recherche.addKeyListener(new java.awt.event.KeyListener()  {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyChar() == '\n') {
+                    jTextField_RechercheActionPerformed();
+
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
         jTextField_Recherche.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jTextField_Recherche.setText("Recherche à effectuer");
         jTextField_Recherche.setToolTipText("");
@@ -250,9 +270,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 jTextField_RechercheFocusGained(evt);
             }
         });
-        jTextField_Recherche.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_RechercheActionPerformed(evt);
+                jTextField_RechercheActionPerformed();
             }
         });
 
@@ -336,15 +356,18 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField_RechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RechercheActionPerformed
+    private void jTextField_RechercheActionPerformed() {//GEN-FIRST:event_jTextField_RechercheActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_RechercheActionPerformed
 
     private void jButton_ImprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ImprimerMouseClicked
         /*
-        EXE FCT IMPRIMER*/
-        Impression imprimer = new Impression(JTextArea);
+        EXE FCT IMPRIMER
+         */
+
+        Impression imprimer = new Impression(jTextArea1);
         imprimer.print();
+
 
     }//GEN-LAST:event_jButton_ImprimerMouseClicked
 
@@ -462,7 +485,5 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JTable jTable_Exam;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField_Recherche;
-    //pour impression
-    private javax.swing.JTextArea JTextArea;
     // End of variables declaration//GEN-END:variables
 }
