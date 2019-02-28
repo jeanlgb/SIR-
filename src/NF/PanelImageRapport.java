@@ -104,10 +104,11 @@ public class PanelImageRapport extends JPanel {
 
     public void rotation_ImageG() {
         BufferedImage rotation = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
-        AffineTransform affineRotation = AffineTransform.getRotateInstance(Math.toRadians(90), original.getWidth() / 2, original.getHeight() / 2);
+        AffineTransform affineRotation = AffineTransform.getRotateInstance(Math.toRadians(-90), original.getWidth() / 2, original.getHeight() / 2);
         AffineTransformOp op = new AffineTransformOp(affineRotation, AffineTransformOp.TYPE_BILINEAR);
         op.filter(imgRapport, rotation);
         imgRapport= rotation;
+
         repaint();
     }
 
