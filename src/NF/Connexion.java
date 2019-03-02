@@ -2,13 +2,8 @@ package NF;
 
 import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.lang.Class;
+
 
 /**
  *
@@ -17,6 +12,9 @@ import java.lang.Class;
  */
 public class Connexion {
 
+    /**
+     * Attributs concernant la liaison à la base de données
+     */
     private int identifiant;
     private String mot_de_passe;
     private boolean id_ok;
@@ -27,6 +25,8 @@ public class Connexion {
     public Connexion(int identifiant, String mot_de_passe) {
         this.identifiant = identifiant;
         this.mot_de_passe = mot_de_passe;
+
+
     }
 
     /**
@@ -34,16 +34,14 @@ public class Connexion {
      */
     public boolean autorisation_de_connexion() {
         Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = null;
+        Connection connexion = acces_BD.connexion;
         int id = 0;
         try {
-             Class.forName(acces_BD.s);
-            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
             /* Ici, mettre les requêtes vers la BDD */
             Statement statement = connexion.createStatement();
-            ResultSet resultat = statement.executeQuery("SELECT id, mdp FROM connexion WHERE id=" + this.identifiant + ";");
+            ResultSet resultat = statement.executeQuery("SELECT id_user, mdp FROM connexion WHERE id_user=" + this.identifiant + ";");
             if (resultat.next()) {
-                id = resultat.getInt("id");
+                id = resultat.getInt("id_user");
                 String mdp = resultat.getString("mdp");
                 if (id != 0) { //si on a trouvé un identifiant
                     id_ok = true;

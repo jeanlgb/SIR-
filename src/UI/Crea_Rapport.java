@@ -37,7 +37,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private void initComponents() {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("C:\\Users\\Jean-Loup\\Desktop\\DICOM WTF\\SIR NETBEANS\\src\\Image\\Radio2.jpg"));
+            image = ImageIO.read(new File("C:\\Users\\Jean-Loup\\Desktop\\DICOM WTF\\SIR NETBEANS\\src\\Image\\sinus1_0000.jpg"));
         } catch (IOException ex) {
             Logger.getLogger(Crea_Rapport.class.getName()).log(Level.SEVERE, null, ex);
         }

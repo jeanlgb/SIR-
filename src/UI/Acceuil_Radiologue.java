@@ -8,11 +8,15 @@ package UI;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.stream.XMLStreamException;
-import NF.Impression;
+
+import BD.Rechercher_Patient;
+import NF.*;
 
 /**
  *
@@ -21,7 +25,7 @@ import NF.Impression;
 public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     /**
-     * Creates new form Acceuille_Radiologue
+     * Creates new form Acceuil_Radiologue
      */
     public Acceuil_Radiologue() {
         initComponents();
@@ -157,9 +161,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jTable_Exam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"01.01.2001",  new Integer(123219418), "DUPOND", "IRM", "/"},
-                {"01.01.2001",  new Integer(123219418), "DUPONT", "SCANNER", "OK"},
-                {"01.01.2001",  new Integer(123219418), "DUPON", "RADIO", "OK"},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -357,8 +361,22 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField_RechercheActionPerformed() {//GEN-FIRST:event_jTextField_RechercheActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_RechercheActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
+        jTable_Exam.removeAll();
+        Rechercher_Patient patient_recherché = new Rechercher_Patient(jTextField_Recherche.getText(),null);
+        //Rechercher_Patient patient_recherché = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
+        int i = 0;
+        System.out.println(patient_recherché.getPatient());
+
+        jTable_Exam.setValueAt(patient_recherché.getPatient().getDate_de_naissance(), i, 0);
+        jTable_Exam.setValueAt(patient_recherché.getPatient().getIdentifiant(), i, 1);
+        jTable_Exam.setValueAt(patient_recherché.getPatient().getNom_d_usage(), i, 2);
+        jTable_Exam.setValueAt(patient_recherché.getPatient().getPrenom(), i, 3);
+        jTable_Exam.setValueAt(patient_recherché.getPatient().getAdresse(), i, 4);
+        jTable_Exam.setModel(model);
+    }
+
+//GEN-LAST:event_jTextField_RechercheActionPerformed
 
     private void jButton_ImprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ImprimerMouseClicked
         /*

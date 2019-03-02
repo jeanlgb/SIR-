@@ -1,11 +1,13 @@
 package NF;
 
+import java.util.Date;
+
 /**
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 public class Examen {
-private Date date;
+private java.util.Date date;
 private Medecin medecin_en_charge;
 private Type_examen type_examen;
 private double duree_prevue;
@@ -16,35 +18,33 @@ private boolean dossier_papier;
 private boolean examen_termine;
 private Historique_modifications historique_modifications;
 private double cout_examen;
+    private String medecin;
+    private String CR;
+    private String type;
 
     /**
      * Constructeur qui demande la date de l'examen, le médecin en charge de l'examen et le type de l'examen
      */
-    public Examen(Date date, Medecin medecin_en_charge, Type_examen type_examen) {
+   public Examen(Date date, Medecin medecin_en_charge, Type_examen type_examen, Compte_rendu compte_rendu) {
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
         this.type_examen = type_examen;
-       // this.duree_prevue = type_examen.getDuree();
+        this.compte_rendu = compte_rendu;
+        // this.duree_prevue = type_examen.getDuree();
         // this.cout_examen= type_examen.getCout();
     }
-
-
-
-public void imprimer_CR(){
-    //foncton à créer
-}
 
     /**
      * @return the date
      */
-    public Date getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 

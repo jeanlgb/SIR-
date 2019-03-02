@@ -9,6 +9,7 @@ package UI;
  *
  * @author porra
  */
+import NF.Acces_BD;
 import NF.Connexion;
 import com.mysql.cj.protocol.Resultset;
 
@@ -275,12 +276,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     private void loginActionPerformed() {
-        Connection connexion = null;
+        NF.Acces_BD bd = new Acces_BD();
+        Connection connexion = bd.connexion;
         String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
 
         try {
-            Class.forName(s);
-            connexion = DriverManager.getConnection(("jdbc:mysql://www.db4free.net/medtechsdb"), "medtechsdb", "medtechsdb");// ?serverTimezone=UTC régle server time zone Madrid/Paris problème
             Connexion nouvelle_connexion = new Connexion(Integer.parseInt(txtidentifiant.getText()), String.valueOf(txtmdp.getPassword()));
             boolean connexion_autorisee = nouvelle_connexion.autorisation_de_connexion();
 
@@ -301,10 +301,10 @@ public class Login extends javax.swing.JFrame {
             }
 
             /**
-             * Requete permettant d'etre redirigé vers l'interface adéquate pour chaque utilisateur suivant son métier
+             * Requete permettant d'être redirigé vers l'interface adéquate pour chaque utilisateur suivant son métier
              */
             PreparedStatement user;
-            user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id = ?");
+            user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id_user = ?");
             user.setInt(1, Integer.parseInt(txtidentifiant.getText()));
             ResultSet type_User = user.executeQuery();
             while(type_User.next()){
@@ -332,7 +332,7 @@ public class Login extends javax.swing.JFrame {
             connexion=null;
         }
         /*catch (SQLException ex){
-           Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);    
+           Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);
            }*/
         if (connexion != null) {
             System.out.println("Successfully connected to MySQL database test");
