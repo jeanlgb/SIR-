@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_FR;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -392,7 +392,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
-        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
+        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI_FR/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
 
         javax.swing.GroupLayout jPanel_ImageLayout = new javax.swing.GroupLayout(jPanel_Image);
         jPanel_Image.setLayout(jPanel_ImageLayout);
@@ -517,7 +517,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel_Image, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_FR;
 
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -74,7 +74,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
-        setPreferredSize(new java.awt.Dimension(1089, 715));
         setResizable(false);
 
         jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
@@ -495,7 +494,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_Rechercher7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher7.setText("Imprimer");
+        jButton_Rechercher7.setText("Imprimer apercu");
 
         jScrollPane_Corps_Exam_Tab1.setToolTipText("");
 

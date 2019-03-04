@@ -180,7 +180,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel_InfoActe" min="-2" pref="389" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel_Image" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel_Image" pref="542" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -771,7 +771,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource(&quot;/UI/images.png&quot;)).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource(&quot;/UI_FR/images.png&quot;)).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

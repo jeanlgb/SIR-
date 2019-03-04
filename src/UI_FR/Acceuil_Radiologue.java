@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_FR;
 
 import java.awt.Font;
 import javax.swing.*;
@@ -76,7 +76,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1089, 715));
         setResizable(false);
 
         jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
@@ -283,7 +282,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Imprimer.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Imprimer.setText("Imprimer");
+        jButton_Imprimer.setText("Imprimer apercu");
 
         jLabel_NbAttente.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel_NbAttente.setText("Nombre d'acte en attente :");
@@ -406,7 +405,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jButton_CreerDMR.setText("Créer DMR");
 
         jButton_ImprimerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_ImprimerDMR.setText("Imprimer");
+        jButton_ImprimerDMR.setText("Imprimer apercu");
 
         jScrollPane_Corps_DMR.setToolTipText("");
 
