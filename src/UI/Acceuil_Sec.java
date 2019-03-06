@@ -56,21 +56,21 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton_OuvrirDMR1 = new javax.swing.JButton();
         jButton_OuvrirDMR2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel_RecherchePar3 = new javax.swing.JLabel();
-        jTextField_Recherche1 = new javax.swing.JTextField();
-        jButton_Rechercher4 = new javax.swing.JButton();
-        jComboBox_Recherche1 = new javax.swing.JComboBox<>();
-        jPanel_Apercu1 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jButton_Rechercher5 = new javax.swing.JButton();
-        jButton_Rechercher6 = new javax.swing.JButton();
-        jButton_Rechercher7 = new javax.swing.JButton();
-        jScrollPane_Corps_Exam_Tab1 = new javax.swing.JScrollPane();
-        jTable_Exam1 = new javax.swing.JTable();
-        jLabel_RecherchePar4 = new javax.swing.JLabel();
-        jLabel_RecherchePar5 = new javax.swing.JLabel();
+        jPanel_DMR = new javax.swing.JPanel();
+        jLabel_RechercheParDMR = new javax.swing.JLabel();
+        jTextField_RechercheDMR = new javax.swing.JTextField();
+        jButton_RechercherDMR = new javax.swing.JButton();
+        jComboBox_RechercheDMR = new javax.swing.JComboBox<>();
+        jButton_CreerDMR = new javax.swing.JButton();
+        jButton_ImprimerDMR = new javax.swing.JButton();
+        jScrollPane_Corps_DMR = new javax.swing.JScrollPane();
+        jTable_DMR = new javax.swing.JTable();
+        jLabel_NbResult = new javax.swing.JLabel();
+        jLabel_NbResultDMR = new javax.swing.JLabel();
+        jPanel_ApercuDMR = new javax.swing.JPanel();
+        jScrollPane_ApercuDMR = new javax.swing.JScrollPane();
+        jTextArea_ApercuDMR = new javax.swing.JTextArea();
+        jButton_OuvrirDMR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
@@ -145,14 +145,14 @@ public class Acceuil_Sec extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 501, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
@@ -429,111 +429,84 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jTabbedPane_Corps.addTab("Planning", jPanel_Corps_Exam);
 
-        jPanel4.setBackground(new java.awt.Color(163, 209, 180));
-        jPanel4.setPreferredSize(new java.awt.Dimension(1089, 585));
+        jPanel_DMR.setBackground(new java.awt.Color(163, 209, 180));
+        jPanel_DMR.setPreferredSize(new java.awt.Dimension(1089, 585));
 
-        jLabel_RecherchePar3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RecherchePar3.setText("Recherche par :");
+        jLabel_RechercheParDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel_RechercheParDMR.setText("Recherche par :");
 
-        jTextField_Recherche1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_Recherche1.setText("Recherche à effectuer");
-        jTextField_Recherche1.setToolTipText("");
-        jTextField_Recherche1.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTextField_RechercheDMR.setText("Recherche à effectuer");
+        jTextField_RechercheDMR.setToolTipText("");
+        jTextField_RechercheDMR.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField_Recherche1FocusGained(evt);
+                jTextField_RechercheDMRFocusGained(evt);
             }
         });
-        jTextField_Recherche1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_RechercheDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_Recherche1ActionPerformed(evt);
+                jTextField_RechercheDMRActionPerformed(evt);
             }
         });
 
-        jButton_Rechercher4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher4.setText("Rerchercher");
+        jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_RechercherDMR.setText("Rerchercher");
 
-        jComboBox_Recherche1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
-        jComboBox_Recherche1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_RechercheDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_Recherche1ActionPerformed(evt);
+                jComboBox_RechercheDMRActionPerformed(evt);
             }
         });
 
-        jPanel_Apercu1.setBackground(new java.awt.Color(163, 209, 180));
-        jPanel_Apercu1.setBorder(javax.swing.BorderFactory.createTitledBorder("Exam"));
+        jButton_CreerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_CreerDMR.setText("Créer DMR");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n------\nExam 1\nExam 2\nExam 3\nEtc\n------");
-        jScrollPane3.setViewportView(jTextArea2);
+        jButton_ImprimerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_ImprimerDMR.setText("Imprimer apercu");
 
-        javax.swing.GroupLayout jPanel_Apercu1Layout = new javax.swing.GroupLayout(jPanel_Apercu1);
-        jPanel_Apercu1.setLayout(jPanel_Apercu1Layout);
-        jPanel_Apercu1Layout.setHorizontalGroup(
-            jPanel_Apercu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        jPanel_Apercu1Layout.setVerticalGroup(
-            jPanel_Apercu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-        );
+        jScrollPane_Corps_DMR.setToolTipText("");
 
-        jButton_Rechercher5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher5.setText("Créer DMR");
-
-        jButton_Rechercher6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher6.setText("Ouvrir");
-        jButton_Rechercher6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Rechercher6ActionPerformed(evt);
-            }
-        });
-
-        jButton_Rechercher7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher7.setText("Imprimer apercu");
-
-        jScrollPane_Corps_Exam_Tab1.setToolTipText("");
-
-        jTable_Exam1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTable_Exam1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_DMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTable_DMR.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"00/00/00",  new Integer(123456789), "Dupond", "IRM main", "Non"},
-                {"00/00/00",  new Integer(123456789), "Dupond", "IRM Pieds", "Oui"},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Date", "ID", "Nom", "Exam", "Rapport"
+                "Date", "ID", "Nom", "Nombre Exam"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -544,82 +517,109 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable_Exam1.setToolTipText("");
-        Font fbisbis = new Font("Dialog", Font.PLAIN, 18);
-        JTableHeader headerbisbis = jTable_Exam1.getTableHeader();
-        headerbisbis.setFont(fbisbis);
-        jTable_Exam1.getTableHeader().setReorderingAllowed(false);
-        jTable_Exam1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable_DMR.setToolTipText("");
+        JTableHeader headerbibis = jTable_DMR.getTableHeader();
+        headerbibis.setFont(fbis);
+        jTable_DMR.getTableHeader().setReorderingAllowed(false);
+        jTable_DMR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable_Exam1MouseClicked(evt);
+                jTable_DMRMouseClicked(evt);
             }
         });
-        jScrollPane_Corps_Exam_Tab1.setViewportView(jTable_Exam1);
+        jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
 
-        jLabel_RecherchePar4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RecherchePar4.setText("Nombre d'acte en attente :");
+        jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel_NbResult.setText("Nombre de résultat :");
 
-        jLabel_RecherchePar5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RecherchePar5.setText("1");
+        jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel_NbResultDMR.setText("Nb_resultat");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
+        jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exam", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
+
+        jTextArea_ApercuDMR.setColumns(20);
+        jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTextArea_ApercuDMR.setRows(5);
+        jTextArea_ApercuDMR.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n/*\n\nExam 1\nExam 2\nExam 3\n\n\n\n*/");
+        jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
+
+        javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
+        jPanel_ApercuDMR.setLayout(jPanel_ApercuDMRLayout);
+        jPanel_ApercuDMRLayout.setHorizontalGroup(
+            jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+        );
+        jPanel_ApercuDMRLayout.setVerticalGroup(
+            jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+        );
+
+        jButton_OuvrirDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_OuvrirDMR.setText("Ouvrir");
+        jButton_OuvrirDMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_OuvrirDMRActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel_DMRLayout = new javax.swing.GroupLayout(jPanel_DMR);
+        jPanel_DMR.setLayout(jPanel_DMRLayout);
+        jPanel_DMRLayout.setHorizontalGroup(
+            jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DMRLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel_RecherchePar3)
+                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addComponent(jLabel_RechercheParDMR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox_Recherche1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField_Recherche1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jButton_Rechercher4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane_Corps_Exam_Tab1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel_RecherchePar4)
+                        .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addComponent(jLabel_NbResult)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_RecherchePar5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton_Rechercher6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton_Rechercher5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton_Rechercher7, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel_Apercu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addComponent(jLabel_NbResultDMR))
+                    .addComponent(jButton_OuvrirDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane_Corps_DMR))
+                .addGap(88, 88, 88)
+                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel_ApercuDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addComponent(jButton_CreerDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_ImprimerDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox_Recherche1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_RecherchePar3)
-                            .addComponent(jTextField_Recherche1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_Rechercher4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_RecherchePar4)
-                            .addComponent(jLabel_RecherchePar5))
+        jPanel_DMRLayout.setVerticalGroup(
+            jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_RechercheParDMR)
+                            .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_RechercherDMR))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_NbResult)
+                            .addComponent(jLabel_NbResultDMR))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane_Corps_Exam_Tab1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel_Apercu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Rechercher5)
-                    .addComponent(jButton_Rechercher6)
-                    .addComponent(jButton_Rechercher7))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(jScrollPane_Corps_DMR, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel_ApercuDMR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton_CreerDMR)
+                        .addComponent(jButton_ImprimerDMR))
+                    .addComponent(jButton_OuvrirDMR))
+                .addGap(20, 20, 20))
         );
 
-        jTabbedPane_Corps.addTab("DMR", jPanel4);
+        jTabbedPane_Corps.addTab("DMR", jPanel_DMR);
 
         jPanel_Base.add(jTabbedPane_Corps, java.awt.BorderLayout.CENTER);
 
@@ -642,22 +642,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTable_Exam1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_Exam1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable_Exam1MouseClicked
-
-    private void jComboBox_Recherche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_Recherche1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_Recherche1ActionPerformed
-
-    private void jTextField_Recherche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Recherche1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_Recherche1ActionPerformed
-
-    private void jTextField_Recherche1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Recherche1FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_Recherche1FocusGained
 
     private void jTable_ExamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ExamMouseClicked
         // TODO add your handling code here:
@@ -717,9 +701,25 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_OuvrirDMR2ActionPerformed
 
-    private void jButton_Rechercher6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Rechercher6ActionPerformed
+    private void jTextField_RechercheDMRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_Rechercher6ActionPerformed
+    }//GEN-LAST:event_jTextField_RechercheDMRFocusGained
+
+    private void jTextField_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_RechercheDMRActionPerformed
+
+    private void jComboBox_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_RechercheDMRActionPerformed
+
+    private void jTable_DMRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_DMRMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_DMRMouseClicked
+
+    private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -791,16 +791,16 @@ public class Acceuil_Sec extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_Head;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_CreerDMR;
+    private javax.swing.JButton jButton_ImprimerDMR;
+    private javax.swing.JButton jButton_OuvrirDMR;
     private javax.swing.JButton jButton_OuvrirDMR1;
     private javax.swing.JButton jButton_OuvrirDMR2;
-    private javax.swing.JButton jButton_Rechercher4;
-    private javax.swing.JButton jButton_Rechercher5;
-    private javax.swing.JButton jButton_Rechercher6;
-    private javax.swing.JButton jButton_Rechercher7;
+    private javax.swing.JButton jButton_RechercherDMR;
     private javax.swing.JButton jButton_RechercherDMR1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox_Recherche1;
+    private javax.swing.JComboBox<String> jComboBox_RechercheDMR;
     private javax.swing.JComboBox<String> jComboBox_RechercheDMR1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -808,25 +808,25 @@ public class Acceuil_Sec extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel_RecherchePar3;
-    private javax.swing.JLabel jLabel_RecherchePar4;
-    private javax.swing.JLabel jLabel_RecherchePar5;
+    private javax.swing.JLabel jLabel_NbResult;
+    private javax.swing.JLabel jLabel_NbResultDMR;
+    private javax.swing.JLabel jLabel_RechercheParDMR;
     private javax.swing.JLabel jLabel_RechercheParDMR1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel_Apercu1;
+    private javax.swing.JPanel jPanel_ApercuDMR;
     private javax.swing.JPanel jPanel_Base;
     private javax.swing.JPanel jPanel_Corps_Exam;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel jPanel_DMR;
+    private javax.swing.JScrollPane jScrollPane_ApercuDMR;
+    private javax.swing.JScrollPane jScrollPane_Corps_DMR;
     private javax.swing.JScrollPane jScrollPane_Corps_Exam_Tab;
-    private javax.swing.JScrollPane jScrollPane_Corps_Exam_Tab1;
     private javax.swing.JScrollPane jScrollPane_Corps_Exam_Tab2;
     private javax.swing.JTabbedPane jTabbedPane_Corps;
+    private javax.swing.JTable jTable_DMR;
     private javax.swing.JTable jTable_Exam;
-    private javax.swing.JTable jTable_Exam1;
     private javax.swing.JTable jTable_Exam2;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField_Recherche1;
+    private javax.swing.JTextArea jTextArea_ApercuDMR;
+    private javax.swing.JTextField jTextField_RechercheDMR;
     private javax.swing.JTextField jTextField_RechercheDMR1;
     // End of variables declaration//GEN-END:variables
 }

@@ -148,12 +148,13 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_HeadLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
-                .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                        .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -472,9 +473,8 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
         jTable_DMR.setToolTipText("");
-        Font fbis = new Font("Dialog", Font.PLAIN, 18);
         JTableHeader headerbis = jTable_DMR.getTableHeader();
-        headerbis.setFont(fbis);
+        headerbis.setFont(f);
         jTable_DMR.getTableHeader().setReorderingAllowed(false);
         jTable_DMR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -482,14 +482,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
-        if (jTable_DMR.getColumnModel().getColumnCount() > 0) {
-            jTable_DMR.getColumnModel().getColumn(0).setResizable(false);
-            jTable_DMR.getColumnModel().getColumn(0).setPreferredWidth(3);
-            jTable_DMR.getColumnModel().getColumn(1).setResizable(false);
-            jTable_DMR.getColumnModel().getColumn(1).setPreferredWidth(5);
-            jTable_DMR.getColumnModel().getColumn(2).setResizable(false);
-            jTable_DMR.getColumnModel().getColumn(3).setResizable(false);
-        }
 
         jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel_NbResult.setText("Nombre de résultat :");
@@ -639,29 +631,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_RechercheActionPerformed
 
-    private void jTable_DMRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_DMRMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable_DMRMouseClicked
-
-    private void jComboBox_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheDMRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_RechercheDMRActionPerformed
-
-    private void jTextField_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_RechercheDMRActionPerformed
-
-    private void jTextField_RechercheDMRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_RechercheDMRFocusGained
-
     private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
-
-    private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
@@ -690,11 +662,28 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton_RechercherActionPerformed
 
+    private void jTextField_RechercheDMRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_RechercheDMRFocusGained
+
+    private void jTextField_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RechercheDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_RechercheDMRActionPerformed
+
+    private void jComboBox_RechercheDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_RechercheDMRActionPerformed
+
+    private void jTable_DMRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_DMRMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_DMRMouseClicked
+
+    private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
+
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
         // TODO add your handling code here:
-        // Code imprimer apercu DMR
-        Impression imprimer = new Impression(jTextArea_ApercuDMR);
-        imprimer.print();
     }//GEN-LAST:event_jButton_ImprimerDMRActionPerformed
 
     /**

@@ -78,12 +78,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
-                      <Component id="jPanel_InfoUser" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel_Logo" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel_Logo" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel_InfoUser" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -755,7 +757,7 @@
                             <Column editable="false" title="Nombre Exam" type="java.lang.String"/>
                           </Table>
                         </Property>
-                        <Property name="toolTipText" type="java.lang.String" value="" postCode="Font fbis = new Font(&quot;Dialog&quot;, Font.PLAIN, 18);&#xa;JTableHeader headerbis = jTable_DMR.getTableHeader();&#xa;headerbis.setFont(fbis);"/>
+                        <Property name="toolTipText" type="java.lang.String" value="" postCode="JTableHeader headerbis = jTable_DMR.getTableHeader();&#xa;headerbis.setFont(f);"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>

@@ -147,11 +147,12 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_HeadLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
-                .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                        .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -458,9 +459,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             }
         });
         jTable_DMR.setToolTipText("");
-        Font fbis = new Font("Dialog", Font.PLAIN, 18);
         JTableHeader headerbis = jTable_DMR.getTableHeader();
-        headerbis.setFont(fbis);
+        headerbis.setFont(f);
         jTable_DMR.getTableHeader().setReorderingAllowed(false);
         jTable_DMR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
