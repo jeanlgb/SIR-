@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI_FR;
+package UI;
 
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -83,8 +83,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         Jpanel_Head.setBackground(new java.awt.Color(127, 144, 160));
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Jpanel_Head.setPreferredSize(new java.awt.Dimension(1089, 115));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\camin\\Downloads\\logo MedTechS sans fond(1).PNG")); // NOI18N
 
         jLabel4.setText("Radiologue");
 

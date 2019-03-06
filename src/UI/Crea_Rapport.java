@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI_FR;
+package UI;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -105,7 +105,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         Jpanel_Head.setBackground(new java.awt.Color(127, 144, 160));
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel_Logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\camin\\Downloads\\logo MedTechS sans fond(1).PNG")); // NOI18N
         jLabel_Logo.setToolTipText("");
 
         javax.swing.GroupLayout Jpanel_HeadLayout = new javax.swing.GroupLayout(Jpanel_Head);
@@ -392,7 +391,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
-        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI_FR/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
+        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
 
         javax.swing.GroupLayout jPanel_ImageLayout = new javax.swing.GroupLayout(jPanel_Image);
         jPanel_Image.setLayout(jPanel_ImageLayout);
