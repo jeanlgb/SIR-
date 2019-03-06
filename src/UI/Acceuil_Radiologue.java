@@ -5,6 +5,7 @@
  */
 package UI;
 
+import BD.Rechercher_Patient;
 import NF.Impression;
 import java.awt.Font;
 import javax.swing.*;
@@ -74,7 +75,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jButton_OuvrirDMR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Accueil");
+        setTitle("Accueil Radiologue (FR)");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
@@ -196,6 +197,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jButton_AddRapport.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_AddRapport.setText("Ajouter Rapport");
+        jButton_AddRapport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AddRapportActionPerformed(evt);
+            }
+        });
 
         jScrollPane_Corps_Exam_Tab.setToolTipText("");
 
@@ -624,7 +630,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jTextField_RechercheFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_RechercheFocusGained
         // TODO add your handling code here:
         jTextField_Recherche.selectAll();
-        jTextField_Recherche.getFont().deriveFont(Font.ITALIC);
     }//GEN-LAST:event_jTextField_RechercheFocusGained
 
     private void jComboBox_RechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheActionPerformed
@@ -684,7 +689,20 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
         // TODO add your handling code here:
+        Impression imprimer = new Impression(jTextArea_ApercuDMR);
+        imprimer.print();
     }//GEN-LAST:event_jButton_ImprimerDMRActionPerformed
+
+    private void jButton_AddRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AddRapportActionPerformed
+        // TODO add your handling code here:
+        //ouvrir add rapport quand valider changer l'état dans le tableau
+        //du coup faire un test avant d'ouvrir savoir si le rapport n'as pas déjà été crée
+        // auquel cas c'est ajouter rapport
+       // + condition sur le fait qu'un elem du tableau doit être sélectionner
+       
+        Crea_Rapport creaRapport = new Crea_Rapport();
+        creaRapport.setVisible(true);
+    }//GEN-LAST:event_jButton_AddRapportActionPerformed
 
     /**
      * @param args the command line arguments

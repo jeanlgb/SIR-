@@ -3,7 +3,7 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Accueil"/>
+    <Property name="title" type="java.lang.String" value="Accueil Manipulateur Radio (FR)"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -201,8 +201,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Exam">
-                    <Property name="tabTitle" type="java.lang.String" value="Exam"/>
+                  <JTabbedPaneConstraints tabName="Planning Exam">
+                    <Property name="tabTitle" type="java.lang.String" value="Planning Exam"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -215,29 +215,29 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_SelecSalle" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_jour" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_heure" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel_RechercheParDMR1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_RecherchePar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jComboBox_RechercheDMR1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_RecherchePar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="jTextField_RechercheDMR1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField_Recherche" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="jButton_RechercherDMR1" min="-2" pref="191" max="-2" attributes="0"/>
+                                      <Component id="jButton_Rechercher" min="-2" pref="191" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane_Corps_Exam_Tab" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jButton_OuvrirDMR2" min="-2" pref="191" max="-2" attributes="0"/>
+                              <Component id="jButton_Ouvrir" min="-2" pref="191" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel_Apercu" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_OuvrirDMR1" alignment="1" min="-2" pref="191" max="-2" attributes="0"/>
+                              <Component id="jButton_Imprimer" alignment="1" min="-2" pref="191" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
@@ -250,18 +250,18 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jComboBox_RechercheDMR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel_RechercheParDMR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField_RechercheDMR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton_RechercherDMR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_RecherchePar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_RecherchePar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField_Recherche" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton_Rechercher" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel_jour" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel_heure" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jComboBox1" min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_SelecSalle" min="-2" pref="21" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                   <Component id="jScrollPane_Corps_Exam_Tab" min="-2" pref="368" max="-2" attributes="0"/>
@@ -270,8 +270,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton_OuvrirDMR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_OuvrirDMR2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton_Imprimer" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton_Ouvrir" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
@@ -289,7 +289,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable_Exam">
+                    <Component class="javax.swing.JTable" name="jTable_Planning">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="16" style="0"/>
@@ -394,7 +394,7 @@
                             </Column>
                           </Table>
                         </Property>
-                        <Property name="toolTipText" type="java.lang.String" value="" postCode="Font f = new Font(&quot;Dialog&quot;, Font.PLAIN, 18);&#xa;JTableHeader header = jTable_Exam.getTableHeader();&#xa;header.setFont(f);"/>
+                        <Property name="toolTipText" type="java.lang.String" value="" postCode="Font f = new Font(&quot;Dialog&quot;, Font.PLAIN, 18);&#xa;JTableHeader header = jTable_Planning.getTableHeader();&#xa;header.setFont(f);"/>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
@@ -427,7 +427,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable_ExamMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable_PlanningMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -449,21 +449,21 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" pref="390" max="32767" attributes="0"/>
+                          <Component id="jScrollPane_Apercu" alignment="0" pref="390" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" pref="404" max="32767" attributes="0"/>
+                          <Component id="jScrollPane_Apercu" alignment="0" pref="404" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane_Apercu">
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="jTextArea1">
+                        <Component class="javax.swing.JTextArea" name="jTextArea_Apercu">
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -477,7 +477,7 @@
                     </Container>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="jComboBox_SelecSalle">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -490,13 +490,13 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_SelecSalleActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="jLabel_jour">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="1"/>
@@ -504,7 +504,7 @@
                     <Property name="text" type="java.lang.String" value="00/00/00"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="jLabel_heure">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="1"/>
@@ -512,7 +512,7 @@
                     <Property name="text" type="java.lang.String" value="00h00"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton_OuvrirDMR1">
+                <Component class="javax.swing.JButton" name="jButton_Imprimer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -520,10 +520,10 @@
                     <Property name="text" type="java.lang.String" value="Imprimer apercu"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_OuvrirDMR1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ImprimerActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel_RechercheParDMR1">
+                <Component class="javax.swing.JLabel" name="jLabel_RecherchePar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -531,7 +531,7 @@
                     <Property name="text" type="java.lang.String" value="Recherche par :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox_RechercheDMR1">
+                <Component class="javax.swing.JComboBox" name="jComboBox_RecherchePar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -544,13 +544,13 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_RechercheDMR1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_RechercheParActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_RechercheDMR1">
+                <Component class="javax.swing.JTextField" name="jTextField_Recherche">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -559,11 +559,11 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_RechercheDMR1FocusGained"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_RechercheDMR1ActionPerformed"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_RechercheFocusGained"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_RechercheActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton_RechercherDMR1">
+                <Component class="javax.swing.JButton" name="jButton_Rechercher">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -571,7 +571,7 @@
                     <Property name="text" type="java.lang.String" value="Rerchercher"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton_OuvrirDMR2">
+                <Component class="javax.swing.JButton" name="jButton_Ouvrir">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
@@ -579,7 +579,7 @@
                     <Property name="text" type="java.lang.String" value="Ouvrir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_OuvrirDMR2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_OuvrirActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -736,6 +736,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Imprimer apercu"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ImprimerDMRActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane_Corps_DMR">
                   <Properties>
