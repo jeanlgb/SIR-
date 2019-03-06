@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -15,11 +16,11 @@ import java.util.Objects;
 //reste à trouver comment définir un nouvel identifiant jamais utilisé
 public class Patient {
 
-    private String identifiant;
+    private int identifiant;
     private String nom_d_usage;
     private String nom_de_naissance;
     private String prenom;
-    private Date date_de_naissance;
+    private java.util.Date date_de_naissance;
     private Genre genre;
     private Adresse adresse;
     private DMR dmr;
@@ -27,7 +28,8 @@ public class Patient {
     /**
      * Constructeur qui demande le nom d'usage et le nom de naissance
      */
-    public Patient(String nom_d_usage, String nom_de_naissance, String prenom, Date date_de_naissance, Genre genre, Adresse adresse) {
+    public Patient(int identifiant, String nom_d_usage, String nom_de_naissance, String prenom, java.util.Date date_de_naissance, Genre genre, Adresse adresse) {
+        this.identifiant = identifiant;
         this.nom_d_usage = nom_d_usage;
         this.nom_de_naissance = nom_de_naissance;
         this.prenom = prenom;
@@ -39,8 +41,10 @@ public class Patient {
     /**
      * Constructeur qui demande seulement le nom d'usage
      */
-    public Patient(String nom_d_usage, String prenom, Date date_de_naissance, Genre genre, Adresse adresse) {
+    public Patient(int identifiant, String nom_d_usage, String prenom, java.util.Date date_de_naissance, Genre genre, Adresse adresse) {
+        this.identifiant = identifiant;
         this.nom_d_usage = nom_d_usage;
+        this.nom_de_naissance = nom_d_usage;
         this.prenom = prenom;
         this.date_de_naissance = date_de_naissance;
         this.genre = genre;
@@ -144,14 +148,14 @@ public class Patient {
     /**
      * @return the identifiant
      */
-    public String getIdentifiant() {
+    public int getIdentifiant() {
         return identifiant;
     }
 
     /**
      * @param identifiant the identifiant to set
      */
-    public void setIdentifiant(String identifiant) {
+    public void setIdentifiant(int identifiant) {
         this.identifiant = identifiant;
     }
 
@@ -207,7 +211,7 @@ public class Patient {
     /**
      * @param date_de_naissance the date_de_naissance to set
      */
-    public void setDate_de_naissance(Date date_de_naissance) {
+    public void setDate_de_naissance(java.util.Date date_de_naissance) {
         this.date_de_naissance = date_de_naissance;
     }
 

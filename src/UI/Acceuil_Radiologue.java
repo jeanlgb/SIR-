@@ -16,10 +16,8 @@ import javax.swing.table.JTableHeader;
  */
 public class Acceuil_Radiologue extends javax.swing.JFrame {
 
-
-
     /**
-     * Creates new form Acceuille_Radiologue
+     * Creates new form Acceuil_Radiologue
      */
     public Acceuil_Radiologue() {
         initComponents();
