@@ -6,12 +6,12 @@ package NF;
  */
 public class Modification {
 private Date date;
-private ID auteur;
+private int auteur;
 
     /**
      * constructeur qui demande la date de modification et l'auteur de la modification
      */
-    public Modification(Date date, ID auteur) {
+    public Modification(Date date, int auteur) {
         this.date = date;
         this.auteur = auteur;
     }
@@ -26,7 +26,7 @@ private ID auteur;
     /**
      * @return the auteur
      */
-    public ID getAuteur() {
+    public int getAuteur() {
         return auteur;
     }
 

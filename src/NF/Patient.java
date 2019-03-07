@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -20,7 +20,7 @@ public class Patient {
     private String nom_d_usage;
     private String nom_de_naissance;
     private String prenom;
-    private java.util.Date date_de_naissance;
+    private java.sql.Date date_de_naissance;
     private Genre genre;
     private Adresse adresse;
     private DMR dmr;
@@ -28,7 +28,7 @@ public class Patient {
     /**
      * Constructeur qui demande le nom d'usage et le nom de naissance
      */
-    public Patient(int identifiant, String nom_d_usage, String nom_de_naissance, String prenom, java.util.Date date_de_naissance, Genre genre, Adresse adresse) {
+    public Patient(int identifiant, String nom_d_usage, String nom_de_naissance, String prenom, java.sql.Date date_de_naissance, Genre genre, Adresse adresse) {
         this.identifiant = identifiant;
         this.nom_d_usage = nom_d_usage;
         this.nom_de_naissance = nom_de_naissance;
@@ -41,7 +41,7 @@ public class Patient {
     /**
      * Constructeur qui demande seulement le nom d'usage
      */
-    public Patient(int identifiant, String nom_d_usage, String prenom, java.util.Date date_de_naissance, Genre genre, Adresse adresse) {
+    public Patient(int identifiant, String nom_d_usage, String prenom, java.sql.Date date_de_naissance, Genre genre, Adresse adresse) {
         this.identifiant = identifiant;
         this.nom_d_usage = nom_d_usage;
         this.nom_de_naissance = nom_d_usage;
@@ -211,7 +211,7 @@ public class Patient {
     /**
      * @param date_de_naissance the date_de_naissance to set
      */
-    public void setDate_de_naissance(java.util.Date date_de_naissance) {
+    public void setDate_de_naissance(java.sql.Date date_de_naissance) {
         this.date_de_naissance = date_de_naissance;
     }
 
@@ -257,8 +257,8 @@ public class Patient {
         this.dmr = dmr;
     }
 
-    public boolean patientExistant(ID id) {
-        if (id.getNumero_id() == 0) {
+    public boolean patientExistant(int id) {
+        if (id == 0) {
             return false;
         } else {
             return true;
