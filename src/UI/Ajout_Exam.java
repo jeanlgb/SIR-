@@ -27,224 +27,224 @@ public class Ajout_Exam extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton_Rechercher6 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jPanel_Base = new javax.swing.JPanel();
+        jPanel_Info = new javax.swing.JPanel();
+        jLabel_DateCrea = new javax.swing.JLabel();
+        dateCreaDMR = new javax.swing.JLabel();
+        jLabel_HeureCrea = new javax.swing.JLabel();
+        heureCreaDMR = new javax.swing.JLabel();
+        jLabel_Nom = new javax.swing.JLabel();
+        jLabel_Prenom = new javax.swing.JLabel();
+        jLabel_Sexe = new javax.swing.JLabel();
+        jButton_Sauvegarder = new javax.swing.JButton();
+        jLabel_ExamLier = new javax.swing.JLabel();
+        jComboBox_Lier = new javax.swing.JComboBox<>();
+        jLabel_Reference = new javax.swing.JLabel();
+        jLabel_IDPatient = new javax.swing.JLabel();
+        idPatient = new javax.swing.JLabel();
+        jTextField_Reference = new javax.swing.JTextField();
+        prenomPatient = new javax.swing.JLabel();
+        nomPatient = new javax.swing.JLabel();
+        sexePatient = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ajout Examen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
+        jPanel_Base.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ajout Examen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
-        jPanel2.setBackground(new java.awt.Color(163, 209, 180));
+        jPanel_Info.setBackground(new java.awt.Color(163, 209, 180));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel1.setText("Date de création :");
+        jLabel_DateCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_DateCrea.setText("Date de création :");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel2.setText("Date_DMR");
+        dateCreaDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        dateCreaDMR.setText("Date_DMR");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel3.setText("Heure de création :");
+        jLabel_HeureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_HeureCrea.setText("Heure de création :");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel4.setText("Heure_DMR");
+        heureCreaDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        heureCreaDMR.setText("Heure_DMR");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel5.setText("Nom :");
+        jLabel_Nom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_Nom.setText("Nom :");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel7.setText("Prénom :");
+        jLabel_Prenom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_Prenom.setText("Prénom :");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel9.setText("Sexe :");
+        jLabel_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_Sexe.setText("Sexe :");
 
-        jButton_Rechercher6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher6.setText("Sauvegarder");
-        jButton_Rechercher6.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Rechercher6ActionPerformed(evt);
+                jButton_SauvegarderActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel6.setText("Examen éxistant à lier :");
+        jLabel_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_ExamLier.setText("Examen éxistant à lier :");
 
-        jComboBox2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_Lier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jComboBox_Lier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_Lier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jComboBox_LierActionPerformed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel8.setText("Référence examen :");
-        jLabel8.setVisible(false);
+        jLabel_Reference.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_Reference.setText("Référence examen :");
+        jLabel_Reference.setVisible(false);
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel10.setText("ID Patient :");
+        jLabel_IDPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel_IDPatient.setText("ID Patient :");
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel11.setText("ID_Patient :");
+        idPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        idPatient.setText("ID_Patient :");
 
-        jTextField4.setVisible(false);
+        jTextField_Reference.setVisible(false);
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel12.setText("prenom_patient");
+        prenomPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        prenomPatient.setText("prenom_patient");
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel13.setText("nom_patient");
+        nomPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        nomPatient.setText("nom_patient");
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel14.setText("sexe_patient");
+        sexePatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        sexePatient.setText("sexe_patient");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_InfoLayout = new javax.swing.GroupLayout(jPanel_Info);
+        jPanel_Info.setLayout(jPanel_InfoLayout);
+        jPanel_InfoLayout.setHorizontalGroup(
+            jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_InfoLayout.createSequentialGroup()
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Rechercher6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton_Sauvegarder, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_InfoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
+                        .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_DateCrea)
+                            .addGroup(jPanel_InfoLayout.createSequentialGroup()
+                                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_HeureCrea)
+                                    .addComponent(jLabel_Nom)
+                                    .addComponent(jLabel_Prenom)
+                                    .addComponent(jLabel_Sexe)
+                                    .addComponent(jLabel_IDPatient))
                                 .addGap(23, 23, 23)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14))))
+                                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idPatient)
+                                    .addComponent(heureCreaDMR)
+                                    .addComponent(dateCreaDMR)
+                                    .addComponent(prenomPatient)
+                                    .addComponent(nomPatient)
+                                    .addComponent(sexePatient))))
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
+                        .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_ExamLier)
+                            .addComponent(jLabel_Reference))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField4)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_Reference)
+                            .addComponent(jComboBox_Lier, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        jPanel_InfoLayout.setVerticalGroup(
+            jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_DateCrea)
+                    .addComponent(dateCreaDMR)
+                    .addComponent(jLabel_ExamLier)
+                    .addComponent(jComboBox_Lier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel_InfoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_HeureCrea)
+                            .addComponent(heureCreaDMR)
+                            .addComponent(jLabel_Reference)))
+                    .addGroup(jPanel_InfoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4)))
+                        .addComponent(jTextField_Reference)))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel13))
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Nom)
+                    .addComponent(nomPatient))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel12))
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Prenom)
+                    .addComponent(prenomPatient))
                 .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel14))
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Sexe)
+                    .addComponent(sexePatient))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                .addGroup(jPanel_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_IDPatient)
+                    .addComponent(idPatient))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton_Rechercher6)
+                .addComponent(jButton_Sauvegarder)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel_BaseLayout = new javax.swing.GroupLayout(jPanel_Base);
+        jPanel_Base.setLayout(jPanel_BaseLayout);
+        jPanel_BaseLayout.setHorizontalGroup(
+            jPanel_BaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_BaseLayout.createSequentialGroup()
+                .addComponent(jPanel_Info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jPanel_BaseLayout.setVerticalGroup(
+            jPanel_BaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_BaseLayout.createSequentialGroup()
                 .addGap(0, 7, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel_Info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel_Base, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel_Base, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_Rechercher6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Rechercher6ActionPerformed
+    private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_Rechercher6ActionPerformed
+    }//GEN-LAST:event_jButton_SauvegarderActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void jComboBox_LierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_LierActionPerformed
         // TODO add your handling code here:
-                if (jComboBox2.getSelectedItem().equals("Oui (Numérique)") | jComboBox2.getSelectedItem().equals("Oui (Papier)") ) {
-            jTextField4.setVisible(true);
-            jLabel8.setVisible(true);
+                if (jComboBox_Lier.getSelectedItem().equals("Oui (Numérique)") | jComboBox_Lier.getSelectedItem().equals("Oui (Papier)") ) {
+            jTextField_Reference.setVisible(true);
+            jLabel_Reference.setVisible(true);
 
-            jPanel2.repaint();
-            jPanel2.revalidate();
+            jPanel_Info.repaint();
+            jPanel_Info.revalidate();
 
-        } else if (jComboBox2.getModel().getSelectedItem().equals("Non")) {
-            jTextField4.setVisible(false);
-            jLabel8.setVisible(false);
+        } else if (jComboBox_Lier.getModel().getSelectedItem().equals("Non")) {
+            jTextField_Reference.setVisible(false);
+            jLabel_Reference.setVisible(false);
             
-            jPanel2.repaint();
-            jPanel2.revalidate();
+            jPanel_Info.repaint();
+            jPanel_Info.revalidate();
 
         }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jComboBox_LierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,24 +285,24 @@ public class Ajout_Exam extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Rechercher6;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel dateCreaDMR;
+    private javax.swing.JLabel heureCreaDMR;
+    private javax.swing.JLabel idPatient;
+    private javax.swing.JButton jButton_Sauvegarder;
+    private javax.swing.JComboBox<String> jComboBox_Lier;
+    private javax.swing.JLabel jLabel_DateCrea;
+    private javax.swing.JLabel jLabel_ExamLier;
+    private javax.swing.JLabel jLabel_HeureCrea;
+    private javax.swing.JLabel jLabel_IDPatient;
+    private javax.swing.JLabel jLabel_Nom;
+    private javax.swing.JLabel jLabel_Prenom;
+    private javax.swing.JLabel jLabel_Reference;
+    private javax.swing.JLabel jLabel_Sexe;
+    private javax.swing.JPanel jPanel_Base;
+    private javax.swing.JPanel jPanel_Info;
+    private javax.swing.JTextField jTextField_Reference;
+    private javax.swing.JLabel nomPatient;
+    private javax.swing.JLabel prenomPatient;
+    private javax.swing.JLabel sexePatient;
     // End of variables declaration//GEN-END:variables
 }

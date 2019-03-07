@@ -771,6 +771,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable_DMRMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="Color clr = new Color(200, 100, 255);&#xa;jTable_DMR.setBackground(clr);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

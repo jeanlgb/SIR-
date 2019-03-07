@@ -6,6 +6,7 @@
 package UI;
 
 import NF.Impression;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.table.JTableHeader;
@@ -479,6 +480,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             }
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
+        Color clr = new Color(200, 100, 255);
+        jTable_DMR.setBackground(clr);
 
         jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel_NbResult.setText("Nombre de résultat :");

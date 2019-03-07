@@ -69,22 +69,22 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Indication = new javax.swing.JLabel();
         jScrollPane_Indication = new javax.swing.JScrollPane();
         jTextPane_Indication = new javax.swing.JTextPane();
-        jPanel_Image = new javax.swing.JPanel();
-        jLabel_IDpract2 = new javax.swing.JLabel();
-        jLabel_IDpract3 = new javax.swing.JLabel();
-        jLabel_IDpract4 = new javax.swing.JLabel();
-        jLabel_IDpract5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane_CR = new javax.swing.JScrollPane();
+        jPanel_InfoSalle = new javax.swing.JPanel();
+        jLabel_Salle = new javax.swing.JLabel();
+        jLabel_isNum = new javax.swing.JLabel();
+        isNum = new javax.swing.JLabel();
+        jLabel_Reference = new javax.swing.JLabel();
+        jTextField_Refenrece = new javax.swing.JTextField();
+        jComboBox_Salle = new javax.swing.JComboBox<>();
+        jScrollPane_Technique = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel20 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
-        jScrollPane_CR1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jLabel_Technique = new javax.swing.JLabel();
+        jButton_Sauvegarder = new javax.swing.JButton();
+        jButton_SauvegarderFermer = new javax.swing.JButton();
+        jButton_Imprimer = new javax.swing.JButton();
+        jLabel_Com = new javax.swing.JLabel();
+        jScrollPane_Com = new javax.swing.JScrollPane();
+        jTextArea_Com = new javax.swing.JTextArea();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Date : ");
@@ -291,7 +291,6 @@ public class Crea_Acte extends javax.swing.JFrame {
 
         jTextPane_Indication.setEditable(false);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextPane_Indication.setText("21 ans, surdité de perception moyenne à droite.");
         jScrollPane_Indication.setViewportView(jTextPane_Indication);
 
         javax.swing.GroupLayout jPanel_InfoActeLayout = new javax.swing.GroupLayout(jPanel_InfoActe);
@@ -369,118 +368,118 @@ public class Crea_Acte extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel_Image.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Salle"));
-        jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
+        jPanel_InfoSalle.setBackground(new java.awt.Color(127, 144, 160));
+        jPanel_InfoSalle.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Salle"));
+        jPanel_InfoSalle.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jLabel_IDpract2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract2.setText("Salle :");
+        jLabel_Salle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel_Salle.setText("Salle :");
 
-        jLabel_IDpract3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract3.setText("Numérique :");
+        jLabel_isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel_isNum.setText("Numérique :");
 
-        jLabel_IDpract4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract4.setText("Oui");
-        jLabel_IDpract4.setToolTipText("");
+        isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        isNum.setText("Oui");
+        isNum.setToolTipText("");
 
-        jLabel_IDpract5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract5.setText("Référence dossier :");
-        jLabel_IDpract5.setVisible(false);
+        jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel_Reference.setText("Référence dossier :");
+        jLabel_Reference.setVisible(false);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Refenrece.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextField_RefenreceActionPerformed(evt);
             }
         });
-        jTextField1.setVisible(false);
+        jTextField_Refenrece.setVisible(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_Salle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox_Salle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBox_SalleActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel_ImageLayout = new javax.swing.GroupLayout(jPanel_Image);
-        jPanel_Image.setLayout(jPanel_ImageLayout);
-        jPanel_ImageLayout.setHorizontalGroup(
-            jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ImageLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_InfoSalleLayout = new javax.swing.GroupLayout(jPanel_InfoSalle);
+        jPanel_InfoSalle.setLayout(jPanel_InfoSalleLayout);
+        jPanel_InfoSalleLayout.setHorizontalGroup(
+            jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_InfoSalleLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_ImageLayout.createSequentialGroup()
-                        .addComponent(jLabel_IDpract5)
+                .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_InfoSalleLayout.createSequentialGroup()
+                        .addComponent(jLabel_Reference)
                         .addGap(24, 24, 24)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_ImageLayout.createSequentialGroup()
-                        .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_IDpract3)
-                            .addGroup(jPanel_ImageLayout.createSequentialGroup()
+                        .addComponent(jTextField_Refenrece, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_InfoSalleLayout.createSequentialGroup()
+                        .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_isNum)
+                            .addGroup(jPanel_InfoSalleLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel_IDpract2)))
+                                .addComponent(jLabel_Salle)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_IDpract4)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(isNum)
+                            .addComponent(jComboBox_Salle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
-        jPanel_ImageLayout.setVerticalGroup(
-            jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ImageLayout.createSequentialGroup()
+        jPanel_InfoSalleLayout.setVerticalGroup(
+            jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_InfoSalleLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_IDpract2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Salle)
+                    .addComponent(jComboBox_Salle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
-                .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_IDpract3)
-                    .addComponent(jLabel_IDpract4))
+                .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_isNum)
+                    .addComponent(isNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_IDpract5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Reference)
+                    .addComponent(jTextField_Refenrece, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jScrollPane_CR.setViewportView(jTextArea1);
+        jScrollPane_Technique.setViewportView(jTextArea1);
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel20.setText("Technique imagerie :");
+        jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel_Technique.setText("Technique imagerie :");
 
-        jButton5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton5.setText("Sauvegarder");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton_SauvegarderActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton6.setText("Sauvegarde et fermer");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButton_SauvegarderFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton_SauvegarderFermer.setText("Sauvegarde et fermer");
+        jButton_SauvegarderFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButton_SauvegarderFermerActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton3.setText("Imprimer ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Imprimer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton_Imprimer.setText("Imprimer ");
+        jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton_ImprimerActionPerformed(evt);
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel21.setText("Commentaire :");
+        jLabel_Com.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel_Com.setText("Commentaire :");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jScrollPane_CR1.setViewportView(jTextArea2);
+        jTextArea_Com.setColumns(20);
+        jTextArea_Com.setLineWrap(true);
+        jTextArea_Com.setRows(5);
+        jScrollPane_Com.setViewportView(jTextArea_Com);
 
         javax.swing.GroupLayout jPanel_CorpsLayout = new javax.swing.GroupLayout(jPanel_Corps);
         jPanel_Corps.setLayout(jPanel_CorpsLayout);
@@ -489,28 +488,28 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane_CR)
+                    .addComponent(jScrollPane_Technique)
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
+                            .addComponent(jLabel_Technique)
                             .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                                 .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButton3))
+                            .addComponent(jButton_Imprimer))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
+                                .addComponent(jLabel_Com)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane_CR1)
+                            .addComponent(jScrollPane_Com)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel_Image, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
-                                        .addComponent(jButton5)
+                                        .addComponent(jButton_Sauvegarder)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton6)))))))
+                                        .addComponent(jButton_SauvegarderFermer)))))))
                 .addGap(49, 49, 49))
         );
         jPanel_CorpsLayout.setVerticalGroup(
@@ -518,7 +517,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel_Image, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,18 +526,18 @@ public class Crea_Acte extends javax.swing.JFrame {
                             .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addComponent(jScrollPane_CR1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane_Com, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, 0)
-                        .addComponent(jLabel20))
-                    .addComponent(jLabel21))
+                        .addComponent(jLabel_Technique))
+                    .addComponent(jLabel_Com))
                 .addGap(7, 7, 7)
-                .addComponent(jScrollPane_CR, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane_Technique, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
+                    .addComponent(jButton_Imprimer)
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6)
-                        .addComponent(jButton5)))
+                        .addComponent(jButton_SauvegarderFermer)
+                        .addComponent(jButton_Sauvegarder)))
                 .addGap(22, 22, 22))
         );
 
@@ -549,46 +548,46 @@ public class Crea_Acte extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton_ImprimerActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButton_SauvegarderFermerActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButton_SauvegarderActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField_RefenreceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RefenreceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField_RefenreceActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboBox_SalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SalleActionPerformed
         // TODO add your handling code here:
-        if(jComboBox1.getSelectedItem().equals("1")|jComboBox1.getSelectedItem().equals("2")|jComboBox1.getSelectedItem().equals("3")|jComboBox1.getSelectedItem().equals("4")|jComboBox1.getSelectedItem().equals("5")|jComboBox1.getSelectedItem().equals("6")){
-            jLabel_IDpract4.setText("Oui");
+        if(jComboBox_Salle.getSelectedItem().equals("1")|jComboBox_Salle.getSelectedItem().equals("2")|jComboBox_Salle.getSelectedItem().equals("3")|jComboBox_Salle.getSelectedItem().equals("4")|jComboBox_Salle.getSelectedItem().equals("5")|jComboBox_Salle.getSelectedItem().equals("6")){
+            isNum.setText("Oui");
         }
         else{
-            jLabel_IDpract4.setText("Non");
+            isNum.setText("Non");
         }
-        if (jLabel_IDpract4.getText().equals("Non")) {
-            jTextField1.setVisible(true);
-            jLabel_IDpract5.setVisible(true);
+        if (isNum.getText().equals("Non")) {
+            jTextField_Refenrece.setVisible(true);
+            jLabel_Reference.setVisible(true);
 
-            jPanel_Image.repaint();
-            jPanel_Image.revalidate();
+            jPanel_InfoSalle.repaint();
+            jPanel_InfoSalle.revalidate();
 
-        } else if (jLabel_IDpract4.getText().equals("Oui")) {
-            jTextField1.setVisible(false);
-            jLabel_IDpract5.setVisible(false);
+        } else if (isNum.getText().equals("Oui")) {
+            jTextField_Refenrece.setVisible(false);
+            jLabel_Reference.setVisible(false);
             
-            jPanel_Image.repaint();
-            jPanel_Image.revalidate();
+            jPanel_InfoSalle.repaint();
+            jPanel_InfoSalle.revalidate();
 
         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboBox_SalleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -668,23 +667,19 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel idPatient;
     private javax.swing.JLabel idPraticien;
     private javax.swing.JLabel idexamen;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel isNum;
+    private javax.swing.JButton jButton_Imprimer;
+    private javax.swing.JButton jButton_Sauvegarder;
+    private javax.swing.JButton jButton_SauvegarderFermer;
+    private javax.swing.JComboBox<String> jComboBox_Salle;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel_Adresse;
     private javax.swing.JLabel jLabel_Age;
+    private javax.swing.JLabel jLabel_Com;
     private javax.swing.JLabel jLabel_DDN;
     private javax.swing.JLabel jLabel_ID;
     private javax.swing.JLabel jLabel_IDexam;
     private javax.swing.JLabel jLabel_IDpract;
-    private javax.swing.JLabel jLabel_IDpract2;
-    private javax.swing.JLabel jLabel_IDpract3;
-    private javax.swing.JLabel jLabel_IDpract4;
-    private javax.swing.JLabel jLabel_IDpract5;
     private javax.swing.JLabel jLabel_Indication;
     private javax.swing.JLabel jLabel_LinkWord;
     private javax.swing.JLabel jLabel_Logo;
@@ -692,19 +687,23 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Nompract;
     private javax.swing.JLabel jLabel_Prenom;
     private javax.swing.JLabel jLabel_Prenompract;
+    private javax.swing.JLabel jLabel_Reference;
+    private javax.swing.JLabel jLabel_Salle;
     private javax.swing.JLabel jLabel_Sexe;
+    private javax.swing.JLabel jLabel_Technique;
     private javax.swing.JLabel jLabel_TypeExam;
+    private javax.swing.JLabel jLabel_isNum;
     private javax.swing.JPanel jPanel_Corps;
-    private javax.swing.JPanel jPanel_Image;
     private javax.swing.JPanel jPanel_InfoActe;
     private javax.swing.JPanel jPanel_InfoPatient;
-    private javax.swing.JScrollPane jScrollPane_CR;
-    private javax.swing.JScrollPane jScrollPane_CR1;
+    private javax.swing.JPanel jPanel_InfoSalle;
+    private javax.swing.JScrollPane jScrollPane_Com;
     private javax.swing.JScrollPane jScrollPane_Indication;
+    private javax.swing.JScrollPane jScrollPane_Technique;
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea_Com;
+    private javax.swing.JTextField jTextField_Refenrece;
     private javax.swing.JTextPane jTextPane_Indication;
     private javax.swing.JLabel nomPatient;
     private javax.swing.JLabel nomPraticien;

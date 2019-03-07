@@ -11,7 +11,7 @@ package UI;
  */
 import NF.Acces_BD;
 import NF.Connexion;
-import com.mysql.cj.protocol.Resultset;
+//import com.mysql.cj.protocol.Resultset;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
