@@ -6,7 +6,6 @@ package NF;
  */
 public class Adresse {
 
-    private int id_adresse;
     private String numéro;
     private String rue;
     private String lieu_dit;
@@ -58,10 +57,6 @@ public class Adresse {
 
     public String getNuméro() {
         return numéro;
-    }
-
-    public int getId_adresse() {
-        return id_adresse;
     }
 
 }

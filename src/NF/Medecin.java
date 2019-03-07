@@ -7,7 +7,7 @@ import java.util.Objects;
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 public class Medecin {
-private int identifiant;
+private ID identifiant;
 private String nom;
 private String prenom;
 
@@ -15,13 +15,13 @@ private String prenom;
     /**
      * constructeur qui demande l'identifiant du médecin, le nom et le prénom
      */
-    public Medecin(int identifiant, String nom, String prenom) {
+    public Medecin(ID identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
     }
 
-    public int getIdentifiant() {
+    public ID getIdentifiant() {
         return identifiant;
     }
 
@@ -33,7 +33,7 @@ private String prenom;
         return prenom;
     }
 
-    public void setIdentifiant(int identifiant) {
+    public void setIdentifiant(ID identifiant) {
         this.identifiant = identifiant;
     }
 

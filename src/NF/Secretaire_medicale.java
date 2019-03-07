@@ -9,14 +9,14 @@ import java.util.Objects;
  */
 public class Secretaire_medicale {
 
-    private int identifiant;
+    private ID identifiant;
     private String nom;
     private String prenom;
 
     /**
      * constructeur qui demande un identifiant médical, un nom et un prénom
      */
-    public Secretaire_medicale(int identifiant, String nom, String prenom) {
+    public Secretaire_medicale(ID identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
@@ -32,7 +32,7 @@ public class Secretaire_medicale {
     /**
      * fonction qui permet la consultation du DMR
      */
-    public void consulter_DMR(int id_patient) {
+    public void consulter_DMR(ID id_patient) {
         //fonction à créer
     }
 
@@ -75,14 +75,14 @@ public class Secretaire_medicale {
     /**
      * @return the identifiant
      */
-    public int getIdentifiant() {
+    public ID getIdentifiant() {
         return identifiant;
     }
 
     /**
      * @param identifiant the identifiant to set
      */
-    public void setIdentifiant(int identifiant) {
+    public void setIdentifiant(ID identifiant) {
         this.identifiant = identifiant;
     }
 
