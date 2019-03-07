@@ -47,7 +47,8 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(127, 144, 160));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Création DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
@@ -110,7 +111,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel10.setText("ID Patient :");
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel11.setText("ID_Patient :");
+        jLabel11.setText("ID_Patient");
 
         jTextField4.setVisible(false);
 

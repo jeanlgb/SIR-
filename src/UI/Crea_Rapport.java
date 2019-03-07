@@ -79,7 +79,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel20 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -95,7 +94,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         datelabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         datelabel.setText("Date");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rapport Acte");
         setFocusTraversalPolicyProvider(true);
         setResizable(false);
@@ -115,7 +114,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(663, Short.MAX_VALUE))
+                .addContainerGap(608, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,15 +433,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         });
         jButton5.setVisible(false);
 
-        jButton6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton6.setText("Sauvegarde et fermer");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jButton6.setVisible(false);
-
         jSlider1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -484,24 +474,20 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton6))
-                            .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
-                            .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane_CR, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox1)))
+                        .addComponent(jCheckBox1))
+                    .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                        .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane_CR, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton3)
-                        .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addComponent(jPanel_Image, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -510,48 +496,52 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(62, 62, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         jPanel_CorpsLayout.setVerticalGroup(
             jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 542, Short.MAX_VALUE))
+                        .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jCheckBox1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane_CR, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
                                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jCheckBox1))
+                                    .addComponent(jLabel1)
                                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(2, 2, 2))
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane_CR, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                                        .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(2, 2, 2))
+                                    .addComponent(jLabel2)))
+                            .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3)
+                            .addComponent(jButton5))))
                 .addGap(20, 20, 20))
         );
 
@@ -566,10 +556,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -578,19 +564,22 @@ public class Crea_Rapport extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jCheckBox1.isSelected()==true) {
             jButton5.setVisible(true);
-            jButton6.setVisible(true);
+            //jButton6.setVisible(true);
             jScrollPane_CR.setVisible(true);
 
             jPanel_Corps.repaint();
             jPanel_Corps.revalidate();
+            
+            
 
         } else if (jCheckBox1.isSelected()==false) {
             jButton5.setVisible(false);
-            jButton6.setVisible(false);
+            //jButton6.setVisible(false);
             jScrollPane_CR.setVisible(false);
 
             jPanel_Corps.repaint();
             jPanel_Corps.revalidate();
+            
         }
 
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -710,7 +699,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox_Image;
     private javax.swing.JLabel jLabel1;

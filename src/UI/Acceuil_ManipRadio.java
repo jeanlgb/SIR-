@@ -404,6 +404,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jButton_CreerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_CreerDMR.setText("Créer DMR");
+        jButton_CreerDMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CreerDMRActionPerformed(evt);
+            }
+        });
 
         jButton_ImprimerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_ImprimerDMR.setText("Imprimer apercu");
@@ -482,7 +487,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_NbResultDMR.setText("Nb_resultat");
 
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
-        jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exam", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
+        jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
 
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -641,10 +646,14 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
         // TODO add your handling code here:
+        Visu_DMR DMR = new Visu_DMR();
+        DMR.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
     private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
         // TODO add your handling code here:
+        Crea_Acte newActe = new Crea_Acte();
+        newActe.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
 
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
@@ -652,6 +661,12 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         Impression imprimer = new Impression(jTextArea_ApercuDMR);
         imprimer.print();
     }//GEN-LAST:event_jButton_ImprimerDMRActionPerformed
+
+    private void jButton_CreerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CreerDMRActionPerformed
+        // TODO add your handling code here:
+        Crea_DMR newDMR = new Crea_DMR();
+        newDMR.setVisible(true);
+    }//GEN-LAST:event_jButton_CreerDMRActionPerformed
 
     /**
      * @param args the command line arguments

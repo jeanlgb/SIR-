@@ -70,12 +70,12 @@ public class Crea_Acte extends javax.swing.JFrame {
         jScrollPane_Indication = new javax.swing.JScrollPane();
         jTextPane_Indication = new javax.swing.JTextPane();
         jPanel_Image = new javax.swing.JPanel();
-        jLabel_IDpract1 = new javax.swing.JLabel();
         jLabel_IDpract2 = new javax.swing.JLabel();
         jLabel_IDpract3 = new javax.swing.JLabel();
         jLabel_IDpract4 = new javax.swing.JLabel();
         jLabel_IDpract5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane_CR = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel20 = new javax.swing.JLabel();
@@ -92,7 +92,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         datelabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         datelabel.setText("Date");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rapport Acte");
         setFocusTraversalPolicyProvider(true);
         setResizable(false);
@@ -373,9 +373,6 @@ public class Crea_Acte extends javax.swing.JFrame {
         jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Salle"));
         jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jLabel_IDpract1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract1.setText("NB_Salle");
-
         jLabel_IDpract2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_IDpract2.setText("Salle :");
 
@@ -383,14 +380,24 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_IDpract3.setText("Numérique :");
 
         jLabel_IDpract4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract4.setText("Boolean_Num");
+        jLabel_IDpract4.setText("Oui");
+        jLabel_IDpract4.setToolTipText("");
 
         jLabel_IDpract5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_IDpract5.setText("Référence dossier :");
+        jLabel_IDpract5.setVisible(false);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.setVisible(false);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -413,18 +420,18 @@ public class Crea_Acte extends javax.swing.JFrame {
                                 .addComponent(jLabel_IDpract2)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_IDpract1)
-                            .addComponent(jLabel_IDpract4))))
+                            .addComponent(jLabel_IDpract4)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel_ImageLayout.setVerticalGroup(
             jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_ImageLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_IDpract2)
-                    .addComponent(jLabel_IDpract1))
-                .addGap(8, 8, 8)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
                 .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_IDpract3)
                     .addComponent(jLabel_IDpract4))
@@ -558,6 +565,31 @@ public class Crea_Acte extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        if(jComboBox1.getSelectedItem().equals("1")|jComboBox1.getSelectedItem().equals("2")|jComboBox1.getSelectedItem().equals("3")|jComboBox1.getSelectedItem().equals("4")|jComboBox1.getSelectedItem().equals("5")|jComboBox1.getSelectedItem().equals("6")){
+            jLabel_IDpract4.setText("Oui");
+        }
+        else{
+            jLabel_IDpract4.setText("Non");
+        }
+        if (jLabel_IDpract4.getText().equals("Non")) {
+            jTextField1.setVisible(true);
+            jLabel_IDpract5.setVisible(true);
+
+            jPanel_Image.repaint();
+            jPanel_Image.revalidate();
+
+        } else if (jLabel_IDpract4.getText().equals("Oui")) {
+            jTextField1.setVisible(false);
+            jLabel_IDpract5.setVisible(false);
+            
+            jPanel_Image.repaint();
+            jPanel_Image.revalidate();
+
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -639,6 +671,7 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -648,7 +681,6 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ID;
     private javax.swing.JLabel jLabel_IDexam;
     private javax.swing.JLabel jLabel_IDpract;
-    private javax.swing.JLabel jLabel_IDpract1;
     private javax.swing.JLabel jLabel_IDpract2;
     private javax.swing.JLabel jLabel_IDpract3;
     private javax.swing.JLabel jLabel_IDpract4;
