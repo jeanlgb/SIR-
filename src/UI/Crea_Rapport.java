@@ -5,6 +5,8 @@
  */
 package UI;
 
+import NF.Impression;
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -564,6 +566,8 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        Impression imprimer = new Impression(jTextArea1);
+        imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

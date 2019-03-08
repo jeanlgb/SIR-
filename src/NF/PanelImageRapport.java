@@ -112,4 +112,24 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    public void dezoom() { // Dézoomer une image
+        BufferedImage imageDezoomee = new BufferedImage((int) (original.getWidth() * 0.5), (int) (original.getHeight() * 0.5), original.getType());
+        AffineTransform dezoome = AffineTransform.getScaleInstance(0.5, 0.5);
+        int interpolation = AffineTransformOp.TYPE_BICUBIC;
+        AffineTransformOp redimensionner = new AffineTransformOp(dezoome, interpolation);
+        redimensionner.filter(original, imageDezoomee);
+        original = imageDezoomee;
+        repaint();
+    }
+
+    public void zoom() { // Zoomer une image
+        BufferedImage imageZoomee = new BufferedImage((int) (original.getWidth() * 1.5), (int) (original.getHeight() * 1.5), original.getType());
+        AffineTransform zoome = AffineTransform.getScaleInstance(1.5, 1.5);
+        int interpolation = AffineTransformOp.TYPE_BICUBIC;
+        AffineTransformOp redimensionner = new AffineTransformOp(zoome, interpolation);
+        redimensionner.filter(original, imageZoomee);
+        original = imageZoomee;
+        repaint();
+    }
+
 }

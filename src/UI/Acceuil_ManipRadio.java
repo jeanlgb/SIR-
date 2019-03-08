@@ -99,6 +99,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -575,6 +580,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void jComboBox_SelecSalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SelecSalleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_SelecSalleActionPerformed
@@ -646,6 +652,12 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
     private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
+
+    private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
+        InterfaceParametreManip allerParametres = new InterfaceParametreManip();
+        this.setVisible(false);
+        allerParametres.setVisible(true);
+    }//GEN-LAST:event_jButton_ParametresActionPerformed
 
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
         // TODO add your handling code here:

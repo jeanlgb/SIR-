@@ -334,13 +334,13 @@ public class Login extends javax.swing.JFrame {
                         this.dispose();
                     } else {
                         if (type_User.getString("metier").equals("SECRETAIRE_MEDICALE")) {
-                            //new Acceuil_Secretaire().setVisible(true); changer quand interface faite
+                            new Acceuil_Sec().setVisible(true);
                             this.dispose();
                         }
                     }
                 }
-
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();

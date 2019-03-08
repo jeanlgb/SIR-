@@ -8,6 +8,7 @@ package UI;
 import BD.Rechercher_Patient;
 import NF.Impression;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -101,6 +102,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -588,6 +594,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_ParametresActionPerformed(ActionEvent evt) {
+        InterfaceParametreRadiologue allerParametres = new InterfaceParametreRadiologue();
+        this.setVisible(false);
+        allerParametres.setVisible(true);
+    }
 
     private void jButton_DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeconnexionActionPerformed
         // TODO add your handling code here:

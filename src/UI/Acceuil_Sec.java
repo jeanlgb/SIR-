@@ -40,7 +40,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_Parametres = new javax.swing.JButton();
         jTabbedPane_Corps = new javax.swing.JTabbedPane();
         jPanel_Corps_Exam = new javax.swing.JPanel();
         jScrollPane_Corps_Requete_Tab = new javax.swing.JScrollPane();
@@ -98,10 +98,10 @@ public class Acceuil_Sec extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Parametres");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_ParametresActionPerformed(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton_Parametres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -127,7 +127,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(jButton_Parametres)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -644,10 +644,12 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
+        InterfaceParametreSec allerParametres = new InterfaceParametreSec();
+        this.setVisible(false);
+        allerParametres.setVisible(true);
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton_ParametresActionPerformed
 
     private void jTable_RequeteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_RequeteMouseClicked
         // TODO add your handling code here:
@@ -802,7 +804,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jpanel_Head;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_Parametres;
     private javax.swing.JButton jButton_CreerDMR;
     private javax.swing.JButton jButton_ImprimerDMR;
     private javax.swing.JButton jButton_Ouvrir;
