@@ -230,7 +230,7 @@
                                       <Component id="jSlider_Contraste" min="-2" pref="24" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButton_Imprimer" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton_Sauvegarder" alignment="3" min="-2" max="-2" attributes="0"/>
