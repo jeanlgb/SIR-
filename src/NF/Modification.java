@@ -5,13 +5,13 @@ package NF;
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 public class Modification {
-private Date date;
-private ID auteur;
+private java.sql.Date date;
+private int auteur;
 
     /**
      * constructeur qui demande la date de modification et l'auteur de la modification
      */
-    public Modification(Date date, ID auteur) {
+    public Modification(java.sql.Date date, int auteur) {
         this.date = date;
         this.auteur = auteur;
     }
@@ -19,14 +19,14 @@ private ID auteur;
     /**
      * @return the date
      */
-    public Date getDate() {
+    public java.sql.Date getDate() {
         return date;
     }
 
     /**
      * @return the auteur
      */
-    public ID getAuteur() {
+    public int getAuteur() {
         return auteur;
     }
 

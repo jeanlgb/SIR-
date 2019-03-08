@@ -8,18 +8,27 @@ import java.util.Objects;
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 public class DMR {
-private ID id_patient;
+
+    private int id_dmr;
+private int id_patient;
 private ArrayList<Examen> examens_patient;
 private Historique_modifications historique_modifications;
 
     /**
      * Constructeur qui demande l'id patient, une arraylist des examens d'un patient, l'historique de modifications
      */
-    public DMR(ID id_patient, ArrayList<Examen> examens_patient, Historique_modifications historique_modifications) {
+    public DMR(int id_patient, ArrayList<Examen> examens_patient, Historique_modifications historique_modifications) {
         this.id_patient = id_patient;
         this.examens_patient = examens_patient;
         this.historique_modifications = historique_modifications;
     }
+
+
+    public DMR(int id_dmr, ArrayList<Examen> examens_patient) {
+        this.id_dmr = id_dmr;
+        this.examens_patient = examens_patient;
+    }
+
 
     /**
      * Fonction qui ajoute un examen à la liste d'examen d'un patient
@@ -45,12 +54,23 @@ private Historique_modifications historique_modifications;
         }
         return true;
     }
-    
-    
-    
-    
-    
-    public ID getId_patient() {
+
+
+
+
+
+    public int getId_dmr() {
+        return id_dmr;
+    }
+
+    /**
+     * @param id_dmr the id_dmr to set
+     */
+    public void setId_dmr(int id_dmr) {
+        this.id_dmr = id_dmr;
+    }
+
+    public int getId_patient() {
         return id_patient;
     }
 

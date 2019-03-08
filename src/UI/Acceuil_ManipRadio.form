@@ -728,6 +728,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cr&#xe9;er DMR"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_CreerDMRActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_ImprimerDMR">
                   <Properties>
@@ -768,6 +771,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable_DMRMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="Color clr = new Color(200, 100, 255);&#xa;jTable_DMR.setBackground(clr);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -794,7 +800,7 @@
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Exam">
+                        <TitledBorder title="DMR">
                           <Font PropertyName="font" name="Dialog" size="24" style="1"/>
                         </TitledBorder>
                       </Border>
