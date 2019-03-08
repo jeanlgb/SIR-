@@ -7,14 +7,14 @@ import java.util.Objects;
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
 public class Manipulateur_radio {
-private ID identifiant;
+private int identifiant;
 private String nom;
 private String prenom;
 
     /**
      * Constructeur qui demande l'identifiant du Manipulateur radio, le nom et le prénom
      */
-    public Manipulateur_radio(ID identifiant, String nom, String prenom) {
+    public Manipulateur_radio(int identifiant, String nom, String prenom) {
         this.identifiant = identifiant;
         this.nom = nom;
         this.prenom = prenom;
@@ -30,7 +30,7 @@ private String prenom;
     /**
      * fonction qui permet la consultation du DMR
      */
-    public void consulter_DMR(ID id_patient){
+    public void consulter_DMR(int id_patient){
         //fonction à créer
     }
 
@@ -44,14 +44,14 @@ private String prenom;
     /**
      * @return the identifiant
      */
-    public ID getIdentifiant() {
+    public int getIdentifiant() {
         return identifiant;
     }
 
     /**
      * @param identifiant the identifiant to set
      */
-    public void setIdentifiant(ID identifiant) {
+    public void setIdentifiant(int identifiant) {
         this.identifiant = identifiant;
     }
 

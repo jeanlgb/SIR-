@@ -9,7 +9,7 @@ public class Interne extends Medecin{
     /**
      * Constructeur qui demande l'identifiant de l'interne en médecine, le nom, le prénom
      */
-    public Interne(ID identifiant, String nom, String prenom) {
+    public Interne(int identifiant, String nom, String prenom) {
         super(identifiant, nom, prenom);
     }
 
