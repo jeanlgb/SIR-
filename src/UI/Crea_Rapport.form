@@ -159,7 +159,7 @@
                               <Component id="jCheckBox_Oui" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -188,7 +188,7 @@
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jPanel_Image" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel_Image" alignment="0" pref="420" max="32767" attributes="0"/>
                               <Component id="jPanel_InfoSalle" alignment="0" pref="420" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -279,11 +279,11 @@
                                       <Component id="jLabel_Nom" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_ID" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nomPatient" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="prenomPatient" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="idPatient" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nomPatient" min="-2" max="-2" attributes="0"/>
+                                      <Component id="prenomPatient" min="-2" max="-2" attributes="0"/>
+                                      <Component id="idPatient" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -501,41 +501,36 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel_Indication" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel_TypeExam" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Component id="typeExamen" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel_Nompract" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="nomPraticien" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel_Technique" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel_Prenompract" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel_IDpract" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel_Nompract" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel_TypeExam" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="datexam" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel_LinkWord" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="heurexam" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel_IDexam" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="idexamen" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="typeExamen" min="-2" max="-2" attributes="0"/>
+                                              <Component id="nomPraticien" min="-2" max="-2" attributes="0"/>
                                               <Component id="idPraticien" min="-2" max="-2" attributes="0"/>
                                               <Component id="prenomPraticien" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="datexam" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel_LinkWord" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="heurexam" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel_IDexam" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="idexamen" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel_Technique" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -975,10 +970,10 @@
                                       <Component id="jLabel_isNum" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_Salle" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel_Salle1" min="-2" max="-2" attributes="0"/>
                                       <Component id="isNum" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_Salle1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
