@@ -5,8 +5,7 @@
  */
 package UI;
 
-import NF.Connexion;
-
+import NF.Acces_BD;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -242,35 +241,37 @@ public class ChangerMdp extends javax.swing.JFrame {
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
 
-        Connection connexion = null;
-        String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
+        Acces_BD bd = new Acces_BD();
+        Connection connexion =bd.connexion;
         boolean verif = false;
 
         try {
-            Class.forName(s);
-            connexion = DriverManager.getConnection(("jdbc:mysql://www.db4free.net/medtechsdb"), "medtechsdb", "medtechsdb");// ?serverTimezone=UTC régle server time zone Madrid/Paris problème
+
             PreparedStatement statement;
-            statement = connexion.prepareStatement("select * from profilUtilisateur");
+            statement = connexion.prepareStatement("SELECT * FROM connexion");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                String loginUtilisateur = rs.getString("loginUtilisateur");
+                String loginUtilisateur = rs.getString("id_user");
                 String loginChanger = jTextFieldId.getText();
                 char[] ancienMdp = jPasswordFieldmdpActuel.getPassword();
-                String motPasseUtilisateur = rs.getString("motPasseUtilisateur");
+                String motPasseUtilisateur = rs.getString("mdp");
                 String mdpActuel = String.valueOf(ancienMdp);
                     if (loginUtilisateur.equals(loginChanger) && motPasseUtilisateur.equals(mdpActuel) ) { 
                     verif = true;
- 
-            ResultSet rest = statement.executeQuery("UPDATE profilUtilisateur SET motPasseUtilisateur ="
-                    + " '"+String.valueOf(jPasswordFieldnouveau.getPassword())+"',"
-                    + "confirmerMotPasseUtilisateur = '"+String.valueOf(jPasswordFieldConfirmer.getPassword())
-                    +"' WHERE loginUtilisateur = "+jTextFieldId.getText()+"");
+
+                    PreparedStatement stat;
+                    stat = connexion.prepareStatement("UPDATE connexion SET mdp ="
+                            +String.valueOf(jPasswordFieldnouveau.getPassword())
+                            +" WHERE id_user = "+jTextFieldId.getText()+"");
+                    if(String.valueOf(jPasswordFieldnouveau.getPassword()).equals(String.valueOf(jPasswordFieldConfirmer.getPassword()))){
+                    stat.executeUpdate();
+                    }
            
-            while (rest.next()) {
+
                     Acceuil_Radiologue retourAccueil = new Acceuil_Radiologue();
                     retourAccueil.setVisible(true);
                     this.dispose();
-             }
+
               }
             }
                if (verif==false) {

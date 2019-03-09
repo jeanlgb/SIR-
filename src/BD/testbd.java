@@ -5,10 +5,15 @@
  */
 package BD;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 import NF.*;
 
 import java.sql.*;
-import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -41,26 +46,26 @@ public class testbd {
 
         //créer examen
         /**Examen examen = new Examen()
-        try {
+         try {
 
-            statement = connexion.prepareStatement("INSERT INTO examen (id_dmr, date_examen, id_medecin, type_examen, salle, pacs, dossier_papier,  examen_termine, historique_modification, cout_examen) VALUES (?,?,?,?,?,?,?,?,?);");
-            statement.setInt(1, examen.get);
-            statement.setString(2, patient.getNom_d_usage());
-            statement.setString(3, patient.getNom_de_naissance());
-            statement.setString(4, patient.getPrenom());
-            statement.setDate(5, patient.getDate_de_naissance());
-            statement.setString(6, patient.getGenre().toString());
-            statement.setInt(7, patient.getAdresse().getId_adresse());
-            statement.setInt(8, patient.getDmr().getId_dmr());
+         statement = connexion.prepareStatement("INSERT INTO examen (id_dmr, date_examen, id_medecin, type_examen, salle, pacs, dossier_papier,  examen_termine, historique_modification, cout_examen) VALUES (?,?,?,?,?,?,?,?,?);");
+         statement.setInt(1, examen.get);
+         statement.setString(2, patient.getNom_d_usage());
+         statement.setString(3, patient.getNom_de_naissance());
+         statement.setString(4, patient.getPrenom());
+         statement.setDate(5, patient.getDate_de_naissance());
+         statement.setString(6, patient.getGenre().toString());
+         statement.setInt(7, patient.getAdresse().getId_adresse());
+         statement.setInt(8, patient.getDmr().getId_dmr());
 
-            int resultat = statement.executeUpdate();
+         int resultat = statement.executeUpdate();
 
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+         } catch (SQLException e) {
+         e.printStackTrace();
+         }
 
-        System.out.println("pb dans la connexion à la bd");*/
+         System.out.println("pb dans la connexion à la bd");*/
 
         //Connaitre le nombre de patient dans la table pour avoir le numéro du patient =id_patient
 
@@ -90,8 +95,7 @@ public class testbd {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        
 
         //créer DMR
 

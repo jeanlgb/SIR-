@@ -293,7 +293,7 @@ public class Login extends javax.swing.JFrame {
     private void loginActionPerformed() {
         NF.Acces_BD bd = new Acces_BD();
         Connection connexion = bd.connexion;
-        String s = "com.mysql.cj.jdbc.Driver"; // "com.mysql.cj.jdbc.Driver"
+
 
         try {
             Connexion nouvelle_connexion = new Connexion(Integer.parseInt(txtidentifiant.getText()), String.valueOf(txtmdp.getPassword()));
