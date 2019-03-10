@@ -38,7 +38,7 @@ public class Ajout_Exam extends javax.swing.JFrame {
         jLabel_Sexe = new javax.swing.JLabel();
         jButton_Sauvegarder = new javax.swing.JButton();
         jLabel_ExamLier = new javax.swing.JLabel();
-        jComboBox_Lier = new javax.swing.JComboBox<>();
+        jComboBox_Lier = new javax.swing.JComboBox<String>();
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_IDPatient = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
@@ -58,7 +58,8 @@ public class Ajout_Exam extends javax.swing.JFrame {
         jLabel_DateCrea.setText("Date de création :");
 
         dateCreaDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        dateCreaDMR.setText("Date_DMR");
+        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+        dateCreaDMR.setText(date.toString());
 
         jLabel_HeureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel_HeureCrea.setText("Heure de création :");
@@ -87,7 +88,7 @@ public class Ajout_Exam extends javax.swing.JFrame {
         jLabel_ExamLier.setText("Examen éxistant à lier :");
 
         jComboBox_Lier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Lier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_Lier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
         jComboBox_Lier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_LierActionPerformed(evt);

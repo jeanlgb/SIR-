@@ -12,9 +12,8 @@ import NF.Examen;
 import NF.Historique_modifications;
 import NF.Medecin;
 import NF.Type_examen;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -101,25 +100,62 @@ public class Gestion_DMR {
 
     /**
      * A partir d'un dmr passé en paramètre, crée ce dmr dans la BD
+     * Dans un premier temps, on regarde si le patient existe et si il a un dmr
      */
     public static boolean creerDMR(DMR dmr) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;
+        PreparedStatement stat;
+        Gestion_patient gestionPatient = new Gestion_patient();
+        int id_patient = 0;
         try {
-            statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient, historique_modifications) VALUES (?,?,?);");
-            statement.setInt(1, dmr.getId_dmr());
-            statement.setInt(2, dmr.getId_patient());
-            statement.setInt(3, dmr.getHistorique_modifications().getId_historique());
-            int resultat = statement.executeUpdate();
-            return true;
+
+            stat = connexion.prepareStatement("SELECT * FROM  dmr WHERE id_patient = " + dmr.getId_patient());
+            ResultSet resultset = stat.executeQuery();
+            while (resultset.next()) {
+                id_patient = resultset.getInt("id_patient");
+            }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("exception");
+        }
+        System.out.println(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient())));
+        if(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient()))!=null && id_patient==0) {
+            try {
+                statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient, historique_modifications) VALUES (?,?,?);");
+                statement.setInt(1, dmr.getId_dmr());
+                statement.setInt(2, dmr.getId_patient());
+                statement.setInt(3, dmr.getHistorique_modifications().getId_historique());
+                statement.executeUpdate();
+                return true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("pb dans la connexion à la bd");
         return false;
+    }
+
+    public int générerIdDMR(){
+        //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+
+        int nombredmr = 0;
+        try {
+            Statement stat = connexion.createStatement();
+            ResultSet resultSetDMR = stat.executeQuery("SELECT count(id_dmr) FROM dmr;");
+            while (resultSetDMR.next()) {
+                nombredmr = (resultSetDMR.getInt(1));
+            }
+            nombredmr +=1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombredmr;
     }
 
     /**
@@ -129,17 +165,18 @@ public class Gestion_DMR {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;
-        try {
-            statement = connexion.prepareStatement("UPDATE dmr SET id_patient = ?, historique_modifications = ? WHERE id_dmr = ? ;");
-            statement.setInt(1, dmr.getId_patient());
-            statement.setInt(2, dmr.getHistorique_modifications().getId_historique());
-            statement.setInt(3, dmr.getId_dmr());
-            int resultat = statement.executeUpdate();
-            return true;
+            try {
+                statement = connexion.prepareStatement("UPDATE dmr SET id_patient = ?, historique_modifications = ? WHERE id_dmr = ? ;");
+                statement.setInt(1, dmr.getId_patient());
+                statement.setInt(2, dmr.getHistorique_modifications().getId_historique());
+                statement.setInt(3, dmr.getId_dmr());
+                int resultat = statement.executeUpdate();
+                return true;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
         System.out.println("pb dans la connexion à la bd");
         return false;

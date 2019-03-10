@@ -96,15 +96,13 @@
                                           <Component id="jLabel_IDPatient" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextField_Nom1" max="32767" attributes="0"/>
                                           <Component id="idPatient" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jComboBox_Sexe" min="-2" max="-2" attributes="0"/>
-                                              <Component id="heureCrea" max="32767" attributes="0"/>
-                                              <Component id="dateDMR" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField_Nom" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextField_Prenom" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jComboBox_Sexe" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dateDMR" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField_Nom" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextField_Prenom" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -137,26 +135,32 @@
                           <Component id="jLabel_ExamLier" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox_ExamLier" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel_HeureCrea" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="heureCrea" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel_Reference" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel_HeureCrea" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel_Reference" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jTextField_Reference" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="jLabel_Nom" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jTextField_Nom1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField_Reference" max="32767" attributes="0"/>
+                              <Component id="jTextField_Nom" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField_Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel_Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField_Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -189,10 +193,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="dateDMR">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="java.sql.Date date = new java.sql.Date(System.currentTimeMillis());">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date_DMR"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="date.toString()" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel_HeureCrea">
@@ -200,15 +206,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Heure de cr&#xe9;ation :"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="heureCrea">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="16" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Heure_DMR"/>
+                <Property name="text" type="java.lang.String" value="Date de naissance"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel_Nom">
@@ -328,6 +326,8 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_Reference.setVisible(false);"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField_Nom1">
             </Component>
           </SubComponents>
         </Container>

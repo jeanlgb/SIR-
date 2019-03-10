@@ -5,6 +5,11 @@
  */
 package UI;
 
+import NF.*;
+import BD.Gestion_DMR;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author camin
@@ -32,20 +37,20 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_DateCrea = new javax.swing.JLabel();
         dateDMR = new javax.swing.JLabel();
         jLabel_HeureCrea = new javax.swing.JLabel();
-        heureCrea = new javax.swing.JLabel();
         jLabel_Nom = new javax.swing.JLabel();
         jLabel_Prenom = new javax.swing.JLabel();
         jLabel_Sexe = new javax.swing.JLabel();
-        jComboBox_Sexe = new javax.swing.JComboBox<>();
+        jComboBox_Sexe = new javax.swing.JComboBox<String>();
         jButton_SauvegarderFermer = new javax.swing.JButton();
         jTextField_Nom = new javax.swing.JTextField();
         jTextField_Prenom = new javax.swing.JTextField();
         jLabel_ExamLier = new javax.swing.JLabel();
-        jComboBox_ExamLier = new javax.swing.JComboBox<>();
+        jComboBox_ExamLier = new javax.swing.JComboBox<String>();
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_IDPatient = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
         jTextField_Reference = new javax.swing.JTextField();
+        jTextField_Nom1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -59,13 +64,11 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_DateCrea.setText("Date de création :");
 
         dateDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        dateDMR.setText("Date_DMR");
+        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+        dateDMR.setText(date.toString());
 
         jLabel_HeureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_HeureCrea.setText("Heure de création :");
-
-        heureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        heureCrea.setText("Heure_DMR");
+        jLabel_HeureCrea.setText("Date de naissance");
 
         jLabel_Nom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel_Nom.setText("Nom :");
@@ -77,7 +80,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_Sexe.setText("Sexe :");
 
         jComboBox_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme" }));
+        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Homme", "Femme" }));
         jComboBox_Sexe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SexeActionPerformed(evt);
@@ -96,7 +99,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_ExamLier.setText("Examen éxistant à lier :");
 
         jComboBox_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
         jComboBox_ExamLier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_ExamLierActionPerformed(evt);
@@ -136,14 +139,14 @@ public class Crea_DMR extends javax.swing.JFrame {
                                     .addComponent(jLabel_Sexe)
                                     .addComponent(jLabel_IDPatient))
                                 .addGap(23, 23, 23)
-                                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField_Nom1)
                                     .addComponent(idPatient)
                                     .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jComboBox_Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(heureCrea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(dateDMR)
                                         .addComponent(jTextField_Nom)
-                                        .addComponent(jTextField_Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jTextField_Prenom)))))
                         .addGap(56, 56, 56)
                         .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_ExamLier)
@@ -165,21 +168,25 @@ public class Crea_DMR extends javax.swing.JFrame {
                     .addComponent(dateDMR)
                     .addComponent(jLabel_ExamLier)
                     .addComponent(jComboBox_ExamLier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_HeureCrea)
+                                    .addComponent(jLabel_Reference)))
+                            .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField_Reference)))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel_Nom))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_HeureCrea)
-                            .addComponent(heureCrea)
-                            .addComponent(jLabel_Reference)))
-                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
+                        .addComponent(jTextField_Nom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField_Reference)))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Nom)
-                    .addComponent(jTextField_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                        .addComponent(jTextField_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Prenom)
                     .addComponent(jTextField_Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -230,7 +237,13 @@ public class Crea_DMR extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox_SexeActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
-        // TODO add your handling code here:
+        Gestion_DMR d = new Gestion_DMR();
+        int idDMR = d.générerIdDMR();
+        ArrayList<Examen> liste = new ArrayList<Examen>();
+        Historique_modifications modifications = new Historique_modifications(0,null);
+        DMR dmr = new DMR(idDMR,4,liste,modifications);
+
+        d.creerDMR(dmr);
     }//GEN-LAST:event_jButton_SauvegarderFermerActionPerformed
 
     private void jComboBox_ExamLierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ExamLierActionPerformed
@@ -290,7 +303,6 @@ public class Crea_DMR extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateDMR;
-    private javax.swing.JLabel heureCrea;
     private javax.swing.JLabel idPatient;
     private javax.swing.JButton jButton_SauvegarderFermer;
     private javax.swing.JComboBox<String> jComboBox_ExamLier;
@@ -306,6 +318,7 @@ public class Crea_DMR extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_Base;
     private javax.swing.JPanel jPanel_DMR;
     private javax.swing.JTextField jTextField_Nom;
+    private javax.swing.JTextField jTextField_Nom1;
     private javax.swing.JTextField jTextField_Prenom;
     private javax.swing.JTextField jTextField_Reference;
     // End of variables declaration//GEN-END:variables

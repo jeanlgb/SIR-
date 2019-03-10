@@ -82,7 +82,7 @@ public class testbd {
 
 
         //créer DMR
-
+/**
         try {
             ArrayList<Examen> examens = new ArrayList<>();
             DMR dmr = new DMR(nombredmr, examens);
@@ -96,7 +96,7 @@ public class testbd {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
