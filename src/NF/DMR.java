@@ -85,4 +85,9 @@ public class DMR {
         return historique_modifications;
     }
 
+    @Override
+    public String toString() {
+        return "DMR{" + "id_dmr=" + id_dmr + ", id_patient=" + id_patient + ", examens_patient=" + examens_patient + ", historique_modifications=" + historique_modifications + '}';
+    }
+
 }

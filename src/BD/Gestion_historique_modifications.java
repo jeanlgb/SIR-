@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author maudl
  */
-public class Gestion_Historique_modifications {
+public class Gestion_historique_modifications {
 
     /**
      * renvoie en arraylist les modifications associées à un même historique de
@@ -30,7 +30,7 @@ public class Gestion_Historique_modifications {
         ArrayList<Modification> modifications = null;
 
         try {
-            statement = connexion.prepareStatement("SELECT id_modification, date, auteur FROM historique_modifications WHERE id_historique = ?");
+            statement = connexion.prepareStatement("SELECT id_modification, date, auteur FROM modification WHERE id_historique = ?");
             statement.setInt(1, Integer.parseInt(id_recherche));
 
             ResultSet resultset = statement.executeQuery();

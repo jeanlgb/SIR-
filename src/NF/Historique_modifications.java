@@ -45,4 +45,9 @@ public class Historique_modifications {
         return id_historique;
     }
 
+    @Override
+    public String toString() {
+        return "Historique_modifications{" + "id_historique=" + id_historique + ", liste_modifications=" + liste_modifications + '}';
+    }
+
 }

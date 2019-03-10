@@ -13,23 +13,12 @@ import NF.Type_examen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 /**
  *
  * @author leclemau
  */
 public class Gestion_examen {
-
-    private Examen examen;
-
-    public Gestion_examen(Examen examen) {
-        this.examen = examen;
-    }
-
-    public Gestion_examen() {
-        this.examen = null;
-    }
 
     /**
      * permet de rechercher un examen (renvoie un type Examen) à partir de l'identifiant de l'examen
@@ -41,7 +30,7 @@ public class Gestion_examen {
         Examen examen_trouve = null;
 
         try {
-            statement = connexion.prepareStatement("SELECT id_examen, date_examen, medecin.id_medecin, medecin.nom, medecin.prenom, type_examen, duree_prevue, salle, compte_rendu, pacs, dossier_papier, examen_termine, historique_modifications, cout_examen, examen.id_dmr FROM examen JOIN dmr ON (examen.id_dmr=dmr.id_dmr) JOIN medecin ON (examen.id_medecin = medecin.id_medecin) WHERE examen.id_examen = ?");
+            statement = connexion.prepareStatement("SELECT id_examen, date_examen, id_medecin, type_examen, duree_prevue, salle, compte_rendu, pacs, dossier_papier, examen_termine, dmr.historique_modifications, cout_examen, examen.id_dmr FROM examen JOIN dmr ON (examen.id_dmr=dmr.id_dmr) WHERE examen.id_examen = ?");
             statement.setInt(1, Integer.parseInt(id_recherche));
 
             ResultSet resultset = statement.executeQuery();
@@ -50,10 +39,8 @@ public class Gestion_examen {
                 int id_examen = resultset.getInt("id_examen");
                 java.sql.Date date = resultset.getDate("date_examen");
                 //creation medecin
-                int id_medecin = resultset.getInt("medecin.id_medecin");
-                String nom_medecin = resultset.getString("medecin.nom");
-                String prenom_medecin = resultset.getString("medecin.prenom");
-                Medecin medecin_en_charge = new Medecin(id_medecin, nom_medecin, prenom_medecin);
+                int id_medecin = resultset.getInt("id_medecin");
+                Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin));
                 //fin creation medecin
                 String type_examen_string = resultset.getString("type_examen");
                 Type_examen type_examen = Type_examen.valueOf(type_examen_string);
@@ -61,14 +48,14 @@ public class Gestion_examen {
                 int salle = resultset.getInt("salle");
                 //creation compte rendu
                 String cr = resultset.getString("compte_rendu");
-                Compte_rendu compte_rendu = new Compte_rendu(medecin_en_charge, cr);
+                Compte_rendu compte_rendu = new Compte_rendu(medecin, cr);
                 //fin creation compte rendu
                 int pacs = resultset.getInt("pacs");
                 int dossier_papier = resultset.getInt("dossier_papier");
                 int examen_termine = resultset.getInt("examen_termine");
                 double cout_examen = resultset.getDouble("cout_examen");
 
-                examen_trouve = new Examen(date, medecin_en_charge, type_examen, compte_rendu);
+                examen_trouve = new Examen(date, medecin, type_examen, compte_rendu);
 
             }
 
@@ -78,7 +65,10 @@ public class Gestion_examen {
         return examen_trouve;
     }
 
-    public boolean creerExamen() {
+    /**
+     * crée l'examen passé en paramètres dans la base de données
+     */
+    public static boolean creerExamen(Examen examen) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;

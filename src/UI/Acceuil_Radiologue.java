@@ -655,7 +655,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // Code recherche
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
-        Patient patient_recherché = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(),null);
+        Patient patient_recherché = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
         //Gestion_patient patient_recherché = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_recherché = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         int i = 0;

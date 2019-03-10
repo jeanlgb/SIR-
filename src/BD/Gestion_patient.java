@@ -4,53 +4,35 @@ import NF.*;
 
 import NF.Patient;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Date;
 
 public class Gestion_patient {
 
-    private Patient patient;
-
-    public Gestion_patient(Patient p) {
-        this.patient = p;
-    }
-
     /**
-     * permet de rechercher un patient dans la BD à partir de son id ou de son nom. est ce que ça marche si l'un des champs est null??? et vomment il gère si il y a deux patients avec le même nom?
-     * renvoie le patient.
-     * modifier la méthode pour si il y a plusieurs patients. créer une autre méthode? ou alors renvoyer une arraylist? et peut etre prendre d'autres param en entrée?
+     * permet de rechercher un patient dans la BD à partir de son id.
      */
-    public static Patient rechercher_patient(String ID, String nom) {
+    public static Patient rechercher_patient(String id_recherche) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement = null;
 
         try {
-            statement = connexion.prepareStatement("SELECT id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_dmr, rue, numero, lieu_dit, code_postal, commune, pays FROM patient JOIN adresse WHERE patient.id_patient = ? OR nom_d_usage = ?");
-            statement.setInt(1, Integer.parseInt(ID));
-            statement.setString(2, nom);
+            statement = connexion.prepareStatement("SELECT id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr FROM patient WHERE id_patient = ?");
+            statement.setInt(1, Integer.parseInt(id_recherche));
             ResultSet resultset = statement.executeQuery();
             while (resultset.next()) {
-                int id = resultset.getInt("id_patient");
                 String nom_d_usage = resultset.getString("nom_d_usage");
                 String nom_de_naissance = resultset.getString("nom_de_naissance");
                 String prenom_patient = resultset.getString("prenom_patient");
                 java.sql.Date date_de_naissance = resultset.getDate("date_de_naissance");
-                String id_dmr = resultset.getString("id_dmr");
                 Genre genre = Genre.valueOf(resultset.getString("genre"));
-                String rue = resultset.getString("rue");
-                String numero = resultset.getString("numero");
-                String lieu_dit = resultset.getString("lieu_dit");
-                String code_postal = resultset.getString("code_postal");
-                String commune = resultset.getString("commune");
-                String pays = resultset.getString("pays");
-                Adresse adresse = new Adresse(numero, rue, lieu_dit, code_postal, commune, pays);
-
-                Patient patient = new Patient(id, nom_d_usage, prenom_patient, date_de_naissance, genre, adresse);
+                int id_adresse = resultset.getInt("id_adresse");
+                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse));
+                String id_dmr = resultset.getString("id_dmr");
+                
+                Patient patient = new Patient(Integer.parseInt(id_recherche), nom_d_usage, prenom_patient, date_de_naissance, genre, adresse);
                 return patient;
             }
         } catch (Exception e) {
@@ -59,7 +41,11 @@ public class Gestion_patient {
         return null;
     }
 
-    public boolean mettreAJour() {
+    /**
+     * A partir d'un patient passé en paramètres, met à jour le patient dans la
+     * BD (se base sur l'id du patient pour le retrouver dans la BD)
+     */
+    public static boolean mettreAJour(Patient patient) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;
@@ -85,13 +71,16 @@ public class Gestion_patient {
         return false;
     }
 
-    //INSERT INTO `patient` (`id_patient`, `nom_d_usage`, `nom_de_naissance`, `prenom_patient`, `date_de_naissance`, `genre`, `id_adresse`, `id_dmr`) VALUES ('14', 'ert', 'erg', 'erg', '2019-03-21', 'H', '752', '752');
-    public boolean creerPatient() {
+    /**
+     * A partir d'un patient passé en paramètres, crée un patient dans la base
+     * de données.
+     */
+    public static boolean creerPatient(Patient patient) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;
         try {
-            statement = connexion.prepareStatement("INSERT INTO patient (id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse,  id_dmr) VALUES (?,?,?,?,?,?,?,?);");
+            statement = connexion.prepareStatement("INSERT INTO patient (id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr) VALUES (?,?,?,?,?,?,?,?);");
             statement.setInt(1, patient.getIdentifiant());
             statement.setString(2, patient.getNom_d_usage());
             statement.setString(3, patient.getNom_de_naissance());
@@ -112,11 +101,4 @@ public class Gestion_patient {
         return false;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }
