@@ -10,7 +10,6 @@ package BD;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import NF.*;
 
 import java.sql.*;
@@ -37,85 +36,91 @@ public class testbd {
 //        p.setDmr(dmrbd);
 //        Rechercher_Patient rp = new Rechercher_Patient(p);
 //        rp.creerPatient();
-
-
         //Connexion bd
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement;
 
         //créer examen
-        /**Examen examen = new Examen()
-         try {
-
-         statement = connexion.prepareStatement("INSERT INTO examen (id_dmr, date_examen, id_medecin, type_examen, salle, pacs, dossier_papier,  examen_termine, historique_modification, cout_examen) VALUES (?,?,?,?,?,?,?,?,?);");
-         statement.setInt(1, examen.get);
-         statement.setString(2, patient.getNom_d_usage());
-         statement.setString(3, patient.getNom_de_naissance());
-         statement.setString(4, patient.getPrenom());
-         statement.setDate(5, patient.getDate_de_naissance());
-         statement.setString(6, patient.getGenre().toString());
-         statement.setInt(7, patient.getAdresse().getId_adresse());
-         statement.setInt(8, patient.getDmr().getId_dmr());
-
-         int resultat = statement.executeUpdate();
-
-
-         } catch (SQLException e) {
-         e.printStackTrace();
-         }
-
-         System.out.println("pb dans la connexion à la bd");*/
-
+        /**
+         * Examen examen = new Examen() try {
+         *
+         * statement = connexion.prepareStatement("INSERT INTO examen (id_dmr,
+         * date_examen, id_medecin, type_examen, salle, pacs, dossier_papier,
+         * examen_termine, historique_modification, cout_examen) VALUES
+         * (?,?,?,?,?,?,?,?,?);"); statement.setInt(1, examen.get);
+         * statement.setString(2, patient.getNom_d_usage());
+         * statement.setString(3, patient.getNom_de_naissance());
+         * statement.setString(4, patient.getPrenom()); statement.setDate(5,
+         * patient.getDate_de_naissance()); statement.setString(6,
+         * patient.getGenre().toString()); statement.setInt(7,
+         * patient.getAdresse().getId_adresse()); statement.setInt(8,
+         * patient.getDmr().getId_dmr());
+         *
+         * int resultat = statement.executeUpdate();
+         *
+         *
+         * } catch (SQLException e) { e.printStackTrace(); }
+         *
+         * System.out.println("pb dans la connexion à la bd");
+         */
         //Connaitre le nombre de patient dans la table pour avoir le numéro du patient =id_patient
-
-        int nombrepatient = 0;
-        try {
-            Statement stat = connexion.createStatement();
-            ResultSet resultSetPatient = stat.executeQuery("SELECT count(id_patient) FROM patient;");
-            while (resultSetPatient.next()) {
-                nombrepatient = (resultSetPatient.getInt(1));
-            }
-            nombrepatient +=1;
-            System.out.println( nombrepatient);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        int nombrepatient = 0;
+//        try {
+//            Statement stat = connexion.createStatement();
+//            ResultSet resultSetPatient = stat.executeQuery("SELECT count(id_patient) FROM patient;");
+//            while (resultSetPatient.next()) {
+//                nombrepatient = (resultSetPatient.getInt(1));
+//            }
+//            nombrepatient += 1;
+//            System.out.println(nombrepatient);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
-
-        int nombredmr = 0;
-        try {
-            Statement stat = connexion.createStatement();
-            ResultSet resultSetDMR = stat.executeQuery("SELECT count(id_dmr) FROM dmr;");
-            while (resultSetDMR.next()) {
-                nombredmr = (resultSetDMR.getInt(1));
-            }
-            nombredmr +=1;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+//        int nombredmr = 0;
+//        try {
+//            Statement stat = connexion.createStatement();
+//            ResultSet resultSetDMR = stat.executeQuery("SELECT count(id_dmr) FROM dmr;");
+//            while (resultSetDMR.next()) {
+//                nombredmr = (resultSetDMR.getInt(1));
+//            }
+//            nombredmr += 1;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //créer DMR
-
+//        try {
+//            ArrayList<Examen> examens = new ArrayList<>();
+//            DMR dmr = new DMR(nombredmr, examens);
+//            statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient) VALUES (?,?) ;");
+//            statement.setInt(1, dmr.getId_dmr());
+//            statement.setInt(2, dmr.getId_patient());
+//            //statement.setString(3, dmr.getHistorique_modifications().toString());
+//
+//            int resultat = statement.executeUpdate();
+//
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        Gestion_examen ge = new Gestion_examen();
+//        ArrayList<Examen> resultat = ge.rechercher_Examen("1");
+//        System.out.println(resultat.size());
+//        for (int i=0; i<resultat.size(); i++){
+//            System.out.println(resultat.get(i));
+//        }
+//        creation d'examen dans la BD
         try {
-            ArrayList<Examen> examens = new ArrayList<>();
-            DMR dmr = new DMR(nombredmr, examens);
-            statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient) VALUES (?,?) ;");
-            statement.setInt(1, dmr.getId_dmr());
-            statement.setInt(2, dmr.getId_patient());
-            //statement.setString(3, dmr.getHistorique_modifications().toString());
-
-            int resultat = statement.executeUpdate();
-
-
-        } catch (SQLException e) {
+           Examen exam1 = new Examen(5, new DMR(1, new ArrayList<Examen>(), new Historique_modifications(1, new ArrayList<Modification>())), new java.sql.Date(100, 3, 1), new Medecin(1, "nom", "prenom"), Type_examen.angiographie, 2.5, new Salle(1, new ArrayList<Type_examen>(), true, new EDT()), new Compte_rendu( new Medecin(1, "nom", "prenom"), "texte du cr"), new PACS(1, "mention", new Historique_modifications(1, new ArrayList<Modification>())), true, true, new Historique_modifications(1, new ArrayList<Modification>()), 2.5 );
+           Gestion_examen gest1 = new Gestion_examen(exam1); 
+           gest1.creerExamen();
+        }catch (Exception e) {
             e.printStackTrace();
         }
 
-
+        }
 
     }
-
-}

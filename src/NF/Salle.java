@@ -16,6 +16,7 @@ private EDT edt_salle;
      * constructeur qui demande un numéro de salle, un ArrayList des type d'examen, un boolean d'examen numérique et l'emploi du temps d'un salle d'examen
      */
 
+
     public Salle(int numero_salle, ArrayList<Type_examen> type_examens, boolean examen_numerique, EDT edt_salle) {
         this.numero_salle = numero_salle;
         this.type_examens = type_examens;

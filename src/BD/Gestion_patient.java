@@ -2,6 +2,7 @@ package BD;
 
 import NF.*;
 
+import NF.Patient;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,15 +11,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Date;
 
-public class Rechercher_Patient {
+public class Gestion_patient {
 
-    private NF.Patient patient;
+    private Patient patient;
 
-    Rechercher_Patient(Patient p) {
+    public Gestion_patient(Patient p) {
         this.patient = p;
     }
 
-    public Rechercher_Patient(String ID, String nom) {
+    /**
+     * permet de rechercher un patient dans la BD à partir de son id ou de son nom. est ce que ça marche si l'un des champs est null??? et vomment il gère si il y a deux patients avec le même nom?
+     * renvoie le patient.
+     * modifier la méthode pour si il y a plusieurs patients. créer une autre méthode? ou alors renvoyer une arraylist? et peut etre prendre d'autres param en entrée?
+     */
+    public static Patient rechercher_patient(String ID, String nom) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement = null;
@@ -35,7 +41,7 @@ public class Rechercher_Patient {
                 String prenom_patient = resultset.getString("prenom_patient");
                 java.sql.Date date_de_naissance = resultset.getDate("date_de_naissance");
                 String id_dmr = resultset.getString("id_dmr");
-                String genre = resultset.getString("genre");
+                Genre genre = Genre.valueOf(resultset.getString("genre"));
                 String rue = resultset.getString("rue");
                 String numero = resultset.getString("numero");
                 String lieu_dit = resultset.getString("lieu_dit");
@@ -43,22 +49,14 @@ public class Rechercher_Patient {
                 String commune = resultset.getString("commune");
                 String pays = resultset.getString("pays");
                 Adresse adresse = new Adresse(numero, rue, lieu_dit, code_postal, commune, pays);
-                if (genre.equals("H")) {
-                    setPatient(new Patient(id, nom_d_usage, prenom_patient, date_de_naissance, Genre.H, adresse));
-                } else {
-                    if (genre.equals("Autre")) {
-                        setPatient(new Patient(id, nom_d_usage, prenom_patient, date_de_naissance, Genre.Autre, adresse));
-                    } else {
-                        if (genre.equals("F")) {
-                            setPatient(new Patient(id, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, Genre.F, adresse));
-                        }
-                    }
-                }
+
+                Patient patient = new Patient(id, nom_d_usage, prenom_patient, date_de_naissance, genre, adresse);
+                return patient;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 
     public boolean mettreAJour() {
