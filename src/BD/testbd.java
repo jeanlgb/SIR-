@@ -80,6 +80,26 @@ public class testbd {
             e.printStackTrace();
         }
 
+
+        //créer DMR
+
+        try {
+            ArrayList<Examen> examens = new ArrayList<>();
+            DMR dmr = new DMR(nombredmr, examens);
+            statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient) VALUES (?,?) ;");
+            statement.setInt(1, dmr.getId_dmr());
+            statement.setInt(2, dmr.getId_patient());
+            //statement.setString(3, dmr.getHistorique_modifications().toString());
+
+            int resultat = statement.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
 }
