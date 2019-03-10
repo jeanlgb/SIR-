@@ -4,28 +4,33 @@ import java.util.Date;
 
 /**
  *
- * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
+ * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral
+ * Olivia
  */
 public class Examen {
-private java.util.Date date;
-private Medecin medecin_en_charge;
-private Type_examen type_examen;
-private double duree_prevue;
-private Salle salle;
-private Compte_rendu compte_rendu;
-private PACS lien_pacs;
-private boolean dossier_papier;
-private boolean examen_termine;
-private Historique_modifications historique_modifications;
-private double cout_examen;
+
+    private int id_examen;
+    private DMR dmr;
+    private java.sql.Date date;
+    private Medecin medecin_en_charge;
+    private Type_examen type_examen;
+    private double duree_prevue;
+    private Salle salle;
+    private Compte_rendu compte_rendu;
+    private PACS lien_pacs;
+    private boolean dossier_papier;
+    private boolean examen_termine;
+    private Historique_modifications historique_modifications;
+    private double cout_examen;
     private String medecin;
     private String CR;
     private String type;
 
     /**
-     * Constructeur qui demande la date de l'examen, le médecin en charge de l'examen et le type de l'examen
+     * Constructeur qui demande la date de l'examen, le médecin en charge de
+     * l'examen et le type de l'examen
      */
-   public Examen(Date date, Medecin medecin_en_charge, Type_examen type_examen, Compte_rendu compte_rendu) {
+    public Examen(java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, Compte_rendu compte_rendu) {
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
         this.type_examen = type_examen;
@@ -34,17 +39,35 @@ private double cout_examen;
         // this.cout_examen= type_examen.getCout();
     }
 
+    public Examen(int id_examen, DMR dmr, java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, double duree_prevue, Salle salle, Compte_rendu compte_rendu, PACS lien_pacs, boolean dossier_papier, boolean examen_termine, Historique_modifications historique_modifications, double cout_examen) {
+        this.id_examen = id_examen;
+        this.dmr = dmr;
+        this.date = date;
+        this.medecin_en_charge = medecin_en_charge;
+        this.type_examen = type_examen;
+        this.duree_prevue = duree_prevue;
+        this.salle = salle;
+        this.compte_rendu = compte_rendu;
+        this.lien_pacs = lien_pacs;
+        this.dossier_papier = dossier_papier;
+        this.examen_termine = examen_termine;
+        this.historique_modifications = historique_modifications;
+        this.cout_examen = cout_examen;
+    }
+
+    
+    
     /**
      * @return the date
      */
-    public java.util.Date getDate() {
+    public java.sql.Date getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(java.util.Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 
@@ -174,8 +197,36 @@ private double cout_examen;
         return cout_examen;
     }
 
-    public String toString(){
-        return "L'examen de type " + type_examen + "d'une durée de "+ duree_prevue + "effectué le " + date + "par le Dr " + medecin_en_charge
-        + "en salle " + salle +"." + "/n L'examen est terminé : " + examen_termine + "." + "/n Compte rendu : " + compte_rendu;
+    public String toString() {
+        return "L'examen de type " + type_examen + "d'une durée de " + duree_prevue + "effectué le " + date + "par le Dr " + medecin_en_charge
+                + "en salle " + salle + "." + "/n L'examen est terminé : " + examen_termine + "." + "/n Compte rendu : " + compte_rendu;
+    }
+
+    /**
+     * @return the id_examen
+     */
+    public int getId_examen() {
+        return id_examen;
+    }
+
+    /**
+     * @param id_examen the id_examen to set
+     */
+    public void setId_examen(int id_examen) {
+        this.id_examen = id_examen;
+    }
+
+    /**
+     * @return the dmr
+     */
+    public DMR getDmr() {
+        return dmr;
+    }
+
+    /**
+     * @param dmr the dmr to set
+     */
+    public void setDmr(DMR dmr) {
+        this.dmr = dmr;
     }
 }

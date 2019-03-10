@@ -14,6 +14,16 @@ public class Adresse {
     private String commune;
     private String pays;
 
+    public Adresse(int id_adresse, String numéro, String rue, String lieu_dit, String code_postal, String commune, String pays) {
+        this.id_adresse = id_adresse;
+        this.numéro = numéro;
+        this.rue = rue;
+        this.lieu_dit = lieu_dit;
+        this.code_postal = code_postal;
+        this.commune = commune;
+        this.pays = pays;
+    }
+
     /**
      * Constructeur de la classe Adresse
      */

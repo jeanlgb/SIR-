@@ -85,39 +85,6 @@ public class Patient {
         return false;
     }
 
-    /**
-     * Ajoute un nouveau patient à la base de données
-     */
-    public boolean ajouterNouveauPatient() {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = null;
-        try {
-            Class.forName(acces_BD.s);
-            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
-            /* Ici, mettre les requêtes vers la BDD */
-            String requete = "INSERT INTO patient";
-            requete += this.identifiant +",";
-            requete += this.nom_d_usage +",";
-            requete += this.nom_de_naissance +",";
-            requete += this.prenom +",";
-            requete += this.date_de_naissance+",";
-            requete += this.genre +",";
-            requete += this.adresse +",";
-            requete += this.dmr +",;";
-            
-            Statement statement = connexion.createStatement();
-            ResultSet resultat = statement.executeQuery(requete);
-
-            return true;
-
-            /* fin de l'espace pour écrire les requêtes */
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("pb dans la connexion à la bd");
-        return false;
-    }
 
     @Override
     public String toString() {
