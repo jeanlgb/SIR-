@@ -5,19 +5,28 @@
  */
 package UI;
 
-import BD.Gestion_patient;
+import NF.DMR;
+import NF.Examen;
 import NF.Impression;
 import NF.Patient;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import BD.Gestion_DMR;
+import BD.Gestion_patient;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 /**
  *
  * @author camin
  */
 public class Acceuil_Radiologue extends javax.swing.JFrame {
+
+    int nblignes;
+    String s = "";
 
     /**
      * Creates new form Acceuil_Radiologue
@@ -47,7 +56,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTabbedPane_Corps = new javax.swing.JTabbedPane();
         jPanel_Corps_Exam = new javax.swing.JPanel();
         jLabel_RecherchePar = new javax.swing.JLabel();
-        jComboBox_Recherche = new javax.swing.JComboBox<>();
+        jComboBox_Recherche = new javax.swing.JComboBox<String>();
         jTextField_Recherche = new javax.swing.JTextField();
         jScrollPane_Corps_Exam_Tab = new javax.swing.JScrollPane();
         jTable_Exam = new javax.swing.JTable();
@@ -63,7 +72,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RechercheParDMR = new javax.swing.JLabel();
         jTextField_RechercheDMR = new javax.swing.JTextField();
         jButton_RechercherDMR = new javax.swing.JButton();
-        jComboBox_RechercheDMR = new javax.swing.JComboBox<>();
+        jComboBox_RechercheDMR = new javax.swing.JComboBox<String>();
         jButton_CreerDMR = new javax.swing.JButton();
         jButton_ImprimerDMR = new javax.swing.JButton();
         jScrollPane_Corps_DMR = new javax.swing.JScrollPane();
@@ -102,11 +111,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
-        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ParametresActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -180,7 +184,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -309,7 +313,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTextArea_Apercu.setColumns(20);
         jTextArea_Apercu.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_Apercu.setRows(5);
-        jTextArea_Apercu.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n/*\n\n\n\nINFO PATIENT / DOSSIER P\n\n\n\n\n*/");
+        jTextArea_Apercu.setText(s);
         jScrollPane_Apercu.setViewportView(jTextArea_Apercu);
 
         javax.swing.GroupLayout jPanel_ApercuLayout = new javax.swing.GroupLayout(jPanel_Apercu);
@@ -404,7 +408,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jButton_RechercherDMR.setText("Rerchercher");
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_RechercheDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheDMRActionPerformed(evt);
@@ -501,7 +505,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
-        jTextArea_ApercuDMR.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n/*\n\nExam 1\nExam 2\nExam 3\n\n\n\n*/");
         jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
 
         javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
@@ -598,7 +601,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
 
         // TODO add your handling code here:
-        Visu_DMR DMR= new Visu_DMR();
+        Visu_DMR DMR = new Visu_DMR();
         DMR.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
@@ -656,18 +659,29 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
         Patient patient_recherché = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
+        ArrayList<Examen> examens = new ArrayList<Examen>();
+        DMR dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_recherché.getIdentifiant()));
+        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
         //Gestion_patient patient_recherché = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_recherché = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
-        int i = 0;
-        System.out.println(patient_recherché);
+        for (int i = 0; i < examens.size(); i++) {
+            jTable_Exam.setValueAt(examens.get(i).getDate(), i, 0);
+            jTable_Exam.setValueAt(examens.get(i).getId_examen(), i, 1);
+            jTable_Exam.setValueAt(examens.get(i).getMedecin_en_charge().getNom(), i, 2);
+            jTable_Exam.setValueAt(examens.get(i).getType_examen(), i, 3);
+            jTable_Exam.setValueAt(examens.get(i).getCout_examen(), i, 4);
+            System.out.println(examens.get(i).getCout_examen());
+            jTable_Exam.setModel(model);
+        }
+        String s = "DMR de " + patient_recherché.getNom_d_usage() + " " + patient_recherché.getPrenom() + "\n" + patient_recherché.getDate_de_naissance() + "\n" + patient_recherché.getAdresse();
 
-        jTable_Exam.setValueAt(patient_recherché.getDate_de_naissance(), i, 0);
-        jTable_Exam.setValueAt(patient_recherché.getIdentifiant(), i, 1);
-        jTable_Exam.setValueAt(patient_recherché.getNom_d_usage(), i, 2);
-        jTable_Exam.setValueAt(patient_recherché.getPrenom(), i, 3);
-        jTable_Exam.setValueAt(patient_recherché.getAdresse(), i, 4);
-        jTable_Exam.setModel(model);
-
+        for (int i = 0; i < examens.size(); i++) {
+            s += examens.get(i).toString();
+            s +="\n";
+        }
+        System.out.println(s);
+        jTextArea_Apercu.setText(s);
+        s = "";
     }//GEN-LAST:event_jButton_RechercherActionPerformed
 
     private void jTable_ExamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ExamMouseClicked
@@ -677,18 +691,18 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         if (jTable_Exam.getSelectedRowCount() > 0) {
             /*
 
-            Code pour apercu exam
+             Code pour apercu exam
 
-            */
+             */
         }
         if (evt.getClickCount() == 2) {
 
             if (jTable_Exam.getSelectedRowCount() > 0) {
                 /*
 
-                Code pour ouvrir exam
+                 Code pour ouvrir exam
 
-                */
+                 */
             }
         }
     }//GEN-LAST:event_jTable_ExamMouseClicked

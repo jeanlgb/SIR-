@@ -132,4 +132,16 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    /**public void actualiserImage(){
+
+            int i = slider.getValue();
+            BufferedImage img = listeimage.get(i).getImage();
+            imagePanel.setImg(img);
+            imagePanel.repaint();
+
+        revalidate();
+
+
+    }*/
+
 }

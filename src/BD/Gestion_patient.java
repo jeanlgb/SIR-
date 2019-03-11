@@ -13,14 +13,16 @@ public class Gestion_patient {
     /**
      * permet de rechercher un patient dans la BD à partir de son id.
      */
+
     public static Patient rechercher_patient(String id_recherche) {
         Acces_BD acces_BD = new Acces_BD();
         Connection connexion = acces_BD.connexion;
         PreparedStatement statement = null;
 
         try {
-            statement = connexion.prepareStatement("SELECT id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr FROM patient WHERE id_patient = ?");
+            statement = connexion.prepareStatement("SELECT id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr FROM patient WHERE id_patient = ? OR nom_d_usage = ?");
             statement.setInt(1, Integer.parseInt(id_recherche));
+            statement.setString(2, id_recherche);
             ResultSet resultset = statement.executeQuery();
             while (resultset.next()) {
                 String nom_d_usage = resultset.getString("nom_d_usage");
@@ -99,6 +101,25 @@ public class Gestion_patient {
 
         System.out.println("pb dans la connexion à la bd");
         return false;
+    }
+
+    public static String rechercheIdDMR(int id_patient) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+        String id_dmr = "";
+
+        try {
+            statement = connexion.prepareStatement("SELECT id_dmr FROM patient WHERE id_patient = ?");
+            statement.setInt(1, id_patient);
+            ResultSet resultset = statement.executeQuery();
+            while (resultset.next()) {
+                id_dmr = resultset.getString("id_dmr");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id_dmr;
     }
 
 }
