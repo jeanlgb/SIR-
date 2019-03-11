@@ -548,12 +548,29 @@ public class Crea_Acte extends javax.swing.JFrame {
 
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Impression imprimer = new Impression(jTextArea1);
-        imprimer.print();// TODO add your handling code here:
+        //Impression imprimer = new Impression(jTextArea1);
+        //imprimer.print();// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
+        String s="";
+        s+="Hôpital Princeton Plainsboro - Service de radiologie\n\n";
+        s+="Rapport d'acte "+idexamen.getText()+" fait le "+datexam.getText()+" "+heurexam.getText()+"\n";
+        s+="DR."+nomPraticien.getText()+" "+prenomPraticien.getText();
+        s+="\n\n"+typeExamen.getText()+" Salle n°"+jComboBox_Salle.getSelectedItem();
+        s+="\nNumérique : "+isNum.getText();
+        if(isNum.getText().equals("Non")){
+            s+="\nRéférence dossier papier : "+jTextField_Refenrece.getText();
+        }
+        //s+="\n\n- Patient : \n";
+        s+="\n\n---------------------------------------------------------------------------------------------------\n\n"+nomPatient.getText();
+	s+=" "+prenomPatient.getText();
+        s+="\n\n- Indication : \n";
+        s+=jTextPane_Indication.getText();
+        s+="\n\n- Technique : \n";
+        s+=jTextArea1.getText();
+        
     }//GEN-LAST:event_jButton_ImprimerActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
