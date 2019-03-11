@@ -31,7 +31,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(163, 209, 180));
 
-        jButtonLangue.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonLangue.setForeground(new java.awt.Color(72, 91, 122));
         jButtonLangue.setText("Voulez-vous changer de langue?");
         jButtonLangue.addActionListener(new java.awt.event.ActionListener() {
@@ -40,7 +40,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
             }
         });
 
-        jButtonMdp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonMdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonMdp.setForeground(new java.awt.Color(72, 91, 122));
         jButtonMdp.setText("Voulez-vous changer de Mot de passe?");
         jButtonMdp.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +51,10 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(127, 144, 160));
 
-        jLabelParametre.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabelParametre.setText("PARAMETRES");
+        jLabelParametre.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabelParametre.setText("Parametres");
 
-        jButtonFermer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonFermer.setForeground(new java.awt.Color(72, 91, 122));
         jButtonFermer.setText("Fermer");
         jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +169,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Window".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

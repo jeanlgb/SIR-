@@ -40,12 +40,12 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_Nom = new javax.swing.JLabel();
         jLabel_Prenom = new javax.swing.JLabel();
         jLabel_Sexe = new javax.swing.JLabel();
-        jComboBox_Sexe = new javax.swing.JComboBox<String>();
+        jComboBox_Sexe = new javax.swing.JComboBox<>();
         jButton_SauvegarderFermer = new javax.swing.JButton();
         jTextField_Nom = new javax.swing.JTextField();
         jTextField_Prenom = new javax.swing.JTextField();
         jLabel_ExamLier = new javax.swing.JLabel();
-        jComboBox_ExamLier = new javax.swing.JComboBox<String>();
+        jComboBox_ExamLier = new javax.swing.JComboBox<>();
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_IDPatient = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
@@ -80,7 +80,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_Sexe.setText("Sexe :");
 
         jComboBox_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Homme", "Femme" }));
+        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme" }));
         jComboBox_Sexe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SexeActionPerformed(evt);
@@ -99,7 +99,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_ExamLier.setText("Examen éxistant à lier :");
 
         jComboBox_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
         jComboBox_ExamLier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_ExamLierActionPerformed(evt);
@@ -124,9 +124,6 @@ public class Crea_DMR extends javax.swing.JFrame {
             jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DMRLayout.createSequentialGroup()
                 .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DMRLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_SauvegarderFermer, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +139,10 @@ public class Crea_DMR extends javax.swing.JFrame {
                                 .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField_Nom1)
                                     .addComponent(idPatient)
-                                    .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jComboBox_Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(dateDMR)
-                                        .addComponent(jTextField_Nom)
-                                        .addComponent(jTextField_Prenom)))))
+                                    .addComponent(jComboBox_Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dateDMR)
+                                    .addComponent(jTextField_Nom)
+                                    .addComponent(jTextField_Prenom))))
                         .addGap(56, 56, 56)
                         .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_ExamLier)
@@ -156,7 +152,10 @@ public class Crea_DMR extends javax.swing.JFrame {
                             .addGroup(jPanel_DMRLayout.createSequentialGroup()
                                 .addComponent(jComboBox_ExamLier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField_Reference, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jTextField_Reference, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DMRLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_SauvegarderFermer, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel_DMRLayout.setVerticalGroup(
@@ -199,7 +198,7 @@ public class Crea_DMR extends javax.swing.JFrame {
                     .addComponent(jLabel_IDPatient)
                     .addComponent(idPatient))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton_SauvegarderFermer)
+                .addComponent(jButton_SauvegarderFermer, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

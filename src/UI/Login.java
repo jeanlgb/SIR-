@@ -105,22 +105,22 @@ public class Login extends javax.swing.JFrame {
 
         panel_identification.setBackground(new java.awt.Color(163, 209, 180));
 
-        labelIdentification.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        labelIdentification.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         labelIdentification.setText("Identification");
 
-        labelIdentifiant.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelIdentifiant.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelIdentifiant.setText("Identifiant :");
 
-        labelMdp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelMdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         labelMdp.setText("Mot de Passe : ");
 
-        txtidentifiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtidentifiant.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
-        txtmdp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtmdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         txtmdp.setText("");
 
         verifierMdp.setBackground(new java.awt.Color(163, 209, 180));
-        verifierMdp.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        verifierMdp.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         verifierMdp.setText("Afficher Mot de Passe");
         verifierMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +128,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        login.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        login.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         login.setForeground(new java.awt.Color(72, 91, 122));
         login.setText("Connexion");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -157,10 +157,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        label_erreurIdentifiant.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        label_erreurIdentifiant.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         label_erreurIdentifiant.setForeground(new java.awt.Color(255, 0, 0));
 
-        label_erreur_mdp.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        label_erreur_mdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         label_erreur_mdp.setForeground(new java.awt.Color(255, 0, 0));
 
         panel_logo.setBackground(new java.awt.Color(127, 144, 160));
@@ -184,7 +184,7 @@ public class Login extends javax.swing.JFrame {
                         .addContainerGap())
         );
 
-        jButtonChangerLangue.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonChangerLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonChangerLangue.setForeground(new java.awt.Color(72, 91, 122));
         jButtonChangerLangue.setText("Anglais");
         jButtonChangerLangue.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +210,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(verifierMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))
                         .addComponent(jButtonChangerLangue)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_identificationLayout.createSequentialGroup()
@@ -235,7 +235,7 @@ public class Login extends javax.swing.JFrame {
                                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(labelIdentifiant)
                                                 .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)))
+                                .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -366,7 +366,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Window".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
