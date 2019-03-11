@@ -30,13 +30,23 @@ public class Examen {
      * Constructeur qui demande la date de l'examen, le médecin en charge de
      * l'examen et le type de l'examen
      */
-    public Examen(java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, Compte_rendu compte_rendu) {
+    public Examen(int id_examen,java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
+        this.id_examen = id_examen;
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
         this.type_examen = type_examen;
+        this.duree_prevue = duree_prevue;
         this.compte_rendu = compte_rendu;
-        // this.duree_prevue = type_examen.getDuree();
-        // this.cout_examen= type_examen.getCout();
+        this.cout_examen = cout_examen;
+        if(papier == 1){
+            this.dossier_papier = true;
+        }else{
+            this.dossier_papier = false;
+        }
+        if(termine == 1){this.examen_termine = true;
+    }else{
+            this.examen_termine = false;
+        }
     }
 
     public Examen(int id_examen, DMR dmr, java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, double duree_prevue, Salle salle, Compte_rendu compte_rendu, PACS lien_pacs, boolean dossier_papier, boolean examen_termine, Historique_modifications historique_modifications, double cout_examen) {

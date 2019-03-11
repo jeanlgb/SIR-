@@ -25,7 +25,7 @@ public class testbd {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Adresse adresse = new Adresse(10, "1", "rue des Anémones", "Quartier des fleurs", "44000", "La Prairie", "France");
+        /**Adresse adresse = new Adresse(10, "1", "rue des Anémones", "Quartier des fleurs", "44000", "La Prairie", "France");
         Patient patient = new Patient(10, "Mahé", "Mahé", "Yann", new java.sql.Date(100, 03, 06), Genre.H, adresse);
         Medecin medecin = new Medecin(8, "Guillonet", "Patrick");
         Modification m1 = new Modification(new java.sql.Date(100, 03, 01), 1);
@@ -78,7 +78,7 @@ public class testbd {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         //créer DMR
@@ -97,6 +97,29 @@ public class testbd {
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
+
+
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+        ArrayList<Examen> liste_examens = new ArrayList<>();
+        String  nom = "FRECON";
+
+        try {
+            statement = connexion.prepareStatement("SELECT id_dmr FROM patient WHERE patient.nom_d_usage = ?");
+            statement.setString(1, nom);
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                int id_dmr = resultset.getInt("id_dmr");
+                System.out.println(id_dmr);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
 
 

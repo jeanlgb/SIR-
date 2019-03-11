@@ -23,6 +23,60 @@ import java.util.ArrayList;
 public class Gestion_DMR {
 
     /**
+     * Permet de récupérer la liste des examens d'un DMR, en indiquant le nom d'usage du
+     * patient
+     */
+    public static ArrayList<Examen> recuperer_ExamensViaNom(String nom) {
+    Acces_BD acces_BD = new Acces_BD();
+    Connection connexion = acces_BD.connexion;
+    PreparedStatement statement = null;
+    ArrayList<Examen> liste_examens = new ArrayList<>();
+
+        try
+
+    {
+        statement = connexion.prepareStatement("SELECT id_examen, date_examen, id_medecin, type_examen, duree_prevue, salle, compte_rendu, pacs, dossier_papier, examen_termine, historique_modifications, cout_examen FROM examen JOIN patient ON (patient.id_dmr = examen.id_dmr) WHERE patient.nom_d_usage = ?");
+        statement.setString(1, nom);
+
+        ResultSet resultset = statement.executeQuery();
+
+        while (resultset.next()) {
+            int id_examen = resultset.getInt("id_examen");
+            System.out.println(id_examen);
+            java.sql.Date date = resultset.getDate("date_examen");
+            System.out.println(date);
+            //creation medecin
+            int id_medecin = resultset.getInt("id_medecin");
+            Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin));
+            //fin creation medecin
+            String type_examen_string = resultset.getString("type_examen");
+            Type_examen type_examen = Type_examen.valueOf(type_examen_string);
+            double duree_prevue = resultset.getDouble("duree_prevue");
+            int salle = resultset.getInt("salle");
+            //creation compte rendu
+            String cr = resultset.getString("compte_rendu");
+            Compte_rendu compte_rendu = new Compte_rendu(medecin, cr);
+            //fin creation compte rendu
+            int pacs = resultset.getInt("pacs");
+            int dossier_papier = resultset.getInt("dossier_papier");
+            int examen_termine = resultset.getInt("examen_termine");
+            double cout_examen = resultset.getDouble("cout_examen");
+
+            liste_examens.add(new Examen(id_examen, date, medecin, type_examen, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
+            ;
+
+        }
+
+    } catch(
+    Exception e)
+
+    {
+        e.printStackTrace();
+    }
+    return liste_examens;
+}
+
+    /**
      * Permet de récupérer la liste des examens d'un DMR, en indiquant l'id du
      * dmr
      */
@@ -58,7 +112,7 @@ public class Gestion_DMR {
                 int examen_termine = resultset.getInt("examen_termine");
                 double cout_examen = resultset.getDouble("cout_examen");
 
-                liste_examens.add(new Examen(date, medecin, type_examen, compte_rendu));
+                liste_examens.add(new Examen(id_examen, date, medecin, type_examen, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
 
             }
 
