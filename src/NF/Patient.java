@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.Objects;
 
@@ -54,37 +56,16 @@ public class Patient {
     /**
      * Met à jour la base de données en modifiant la ligne d'un patient existant
      */
-    public boolean mettreAJour() {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = null;
-        try {
-            Class.forName(acces_BD.s);
-            connexion = DriverManager.getConnection(acces_BD.url, acces_BD.utilisateur, acces_BD.motDePasse);
-            /* Ici, mettre les requêtes vers la BDD */
-            String requete = "UPDATE patient SET ";
-            requete += "nom_d_usage =" + this.nom_d_usage;
-            requete += "nom_de_naissance =" + this.nom_de_naissance;
-            requete += "prenom =" + this.prenom;
-            requete += "date_de_naissance =" + this.date_de_naissance;
-            requete += "genre =" + this.genre;
-            requete += "adresse =" + this.adresse;
-            requete += "dmr =" + this.dmr;
-            requete += "WHERE id=" + this.identifiant + ";";
-            
-            Statement statement = connexion.createStatement();
-            ResultSet resultat = statement.executeQuery(requete);
 
-            return true;
-
-            /* fin de l'espace pour écrire les requêtes */
-        } catch (Exception e) {
-            e.printStackTrace();
+public int getAge(){
+    LocalDate date_actuelle = LocalDate.now();
+    LocalDate dateNaissance =  LocalDate.of(date_de_naissance.getYear()+1900, date_de_naissance.getMonth(), date_de_naissance.getDay());
+        if ((dateNaissance!= null) && (date_actuelle != null)) {
+            return Period.between(dateNaissance, date_actuelle).getYears();
+        } else {
+            return 0;
         }
-
-        System.out.println("pb dans la connexion à la bd");
-        return false;
-    }
-
+}
 
     @Override
     public String toString() {

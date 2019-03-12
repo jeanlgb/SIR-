@@ -16,6 +16,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import BD.Gestion_DMR;
+import BD.Gestion_examen;
 import BD.Gestion_patient;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
@@ -26,6 +27,7 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     int nblignes;
+    Patient patient_courant;
     String s = "";
 
     /**
@@ -649,8 +651,13 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // auquel cas c'est ajouter rapport
         // + condition sur le fait qu'un elem du tableau doit être sélectionner
 
-        Crea_Rapport creaRapport = new Crea_Rapport();
+        Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)));
+        Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant);
+//        creaRapport.setPatient_courant(patient_courant);
+//        creaRapport.setExamen_courant(examen_courant);
         creaRapport.setVisible(true);
+
+
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
 
     private void jButton_RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RechercherActionPerformed
@@ -658,12 +665,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // Code recherche
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
-        Patient patient_recherché = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
+        patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
         ArrayList<Examen> examens = new ArrayList<Examen>();
-        DMR dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_recherché.getIdentifiant()));
+        DMR dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
         examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
-        //Gestion_patient patient_recherché = new Gestion_patient(jTextField_Recherche.getText(),null);
-        //Rechercher_Patient patient_recherché = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
+        //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
+        //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < examens.size(); i++) {
             jTable_Exam.setValueAt(examens.get(i).getDate(), i, 0);
             jTable_Exam.setValueAt(examens.get(i).getId_examen(), i, 1);
@@ -673,11 +680,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             System.out.println(examens.get(i).getCout_examen());
             jTable_Exam.setModel(model);
         }
-        String s = "DMR de " + patient_recherché.getNom_d_usage() + " " + patient_recherché.getPrenom() + "\n" + patient_recherché.getDate_de_naissance() + "\n" + patient_recherché.getAdresse();
+        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse();
 
         for (int i = 0; i < examens.size(); i++) {
             s += examens.get(i).toString();
-            s +="\n";
+            s += "\n";
         }
         System.out.println(s);
         jTextArea_Apercu.setText(s);
@@ -692,17 +699,24 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             /*
 
              Code pour apercu exam
+            
 
              */
+
         }
         if (evt.getClickCount() == 2) {
 
             if (jTable_Exam.getSelectedRowCount() > 0) {
                 /*
-
                  Code pour ouvrir exam
-
                  */
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)));
+//                Crea_Rapport creaRapport = new Crea_Rapport();
+//                creaRapport.setPatient_courant(patient_courant);
+//                creaRapport.setExamen_courant(examen_courant);
+                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant);
+                creaRapport.setVisible(true);
+                //System.out.println(examen_courant);
             }
         }
     }//GEN-LAST:event_jTable_ExamMouseClicked

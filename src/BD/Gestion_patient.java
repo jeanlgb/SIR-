@@ -116,10 +116,12 @@ public class Gestion_patient {
             while (resultset.next()) {
                 id_dmr = resultset.getString("id_dmr");
             }
+            return id_dmr;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return id_dmr;
+                System.out.println("pb dans la connexion à la bd");
+        return null;
     }
 
 }

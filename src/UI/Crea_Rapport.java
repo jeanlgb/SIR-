@@ -5,10 +5,15 @@
  */
 package UI;
 
+import BD.Gestion_examen;
+import BD.Gestion_patient;
+import NF.Examen;
 import NF.Impression;
+import NF.Patient;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.time.LocalDate;
 import javax.swing.ImageIcon;
-
 
 /**
  *
@@ -16,10 +21,19 @@ import javax.swing.ImageIcon;
  */
 public class Crea_Rapport extends javax.swing.JFrame {
 
+    private Patient patient_courant =Gestion_patient.rechercher_patient("1") ;
+    private Examen examen_courant = Gestion_examen.rechercher_Examen("1");
+
     /**
      * Creates new form Acceuille_Radiologue
      */
     public Crea_Rapport() {
+        initComponents();
+    }
+
+    public Crea_Rapport(Patient patient_courant, Examen examen_courant) {
+        this.patient_courant = patient_courant;
+        this.examen_courant = examen_courant;
         initComponents();
     }
 
@@ -135,7 +149,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(194, 194, 194)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(564, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,26 +192,26 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Adresse.setText("Adresse :");
 
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPatient.setText("ID");
+        idPatient.setText(String.valueOf(patient_courant.getIdentifiant()));
 
         nomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPatient.setText("Nom");
+        nomPatient.setText(patient_courant.getNom_d_usage());
 
         prenomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPatient.setText("Prenom");
+        prenomPatient.setText(patient_courant.getPrenom());
 
         dateNaissancePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        dateNaissancePatient.setText("Date_nais");
+        dateNaissancePatient.setText(patient_courant.getDate_de_naissance().toString());
 
         sexePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        sexePatient.setText("Sexe");
+        sexePatient.setText(patient_courant.getGenre().toString());
 
         agePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        agePatient.setText("Age");
+        agePatient.setText(String.valueOf(patient_courant.getAge()) + " ans");
 
         adressePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         adressePatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adressePatient.setText("Adresse");
+        adressePatient.setText(patient_courant.getAdresse().toString());
         adressePatient.setToolTipText("");
         adressePatient.setAutoscrolls(true);
 
@@ -206,7 +220,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_InfoPatientLayout.setHorizontalGroup(
             jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoPatientLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,10 +247,9 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(agePatient))
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_Adresse)
-                            .addComponent(adressePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 2, Short.MAX_VALUE)))
+                        .addComponent(jLabel_Adresse)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(adressePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel_InfoPatientLayout.setVerticalGroup(
@@ -253,8 +266,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                     .addComponent(nomPatient)
                     .addComponent(jLabel_Adresse))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(adressePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_Prenom)
@@ -266,7 +278,8 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_Sexe)
-                            .addComponent(sexePatient)))))
+                            .addComponent(sexePatient)))
+                    .addComponent(adressePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel_InfoActe.setBackground(new java.awt.Color(127, 144, 160));
@@ -364,7 +377,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                                     .addComponent(nomPraticien)
                                     .addComponent(idPraticien)
                                     .addComponent(prenomPraticien))))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(jSeparator)
         );
@@ -483,7 +496,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Imprimer.setText("Imprimer ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton_ImprimerActionPerformed(evt);
             }
         });
 
@@ -605,7 +618,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                        .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                         .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane_CR))
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
@@ -636,7 +649,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                             .addComponent(jButton_Imprimer)))
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel_Image, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)
-                        .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)))
+                        .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         jPanel_CorpsLayout.setVerticalGroup(
@@ -696,42 +709,40 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
 
         // TODO add your handling code here:
-        String s="";
-        s+="Hôpital Princeton Plainsboro - Service de radiologie\n\n";
-        s+="Rapport d'acte "+idexamen.getText()+" fait le "+datexam.getText()+" "+heurexam.getText()+"\n";
-        s+="DR."+nomPraticien.getText()+" "+prenomPraticien.getText();
-        s+="\n\n"+typeExamen.getText()+" Salle n°"+jLabel_Salle1.getText();
-        s+="\nNumérique : "+isNum.getText();
-        if(isNum.getText().equals("Non")){
-            s+="\nRéférence dossier papier : "+jLabel_Reference1.getText();
+        String s = "";
+        s += "Hôpital Princeton Plainsboro - Service de radiologie\n\n";
+        s += "Rapport d'acte " + idexamen.getText() + " fait le " + datexam.getText() + " " + heurexam.getText() + "\n";
+        s += "DR." + nomPraticien.getText() + " " + prenomPraticien.getText();
+        s += "\n\n" + typeExamen.getText() + " Salle n°" + jLabel_Salle1.getText();
+        s += "\nNumérique : " + isNum.getText();
+        if (isNum.getText().equals("Non")) {
+            s += "\nRéférence dossier papier : " + jLabel_Reference1.getText();
         }
         //s+="\n\n- Patient : \n";
-        s+="\n\n---------------------------------------------------------------------------------------------------\n\n"+nomPatient.getText();
-	s+=" "+prenomPatient.getText();
-        s+="\n\n- Indication : \n";
-        s+=jTextPane_Indication.getText();
-        s+="\n\n- Technique : \n";
-        s+=jTextPane_Technique.getText();
-        if (jCheckBox_Oui.isSelected()){
-            s+="\n\n- Rapport : \n"+jTextArea1.getText();
+        s += "\n\n---------------------------------------------------------------------------------------------------\n\n" + nomPatient.getText();
+        s += " " + prenomPatient.getText();
+        s += "\n\n- Indication : \n";
+        s += jTextPane_Indication.getText();
+        s += "\n\n- Technique : \n";
+        s += jTextPane_Technique.getText();
+        if (jCheckBox_Oui.isSelected()) {
+            s += "\n\n- Rapport : \n" + jTextArea1.getText();
         }
         /*s+="\n\n- Actes medicaux : ";
         for (int i=0; i<actes.size(); i++) {
             Acte a = actes.get(i);
             s+="\n    > " + a.toString();
             }
-        */
+         */
         jTextArea2.setText(s);
-        
+
         Impression imprimer = new Impression(jTextArea2);
         imprimer.print();
-        
-     
-    }//GEN-LAST:event_jButton_ImprimerActionPerformed
+
+    }
 
     private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
@@ -739,24 +750,22 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     private void jCheckBox_OuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_OuiActionPerformed
         // TODO add your handling code here:
-        if (jCheckBox_Oui.isSelected()==true) {
+        if (jCheckBox_Oui.isSelected() == true) {
             jButton_Sauvegarder.setVisible(true);
             //jButton6.setVisible(true);
             jScrollPane_CR.setVisible(true);
 
             jPanel_Corps.repaint();
             jPanel_Corps.revalidate();
-            
-            
 
-        } else if (jCheckBox_Oui.isSelected()==false) {
+        } else if (jCheckBox_Oui.isSelected() == false) {
             jButton_Sauvegarder.setVisible(false);
             //jButton6.setVisible(false);
             jScrollPane_CR.setVisible(false);
 
             jPanel_Corps.repaint();
             jPanel_Corps.revalidate();
-            
+
         }
 
     }//GEN-LAST:event_jCheckBox_OuiActionPerformed
@@ -771,7 +780,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         PanelImageRapport.setContraste(jSlider_Contraste.getValue());
         PanelImageRapport.augmenter_contraste();
 
-    
+
     }//GEN-LAST:event_jSlider_ContrasteStateChanged
 
     private void jSlider_LuminositeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider_LuminositeStateChanged
