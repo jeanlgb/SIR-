@@ -55,7 +55,7 @@ public class Gestion_examen {
                 int examen_termine = resultset.getInt("examen_termine");
                 double cout_examen = resultset.getDouble("cout_examen");
 
-                examen_trouve = new Examen(id_examen, date, medecin, type_examen, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen);
+                examen_trouve = new Examen(id_examen, date, medecin, type_examen, salle, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen);
 
 
             }

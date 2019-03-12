@@ -9,6 +9,8 @@ package UI;
  *
  * @author porral
  */
+import NF.Acces_BD;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -178,9 +180,11 @@ public class stocker_image_modifiable extends javax.swing.JFrame {
         //String s = "com.mysql.cj.jdbc.Driver";
         try{
                //Class.forName(s);
-               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?serverTimezone=UTC","root","");
-               PreparedStatement ps = con.prepareStatement("insert into bd_images(ID,Name,Description,Image) values(?,?,?,?)");
-               InputStream is = new FileInputStream(new File(s));
+            Acces_BD acces_BD = new Acces_BD();
+            Connection connexion = acces_BD.connexion;
+            //String s = "com.mysql.cj.jdbc.Driver";
+            PreparedStatement ps = connexion.prepareStatement("insert into pacs(numero_archive,mention,description,image) values(?,?,?,?)");
+            InputStream is = new FileInputStream(new File(s));
                ps.setString(1, txt_ID.getText());
                ps.setString(2, txt_nom.getText());
                ps.setString(3, txt_description.getText());

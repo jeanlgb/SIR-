@@ -496,7 +496,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Imprimer.setText("Imprimer ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ImprimerActionPerformed(evt);
+               // jButton_ImprimerActionPerformed(evt);
             }
         });
 

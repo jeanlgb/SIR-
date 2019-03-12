@@ -62,7 +62,7 @@ public class Gestion_DMR {
             int examen_termine = resultset.getInt("examen_termine");
             double cout_examen = resultset.getDouble("cout_examen");
 
-            liste_examens.add(new Examen(id_examen, date, medecin, type_examen, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
+            liste_examens.add(new Examen(id_examen, date, medecin, type_examen, salle, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
             ;
 
         }
@@ -112,7 +112,7 @@ public class Gestion_DMR {
                 int examen_termine = resultset.getInt("examen_termine");
                 double cout_examen = resultset.getDouble("cout_examen");
 
-                liste_examens.add(new Examen(id_examen, date, medecin, type_examen, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
+                liste_examens.add(new Examen(id_examen, date, medecin, type_examen, salle, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen));
 
             }
 
@@ -131,18 +131,18 @@ public class Gestion_DMR {
         PreparedStatement statement = null;
 
         try {
-            statement = connexion.prepareStatement("SELECT id_patient, historique_modifications FROM dmr WHERE id_dmr = ?");
+            statement = connexion.prepareStatement("SELECT id_dmr, historique_modifications FROM dmr WHERE id_patient = ?");
             statement.setInt(1, Integer.parseInt(id_recherche));
 
             ResultSet resultset = statement.executeQuery();
 
             while (resultset.next()) {
-                int id_patient = resultset.getInt("id_patient");
+                int id_dmr = resultset.getInt("id_dmr");
                 int id_historique = resultset.getInt("historique_modifications");
                 Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
                 ArrayList<Examen> examens = recuperer_Examens(id_recherche);
 
-                DMR dmr = new DMR(Integer.parseInt(id_recherche), id_patient, examens, historique_modifications);
+                DMR dmr = new DMR(id_dmr, Integer.parseInt(id_recherche), examens, historique_modifications);
                 return dmr;
             }
 

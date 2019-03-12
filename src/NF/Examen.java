@@ -25,12 +25,13 @@ public class Examen {
     private String medecin;
     private String CR;
     private String type;
+    private int idSalle;
 
     /**
      * Constructeur qui demande la date de l'examen, le médecin en charge de
      * l'examen et le type de l'examen
      */
-    public Examen(int id_examen,java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
+    public Examen(int id_examen,java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, int idSalle, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
         this.id_examen = id_examen;
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
@@ -38,6 +39,7 @@ public class Examen {
         this.duree_prevue = duree_prevue;
         this.compte_rendu = compte_rendu;
         this.cout_examen = cout_examen;
+        this.idSalle = idSalle;
         if(papier == 1){
             this.dossier_papier = true;
         }else{
@@ -185,6 +187,15 @@ public class Examen {
     public boolean isExamen_termine() {
         return examen_termine;
     }
+    
+    public String Examen_termine() {
+        if(examen_termine == false){
+            return "L'examen n'est pas terminé.";
+        }else{
+            return "L'examen est terminé";
+        }
+        
+    }
 
     /**
      * @param examen_termine the examen_termine to set
@@ -208,8 +219,8 @@ public class Examen {
     }
 
     public String toString() {
-        return "L'examen de type " + type_examen + "d'une durée de " + duree_prevue + "effectué le " + date + "par le Dr " + medecin_en_charge
-                + "en salle " + salle + "." + "/n L'examen est terminé : " + examen_termine + "." + "/n Compte rendu : " + compte_rendu;
+        return "L'examen de type " + type_examen + " d'une durée de " + duree_prevue + " effectué le " + date + " par le " + medecin_en_charge + "."
+                + " en salle " + salle + "." + "\n" + Examen_termine() + "\n" + "Compte rendu : " + "\n" + compte_rendu;
     }
 
     /**

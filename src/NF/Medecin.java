@@ -47,7 +47,7 @@ private String prenom;
 
     @Override
     public String toString() {
-        return "Medecin{" + "identifiant=" + identifiant + ", nom=" + nom + ", prenom=" + prenom + '}';
+        return "Docteur " + nom + " " + prenom;
     }
 
     @Override

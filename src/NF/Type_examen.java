@@ -11,7 +11,7 @@ package NF;
 public enum Type_examen {
     scanner("Scanner",1,1),
     angiographie("Angiographie",1,1),
-    irm("IRM",1,1),
+    irm("IRM",1,30),
     radiologie_argentique("Radiologie argentique",1,1),
     radiotherapie("Radiotherapie",1,1),
     echoendoscopie("Echoendoscopie",1,1),
@@ -32,7 +32,7 @@ public enum Type_examen {
 
     @Override
     public String toString() {
-        return "Type_examen{" + "libelle_examen=" + libelle_examen + ", cout=" + cout + ", duree=" + duree + '}';
+        return libelle_examen;
     }
     
     
