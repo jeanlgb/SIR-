@@ -205,6 +205,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 jTextField_RechercheActionPerformed(evt);
             }
         });
+        jTextField_Recherche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_RechercheKeyTyped(evt);
+            }
+        });
 
         jScrollPane_Corps_Exam_Tab.setToolTipText("");
 
@@ -662,6 +667,10 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jButton_RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RechercherActionPerformed
         // TODO add your handling code here:
         // Code recherche
+        remplirTable();
+    }//GEN-LAST:event_jButton_RechercherActionPerformed
+
+    private void remplirTable(){
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
         patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
@@ -687,8 +696,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         System.out.println(s);
         jTextArea_Apercu.setText(s);
         s = "";
-    }//GEN-LAST:event_jButton_RechercherActionPerformed
-
+    }
     private void jTable_ExamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ExamMouseClicked
         // TODO add your handling code here:
         // Selec pour ouvrir ou apercu d'un exam
@@ -742,6 +750,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             // new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
+
+    private void jTextField_RechercheKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_RechercheKeyTyped
+        if (evt.getKeyChar() == '\n') {
+                    remplirTable();
+                }
+    }//GEN-LAST:event_jTextField_RechercheKeyTyped
 
     /**
      * @param args the command line arguments
