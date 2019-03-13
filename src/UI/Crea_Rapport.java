@@ -91,7 +91,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Technique = new javax.swing.JScrollPane();
         jTextPane_Technique = new javax.swing.JTextPane();
         jPanel_Image = new javax.swing.JPanel();
-        jComboBox_Image = new javax.swing.JComboBox<>();
+        jComboBox_Image = new javax.swing.JComboBox<String>();
         imageRadio = new javax.swing.JLabel();
         jScrollPane_CR = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -244,7 +244,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Age)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                         .addComponent(agePatient))
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Adresse)
@@ -423,7 +423,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Apercu Cliché"));
         jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
         //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI_FR/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
 
@@ -496,7 +496,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Imprimer.setText("Imprimer ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-               // jButton_ImprimerActionPerformed(evt);
+                jButton_ImprimerActionPerformed(evt);
             }
         });
 
@@ -709,7 +709,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {
 
         // TODO add your handling code here:
         String s = "";

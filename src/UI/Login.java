@@ -11,21 +11,16 @@ package UI;
  */
 import NF.Acces_BD;
 import NF.Connexion;
-//import com.mysql.cj.protocol.Resultset;
-
+import NF.Medecin;
+import NF.ObjetCourant;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Timer;
-import java.lang.Class;
 
 public class Login extends javax.swing.JFrame {
 
@@ -43,6 +38,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtmdp;
     private javax.swing.JCheckBox verifierMdp;
     private javax.swing.JButton jButtonChangerLangue;
+    private ObjetCourant objet_Courant;
+    private Medecin medecin_courant;
     /**
      * Creates new form Login
      */
@@ -321,12 +318,22 @@ public class Login extends javax.swing.JFrame {
              */
             PreparedStatement user;
             user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id_user = ?");
-            user.setInt(1, Integer.parseInt(txtidentifiant.getText()));
+            int id = Integer.parseInt(txtidentifiant.getText());
+            user.setInt(1, id);
             ResultSet type_User = user.executeQuery();
             while (type_User.next()) {
                 String metier_user = type_User.getString("metier");
                 if (metier_user.equals("MEDECIN")) {
-                    new Acceuil_Radiologue().setVisible(true); //ouvre la fenetre l'accueil radiologue
+                     PreparedStatement med;
+                    med = connexion.prepareStatement("SELECT nom, prenom FROM medecin WHERE id_medecin = ?");
+                    med.setInt(1, id);
+                    ResultSet medQuery = med.executeQuery();
+                    while (medQuery.next()) {
+                        String nom = medQuery.getString("nom");
+                        String prenom = medQuery.getString("prenom");
+                        objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom));
+                    }
+                    new Acceuil_Radiologue(objet_Courant).setVisible(true); //ouvre la fenetre l'accueil radiologue
                     this.dispose(); //ferme la fenetre de login
                 } else {
                     if (type_User.getString("metier").equals("MANIPULATEUR_RADIO")) {

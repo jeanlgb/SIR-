@@ -268,7 +268,7 @@ public class ChangerMdp extends javax.swing.JFrame {
                     }
            
 
-                    Acceuil_Radiologue retourAccueil = new Acceuil_Radiologue();
+                    Acceuil_Radiologue retourAccueil = new Acceuil_Radiologue(new NF.ObjetCourant(new NF.Medecin(1,"","")));
                     retourAccueil.setVisible(true);
                     this.dispose();
 

@@ -147,7 +147,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-        Acceuil_Radiologue retourRadiologue = new Acceuil_Radiologue();
+        Acceuil_Radiologue retourRadiologue = new Acceuil_Radiologue(new NF.ObjetCourant(new NF.Medecin(1,"","")));
         retourRadiologue.setVisible(true);
         retourRadiologue.setResizable(false);
         this.setVisible(false);

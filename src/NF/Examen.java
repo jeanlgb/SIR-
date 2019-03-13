@@ -220,7 +220,7 @@ public class Examen {
 
     public String toString() {
         return "L'examen de type " + type_examen + " d'une durée de " + duree_prevue + " effectué le " + date + " par le " + medecin_en_charge + "."
-                + " en salle " + salle + "." + "\n" + Examen_termine() + "\n" + "Compte rendu : " + "\n" + compte_rendu;
+                + " en salle " + idSalle + "." + "\n" + Examen_termine() + "\n" + "Compte rendu : " + "\n" + compte_rendu + "\n";
     }
 
     /**
@@ -249,5 +249,19 @@ public class Examen {
      */
     public void setDmr(DMR dmr) {
         this.dmr = dmr;
+    }
+
+    /**
+     * @return the idSalle
+     */
+    public int getIdSalle() {
+        return idSalle;
+    }
+
+    /**
+     * @param idSalle the idSalle to set
+     */
+    public void setIdSalle(int idSalle) {
+        this.idSalle = idSalle;
     }
 }

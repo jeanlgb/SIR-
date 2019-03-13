@@ -72,7 +72,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel_Logo" min="-2" pref="327" max="-2" attributes="0"/>
-                      <EmptySpace pref="487" max="32767" attributes="0"/>
+                      <EmptySpace pref="407" max="32767" attributes="0"/>
                       <Component id="jPanel_InfoUser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
@@ -149,12 +149,16 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_Prenom">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lary"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="objet_Courant.getMedecinCourant().getPrenom()" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_Nom">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="BAMBEL"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="objet_Courant.getMedecinCourant().getNom()" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_Deconnexion">
@@ -362,7 +366,7 @@
                               <Data value="null"/>
                               <Data value="null"/>
                             </Column>
-                            <Column editable="false" title="ID" type="java.lang.Integer">
+                            <Column editable="false" title="Salle" type="java.lang.Integer">
                               <Data value="123456789"/>
                               <Data value="123456789"/>
                               <Data value="null"/>

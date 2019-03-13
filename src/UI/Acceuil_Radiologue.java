@@ -9,6 +9,7 @@ import NF.DMR;
 import NF.Examen;
 import NF.Impression;
 import NF.Patient;
+import NF.ObjetCourant;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -28,11 +29,13 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     int nblignes;
     Patient patient_courant;
     String s = "";
+    ObjetCourant objet_Courant;
 
     /**
      * Creates new form Acceuil_Radiologue
      */
-    public Acceuil_Radiologue() {
+    public Acceuil_Radiologue(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
         initComponents();
     }
 
@@ -100,9 +103,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jLabel_UserPost.setText("Radiologue");
 
-        jLabel_Prenom.setText("Lary");
+        jLabel_Prenom.setText(objet_Courant.getMedecinCourant().getPrenom());
 
-        jLabel_Nom.setText("BAMBEL");
+        jLabel_Nom.setText(objet_Courant.getMedecinCourant().getNom());
 
         jButton_Deconnexion.setText("Déconnexion");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +157,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 407, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -243,7 +246,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Date", "ID", "Nom", "Exam", "Rapport"
+                "Date", "Salle", "Nom", "Exam", "Rapport"
             }
         ) {
             Class[] types = new Class [] {
@@ -681,19 +684,18 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < examens.size(); i++) {
             jTable_Exam.setValueAt(examens.get(i).getDate(), i, 0);
-            jTable_Exam.setValueAt(examens.get(i).getId_examen(), i, 1);
+            jTable_Exam.setValueAt(examens.get(i).getIdSalle(), i, 1);
             jTable_Exam.setValueAt(examens.get(i).getMedecin_en_charge().getNom(), i, 2);
             jTable_Exam.setValueAt(examens.get(i).getType_examen(), i, 3);
             jTable_Exam.setValueAt(examens.get(i).getCout_examen(), i, 4);
             jTable_Exam.setModel(model);
         }
-        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n";
+        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
 
         for (int i = 0; i < examens.size(); i++) {
             s += examens.get(i).toString();
             s += "\n";
         }
-        System.out.println(s);
         jTextArea_Apercu.setText(s);
         s = "";
     }
@@ -794,7 +796,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acceuil_Radiologue().setVisible(true);
+                //new Acceuil_Radiologue(objet_Courant).setVisible(true);
             }
         });
     }

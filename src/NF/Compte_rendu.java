@@ -4,6 +4,7 @@ package NF;
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia
  */
+
 public class Compte_rendu {
 private Medecin auteur;
 private String texte_CR;
