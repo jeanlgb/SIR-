@@ -115,6 +115,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -415,6 +420,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_RechercherDMR.setText("Rerchercher");
+        jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RechercherDMRActionPerformed(evt);
+            }
+        });
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
@@ -673,6 +683,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         remplirTable();
     }//GEN-LAST:event_jButton_RechercherActionPerformed
 
+    private void jButton_RechercherDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RechercherActionPerformed
+        // TODO add your handling code here:
+        // Code recherche
+        remplirTableDMR();
+    }
+
     private void remplirTable(){
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
@@ -694,6 +710,30 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         for (int i = 0; i < examens.size(); i++) {
             s += examens.get(i).toString();
+            s += "\n";
+        }
+        jTextArea_Apercu.setText(s);
+        s = "";
+    }
+
+    private void remplirTableDMR(){
+        DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
+        jTable_Exam.removeAll();
+        patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
+        ArrayList<DMR> DMRs = new ArrayList<DMR>();
+        DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
+        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(DMRS.getId_dmr()));
+        //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
+        //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
+        for (int i = 0; i < DMRs.size(); i++) {
+            jTable_Exam.setValueAt(DMRs.get(i).getId_dmr(), i, 0);
+            jTable_Exam.setValueAt(DMRs.get(i).getId_patient(), i, 1);
+            jTable_Exam.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
+            jTable_Exam.setModel(model);
+        }
+
+        for (int i = 0; i < DMRs.size(); i++) {
+            s += DMRs.get(i).toString();
             s += "\n";
         }
         jTextArea_Apercu.setText(s);
