@@ -5,15 +5,10 @@
  */
 package BD;
 
-import NF.Acces_BD;
-import NF.Compte_rendu;
-import NF.DMR;
-import NF.Examen;
-import NF.Historique_modifications;
-import NF.Medecin;
-import NF.Type_examen;
+import NF.*;
 
 import java.sql.*;
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -122,6 +117,38 @@ public class Gestion_DMR {
         return liste_examens;
     }
 
+    public static ArrayList<DMR> recuperer_DMRs(String id_recherche) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+        ArrayList<DMR> liste_DMRs = new ArrayList<>();
+
+        try {
+            statement = connexion.prepareStatement("SELECT id_dmr, id_patient, historique_modifications FROM dmr WHERE dmr.id_dmr = ?");
+            statement.setInt(1, Integer.parseInt(id_recherche));
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                int id_dmr = resultset.getInt("id_dmr");
+                //creation patient
+                int id_patient = resultset.getInt("id_patient");
+                Patient patient = Gestion_patient.rechercher_patient(String.valueOf(id_patient));
+                //fin creation patient
+                //creation historique_modifications
+                int id_historique = resultset.getInt("historique_modifications");
+                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
+                //fin creation historique_modifications
+                ArrayList<DMR> DMRs = recuperer_DMRs(id_recherche);
+                liste_DMRs.add(new DMR(id_dmr, id_patient, null, historique_modifications));
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return liste_DMRs;
+    }
     /**
      * Permet de récupérer un DMR à partir de son identifiant
      */
