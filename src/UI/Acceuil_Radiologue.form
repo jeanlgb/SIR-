@@ -23,7 +23,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-63,0,0,4,65"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-63,0,0,4,66"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -72,7 +72,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel_Logo" min="-2" pref="327" max="-2" attributes="0"/>
-                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                      <EmptySpace pref="408" max="32767" attributes="0"/>
                       <Component id="jPanel_InfoUser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
@@ -96,6 +96,11 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel_Logo">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Jean-Loup\Desktop\DICOM WTF\SIR NETBEANS\medtechs_sansfond_petit.png"/>
+                </Property>
+              </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel_InfoUser">
 
@@ -232,7 +237,7 @@
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBox_Recherche" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jTextField_Recherche" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField_Recherche" min="-2" pref="160" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton_Rechercher" min="-2" pref="191" max="-2" attributes="0"/>
                                       </Group>
@@ -479,12 +484,12 @@
                         <Property name="toolTipText" type="java.lang.String" value="" postCode="Font f = new Font(&quot;Dialog&quot;, Font.PLAIN, 18);&#xa;JTableHeader header = jTable_Exam.getTableHeader();&#xa;header.setFont(f);"/>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="3" resizable="false">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="3" resizable="false">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -642,7 +647,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jComboBox_RechercheDMR" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jTextField_RechercheDMR" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField_RechercheDMR" min="-2" pref="160" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Component id="jButton_RechercherDMR" min="-2" pref="191" max="-2" attributes="0"/>
                               </Group>

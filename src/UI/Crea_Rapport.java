@@ -10,10 +10,6 @@ import BD.Gestion_patient;
 import NF.Examen;
 import NF.Impression;
 import NF.Patient;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.time.LocalDate;
-import javax.swing.ImageIcon;
 
 /**
  *

@@ -151,6 +151,36 @@ public class Gestion_DMR {
         }
         return null;
     }
+    
+    /**
+     * Permet de récupérer un DMR à partir de son nom
+     */
+    public static DMR rechercher_Par_Nom_DMR(String nom) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+
+        try {
+            statement = connexion.prepareStatement("SELECT dmr.id_dmr, patient.id_patient, historique_modifications FROM dmr JOIN patient ON patient.id_dmr = dmr.id_dmr WHERE nom_d_usage = ?");
+            statement.setString(1, nom);
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                int id_dmr = resultset.getInt("id_dmr");
+                int id_historique = resultset.getInt("historique_modifications");
+                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
+                ArrayList<Examen> examens = recuperer_Examens(nom);
+
+                DMR dmr = new DMR(id_dmr, Integer.parseInt(nom), examens, historique_modifications);
+                return dmr;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * A partir d'un dmr passé en paramètre, crée ce dmr dans la BD

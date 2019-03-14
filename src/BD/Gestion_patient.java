@@ -42,6 +42,38 @@ public class Gestion_patient {
         }
         return null;
     }
+    
+        /**
+     * permet de rechercher un patient dans la BD à partir de son id.
+     */
+
+    public static Patient rechercher_par_nom_patient(String nom_recherche) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+
+        try {
+            statement = connexion.prepareStatement("SELECT id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr FROM patient WHERE nom_d_usage = ?");
+            statement.setString(1, nom_recherche);
+            ResultSet resultset = statement.executeQuery();
+            while (resultset.next()) {
+                int id = resultset.getInt("id_patient");
+                String nom_de_naissance = resultset.getString("nom_de_naissance");
+                String prenom_patient = resultset.getString("prenom_patient");
+                java.sql.Date date_de_naissance = resultset.getDate("date_de_naissance");
+                Genre genre = Genre.valueOf(resultset.getString("genre"));
+                int id_adresse = resultset.getInt("id_adresse");
+                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse));
+                String id_dmr = resultset.getString("id_dmr");
+                
+                Patient patient = new Patient(id, nom_recherche, prenom_patient, date_de_naissance, genre, adresse);
+                return patient;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * A partir d'un patient passé en paramètres, met à jour le patient dans la

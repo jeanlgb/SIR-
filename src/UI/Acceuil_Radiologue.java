@@ -101,6 +101,8 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Jpanel_Head.setPreferredSize(new java.awt.Dimension(1089, 115));
 
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jean-Loup\\Desktop\\DICOM WTF\\SIR NETBEANS\\medtechs_sansfond_petit.png")); // NOI18N
+
         jLabel_UserPost.setText("Radiologue");
 
         jLabel_Prenom.setText(objet_Courant.getMedecinCourant().getPrenom());
@@ -157,7 +159,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 407, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -277,9 +279,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jScrollPane_Corps_Exam_Tab.setViewportView(jTable_Exam);
         if (jTable_Exam.getColumnModel().getColumnCount() > 0) {
             jTable_Exam.getColumnModel().getColumn(0).setResizable(false);
-            jTable_Exam.getColumnModel().getColumn(0).setPreferredWidth(3);
+            jTable_Exam.getColumnModel().getColumn(0).setPreferredWidth(5);
             jTable_Exam.getColumnModel().getColumn(1).setResizable(false);
-            jTable_Exam.getColumnModel().getColumn(1).setPreferredWidth(5);
+            jTable_Exam.getColumnModel().getColumn(1).setPreferredWidth(3);
             jTable_Exam.getColumnModel().getColumn(2).setResizable(false);
             jTable_Exam.getColumnModel().getColumn(3).setResizable(false);
             jTable_Exam.getColumnModel().getColumn(4).setResizable(false);
@@ -354,7 +356,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
-                                .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
@@ -547,7 +549,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
@@ -676,9 +678,15 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void remplirTable(){
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
-        patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
         ArrayList<Examen> examens = new ArrayList<Examen>();
-        DMR dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
+        DMR dmr = new DMR(0,null,null);
+        if(jComboBox_Recherche.getSelectedItem()=="ID"){
+             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
+        dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
+        }else if(jComboBox_Recherche.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText());
+            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()));
+        }
         examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
