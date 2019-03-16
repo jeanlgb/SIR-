@@ -10,6 +10,7 @@ import BD.Gestion_patient;
 import NF.Examen;
 import NF.Impression;
 import NF.Patient;
+import java.sql.Connection;
 
 /**
  *
@@ -17,8 +18,9 @@ import NF.Patient;
  */
 public class Crea_Rapport extends javax.swing.JFrame {
 
-    private Patient patient_courant =Gestion_patient.rechercher_patient("1") ;
-    private Examen examen_courant = Gestion_examen.rechercher_Examen("1");
+    private Patient patient_courant;
+    private Examen examen_courant;
+    private Connection connexion;
 
     /**
      * Creates new form Acceuille_Radiologue
@@ -27,9 +29,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Crea_Rapport(Patient patient_courant, Examen examen_courant) {
+    public Crea_Rapport(Patient patient_courant, Examen examen_courant, Connection connexion) {
         this.patient_courant = patient_courant;
         this.examen_courant = examen_courant;
+        this.connexion = connexion;
         initComponents();
     }
 

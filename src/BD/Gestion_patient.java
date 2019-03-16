@@ -14,9 +14,7 @@ public class Gestion_patient {
      * permet de rechercher un patient dans la BD à partir de son id.
      */
 
-    public static Patient rechercher_patient(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Patient rechercher_patient(String id_recherche,Connection connexion) {
         PreparedStatement statement = null;
 
         try {
@@ -31,7 +29,7 @@ public class Gestion_patient {
                 java.sql.Date date_de_naissance = resultset.getDate("date_de_naissance");
                 Genre genre = Genre.valueOf(resultset.getString("genre"));
                 int id_adresse = resultset.getInt("id_adresse");
-                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse));
+                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse), connexion);
                 String id_dmr = resultset.getString("id_dmr");
                 
                 Patient patient = new Patient(Integer.parseInt(id_recherche), nom_d_usage, prenom_patient, date_de_naissance, genre, adresse);
@@ -47,9 +45,7 @@ public class Gestion_patient {
      * permet de rechercher un patient dans la BD à partir de son id.
      */
 
-    public static Patient rechercher_par_nom_patient(String nom_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Patient rechercher_par_nom_patient(String nom_recherche, Connection connexion) {
         PreparedStatement statement = null;
 
         try {
@@ -63,7 +59,7 @@ public class Gestion_patient {
                 java.sql.Date date_de_naissance = resultset.getDate("date_de_naissance");
                 Genre genre = Genre.valueOf(resultset.getString("genre"));
                 int id_adresse = resultset.getInt("id_adresse");
-                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse));
+                Adresse adresse = Gestion_adresse.rechercher_adresse(String.valueOf(id_adresse),connexion);
                 String id_dmr = resultset.getString("id_dmr");
                 
                 Patient patient = new Patient(id, nom_recherche, prenom_patient, date_de_naissance, genre, adresse);
@@ -79,9 +75,7 @@ public class Gestion_patient {
      * A partir d'un patient passé en paramètres, met à jour le patient dans la
      * BD (se base sur l'id du patient pour le retrouver dans la BD)
      */
-    public static boolean mettreAJour(Patient patient) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean mettreAJour(Patient patient,Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("UPDATE patient SET nom_d_usage = ?, nom_de_naissance = ?, prenom_patient = ?, date_de_naissance = ?, genre = ?, id_adresse = ?,  id_dmr =? WHERE patient.id_patient = ? ;");
@@ -109,9 +103,7 @@ public class Gestion_patient {
      * A partir d'un patient passé en paramètres, crée un patient dans la base
      * de données.
      */
-    public static boolean creerPatient(Patient patient) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean creerPatient(Patient patient,Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("INSERT INTO patient (id_patient, nom_d_usage, nom_de_naissance, prenom_patient, date_de_naissance, genre, id_adresse, id_dmr) VALUES (?,?,?,?,?,?,?,?);");
@@ -135,9 +127,7 @@ public class Gestion_patient {
         return false;
     }
 
-    public static String rechercheIdDMR(int id_patient) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static String rechercheIdDMR(int id_patient, Connection connexion) {
         PreparedStatement statement = null;
         String id_dmr = "";
 

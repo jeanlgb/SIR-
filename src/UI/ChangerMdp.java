@@ -5,7 +5,7 @@
  */
 package UI;
 
-import NF.Acces_BD;
+import NF.ObjetCourant;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
  * @author porra
  */
 public class ChangerMdp extends javax.swing.JFrame {
+
+    private Connection connexion;
+    private ObjetCourant objet_Courant;
 
     /**
      * Creates new form ChangerMdp
@@ -47,7 +50,6 @@ public class ChangerMdp extends javax.swing.JFrame {
         jCheckBoxNew1 = new javax.swing.JCheckBox();
         jButtonValider = new javax.swing.JButton();
 
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelPrincipal.setBackground(new java.awt.Color(163, 209, 180));
@@ -60,18 +62,18 @@ public class ChangerMdp extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelSecondaireLayout = new javax.swing.GroupLayout(jPanelSecondaire);
         jPanelSecondaire.setLayout(jPanelSecondaireLayout);
         jPanelSecondaireLayout.setHorizontalGroup(
-            jPanelSecondaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSecondaireLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabelTitre)
-                .addContainerGap(45, Short.MAX_VALUE))
+                jPanelSecondaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSecondaireLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabelTitre)
+                        .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanelSecondaireLayout.setVerticalGroup(
-            jPanelSecondaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSecondaireLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabelTitre)
-                .addContainerGap(64, Short.MAX_VALUE))
+                jPanelSecondaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSecondaireLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabelTitre)
+                        .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jLabelMdpActuel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -128,121 +130,117 @@ public class ChangerMdp extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelSecondaire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
-                            .addComponent(jLabelId)
-                            .addGap(143, 143, 143))
-                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                            .addComponent(jLabelMdpActuel)
-                            .addGap(48, 48, 48)))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabelnewMdp)
-                        .addGap(36, 36, 36))
-                    .addComponent(jLabelconfirmer))
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelSecondaire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                .addComponent(jPasswordFieldnouveau, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBoxNew1))
-                            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                .addComponent(jPasswordFieldmdpActuel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBoxActuel))
-                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jPasswordFieldConfirmer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+                                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
+                                                .addComponent(jLabelId)
+                                                .addGap(143, 143, 143))
+                                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                                .addComponent(jLabelMdpActuel)
+                                                .addGap(48, 48, 48)))
+                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                        .addComponent(jLabelnewMdp)
+                                        .addGap(36, 36, 36))
+                                .addComponent(jLabelconfirmer))
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                                        .addComponent(jPasswordFieldnouveau, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jCheckBoxNew1))
+                                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                                        .addComponent(jPasswordFieldmdpActuel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jCheckBoxActuel))
+                                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                        .addComponent(jPasswordFieldConfirmer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(61, 61, 61))))
         );
         jPanelPrincipalLayout.setVerticalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addComponent(jPanelSecondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jPanelSecondaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jLabelId))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(45, 45, 45)
-                        .addComponent(jLabelId))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelMdpActuel)
+                                .addComponent(jPasswordFieldmdpActuel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBoxActuel))
                         .addGap(45, 45, 45)
-                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMdpActuel)
-                    .addComponent(jPasswordFieldmdpActuel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxActuel))
-                .addGap(45, 45, 45)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelnewMdp)
-                    .addComponent(jPasswordFieldnouveau, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxNew1))
-                .addGap(45, 45, 45)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelconfirmer)
-                    .addComponent(jPasswordFieldConfirmer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 45, Short.MAX_VALUE))
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelnewMdp)
+                                .addComponent(jPasswordFieldnouveau, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBoxNew1))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelconfirmer)
+                                .addComponent(jPasswordFieldConfirmer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                            
+    }
 
-    private void jCheckBoxActuelActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void jCheckBoxActuelActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:                                          
-        if(jCheckBoxActuel.isSelected()){
-            jPasswordFieldmdpActuel.setEchoChar((char)0);
-        }
-        else{
+        if (jCheckBoxActuel.isSelected()) {
+            jPasswordFieldmdpActuel.setEchoChar((char) 0);
+        } else {
             jPasswordFieldmdpActuel.setEchoChar('*');
         }
-    
-    }                                               
 
-    private void jPasswordFieldConfirmerActionPerformed(java.awt.event.ActionEvent evt) {                                                        
-        // TODO add your handling code here:
-    }                                                       
+    }
 
-    private void jCheckBoxNew1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void jPasswordFieldConfirmerActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        
-        if(jCheckBoxNew1.isSelected()){
-            jPasswordFieldnouveau.setEchoChar((char)0);
-        }
-        else{
+    }
+
+    private void jCheckBoxNew1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+        if (jCheckBoxNew1.isSelected()) {
+            jPasswordFieldnouveau.setEchoChar((char) 0);
+        } else {
             jPasswordFieldnouveau.setEchoChar('*');
         }
-    }                                                                               
- 
-    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    }
+
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        Acces_BD bd = new Acces_BD();
-        Connection connexion =bd.connexion;
         boolean verif = false;
 
         try {
@@ -256,38 +254,35 @@ public class ChangerMdp extends javax.swing.JFrame {
                 char[] ancienMdp = jPasswordFieldmdpActuel.getPassword();
                 String motPasseUtilisateur = rs.getString("mdp");
                 String mdpActuel = String.valueOf(ancienMdp);
-                    if (loginUtilisateur.equals(loginChanger) && motPasseUtilisateur.equals(mdpActuel) ) { 
+                if (loginUtilisateur.equals(loginChanger) && motPasseUtilisateur.equals(mdpActuel)) {
                     verif = true;
 
                     PreparedStatement stat;
                     stat = connexion.prepareStatement("UPDATE connexion SET mdp ="
-                            +String.valueOf(jPasswordFieldnouveau.getPassword())
-                            +" WHERE id_user = "+jTextFieldId.getText()+"");
-                    if(String.valueOf(jPasswordFieldnouveau.getPassword()).equals(String.valueOf(jPasswordFieldConfirmer.getPassword()))){
-                    stat.executeUpdate();
+                            + String.valueOf(jPasswordFieldnouveau.getPassword())
+                            + " WHERE id_user = " + jTextFieldId.getText() + "");
+                    if (String.valueOf(jPasswordFieldnouveau.getPassword()).equals(String.valueOf(jPasswordFieldConfirmer.getPassword()))) {
+                        stat.executeUpdate();
                     }
-           
 
-                    Acceuil_Radiologue retourAccueil = new Acceuil_Radiologue(new NF.ObjetCourant(new NF.Medecin(1,"","")));
+                    Acceuil_Radiologue retourAccueil = new Acceuil_Radiologue(objet_Courant);
                     retourAccueil.setVisible(true);
                     this.dispose();
 
-              }
+                }
             }
-               if (verif==false) {
+            if (verif == false) {
                 JOptionPane.showMessageDialog(null, "Verifier le login ou le Mot de passe", "Message d'erreur:", JOptionPane.ERROR_MESSAGE);
                 jTextFieldId.setText("");
                 jPasswordFieldmdpActuel.setText("");
             }
-        } 
-        
-        //catch (SQLException ex) {
-         //   Logger.getLogger(ChangerMotPasseJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } //catch (SQLException ex) {
+        //   Logger.getLogger(ChangerMotPasseJFrame.class.getName()).log(Level.SEVERE, null, ex);
         //}
- catch (Exception e) {
-    e.printStackTrace();
-}   
- 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

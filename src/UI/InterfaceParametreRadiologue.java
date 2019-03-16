@@ -5,6 +5,8 @@
  */
 package UI;
 
+import NF.ObjetCourant;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +14,16 @@ import javax.swing.JOptionPane;
  * @author porra
  */
 public class InterfaceParametreRadiologue extends javax.swing.JFrame {
+    private Connection connexion;
+    private ObjetCourant objet_Courant;
 
     /**
      * Creates new form interfaceParametre
      */
-    public InterfaceParametreRadiologue() {
+    public InterfaceParametreRadiologue(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
+        this.connexion = connexion;
         initComponents();
     }
 
@@ -65,7 +72,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
 
         jButtonFermer.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonFermer.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonFermer.setText("Fermer");
+        jButtonFermer.setText("Retour");
         jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFermerActionPerformed(evt);
@@ -147,7 +154,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-        Acceuil_Radiologue retourRadiologue = new Acceuil_Radiologue(new NF.ObjetCourant(new NF.Medecin(1,"","")));
+        Acceuil_Radiologue retourRadiologue = new Acceuil_Radiologue(objet_Courant);
         retourRadiologue.setVisible(true);
         retourRadiologue.setResizable(false);
         this.setVisible(false);
@@ -198,7 +205,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfaceParametreRadiologue().setVisible(true);
+                //new InterfaceParametreRadiologue().setVisible(true);
             }
         });
     }

@@ -21,9 +21,7 @@ public class Gestion_DMR {
      * Permet de récupérer la liste des examens d'un DMR, en indiquant le nom d'usage du
      * patient
      */
-    public static ArrayList<Examen> recuperer_ExamensViaNom(String nom) {
-    Acces_BD acces_BD = new Acces_BD();
-    Connection connexion = acces_BD.connexion;
+    public static ArrayList<Examen> recuperer_ExamensViaNom(String nom, Connection connexion) {
     PreparedStatement statement = null;
     ArrayList<Examen> liste_examens = new ArrayList<>();
 
@@ -42,7 +40,7 @@ public class Gestion_DMR {
             System.out.println(date);
             //creation medecin
             int id_medecin = resultset.getInt("id_medecin");
-            Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin));
+            Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin), connexion);
             //fin creation medecin
             String type_examen_string = resultset.getString("type_examen");
             Type_examen type_examen = Type_examen.valueOf(type_examen_string);
@@ -92,7 +90,7 @@ public class Gestion_DMR {
                 java.sql.Date date = resultset.getDate("date_examen");
                 //creation medecin
                 int id_medecin = resultset.getInt("id_medecin");
-                Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin));
+                Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin), connexion);
                 //fin creation medecin
                 String type_examen_string = resultset.getString("type_examen");
                 Type_examen type_examen = Type_examen.valueOf(type_examen_string);
@@ -117,9 +115,7 @@ public class Gestion_DMR {
         return liste_examens;
     }
 
-    public static ArrayList<DMR> recuperer_DMRs(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static ArrayList<DMR> recuperer_DMRs(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
         ArrayList<DMR> liste_DMRs = new ArrayList<>();
 
@@ -133,13 +129,13 @@ public class Gestion_DMR {
                 int id_dmr = resultset.getInt("id_dmr");
                 //creation patient
                 int id_patient = resultset.getInt("id_patient");
-                Patient patient = Gestion_patient.rechercher_patient(String.valueOf(id_patient));
+                Patient patient = Gestion_patient.rechercher_patient(String.valueOf(id_patient), connexion);
                 //fin creation patient
                 //creation historique_modifications
                 int id_historique = resultset.getInt("historique_modifications");
-                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
+                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique), connexion);
                 //fin creation historique_modifications
-                ArrayList<DMR> DMRs = recuperer_DMRs(id_recherche);
+                ArrayList<DMR> DMRs = recuperer_DMRs(id_recherche, connexion);
                 liste_DMRs.add(new DMR(id_dmr, id_patient, null, historique_modifications));
 
             }
@@ -152,9 +148,7 @@ public class Gestion_DMR {
     /**
      * Permet de récupérer un DMR à partir de son identifiant
      */
-    public static DMR rechercher_DMR(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static DMR rechercher_DMR(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
 
         try {
@@ -166,7 +160,7 @@ public class Gestion_DMR {
             while (resultset.next()) {
                 int id_dmr = resultset.getInt("id_dmr");
                 int id_historique = resultset.getInt("historique_modifications");
-                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
+                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique), connexion);
                 ArrayList<Examen> examens = recuperer_Examens(id_recherche);
 
                 DMR dmr = new DMR(id_dmr, Integer.parseInt(id_recherche), examens, historique_modifications);
@@ -182,9 +176,7 @@ public class Gestion_DMR {
     /**
      * Permet de récupérer un DMR à partir de son nom
      */
-    public static DMR rechercher_Par_Nom_DMR(String nom) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static DMR rechercher_Par_Nom_DMR(String nom, Connection connexion) {
         PreparedStatement statement = null;
 
         try {
@@ -196,7 +188,7 @@ public class Gestion_DMR {
             while (resultset.next()) {
                 int id_dmr = resultset.getInt("id_dmr");
                 int id_historique = resultset.getInt("historique_modifications");
-                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique));
+                Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique), connexion);
                 ArrayList<Examen> examens = recuperer_Examens(nom);
 
                 DMR dmr = new DMR(id_dmr, Integer.parseInt(nom), examens, historique_modifications);
@@ -213,9 +205,7 @@ public class Gestion_DMR {
      * A partir d'un dmr passé en paramètre, crée ce dmr dans la BD
      * Dans un premier temps, on regarde si le patient existe et si il a un dmr
      */
-    public static boolean creerDMR(DMR dmr) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean creerDMR(DMR dmr, Connection connexion) {
         PreparedStatement statement;
         PreparedStatement stat;
         Gestion_patient gestionPatient = new Gestion_patient();
@@ -231,8 +221,7 @@ public class Gestion_DMR {
         } catch (Exception e) {
             System.out.println("exception");
         }
-        System.out.println(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient())));
-        if(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient()))!=null && id_patient==0) {
+        if(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient()), connexion)!=null && id_patient==0) {
             try {
                 statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient, historique_modifications) VALUES (?,?,?);");
                 statement.setInt(1, dmr.getId_dmr());
@@ -250,10 +239,8 @@ public class Gestion_DMR {
         return false;
     }
 
-    public int générerIdDMR(){
+    public int générerIdDMR(Connection connexion){
         //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
 
         int nombredmr = 0;
         try {
@@ -272,9 +259,7 @@ public class Gestion_DMR {
     /**
      * met à jour les infos du dmr passé en paramètres
      */
-    public static boolean mettreAJour(DMR dmr) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean mettreAJour(DMR dmr, Connection connexion) {
         PreparedStatement statement;
             try {
                 statement = connexion.prepareStatement("UPDATE dmr SET id_patient = ?, historique_modifications = ? WHERE id_dmr = ? ;");

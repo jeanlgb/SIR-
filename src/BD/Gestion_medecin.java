@@ -21,9 +21,7 @@ public class Gestion_medecin {
     /**
      * recherche et renvoie le médecin correspondant à l'identifiant passé en paramètres
      */
-    public static Medecin rechercher_medecin(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Medecin rechercher_medecin(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
 
         try {
@@ -46,9 +44,7 @@ public class Gestion_medecin {
     /**
      * met à jour dans la bd les infos du médecin passé en paramètres
      */
-    public static boolean mettreAJour(Medecin medecin) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean mettreAJour(Medecin medecin, Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("UPDATE medecin SET nom = ?, prenom = ?;");
@@ -70,9 +66,7 @@ public class Gestion_medecin {
      * A partir d'un patient passé en paramètres, crée un patient dans la base
      * de données.
      */
-    public static boolean creerMedecin(Medecin medecin) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean creerMedecin(Medecin medecin, Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("INSERT INTO medecin (id_medecin, nom, prenom) VALUES (?,?,?);");

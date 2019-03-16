@@ -23,9 +23,7 @@ public class Gestion_historique_modifications {
      * renvoie en arraylist les modifications associées à un même historique de
      * modifications, selon l'id de l'historique passé en paramètres.
      */
-    public static ArrayList<Modification> recuperer_modifications(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static ArrayList<Modification> recuperer_modifications(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
         ArrayList<Modification> modifications = null;
 
@@ -51,8 +49,8 @@ public class Gestion_historique_modifications {
      * Renvoie l'historique de modifications associé à l'identifiant
      * d'historique passé en paramètre
      */
-    public static Historique_modifications rechercher_historique(String id_recherche) {
-        ArrayList<Modification> liste_modifications = recuperer_modifications(id_recherche);
+    public static Historique_modifications rechercher_historique(String id_recherche, Connection connexion) {
+        ArrayList<Modification> liste_modifications = recuperer_modifications(id_recherche, connexion);
         Historique_modifications historique_modifications = new Historique_modifications(Integer.parseInt(id_recherche), liste_modifications);
         return historique_modifications;
     }

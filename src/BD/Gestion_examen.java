@@ -23,9 +23,7 @@ public class Gestion_examen {
     /**
      * permet de rechercher un examen (renvoie un type Examen) à partir de l'identifiant de l'examen
      */
-    public static Examen rechercher_Examen(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Examen rechercher_Examen(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
         Examen examen_trouve = null;
 
@@ -40,7 +38,7 @@ public class Gestion_examen {
                 java.sql.Date date = resultset.getDate("date_examen");
                 //creation medecin
                 int id_medecin = resultset.getInt("id_medecin");
-                Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin));
+                Medecin medecin = Gestion_medecin.rechercher_medecin(String.valueOf(id_medecin),connexion);
                 //fin creation medecin
                 String type_examen_string = resultset.getString("type_examen");
                 Type_examen type_examen = Type_examen.valueOf(type_examen_string);
@@ -69,9 +67,7 @@ public class Gestion_examen {
     /**
      * crée l'examen passé en paramètres dans la base de données
      */
-    public static boolean creerExamen(Examen examen) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean creerExamen(Examen examen, Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("INSERT INTO examen (id_examen, date_examen, id_medecin, type_examen, duree_prevue, salle, compte_rendu, pacs, dossier_papier, examen_termine, historique_modifications, cout_examen, id_dmr) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");

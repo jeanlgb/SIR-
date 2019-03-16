@@ -39,7 +39,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JCheckBox verifierMdp;
     private javax.swing.JButton jButtonChangerLangue;
     private ObjetCourant objet_Courant;
-    private Medecin medecin_courant;
     /**
      * Creates new form Login
      */
@@ -331,7 +330,7 @@ public class Login extends javax.swing.JFrame {
                     while (medQuery.next()) {
                         String nom = medQuery.getString("nom");
                         String prenom = medQuery.getString("prenom");
-                        objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom));
+                        objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom), connexion);
                     }
                     new Acceuil_Radiologue(objet_Courant).setVisible(true); //ouvre la fenetre l'accueil radiologue
                     this.dispose(); //ferme la fenetre de login

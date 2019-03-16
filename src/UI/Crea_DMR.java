@@ -7,6 +7,7 @@ package UI;
 
 import NF.*;
 import BD.Gestion_DMR;
+import java.sql.Connection;
 
 import java.util.ArrayList;
 
@@ -236,18 +237,20 @@ public class Crea_DMR extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox_SexeActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
+        NF.Acces_BD bd = new Acces_BD();
+        Connection connexion = bd.connexion;
         Gestion_DMR d = new Gestion_DMR();
-        int idDMR = d.générerIdDMR();
+        int idDMR = d.générerIdDMR(connexion);
         ArrayList<Examen> liste = new ArrayList<Examen>();
-        Historique_modifications modifications = new Historique_modifications(0,null);
-        DMR dmr = new DMR(idDMR,4,liste,modifications);
+        Historique_modifications modifications = new Historique_modifications(0, null);
+        DMR dmr = new DMR(idDMR, 4, liste, modifications);
 
-        d.creerDMR(dmr);
+        d.creerDMR(dmr, connexion);
     }//GEN-LAST:event_jButton_SauvegarderFermerActionPerformed
 
     private void jComboBox_ExamLierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ExamLierActionPerformed
         // TODO add your handling code here:
-                        if (jComboBox_ExamLier.getSelectedItem().equals("Oui (Numérique)") | jComboBox_ExamLier.getSelectedItem().equals("Oui (Papier)") ) {
+        if (jComboBox_ExamLier.getSelectedItem().equals("Oui (Numérique)") | jComboBox_ExamLier.getSelectedItem().equals("Oui (Papier)")) {
             jTextField_Reference.setVisible(true);
             jLabel_Reference.setVisible(true);
 
@@ -257,7 +260,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         } else if (jComboBox_ExamLier.getModel().getSelectedItem().equals("Non")) {
             jTextField_Reference.setVisible(false);
             jLabel_Reference.setVisible(false);
-            
+
             jPanel_DMR.repaint();
             jPanel_DMR.revalidate();
 

@@ -20,9 +20,7 @@ public class Gestion_adresse {
     /**
     *crée dans la base de données l'adresse passée en paramètres
     */
-    public static boolean creerAdresse(Adresse adresse) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static boolean creerAdresse(Adresse adresse,Connection connexion) {
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement("INSERT INTO adresse (id_adresse, numero, rue, lieu_dit, code_postal, commune, pays) VALUES (?,?,?,?,?,?,?);");
@@ -49,9 +47,7 @@ public class Gestion_adresse {
 /***
  * recherche et renvoie une adresse à partir de l'identifiant d'adresse passé en paramètres
  */
-    public static Adresse rechercher_adresse(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Adresse rechercher_adresse(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
 
         try {

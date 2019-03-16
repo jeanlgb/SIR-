@@ -19,6 +19,7 @@ import javax.swing.table.JTableHeader;
 import BD.Gestion_DMR;
 import BD.Gestion_examen;
 import BD.Gestion_patient;
+import java.sql.Connection;
 
 /**
  *
@@ -30,12 +31,14 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     Patient patient_courant;
     String s = "";
     ObjetCourant objet_Courant;
+    Connection connexion;
 
     /**
      * Creates new form Acceuil_Radiologue
      */
     public Acceuil_Radiologue(ObjetCourant objet_Courant) {
         this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -614,7 +617,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_ParametresActionPerformed(ActionEvent evt) {
-        InterfaceParametreRadiologue allerParametres = new InterfaceParametreRadiologue();
+        InterfaceParametreRadiologue allerParametres = new InterfaceParametreRadiologue(objet_Courant);
         this.setVisible(false);
         allerParametres.setVisible(true);
     }
@@ -670,8 +673,8 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // auquel cas c'est ajouter rapport
         // + condition sur le fait qu'un elem du tableau doit être sélectionner
 
-        Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)));
-        Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant);
+        Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)), connexion);
+        Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, connexion);
 //        creaRapport.setPatient_courant(patient_courant);
 //        creaRapport.setExamen_courant(examen_courant);
         creaRapport.setVisible(true);
@@ -685,7 +688,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         remplirTable();
     }//GEN-LAST:event_jButton_RechercherActionPerformed
 
-    private void jButton_RechercherDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RechercherActionPerformed
+    private void jButton_RechercherDMRActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
         // Code recherche
         remplirTableDMR();
@@ -697,11 +700,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         ArrayList<Examen> examens = new ArrayList<Examen>();
         DMR dmr = new DMR(0,null,null);
         if(jComboBox_Recherche.getSelectedItem()=="ID"){
-             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
-        dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
+             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(),connexion);
+        dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
         }else if(jComboBox_Recherche.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
-             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText());
-            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()));
+             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
+            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
         examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
@@ -727,10 +730,14 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void remplirTableDMR(){
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
-        patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText());
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
-        DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant()));
-        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(DMRS.getId_dmr()));
+        if(jComboBox_RechercheDMR.getSelectedItem()=="ID"){
+             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
+        }else if(jComboBox_RechercheDMR.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
+        }
+        DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(DMRS.getId_dmr()), connexion);
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < DMRs.size(); i++) {
@@ -766,11 +773,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 /*
                  Code pour ouvrir exam
                  */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)));
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)), connexion);
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
-                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant);
+                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, connexion);
                 creaRapport.setVisible(true);
                 //System.out.println(examen_courant);
             }
