@@ -631,6 +631,31 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     private void jTable_DMRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_DMRMouseClicked
         // TODO add your handling code here:
+
+        if (jTable_DMR.getSelectedRowCount() > 0) {
+            /*
+
+             Code pour apercu exam
+
+
+             */
+
+        }
+        if (evt.getClickCount() == 2) {
+
+            if (jTable_DMR.getSelectedRowCount() > 0) {
+                /*
+                 Code pour ouvrir exam
+                 */
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 1)), connexion);
+//                Crea_Rapport creaRapport = new Crea_Rapport();
+//                creaRapport.setPatient_courant(patient_courant);
+//                creaRapport.setExamen_courant(examen_courant);
+                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
+                creaRapport.setVisible(true);
+                //System.out.println(examen_courant);
+            }
+        }
     }//GEN-LAST:event_jTable_DMRMouseClicked
 
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
@@ -728,8 +753,8 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     }
 
     private void remplirTableDMR(){
-        DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
-        jTable_Exam.removeAll();
+        DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
+        jTable_DMR.removeAll();
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
         if(jComboBox_RechercheDMR.getSelectedItem()=="ID"){
              patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
@@ -741,17 +766,17 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < DMRs.size(); i++) {
-            jTable_Exam.setValueAt(DMRs.get(i).getId_dmr(), i, 0);
-            jTable_Exam.setValueAt(DMRs.get(i).getId_patient(), i, 1);
-            jTable_Exam.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
-            jTable_Exam.setModel(model);
+            jTable_DMR.setValueAt(DMRs.get(i).getId_dmr(), i, 0);
+            jTable_DMR.setValueAt(DMRs.get(i).getId_patient(), i, 1);
+            jTable_DMR.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
+            jTable_DMR.setModel(model);
         }
 
         for (int i = 0; i < DMRs.size(); i++) {
             s += DMRs.get(i).toString();
             s += "\n";
         }
-        jTextArea_Apercu.setText(s);
+        jTextArea_ApercuDMR.setText(s);
         s = "";
     }
     private void jTable_ExamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ExamMouseClicked
