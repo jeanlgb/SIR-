@@ -7,16 +7,25 @@ package NF;
 public class PACS {
 private int numero_archive;
 private String mention;
-private Historique_modifications historique_modifications;
+private String description;
+//private Historique_modifications historique_modifications;
+
+    public PACS(int numero_archive, String mention, String desciprtion) {
+        this.numero_archive = numero_archive;
+        this.mention = mention;
+        this.description = desciprtion;
+    }
 
     /**
      * constructeur qui demande un numéro d'archive, une mention, un historique de modifications
      */
-    public PACS(int numero_archive, String mention, Historique_modifications historique_modifications) {
+/*public PACS(int numero_archive, String mention, Historique_modifications historique_modifications) {
         this.numero_archive = numero_archive;
         this.mention = mention;
-        this.historique_modifications = historique_modifications;
+       // this.historique_modifications = historique_modifications;
     }
+*/
+
 
     /**
      * @return the numero_archive
@@ -49,8 +58,23 @@ private Historique_modifications historique_modifications;
     /**
      * @return the historique_modifications
      */
-    public Historique_modifications getHistorique_modifications() {
+   /* public Historique_modifications getHistorique_modifications() {
         return historique_modifications;
+    }
+    */
+
+    /**
+     * @return the desciprtion
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param desciprtion the desciprtion to set
+     */
+    public void setDescription(String desciprtion) {
+        this.description = desciprtion;
     }
 
 

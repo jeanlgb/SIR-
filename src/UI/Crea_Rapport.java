@@ -9,8 +9,13 @@ import BD.Gestion_examen;
 import BD.Gestion_patient;
 import NF.Examen;
 import NF.Impression;
+import NF.PACS;
 import NF.Patient;
-import java.sql.Connection;
+import NF.Salle;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,9 +23,16 @@ import java.sql.Connection;
  */
 public class Crea_Rapport extends javax.swing.JFrame {
 
-    private Patient patient_courant;
-    private Examen examen_courant;
-    private Connection connexion;
+    //a utiliser pour le moment pour que les tests soient plus rapides
+    private Patient patient_courant =Gestion_patient.rechercher_patient("1") ;
+    private Examen examen_courant = Gestion_examen.rechercher_Examen("1");
+
+    
+    //Code utile
+//        private Patient patient_courant ;
+//    private Examen examen_courant ;
+        private Salle salle_courante = Gestion_examen.recuperer_salle(String.valueOf(examen_courant.getId_examen()));
+        private PACS pacs_courant = Gestion_examen.recuperer_pacs(String.valueOf(examen_courant.getId_examen()));
 
     /**
      * Creates new form Acceuille_Radiologue
@@ -29,10 +41,9 @@ public class Crea_Rapport extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Crea_Rapport(Patient patient_courant, Examen examen_courant, Connection connexion) {
+    public Crea_Rapport(Patient patient_courant, Examen examen_courant) {
         this.patient_courant = patient_courant;
         this.examen_courant = examen_courant;
-        this.connexion = connexion;
         initComponents();
     }
 
@@ -243,7 +254,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Age)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                         .addComponent(agePatient))
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Adresse)
@@ -299,19 +310,19 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_IDpract.setText("ID du Praticien : ");
 
         typeExamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        typeExamen.setText("Type_Exam");
+        typeExamen.setText(examen_courant.getType_examen().toString());
 
         nomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPraticien.setText("Nom_pract");
+        nomPraticien.setText(examen_courant.getMedecin_en_charge().getNom());
 
         prenomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPraticien.setText("Prenom_pract");
+        prenomPraticien.setText(examen_courant.getMedecin_en_charge().getPrenom());
 
         idPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPraticien.setText("ID_pract");
+        idPraticien.setText(String.valueOf(examen_courant.getMedecin_en_charge().getIdentifiant()));
 
         datexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        datexam.setText("00/00/0000");
+        datexam.setText(examen_courant.getDate().toString());
 
         jLabel_LinkWord.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_LinkWord.setText("à");
@@ -323,14 +334,14 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_IDexam.setText("ID examen : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idexamen.setText("ID examen");
+        idexamen.setText(String.valueOf(examen_courant.getId_examen()));
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Indication.setText("Indication :");
 
         jTextPane_Indication.setEditable(false);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextPane_Indication.setText("blablbal je suis les indications");
+        jTextPane_Indication.setText(pacs_courant.getMention());
         jScrollPane_Indication.setViewportView(jTextPane_Indication);
 
         jLabel_Technique.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -338,7 +349,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jTextPane_Technique.setEditable(false);
         jTextPane_Technique.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextPane_Technique.setText("blablabla je suis la technique");
+        jTextPane_Technique.setText(pacs_courant.getDescription());
         jScrollPane_Technique.setViewportView(jTextPane_Technique);
 
         javax.swing.GroupLayout jPanel_InfoActeLayout = new javax.swing.GroupLayout(jPanel_InfoActe);
@@ -535,7 +546,8 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_isNum.setText("Numérique :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        isNum.setText("Non");
+        isNum.setText(salle_courante.isExamn_num());
+        isNum.setToolTipText("");
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -543,11 +555,11 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Reference.setVisible(false);
 
         jLabel_Reference1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Reference1.setText("RefDos");
+        jLabel_Reference1.setText(String.valueOf(pacs_courant.getNumero_archive()));
         jLabel_Reference.setVisible(false);
 
         jLabel_Salle1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Salle1.setText("1");
+        jLabel_Salle1.setText(String.valueOf(salle_courante.getNumero_salle()));
 
         javax.swing.GroupLayout jPanel_InfoSalleLayout = new javax.swing.GroupLayout(jPanel_InfoSalle);
         jPanel_InfoSalle.setLayout(jPanel_InfoSalleLayout);
@@ -708,7 +720,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
 
         // TODO add your handling code here:
         String s = "";

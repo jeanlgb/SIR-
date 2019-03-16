@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Salle {
 private int numero_salle;
-private ArrayList<Type_examen> type_examens;
+private Type_examen type_examen;
 private boolean examen_numerique;
 private EDT edt_salle;
 
@@ -17,16 +17,16 @@ private EDT edt_salle;
      */
 
 
-    public Salle(int numero_salle, ArrayList<Type_examen> type_examens, boolean examen_numerique, EDT edt_salle) {
+    public Salle(int numero_salle, Type_examen type_examen, boolean examen_numerique, EDT edt_salle) {
         this.numero_salle = numero_salle;
-        this.type_examens = type_examens;
+        this.type_examen = type_examen;
         this.examen_numerique = examen_numerique;
         this.edt_salle = edt_salle;
     }
 
     @Override
     public String toString() {
-        return "Salle{" + "numero_salle=" + getNumero_salle() + ", type_examens=" + getType_examens() + ", examen_numerique=" + isExamen_numerique() + '}';
+        return "Salle{" + "numero_salle=" + getNumero_salle() + ", type_examen=" + getType_examen() + ", examen_numerique=" + isExamen_numerique() + '}';
     }
 
     /**
@@ -44,17 +44,17 @@ private EDT edt_salle;
     }
 
     /**
-     * @return the type_examens
+     * @return the type_examen
      */
-    public ArrayList<Type_examen> getType_examens() {
-        return type_examens;
+    public Type_examen getType_examen() {
+        return type_examen;
     }
 
     /**
-     * @param type_examens the type_examens to set
+     * @param type_examen the type_examen to set
      */
-    public void setType_examens(ArrayList<Type_examen> type_examens) {
-        this.type_examens = type_examens;
+    public void setType_examen(Type_examen type_examen) {
+        this.type_examen = type_examen;
     }
 
     /**
@@ -62,6 +62,11 @@ private EDT edt_salle;
      */
     public boolean isExamen_numerique() {
         return examen_numerique;
+    }
+    
+    public String isExamn_num(){
+        if (examen_numerique) return "Examen numerique";
+        else return "Examen papier";
     }
 
     /**

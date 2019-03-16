@@ -7,8 +7,11 @@ package BD;
 
 import NF.Acces_BD;
 import NF.Compte_rendu;
+import NF.EDT;
 import NF.Examen;
 import NF.Medecin;
+import NF.PACS;
+import NF.Salle;
 import NF.Type_examen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,8 +56,7 @@ public class Gestion_examen {
                 int examen_termine = resultset.getInt("examen_termine");
                 double cout_examen = resultset.getDouble("cout_examen");
 
-                examen_trouve = new Examen(id_examen, date, medecin, type_examen, salle, duree_prevue, compte_rendu, dossier_papier,examen_termine,cout_examen);
-
+                examen_trouve = new Examen(id_examen, date, medecin, type_examen, salle, duree_prevue, compte_rendu, dossier_papier, examen_termine, cout_examen);
 
             }
 
@@ -95,4 +97,63 @@ public class Gestion_examen {
         System.out.println("pb dans la connexion à la bd");
         return false;
     }
+
+    /**
+     * renvoie la salle associée à l'examen recherché par son id
+     */
+    public static Salle recuperer_salle(String id_recherche) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+        Salle salle_trouvee = null;
+
+        try {
+            statement = connexion.prepareStatement("SELECT salle.numero_salle, salle.type_examen, salle.examen_numerique, salle.edt_salle FROM salle JOIN examen ON (salle.numero_salle=examen.salle) WHERE examen.id_examen = ?");
+            statement.setInt(1, Integer.parseInt(id_recherche));
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                int numero_salle = resultset.getInt("salle.numero_salle");
+                Type_examen type_examen = Type_examen.valueOf(resultset.getString("salle.type_examen"));
+                boolean examen_numerique = resultset.getBoolean("salle.examen_numerique");
+                EDT edt_salle = new EDT();
+
+                salle_trouvee = new Salle(numero_salle, type_examen, examen_numerique, edt_salle);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return salle_trouvee;
+    }
+
+    public static PACS recuperer_pacs(String id_recherche) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
+        PreparedStatement statement = null;
+        PACS pacs_trouve = null;
+
+        try {
+            statement = connexion.prepareStatement("SELECT pacs.numero_archive, pacs.mention, pacs.description, pacs.image FROM pacs JOIN examen ON (pacs.numero_archive=examen.pacs) WHERE examen.id_examen = ?");
+            statement.setInt(1, Integer.parseInt(id_recherche));
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                int numero_archive = resultset.getInt("pacs.numero_archive");
+                String mention = resultset.getString("pacs.mention");
+                String description = resultset.getString("description");
+
+                pacs_trouve = new PACS(numero_archive, mention, description);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pacs_trouve;
+    }
+
 }
