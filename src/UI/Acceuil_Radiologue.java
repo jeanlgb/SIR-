@@ -674,7 +674,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // + condition sur le fait qu'un elem du tableau doit être sélectionner
 
         Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)), connexion);
-        Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, connexion);
+        Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
 //        creaRapport.setPatient_courant(patient_courant);
 //        creaRapport.setExamen_courant(examen_courant);
         creaRapport.setVisible(true);
@@ -777,7 +777,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
-                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, connexion);
+                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
                 creaRapport.setVisible(true);
                 //System.out.println(examen_courant);
             }

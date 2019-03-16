@@ -7,13 +7,11 @@ package UI;
 
 import BD.Gestion_examen;
 import BD.Gestion_patient;
-import NF.Examen;
-import NF.Impression;
-import NF.PACS;
-import NF.Patient;
-import NF.Salle;
+import NF.*;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
 
@@ -23,17 +21,16 @@ import javax.swing.ImageIcon;
  */
 public class Crea_Rapport extends javax.swing.JFrame {
 
-    //a utiliser pour le moment pour que les tests soient plus rapides
-    private Patient patient_courant =Gestion_patient.rechercher_patient("1") ;
-    private Examen examen_courant = Gestion_examen.rechercher_Examen("1");
+    private Patient patient_courant;
+    private Examen examen_courant;
+    private Connection connexion;
 
     
     //Code utile
 //        private Patient patient_courant ;
 //    private Examen examen_courant ;
-        private Salle salle_courante = Gestion_examen.recuperer_salle(String.valueOf(examen_courant.getId_examen()));
-        private PACS pacs_courant = Gestion_examen.recuperer_pacs(String.valueOf(examen_courant.getId_examen()));
-
+        private Salle salle_courante;
+        private PACS pacs_courant;
     /**
      * Creates new form Acceuille_Radiologue
      */
@@ -41,9 +38,14 @@ public class Crea_Rapport extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Crea_Rapport(Patient patient_courant, Examen examen_courant) {
+    public Crea_Rapport(Patient patient_courant, Examen examen_courant, ObjetCourant objet_Courant) {
         this.patient_courant = patient_courant;
+        System.out.println(examen_courant);
         this.examen_courant = examen_courant;
+        this.connexion = objet_Courant.getConnexion();
+        salle_courante = Gestion_examen.recuperer_salle(String.valueOf(examen_courant.getId_examen()), connexion);
+        pacs_courant = Gestion_examen.recuperer_pacs(String.valueOf(examen_courant.getId_examen()), connexion);
+
         initComponents();
     }
 
@@ -714,7 +716,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Impression imprimer = new Impression(jTextArea1);
         imprimer.print();

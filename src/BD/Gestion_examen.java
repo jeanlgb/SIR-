@@ -101,9 +101,7 @@ public class Gestion_examen {
     /**
      * renvoie la salle associée à l'examen recherché par son id
      */
-    public static Salle recuperer_salle(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static Salle recuperer_salle(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
         Salle salle_trouvee = null;
 
@@ -129,9 +127,7 @@ public class Gestion_examen {
         return salle_trouvee;
     }
 
-    public static PACS recuperer_pacs(String id_recherche) {
-        Acces_BD acces_BD = new Acces_BD();
-        Connection connexion = acces_BD.connexion;
+    public static PACS recuperer_pacs(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
         PACS pacs_trouve = null;
 
