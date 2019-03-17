@@ -321,6 +321,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jButton_Rechercher.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Rechercher.setText("Rerchercher");
+        jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RechercherActionPerformed(evt);
+            }
+        });
 
         jButton_Ouvrir.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Ouvrir.setText("Ouvrir");
@@ -648,6 +653,45 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         remplirTableDMR();
     }
 
+    private void jButton_RechercherActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        // Code recherche
+        remplirTablePanning();
+    }
+
+    private void remplirTablePanning(){
+        DefaultTableModel model = (DefaultTableModel) jTable_Planning.getModel();
+        jTable_Planning.removeAll();
+        ArrayList<Examen> examens = new ArrayList<Examen>();
+        DMR dmr = new DMR(0,null,null);
+        if(jComboBox_RecherchePar.getSelectedItem()=="ID"){
+            patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(),connexion);
+            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+        }else if(jComboBox_RecherchePar.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+            patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
+            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+        }
+        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
+        //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
+        //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
+        for (int i = 0; i < examens.size(); i++) {
+            jTable_Planning.setValueAt(examens.get(i).getDate(), i, 0);
+            jTable_Planning.setValueAt(examens.get(i).getIdSalle(), i, 1);
+            jTable_Planning.setValueAt(examens.get(i).getMedecin_en_charge().getNom(), i, 2);
+            jTable_Planning.setValueAt(examens.get(i).getType_examen(), i, 3);
+            jTable_Planning.setValueAt(examens.get(i).getCout_examen(), i, 4);
+            jTable_Planning.setModel(model);
+        }
+        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" +
+                patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
+
+        for (int i = 0; i < examens.size(); i++) {
+            s += examens.get(i).toString();
+            s += "\n";
+        }
+        jTextArea_Apercu.setText(s);
+        s = "";
+    }
     private void jComboBox_RechercheParActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RechercheParActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_RechercheParActionPerformed

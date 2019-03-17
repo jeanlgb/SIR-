@@ -354,6 +354,11 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jButton_Rechercher.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Rechercher.setText("Rerchercher");
+        jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RechercherActionPerformed(evt);
+            }
+        });
 
         jComboBox_Date.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_Date.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "date j", "date j+1", "date j+2", "date j+3" }));
@@ -758,6 +763,37 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Code recherche
         remplirTableDMR();
+    }
+
+    private void jButton_RechercherActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        // Code recherche
+        remplirTablePanning();
+    }
+
+    private void remplirTablePanning(){
+        DefaultTableModel model = (DefaultTableModel) jTable_Planning.getModel();
+        jTable_Planning.removeAll();
+        ArrayList<Examen> examens = new ArrayList<Examen>();
+        DMR dmr = new DMR(0,null,null);
+        if(jComboBox_Recherche.getSelectedItem()=="ID"){
+            patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(),connexion);
+            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+        }else if(jComboBox_Recherche.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+            patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
+            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+        }
+        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
+        //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
+        //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
+        for (int i = 0; i < examens.size(); i++) {
+            jTable_Planning.setValueAt(examens.get(i).getDate(), i, 0);
+            jTable_Planning.setValueAt(examens.get(i).getIdSalle(), i, 1);
+            jTable_Planning.setValueAt(examens.get(i).getMedecin_en_charge().getNom(), i, 2);
+            jTable_Planning.setValueAt(examens.get(i).getType_examen(), i, 3);
+            jTable_Planning.setValueAt(examens.get(i).getCout_examen(), i, 4);
+            jTable_Planning.setModel(model);
+        }
     }
     private void remplirTableDMR(){
         DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
