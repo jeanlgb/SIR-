@@ -37,6 +37,8 @@ public class Crea_Acte extends javax.swing.JFrame {
         JPanel_Base = new javax.swing.JPanel();
         Jpanel_Head = new javax.swing.JPanel();
         jLabel_Logo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel_Corps = new javax.swing.JPanel();
         jPanel_InfoPatient = new javax.swing.JPanel();
         jLabel_ID = new javax.swing.JLabel();
@@ -107,6 +109,12 @@ public class Crea_Acte extends javax.swing.JFrame {
 
         jLabel_Logo.setToolTipText("");
 
+        jScrollPane1.setVisible(false);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane1.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout Jpanel_HeadLayout = new javax.swing.GroupLayout(Jpanel_Head);
         Jpanel_Head.setLayout(Jpanel_HeadLayout);
         Jpanel_HeadLayout.setHorizontalGroup(
@@ -114,13 +122,19 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(287, 287, 287))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_HeadLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
 
         JPanel_Base.add(Jpanel_Head, java.awt.BorderLayout.NORTH);
@@ -570,6 +584,9 @@ public class Crea_Acte extends javax.swing.JFrame {
         s+=jTextPane_Indication.getText();
         s+="\n\n- Technique : \n";
         s+=jTextArea1.getText();
+        jTextArea2.setText(s);
+        Impression imprimer = new Impression(jTextArea2);
+        imprimer.print();
         
     }//GEN-LAST:event_jButton_ImprimerActionPerformed
 
@@ -718,11 +735,13 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_InfoActe;
     private javax.swing.JPanel jPanel_InfoPatient;
     private javax.swing.JPanel jPanel_InfoSalle;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane_Com;
     private javax.swing.JScrollPane jScrollPane_Indication;
     private javax.swing.JScrollPane jScrollPane_Technique;
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea_Com;
     private javax.swing.JTextField jTextField_Refenrece;
     private javax.swing.JTextPane jTextPane_Indication;
