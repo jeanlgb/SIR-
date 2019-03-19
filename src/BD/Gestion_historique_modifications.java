@@ -25,7 +25,7 @@ public class Gestion_historique_modifications {
      */
     public static ArrayList<Modification> recuperer_modifications(String id_recherche, Connection connexion) {
         PreparedStatement statement = null;
-        ArrayList<Modification> modifications = null;
+        ArrayList<Modification> modifications = new ArrayList<>();
 
         try {
             statement = connexion.prepareStatement("SELECT id_modification, date, auteur FROM modification WHERE id_historique = ?");
@@ -36,8 +36,9 @@ public class Gestion_historique_modifications {
                 java.sql.Date date = resultset.getDate("date");
                 int auteur = resultset.getInt("auteur");
                 modifications.add(new Modification(date, auteur));
-                return modifications;
+
             }
+            return modifications;
         } catch (Exception e) {
             e.printStackTrace();
         }
