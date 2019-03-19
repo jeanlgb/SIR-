@@ -799,13 +799,17 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
         jTable_DMR.removeAll();
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
+        DMR dmr = new DMR(0,null,null,null);
         if(jComboBox_RechercheDMR.getSelectedItem()=="ID"){
             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
+            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+
         }else if(jComboBox_RechercheDMR.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
+            dmr= Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()),connexion);
         }
-        DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(DMRS.getId_dmr()), connexion);
+        //DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(dmr.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < DMRs.size(); i++) {
@@ -814,6 +818,8 @@ public class Acceuil_Sec extends javax.swing.JFrame {
             jTable_DMR.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
             jTable_DMR.setModel(model);
         }
+        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" +
+                patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
 
         for (int i = 0; i < DMRs.size(); i++) {
             s += DMRs.get(i).toString();

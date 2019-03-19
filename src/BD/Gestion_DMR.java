@@ -115,7 +115,9 @@ public class Gestion_DMR {
         return liste_examens;
     }
 
-    public static ArrayList<DMR> recuperer_DMRs(String id_recherche, Connection connexion) {
+    public static ArrayList<DMR> recuperer_DMRs(String id_recherche) {
+        Acces_BD acces_BD = new Acces_BD();
+        Connection connexion = acces_BD.connexion;
         PreparedStatement statement = null;
         ArrayList<DMR> liste_DMRs = new ArrayList<>();
 
@@ -135,8 +137,8 @@ public class Gestion_DMR {
                 int id_historique = resultset.getInt("historique_modifications");
                 Historique_modifications historique_modifications = Gestion_historique_modifications.rechercher_historique(String.valueOf(id_historique), connexion);
                 //fin creation historique_modifications
-                ArrayList<DMR> DMRs = recuperer_DMRs(id_recherche, connexion);
-                liste_DMRs.add(new DMR(id_dmr, id_patient, null, historique_modifications));
+               //ArrayList<DMR> DMRs = recuperer_DMRs(id_recherche, connexion);
+                liste_DMRs.add(new DMR(id_dmr, patient, null, historique_modifications));
 
             }
 
