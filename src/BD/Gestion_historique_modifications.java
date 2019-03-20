@@ -36,8 +36,9 @@ public class Gestion_historique_modifications {
                 java.sql.Date date = resultset.getDate("date");
                 int auteur = resultset.getInt("auteur");
                 modifications.add(new Modification(date, auteur));
-                return modifications;
+
             }
+            return modifications;
         } catch (Exception e) {
             e.printStackTrace();
         }
