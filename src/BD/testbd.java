@@ -125,6 +125,9 @@ public class testbd {
   //      Patient patient_recherche = Gestion_patient.rechercher_patient("1");
   //     DMR dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_recherche.getIdentifiant()));
   //     System.out.println(dmr);
+        
+  //      System.out.println(Gestion_examen.recuperer_image("1", connexion));
+        
     }
 
 }

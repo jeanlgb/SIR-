@@ -39,6 +39,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JCheckBox verifierMdp;
     private javax.swing.JButton jButtonChangerLangue;
     private ObjetCourant objet_Courant;
+
     /**
      * Creates new form Login
      */
@@ -194,6 +195,8 @@ public class Login extends javax.swing.JFrame {
                 jButtonChangerLangueActionPerformed(evt);
             }
         });
+        //provisoire
+        jButtonChangerLangue.setVisible(false);
 
         javax.swing.GroupLayout panel_identificationLayout = new javax.swing.GroupLayout(panel_identification);
         panel_identification.setLayout(panel_identificationLayout);
@@ -214,7 +217,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))
-                        .addComponent(jButtonChangerLangue)
+                .addComponent(jButtonChangerLangue)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_identificationLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -237,7 +240,7 @@ public class Login extends javax.swing.JFrame {
                                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(labelIdentifiant)
                                                 .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
+                                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -338,7 +341,7 @@ public class Login extends javax.swing.JFrame {
             while (type_User.next()) {
                 String metier_user = type_User.getString("metier");
                 if (metier_user.equals("MEDECIN")) {
-                     PreparedStatement med;
+                    PreparedStatement med;
                     med = connexion.prepareStatement("SELECT nom, prenom FROM medecin WHERE id_medecin = ?");
                     med.setInt(1, id);
                     ResultSet medQuery = med.executeQuery();

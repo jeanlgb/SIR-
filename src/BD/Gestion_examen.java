@@ -13,9 +13,12 @@ import NF.Medecin;
 import NF.PACS;
 import NF.Salle;
 import NF.Type_examen;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -152,4 +155,30 @@ public class Gestion_examen {
         return pacs_trouve;
     }
 
+    public static BufferedImage recuperer_image(String id_recherche, Connection connexion) {
+        PreparedStatement statement = null;
+        BufferedImage image_trouvee = null;
+        PACS pacs = recuperer_pacs(id_recherche, connexion);
+
+
+        try {
+            statement = connexion.prepareStatement("SELECT image FROM pacs WHERE numero_archive = ?");
+            statement.setInt(1, pacs.getNumero_archive());
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+
+               java.sql.Blob blob = resultset.getBlob("image");
+                System.out.println(blob);
+               InputStream in = blob.getBinaryStream();
+               image_trouvee = ImageIO.read(in);
+                           return image_trouvee;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return image_trouvee;
+    }
 }
