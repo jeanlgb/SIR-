@@ -223,7 +223,8 @@ public class Gestion_DMR {
         } catch (Exception e) {
             System.out.println("exception");
         }
-        if(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient()), connexion)!=null && id_patient==0) {
+        if(gestionPatient.rechercher_patient(String.valueOf(dmr.getId_patient()), connexion)==null && id_patient==0) {
+            id_patient = gestionPatient.générerIdPatient(connexion);
             try {
                 statement = connexion.prepareStatement("INSERT INTO dmr (id_dmr, id_patient, historique_modifications) VALUES (?,?,?);");
                 statement.setInt(1, dmr.getId_dmr());
@@ -241,6 +242,9 @@ public class Gestion_DMR {
         return false;
     }
 
+    /**
+     * génére un nouvel id de dmr non utilisé
+     */
     public int générerIdDMR(Connection connexion){
         //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
 

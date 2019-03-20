@@ -54,6 +54,9 @@ public class Login extends javax.swing.JFrame {
     Timer timer1 = new Timer(30, new ActionListener() {
 
         @Override
+        /**
+         * ActionPerformed
+         */
         public void actionPerformed(ActionEvent e) {
 
             if (panel_logo.getHeight() != 105) {
@@ -66,6 +69,9 @@ public class Login extends javax.swing.JFrame {
     });
 
     Timer timer2 = new Timer(30, new ActionListener() {
+        /**
+         * ActionPerformed
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -273,6 +279,9 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
+    /**
+     * Check mdp
+     */
     private void verifierMdpActionPerformed(java.awt.event.ActionEvent evt) {
 
         if (verifierMdp.isSelected()) {
@@ -281,11 +290,17 @@ public class Login extends javax.swing.JFrame {
             txtmdp.setEchoChar('*');
         }
     }
-    
+
+    /**
+     * Méthode pour changer de langue renvoyant au login
+     */
     private void jButtonChangerLangueActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         // TODO add your handling code here:
     }
 
+    /**
+     * Méthode connectant à la bd pour accéder au reste du logiciel
+     */
     private void loginActionPerformed() {
         NF.Acces_BD bd = new Acces_BD();
         Connection connexion = bd.connexion;

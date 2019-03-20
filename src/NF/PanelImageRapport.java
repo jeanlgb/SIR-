@@ -32,6 +32,9 @@ public class PanelImageRapport extends JPanel {
     int luminosité;
     int contraste;
 
+    /**
+     * Constructeur prenant une image
+     */
     public PanelImageRapport(BufferedImage imgRapport) {
         this.imgRapport = imgRapport;
         this.original = imgRapport;
@@ -44,17 +47,26 @@ public class PanelImageRapport extends JPanel {
          */
     }
 
+    /**
+     * @param imageRapport set image
+     */
     public void setImage(BufferedImage imageRapport) {
         this.imgRapport = imageRapport;
         repaint();
     }
 
+    /**
+     * Méthode paintcomponent
+     */
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         super.paintComponent(g);
         g2.drawImage(this.imgRapport, 0, 0, this.getWidth(), this.getHeight(), null);
     }
 
+    /**
+     * Méthode inversant les niveaux de gris
+     */
     public void inverser_niveaux_de_gris() {
         BufferedImage ajusterGris = new BufferedImage(imgRapport.getWidth(), imgRapport.getHeight(), BufferedImage.TYPE_USHORT_GRAY);
         Graphics2D g1 = ajusterGris.createGraphics();
@@ -63,15 +75,25 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    /**
+     * @param  newLuminosité set la luminosité
+     */
     public void setLuminosité(int newLuminosité) {
         luminosité = newLuminosité;
 
     }
+
+    /**
+     * @param  newContraste set le contraste
+     */
      public void setContraste(int newContraste) {
         contraste = newContraste;
 
     }
 
+    /**
+     * Méthode changeant la luminosité
+     */
     public void augmenter_luminosite() {
         float offsets = 0f;
         float factors = 0.5f + ((float) luminosité / 100.0f);
@@ -82,6 +104,9 @@ public class PanelImageRapport extends JPanel {
         g1.drawImage(this.imgRapport, null, null);
         repaint();
     }
+    /**
+     * Méthode changeant le contraste
+     */
      public void augmenter_contraste(){
         float offsets = 0.5f + (50*(float) contraste / 100.0f);
         float factors = 1.0f;
@@ -93,6 +118,9 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    /**
+     * Méthode rotation de l'image
+     */
     public void rotation_ImageD() {
         BufferedImage rotation = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
         AffineTransform affineRotation = AffineTransform.getRotateInstance(Math.toRadians(90), original.getWidth() / 2, original.getHeight() / 2);
@@ -102,6 +130,9 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    /**
+     * Méthode rotation de l'image
+     */
     public void rotation_ImageG() {
         BufferedImage rotation = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
         AffineTransform affineRotation = AffineTransform.getRotateInstance(Math.toRadians(-90), original.getWidth() / 2, original.getHeight() / 2);
@@ -112,6 +143,9 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
+    /**
+     * Méthode dézoom
+     */
     public void dezoom() { // Dézoomer une image
         BufferedImage imageDezoomee = new BufferedImage((int) (original.getWidth() * 0.5), (int) (original.getHeight() * 0.5), original.getType());
         AffineTransform dezoome = AffineTransform.getScaleInstance(0.5, 0.5);
@@ -122,7 +156,10 @@ public class PanelImageRapport extends JPanel {
         repaint();
     }
 
-    public void zoom() { // Zoomer une image
+    /**
+     * Méthode zoom
+     */
+    public void zoom() {
         BufferedImage imageZoomee = new BufferedImage((int) (original.getWidth() * 1.5), (int) (original.getHeight() * 1.5), original.getType());
         AffineTransform zoome = AffineTransform.getScaleInstance(1.5, 1.5);
         int interpolation = AffineTransformOp.TYPE_BICUBIC;
