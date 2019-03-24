@@ -3,10 +3,8 @@ package BD;
 import NF.*;
 
 import NF.Patient;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 public class Gestion_patient {
 
@@ -144,6 +142,26 @@ public class Gestion_patient {
         }
                 System.out.println("pb dans la connexion à la bd");
         return null;
+    }
+
+    /**
+     * génére un nouvel id de dmr non utilisé
+     */
+    public int générerIdPatient(Connection connexion){
+        //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
+
+        int nombrepatient = 0;
+        try {
+            Statement stat = connexion.createStatement();
+            ResultSet resultSetDMR = stat.executeQuery("SELECT count(id_patient) FROM patient;");
+            while (resultSetDMR.next()) {
+                nombrepatient = (resultSetDMR.getInt(1));
+            }
+            nombrepatient +=1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombrepatient;
     }
 
 }

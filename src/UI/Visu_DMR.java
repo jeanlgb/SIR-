@@ -5,18 +5,42 @@
  */
 package UI;
 
+import BD.Gestion_DMR;
+import BD.Gestion_medecin;
+import BD.Gestion_patient;
+import NF.Acces_BD;
+import NF.DMR;
+import NF.Medecin;
+import NF.ObjetCourant;
+import NF.Patient;
+import java.sql.Connection;
+
 /**
  *
  * @author camin
  */
 public class Visu_DMR extends javax.swing.JFrame {
 
+    private Patient patient_courant;
+    private DMR dmr_courant;
+        private Connection connexion;
+        
+        
+       
     /**
      * Creates new form Param
      */
     public Visu_DMR() {
         initComponents();
     }
+
+    public Visu_DMR(Patient patient_courant, DMR dmr_courant,  ObjetCourant objet_Courant) {
+        this.patient_courant = patient_courant;
+        this.dmr_courant = dmr_courant;
+        this.connexion = objet_Courant.getConnexion();
+    }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,18 +129,18 @@ public class Visu_DMR extends javax.swing.JFrame {
         jLabel10.setText("ID Patient :");
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel11.setText("ID_Patient :");
+        jLabel11.setText(String.valueOf(patient_courant.getIdentifiant()));
 
         jTextField4.setVisible(false);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel12.setText("prenom_patient");
+        jLabel12.setText(patient_courant.getPrenom());
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel13.setText("nom_patient");
+        jLabel13.setText(patient_courant.getNom_d_usage());
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel14.setText("sexe_patient");
+        jLabel14.setText(patient_courant.getGenre().toString());
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("DMR");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Data_x");

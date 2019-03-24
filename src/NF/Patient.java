@@ -54,7 +54,7 @@ public class Patient {
     }
 
     /**
-     * Met à jour la base de données en modifiant la ligne d'un patient existant
+     * Retourne l'age du patient
      */
 
 public int getAge(){
@@ -205,11 +205,5 @@ public int getAge(){
         this.dmr = dmr;
     }
 
-    public boolean patientExistant(int id) {
-        if (id == 0) {
-            return false;
-        } else {
-            return true;
-        }
     }
-}
+

@@ -14,6 +14,7 @@ public class DMR {
     private int id_patient;
     private ArrayList<Examen> examens_patient;
     private Historique_modifications historique_modifications;
+    private Patient patient;
 
     /**
      * Constructeur qui demande l'id patient, une arraylist des examens d'un
@@ -28,6 +29,13 @@ public class DMR {
     public DMR(int id_dmr, int id_patient, ArrayList<Examen> examens_patient, Historique_modifications historique_modifications) {
         this.id_dmr = id_dmr;
         this.id_patient = id_patient;
+        this.examens_patient = examens_patient;
+        this.historique_modifications = historique_modifications;
+    }
+
+    public DMR(int id_dmr, Patient patient, ArrayList<Examen> examens_patient, Historique_modifications historique_modifications) {
+        this.id_dmr = id_dmr;
+        this.patient = patient;
         this.examens_patient = examens_patient;
         this.historique_modifications = historique_modifications;
     }

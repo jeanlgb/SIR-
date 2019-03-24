@@ -5,6 +5,7 @@
  */
 package UI;
 
+import BD.Gestion_patient;
 import NF.*;
 import BD.Gestion_DMR;
 import java.sql.Connection;
@@ -240,10 +241,11 @@ public class Crea_DMR extends javax.swing.JFrame {
         NF.Acces_BD bd = new Acces_BD();
         Connection connexion = bd.connexion;
         Gestion_DMR d = new Gestion_DMR();
+        Gestion_patient p = new Gestion_patient();
         int idDMR = d.générerIdDMR(connexion);
         ArrayList<Examen> liste = new ArrayList<Examen>();
         Historique_modifications modifications = new Historique_modifications(0, null);
-        DMR dmr = new DMR(idDMR, 4, liste, modifications);
+        DMR dmr = new DMR(idDMR, 0, liste, modifications);
 
         d.creerDMR(dmr, connexion);
     }//GEN-LAST:event_jButton_SauvegarderFermerActionPerformed

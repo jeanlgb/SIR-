@@ -23,6 +23,10 @@ public class Patient_urgences extends Patient {
         super(id, nom_d_usage, prenom, date_de_naissance, genre, adresse);
     }
 
+
+    /**
+     * Méthode renvoie les attributs sous forme de toString
+     */
     public String toString(){
         return super.toString();
     }

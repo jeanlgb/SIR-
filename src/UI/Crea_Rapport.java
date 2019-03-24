@@ -11,8 +11,10 @@ import NF.*;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.sql.Connection;
 import java.time.LocalDate;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -25,12 +27,14 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private Examen examen_courant;
     private Connection connexion;
 
-    
     //Code utile
 //        private Patient patient_courant ;
 //    private Examen examen_courant ;
-        private Salle salle_courante;
-        private PACS pacs_courant;
+    private Salle salle_courante;
+    private PACS pacs_courant;
+    private BufferedImage image_courante;
+    PanelImageRapport panel_image;
+
     /**
      * Creates new form Acceuille_Radiologue
      */
@@ -45,6 +49,8 @@ public class Crea_Rapport extends javax.swing.JFrame {
         this.connexion = objet_Courant.getConnexion();
         salle_courante = Gestion_examen.recuperer_salle(String.valueOf(examen_courant.getId_examen()), connexion);
         pacs_courant = Gestion_examen.recuperer_pacs(String.valueOf(examen_courant.getId_examen()), connexion);
+        image_courante = Gestion_examen.recuperer_image(String.valueOf(examen_courant.getId_examen()), connexion);
+        panel_image = new PanelImageRapport(image_courante);
 
         initComponents();
     }
@@ -104,7 +110,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jTextPane_Technique = new javax.swing.JTextPane();
         jPanel_Image = new javax.swing.JPanel();
         jComboBox_Image = new javax.swing.JComboBox<String>();
-        imageRadio = new javax.swing.JLabel();
+        imageRadio = new PanelImageRapport(image_courante);
         jScrollPane_CR = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel_AddRapport = new javax.swing.JLabel();
@@ -161,7 +167,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(194, 194, 194)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(564, Short.MAX_VALUE))
+                .addContainerGap(568, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,7 +443,16 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
-        //ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/UI_FR/images.png")).getImage().getScaledInstance(402, 490, Image.SCALE_SMOOTH));
+        javax.swing.GroupLayout imageRadioLayout = new javax.swing.GroupLayout(imageRadio);
+        imageRadio.setLayout(imageRadioLayout);
+        imageRadioLayout.setHorizontalGroup(
+            imageRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 358, Short.MAX_VALUE)
+        );
+        imageRadioLayout.setVerticalGroup(
+            imageRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel_ImageLayout = new javax.swing.GroupLayout(jPanel_Image);
         jPanel_Image.setLayout(jPanel_ImageLayout);
@@ -445,12 +460,12 @@ public class Crea_Rapport extends javax.swing.JFrame {
             jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_ImageLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jComboBox_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(320, 320, 320))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ImageLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(imageRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGroup(jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_ImageLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(imageRadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel_ImageLayout.setVerticalGroup(
             jPanel_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,8 +473,8 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jComboBox_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(imageRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
+                .addComponent(imageRadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(177, 177, 177))
         );
 
         jScrollPane_CR.setVisible(false);
@@ -661,7 +676,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton_Imprimer)))
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel_Image, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)
+                        .addComponent(jPanel_Image, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                         .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
@@ -745,10 +760,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
             s += "\n\n- Rapport : \n" + jTextArea1.getText();
         }
         /*s+="\n\n- Actes medicaux : ";
-        for (int i=0; i<actes.size(); i++) {
-            Acte a = actes.get(i);
-            s+="\n    > " + a.toString();
-            }
+         for (int i=0; i<actes.size(); i++) {
+         Acte a = actes.get(i);
+         s+="\n    > " + a.toString();
+         }
          */
         jTextArea2.setText(s);
 
@@ -785,31 +800,39 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     private void jButton_RotDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotDActionPerformed
         // TODO add your handling code here:
-        PanelImageRapport.rotation_ImageD();
+        PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+        imageRadio_panel.rotation_ImageD();
     }//GEN-LAST:event_jButton_RotDActionPerformed
 
     private void jSlider_ContrasteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider_ContrasteStateChanged
         // TODO add your handling code here:
-        PanelImageRapport.setContraste(jSlider_Contraste.getValue());
-        PanelImageRapport.augmenter_contraste();
+        PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+        imageRadio_panel.setContraste(jSlider_Contraste.getValue());
+       imageRadio_panel.augmenter_contraste();
 
 
     }//GEN-LAST:event_jSlider_ContrasteStateChanged
 
     private void jSlider_LuminositeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider_LuminositeStateChanged
         // TODO add your handling code here:
-        PanelImageRapport.setLuminosité(jSlider_Luminosite.getValue());
-        PanelImageRapport.augmenter_luminosite();
+
+        PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+        imageRadio_panel.setLuminosité(jSlider_Luminosite.getValue());
+        //PanelImageRapport.setLuminosité(jSlider_Luminosite.getValue());
+
+         imageRadio_panel.augmenter_luminosite();
     }//GEN-LAST:event_jSlider_LuminositeStateChanged
 
     private void jButton_RotGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotGActionPerformed
         // TODO add your handling code here:
-        PanelImageRapport.rotation_ImageG();
+                PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+        imageRadio_panel.rotation_ImageG();
     }//GEN-LAST:event_jButton_RotGActionPerformed
 
     private void jButton_Sauvegarder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Sauvegarder1ActionPerformed
         // TODO add your handling code here:
-        PanelImageRapport.inverser_niveaux_de_gris();
+        PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+       imageRadio_panel.inverser_niveaux_de_gris();
     }//GEN-LAST:event_jButton_Sauvegarder1ActionPerformed
 
     /**
@@ -922,7 +945,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JLabel idPatient;
     private javax.swing.JLabel idPraticien;
     private javax.swing.JLabel idexamen;
-    private javax.swing.JLabel imageRadio;
+    private javax.swing.JPanel imageRadio;
     private javax.swing.JLabel isNum;
     private javax.swing.JButton jButton_Imprimer;
     private javax.swing.JButton jButton_RotD;
