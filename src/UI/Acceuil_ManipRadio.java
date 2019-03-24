@@ -98,6 +98,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Jpanel_Head.setPreferredSize(new java.awt.Dimension(1089, 115));
 
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
+
         jLabel_UserPost.setText("Radiologue");
 
         jLabel_Prenom.setText("Lary");
@@ -112,11 +114,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
-        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ParametresActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -167,11 +164,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_HeadLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                        .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -192,28 +189,28 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jTable_Planning.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTable_Planning.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"08:00", "DUPOND", "Scanner Cervicale ", "Terminé"},
-                {"08:30", "DUPONT", "Scanner Main", "Terminé"},
-                {"09:00", "DUPON", "Scanner Rocher", "En cours"},
-                {"09:30", "DHUPOND", "Scanner", null},
-                {"10:00", "DHUPONT", "Scanner", null},
-                {"10:30", "DHUPON", "Scanner", null},
-                {"11:00", "DUHPOND", "Scanner", null},
-                {"11:30", "DUHPONT", "Scanner", null},
-                {"12:00", "DUHPON", "Scanner", null},
-                {"12:30", "DHUHPOND", "Scanner", null},
-                {"13:00", "DHUHPONT", "Scanner", null},
-                {"13:30", "DHUHPON", "Scanner", null},
-                {"14:00", "DUUPOND", "Scanner", null},
-                {"14:30", "DUUPONT", "Scanner", null},
-                {"15:00", "DUUPON", "Scanner", null},
-                {"15:30", null, null, null},
-                {"16:00", null, null, null},
-                {"16:30", null, null, null},
-                {"17:00", null, null, null},
-                {"17:30", null, null, null},
-                {"18:00", null, null, null},
-                {"18:30", null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "Heure", "Nom", "Exam", "Etat"
@@ -321,11 +318,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jButton_Rechercher.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Rechercher.setText("Rerchercher");
-        jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RechercherActionPerformed(evt);
-            }
-        });
 
         jButton_Ouvrir.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Ouvrir.setText("Ouvrir");
@@ -416,11 +408,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_RechercherDMR.setText("Rerchercher");
-        jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RechercherDMRActionPerformed(evt);
-            }
-        });
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));

@@ -109,7 +109,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Technique = new javax.swing.JScrollPane();
         jTextPane_Technique = new javax.swing.JTextPane();
         jPanel_Image = new javax.swing.JPanel();
-        jComboBox_Image = new javax.swing.JComboBox<String>();
+        jComboBox_Image = new javax.swing.JComboBox<>();
         imageRadio = new PanelImageRapport(image_courante);
         jScrollPane_CR = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -149,6 +149,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         Jpanel_Head.setBackground(new java.awt.Color(127, 144, 160));
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
         jLabel_Logo.setToolTipText("");
 
         jScrollPane1.setVisible(false);
@@ -167,17 +168,19 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(194, 194, 194)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(568, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addGroup(Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         JPanel_Base.add(Jpanel_Head, java.awt.BorderLayout.NORTH);
@@ -262,7 +265,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Age)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                         .addComponent(agePatient))
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel_Adresse)
@@ -441,7 +444,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Apercu Cliché"));
         jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout imageRadioLayout = new javax.swing.GroupLayout(imageRadio);
         imageRadio.setLayout(imageRadioLayout);

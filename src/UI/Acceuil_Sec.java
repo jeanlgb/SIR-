@@ -51,7 +51,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_Deconnexion = new javax.swing.JButton();
         jButton_Parametres = new javax.swing.JButton();
         jTabbedPane_Corps = new javax.swing.JTabbedPane();
         jPanel_Corps_Exam = new javax.swing.JPanel();
@@ -97,16 +97,18 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Jpanel_Head.setPreferredSize(new java.awt.Dimension(1089, 115));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
+
         jLabel4.setText("Radiologue");
 
         jLabel3.setText("Lary");
 
         jLabel2.setText("BAMBEL");
 
-        jButton1.setText("Déconnexion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Deconnexion.setText("Déconnexion");
+        jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_DeconnexionActionPerformed(evt);
             }
         });
 
@@ -129,7 +131,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Deconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_Parametres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -141,7 +143,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton_Parametres)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(jButton_Deconnexion))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,10 +169,11 @@ public class Acceuil_Sec extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel_Base.add(Jpanel_Head, java.awt.BorderLayout.NORTH);
@@ -264,28 +267,28 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jTable_Planning.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTable_Planning.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"08:00", "DUPOND", "Scanner Cervicale ", "Terminé"},
-                {"08:30", "DUPONT", "Scanner Main", "Terminé"},
-                {"09:00", "DUPON", "Scanner Rocher", "En cours"},
-                {"09:30", "DHUPOND", "Scanner", null},
-                {"10:00", "DHUPONT", "Scanner", null},
-                {"10:30", "DHUPON", "Scanner", null},
-                {"11:00", "DUHPOND", "Scanner", null},
-                {"11:30", "DUHPONT", "Scanner", null},
-                {"12:00", "DUHPON", "Scanner", null},
-                {"12:30", "DHUHPOND", "Scanner", null},
-                {"13:00", "DHUHPONT", "Scanner", null},
-                {"13:30", "DHUHPON", "Scanner", null},
-                {"14:00", "DUUPOND", "Scanner", null},
-                {"14:30", "DUUPONT", "Scanner", null},
-                {"15:00", "DUUPON", "Scanner", null},
-                {"15:30", null, null, null},
-                {"16:00", null, null, null},
-                {"16:30", null, null, null},
-                {"17:00", null, null, null},
-                {"17:30", null, null, null},
-                {"18:00", null, null, null},
-                {"18:30", null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "Heure", "Nom", "Exam", "Etat"
@@ -354,11 +357,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jButton_Rechercher.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_Rechercher.setText("Rerchercher");
-        jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RechercherActionPerformed(evt);
-            }
-        });
 
         jComboBox_Date.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_Date.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "date j", "date j+1", "date j+2", "date j+3" }));
@@ -469,11 +467,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_RechercherDMR.setText("Rerchercher");
-        jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RechercherDMRActionPerformed(evt);
-            }
-        });
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
@@ -661,7 +654,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeconnexionActionPerformed
         // TODO add your handling code here:
         int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
@@ -669,7 +662,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
             // new Login().setVisible(true); // ouvre la fenetre de connection
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 
     private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
         InterfaceParametreSec allerParametres = new InterfaceParametreSec();
@@ -942,12 +935,12 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jpanel_Head;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton_Parametres;
     private javax.swing.JButton jButton_CreerDMR;
+    private javax.swing.JButton jButton_Deconnexion;
     private javax.swing.JButton jButton_ImprimerDMR;
     private javax.swing.JButton jButton_Ouvrir;
     private javax.swing.JButton jButton_OuvrirDMR;
+    private javax.swing.JButton jButton_Parametres;
     private javax.swing.JButton jButton_Rechercher;
     private javax.swing.JButton jButton_RechercherDMR;
     private javax.swing.JButton jButton_ValiderRequete;

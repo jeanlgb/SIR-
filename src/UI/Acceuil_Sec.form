@@ -80,17 +80,23 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="82" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/UI/Image/medtechs_sansfond_petit.png"/>
+                </Property>
+              </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel3">
 
@@ -106,8 +112,8 @@
                           </Group>
                           <EmptySpace pref="70" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" max="32767" attributes="0"/>
-                              <Component id="jButton2" max="32767" attributes="0"/>
+                              <Component id="jButton_Deconnexion" max="32767" attributes="0"/>
+                              <Component id="jButton_Parametres" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -119,9 +125,9 @@
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_Parametres" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_Deconnexion" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="16" max="-2" attributes="0"/>
@@ -152,20 +158,20 @@
                     <Property name="text" type="java.lang.String" value="BAMBEL"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="jButton_Deconnexion">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="D&#xe9;connexion"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_DeconnexionActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="jButton_Parametres">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Parametres"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ParametresActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -373,105 +379,37 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="22">
-                            <Column editable="false" title="Heure" type="java.lang.String">
-                              <Data value="08:00"/>
-                              <Data value="08:30"/>
-                              <Data value="09:00"/>
-                              <Data value="09:30"/>
-                              <Data value="10:00"/>
-                              <Data value="10:30"/>
-                              <Data value="11:00"/>
-                              <Data value="11:30"/>
-                              <Data value="12:00"/>
-                              <Data value="12:30"/>
-                              <Data value="13:00"/>
-                              <Data value="13:30"/>
-                              <Data value="14:00"/>
-                              <Data value="14:30"/>
-                              <Data value="15:00"/>
-                              <Data value="15:30"/>
-                              <Data value="16:00"/>
-                              <Data value="16:30"/>
-                              <Data value="17:00"/>
-                              <Data value="17:30"/>
-                              <Data value="18:00"/>
-                              <Data value="18:30"/>
-                            </Column>
-                            <Column editable="false" title="Nom" type="java.lang.String">
-                              <Data value="DUPOND"/>
-                              <Data value="DUPONT"/>
-                              <Data value="DUPON"/>
-                              <Data value="DHUPOND"/>
-                              <Data value="DHUPONT"/>
-                              <Data value="DHUPON"/>
-                              <Data value="DUHPOND"/>
-                              <Data value="DUHPONT"/>
-                              <Data value="DUHPON"/>
-                              <Data value="DHUHPOND"/>
-                              <Data value="DHUHPONT"/>
-                              <Data value="DHUHPON"/>
-                              <Data value="DUUPOND"/>
-                              <Data value="DUUPONT"/>
-                              <Data value="DUUPON"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="false" title="Exam" type="java.lang.String">
-                              <Data value="Scanner Cervicale "/>
-                              <Data value="Scanner Main"/>
-                              <Data value="Scanner Rocher"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="Scanner"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Etat" type="java.lang.Object">
-                              <Data value="Termin&#xe9;"/>
-                              <Data value="Termin&#xe9;"/>
-                              <Data value="En cours"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
+                            <Column editable="false" title="Heure" type="java.lang.String"/>
+                            <Column editable="false" title="Nom" type="java.lang.String"/>
+                            <Column editable="false" title="Exam" type="java.lang.String"/>
+                            <Column editable="true" title="Etat" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="" postCode="Font fbis = new Font(&quot;Dialog&quot;, Font.PLAIN, 18);&#xa;JTableHeader headerbis = jTable_Planning.getTableHeader();&#xa;headerbis.setFont(fbis);"/>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[300, 369]"/>
                         </Property>
