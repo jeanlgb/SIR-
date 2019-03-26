@@ -116,6 +116,11 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_Parametres.setText("Parameters");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
+            }
+        });
 
         GroupLayout jPanel_InfoUserLayout = new GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
