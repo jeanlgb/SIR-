@@ -260,7 +260,9 @@ public class ChangerMdp_Sec extends javax.swing.JFrame{
                         stat.executeUpdate();
                     }
 
-                    new Acceuil_Sec(objet_Courant);setVisible(true);
+
+                    Acceuil_Sec retourAccueil_Sec = new Acceuil_Sec(objet_Courant);
+                    retourAccueil_Sec.setVisible(true);
                     this.dispose();
 
                 }

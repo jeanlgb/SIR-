@@ -1,7 +1,6 @@
 package UI;
 
 import NF.ObjetCourant;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -261,9 +260,9 @@ public class ChangerMdp_Manip extends javax.swing.JFrame{
                         stat.executeUpdate();
                     }
 
-                    Acceuil_ManipRadio retourAccueil = new Acceuil_ManipRadio(objet_Courant);
-                    retourAccueil.setVisible(true);
-                    retourAccueil.dispose();
+                    Acceuil_ManipRadio retourAccueil_manip = new Acceuil_ManipRadio(objet_Courant);
+                    retourAccueil_manip.setVisible(true);
+                    this.dispose();
 
                 }
             }
