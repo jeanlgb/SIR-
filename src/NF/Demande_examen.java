@@ -1,5 +1,7 @@
 package NF;
 
+import java.util.Date;
+
 /**
  *
  * @author Caminade Tom, Gaillard-Blancard Jean-Loup, Leclerc-Tracy Maud, Porral Olivia

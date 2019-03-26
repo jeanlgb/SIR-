@@ -324,52 +324,48 @@ public class Login extends javax.swing.JFrame {
                 label_erreur_mdp.setText("Connecté");
                 label_erreur_mdp.setForeground(Color.BLUE);
                 timer1.start();
-            } else if (!nouvelle_connexion.isId_ok()) {
-                label_erreurIdentifiant.setText("Erreur dans l'identifiant");
-                label_erreurIdentifiant.setForeground(Color.RED);
-                timer1.start();
-            } else {
-                label_erreur_mdp.setText("Erreur dans le mot de passe");
-                label_erreur_mdp.setForeground(Color.RED);
-                timer1.start();
-            }
-
-            /**
-             * Requete permettant d'être redirigé vers l'interface adéquate pour
-             * chaque utilisateur suivant son métier
-             */
-            PreparedStatement user;
-            user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id_user = ?");
-            int id = Integer.parseInt(txtidentifiant.getText());
-            user.setInt(1, id);
-            ResultSet type_User = user.executeQuery();
-            while (type_User.next()) {
-                String metier_user = type_User.getString("metier");
-                if (metier_user.equals("MEDECIN")) {
-                    PreparedStatement med;
-                    med = connexion.prepareStatement("SELECT nom, prenom FROM medecin WHERE id_medecin = ?");
-                    med.setInt(1, id);
-                    ResultSet medQuery = med.executeQuery();
-                    while (medQuery.next()) {
-                        String nom = medQuery.getString("nom");
-                        String prenom = medQuery.getString("prenom");
-                        objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom), connexion);
-                    }
-                    new Acceuil_Radiologue(objet_Courant).setVisible(true); //ouvre la fenetre l'accueil radiologue
-                    this.dispose(); //ferme la fenetre de login
-                } else {
-                    if (type_User.getString("metier").equals("MANIPULATEUR_RADIO")) {
-                        new Acceuil_ManipRadio().setVisible(true);
-                        this.dispose();
+                /**
+                 * Requete permettant d'être redirigé vers l'interface adéquate pour
+                 * chaque utilisateur suivant son métier
+                 */
+                PreparedStatement user;
+                user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id_user = ?");
+                int id = Integer.parseInt(txtidentifiant.getText());
+                user.setInt(1, id);
+                ResultSet type_User = user.executeQuery();
+                while (type_User.next()) {
+                    String metier_user = type_User.getString("metier");
+                    if (metier_user.equals("MEDECIN")) {
+                        PreparedStatement med;
+                        med = connexion.prepareStatement("SELECT nom, prenom FROM medecin WHERE id_medecin = ?");
+                        med.setInt(1, id);
+                        ResultSet medQuery = med.executeQuery();
+                        while (medQuery.next()) {
+                            String nom = medQuery.getString("nom");
+                            String prenom = medQuery.getString("prenom");
+                            objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom), connexion);
+                        }
+                        new Acceuil_Radiologue(objet_Courant).setVisible(true); //ouvre la fenetre l'accueil radiologue
+                        this.dispose(); //ferme la fenetre de login
                     } else {
-                        if (type_User.getString("metier").equals("SECRETAIRE_MEDICALE")) {
-                            new Acceuil_Sec().setVisible(true);
+                        if (type_User.getString("metier").equals("MANIPULATEUR_RADIO")) {
+                            new Acceuil_ManipRadio().setVisible(true);
                             this.dispose();
+                        } else {
+                            if (type_User.getString("metier").equals("SECRETAIRE_MEDICALE")) {
+                                new Acceuil_Sec().setVisible(true);
+                                this.dispose();
+                            }
                         }
                     }
                 }
+            } else if (!nouvelle_connexion.isId_ok()) {
+                label_erreurIdentifiant.setText("Erreur dans l'identifiant");
+                label_erreurIdentifiant.setForeground(Color.RED);
+            } else {
+                label_erreur_mdp.setText("Erreur dans le mot de passe");
+                label_erreur_mdp.setForeground(Color.RED);
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
