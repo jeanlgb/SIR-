@@ -5,9 +5,9 @@ import BD.Gestion_examen;
 import BD.Gestion_medecin;
 import BD.Gestion_patient;
 import NF.*;
-import UI.InterfaceParametreManip;
-import UI.Modif_Acte;
-import UI.Visu_DMR;
+//import UI.InterfaceParametreManip;
+//import UI.Modif_Acte;
+//import UI.Visu_DMR;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -742,7 +742,7 @@ public class Acceuil_ManipRadio extends JFrame{
 
                 examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 1)), connexion);
                 medecin_courant = Gestion_medecin.rechercher_medecin(String.valueOf(examen_courant.getId_medecin()), connexion);
-                UI.Visu_DMR visu_dmr = new UI.Visu_DMR(patient_courant, dmr_courant, objet_Courant);
+                Visu_DMR visu_dmr = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
                 visu_dmr.setVisible(true);
 
 //                Crea_Rapport creaRapport = new Crea_Rapport();
@@ -757,18 +757,18 @@ public class Acceuil_ManipRadio extends JFrame{
 
     private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
         // TODO add your handling code here:
-        UI.Visu_DMR DMR = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
+        Visu_DMR DMR = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
         DMR.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
     private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
         // TODO add your handling code here:
-        UI.Modif_Acte Acte_patient = new Modif_Acte();
+        Modif_Acte Acte_patient = new Modif_Acte();
         Acte_patient.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
 
     private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
-        UI.InterfaceParametreManip allerParametres = new InterfaceParametreManip(objet_Courant);
+        InterfaceParametreManip allerParametres = new InterfaceParametreManip(objet_Courant);
         this.setVisible(false);
         allerParametres.setVisible(true);
     }//GEN-LAST:event_jButton_ParametresActionPerformed

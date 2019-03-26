@@ -9,9 +9,9 @@ import BD.Gestion_DMR;
 import BD.Gestion_examen;
 import BD.Gestion_patient;
 import NF.*;
-import UI.Crea_DMR;
-import UI.InterfaceParametreSec;
-import UI.Visu_DMR;
+//import UI.Crea_DMR;
+//import UI.InterfaceParametreSec;
+//import UI.Visu_DMR;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

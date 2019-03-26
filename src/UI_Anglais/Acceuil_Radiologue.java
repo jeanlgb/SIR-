@@ -9,7 +9,7 @@ import BD.Gestion_DMR;
 import BD.Gestion_examen;
 import BD.Gestion_patient;
 import NF.*;
-import UI.Visu_DMR;
+//import UI.Visu_DMR;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
