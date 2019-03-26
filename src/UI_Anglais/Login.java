@@ -10,9 +10,9 @@ package UI_Anglais;
  * @author porra
  */
 import NF.*;
-import UI.Acceuil_ManipRadio;
-import UI.Acceuil_Radiologue;
-import UI.Acceuil_Sec;
+import UI_Anglais.Acceuil_ManipRadio;
+import UI_Anglais.Acceuil_Radiologue;
+import UI_Anglais.Acceuil_Sec;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -110,13 +110,13 @@ public class Login extends javax.swing.JFrame {
         panel_identification.setBackground(new java.awt.Color(163, 209, 180));
 
         labelIdentification.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        labelIdentification.setText("Identification");
+        labelIdentification.setText("Sign in");
 
         labelIdentifiant.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelIdentifiant.setText("Identifiant :");
+        labelIdentifiant.setText("Login :");
 
         labelMdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        labelMdp.setText("Mot de Passe : ");
+        labelMdp.setText("Password : ");
 
         txtidentifiant.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
 
         verifierMdp.setBackground(new java.awt.Color(163, 209, 180));
         verifierMdp.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        verifierMdp.setText("Afficher Mot de Passe");
+        verifierMdp.setText("Display password");
         verifierMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verifierMdpActionPerformed(evt);
@@ -134,7 +134,7 @@ public class Login extends javax.swing.JFrame {
 
         login.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         login.setForeground(new java.awt.Color(72, 91, 122));
-        login.setText("Connexion");
+        login.setText("Sign in");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed();
@@ -190,7 +190,7 @@ public class Login extends javax.swing.JFrame {
 
         jButtonChangerLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonChangerLangue.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonChangerLangue.setText("Anglais");
+        jButtonChangerLangue.setText("French");
         jButtonChangerLangue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChangerLangueActionPerformed(evt);
@@ -320,9 +320,9 @@ public class Login extends javax.swing.JFrame {
             boolean connexion_autorisee = nouvelle_connexion.autorisation_de_connexion();
 
             if (connexion_autorisee) {
-                label_erreurIdentifiant.setText("Connecté");
+                label_erreurIdentifiant.setText("Connected");
                 label_erreurIdentifiant.setForeground(Color.BLUE);
-                label_erreur_mdp.setText("Connecté");
+                label_erreur_mdp.setText("Connected");
                 label_erreur_mdp.setForeground(Color.BLUE);
                 timer1.start();
                 /**
@@ -380,10 +380,10 @@ public class Login extends javax.swing.JFrame {
                     }
                 }
             } else if (!nouvelle_connexion.isId_ok()) {
-                label_erreurIdentifiant.setText("Erreur dans l'identifiant");
+                label_erreurIdentifiant.setText("Wrong login");
                 label_erreurIdentifiant.setForeground(Color.RED);
             } else {
-                label_erreur_mdp.setText("Erreur dans le mot de passe");
+                label_erreur_mdp.setText("Wrong password");
                 label_erreur_mdp.setForeground(Color.RED);
             }
 
