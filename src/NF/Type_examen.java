@@ -22,6 +22,10 @@ public enum Type_examen {
     private double cout;
     private double duree;
 
+    public String getLibelle_examen() {
+        return libelle_examen;
+    }
+
 
 
     private Type_examen(String libelle_examen, double cout, double duree) {
