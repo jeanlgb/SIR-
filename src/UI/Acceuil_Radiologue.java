@@ -75,8 +75,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jButton_Rechercher = new javax.swing.JButton();
         jButton_Ouvrir = new javax.swing.JButton();
         jButton_Imprimer = new javax.swing.JButton();
-        jLabel_NbAttente = new javax.swing.JLabel();
-        jLabel_NbAttenteExam = new javax.swing.JLabel();
         jPanel_Apercu = new javax.swing.JPanel();
         jScrollPane_Apercu = new javax.swing.JScrollPane();
         jTextArea_Apercu = new javax.swing.JTextArea();
@@ -167,7 +165,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -256,7 +254,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Date", "Salle", "Nom", "Exam", "Rapport"
+                "Date", "Salle", "Nom", "Exam", "ID Rapport"
             }
         ) {
             Class[] types = new Class [] {
@@ -320,12 +318,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             }
         });
 
-        jLabel_NbAttente.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbAttente.setText("Nombre d'acte en attente :");
-
-        jLabel_NbAttenteExam.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbAttenteExam.setText("1");
-
         jPanel_Apercu.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_Apercu.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exam", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
 
@@ -355,7 +347,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                         .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 665, Short.MAX_VALUE)
                         .addComponent(jButton_Imprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                         .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,10 +359,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                                 .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
-                                .addComponent(jLabel_NbAttente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel_NbAttenteExam, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(88, 88, 88)
                         .addComponent(jPanel_Apercu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -387,11 +375,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                             .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_Recherche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_Rechercher))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_NbAttente)
-                            .addComponent(jLabel_NbAttenteExam))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(37, 37, 37)
                         .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_Apercu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -911,8 +895,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_Recherche;
     private javax.swing.JComboBox<String> jComboBox_RechercheDMR;
     private javax.swing.JLabel jLabel_Logo;
-    private javax.swing.JLabel jLabel_NbAttente;
-    private javax.swing.JLabel jLabel_NbAttenteExam;
     private javax.swing.JLabel jLabel_NbResult;
     private javax.swing.JLabel jLabel_NbResultDMR;
     private javax.swing.JLabel jLabel_Nom;
