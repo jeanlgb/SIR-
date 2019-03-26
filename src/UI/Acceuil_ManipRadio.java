@@ -757,8 +757,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_OuvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirActionPerformed
         // TODO add your handling code here:
-        Crea_Acte newActe = new Crea_Acte();
-        newActe.setVisible(true);
+        Modif_Acte Acte_patient = new Modif_Acte();
+        Acte_patient.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
 
     private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
@@ -811,6 +811,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CreerActionPerformed
         // TODO add your handling code here:
+        Crea_Acte newACTE = new Crea_Acte();
+        newACTE.setVisible(true);
     }//GEN-LAST:event_jButton_CreerActionPerformed
 
     private void remplirTableDMR(){
