@@ -68,7 +68,7 @@ public class Visu_DMR extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(163, 209, 180));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel1.setText("ID DMR");
+        jLabel1.setText("DMR ID");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setText("Date_DMR");
@@ -80,16 +80,16 @@ public class Visu_DMR extends javax.swing.JFrame {
         jLabel4.setText(String.valueOf(dmr_courant.getExamens_patient().size()));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel5.setText("Nom :");
+        jLabel5.setText("Surname :");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel7.setText("Prénom :");
+        jLabel7.setText("Name :");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel9.setText("Sexe :");
+        jLabel9.setText("Gender :");
 
         jButton_Rechercher6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher6.setText("Sauvegarder");
+        jButton_Rechercher6.setText("Save");
         jButton_Rechercher6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_Rechercher6ActionPerformed(evt);
@@ -97,10 +97,10 @@ public class Visu_DMR extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel6.setText("Examen éxistant à lier :");
+        jLabel6.setText("Existing exam to be linked :");
 
         jComboBox2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Papier)" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Yes (Paper)" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -108,11 +108,11 @@ public class Visu_DMR extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel8.setText("Référence examen :");
+        jLabel8.setText("Exam reference :");
         jLabel8.setVisible(false);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel10.setText("ID Patient :");
+        jLabel10.setText("Patient ID :");
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel11.setText(String.valueOf(patient_courant.getIdentifiant()));
@@ -242,14 +242,14 @@ public class Visu_DMR extends javax.swing.JFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        if (jComboBox2.getSelectedItem().equals("Oui (Numérique)") | jComboBox2.getSelectedItem().equals("Oui (Papier)")) {
+        if (jComboBox2.getSelectedItem().equals("Yes (Numeric)") | jComboBox2.getSelectedItem().equals("Yes (Paper)")) {
             jTextField4.setVisible(true);
             jLabel8.setVisible(true);
 
             jPanel2.repaint();
             jPanel2.revalidate();
 
-        } else if (jComboBox2.getModel().getSelectedItem().equals("Non")) {
+        } else if (jComboBox2.getModel().getSelectedItem().equals("No")) {
             jTextField4.setVisible(false);
             jLabel8.setVisible(false);
 

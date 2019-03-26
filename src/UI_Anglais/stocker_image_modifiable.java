@@ -73,7 +73,7 @@ public class stocker_image_modifiable extends JFrame {
         panel_stocker_image.setBackground(new java.awt.Color(163, 209, 180));
 
         button_ajouter.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        button_ajouter.setText("Ajouter");
+        button_ajouter.setText("Add");
         button_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 button_ajouterActionPerformed(evt);
@@ -81,7 +81,7 @@ public class stocker_image_modifiable extends JFrame {
         });
 
         button_fichier.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        button_fichier.setText("Fichier");
+        button_fichier.setText("File");
         button_fichier.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 button_fichierActionPerformed(evt);
@@ -91,7 +91,7 @@ public class stocker_image_modifiable extends JFrame {
         txt_nom.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         label_nom.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        label_nom.setText("Nom :");
+        label_nom.setText("Name :");
 
         label_ID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         label_ID.setText("ID :");
@@ -190,7 +190,7 @@ public class stocker_image_modifiable extends JFrame {
                ps.setString(3, txt_description.getText());
                ps.setBlob(4,is);
                ps.executeUpdate();
-               JOptionPane.showMessageDialog(null, "Image enregistrée");
+               JOptionPane.showMessageDialog(null, "Recorded image");
            }catch(Exception ex){
                ex.printStackTrace();
                    }
@@ -209,7 +209,7 @@ public class stocker_image_modifiable extends JFrame {
              s = path;
               }
          else if(result == JFileChooser.CANCEL_OPTION){
-             System.out.println("Aucune image");
+             System.out.println("No image");
          }
 
     }

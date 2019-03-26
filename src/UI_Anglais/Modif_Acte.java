@@ -96,7 +96,7 @@ public class Modif_Acte extends javax.swing.JFrame {
         datelabel.setText("Date");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Rapport Acte");
+        setTitle("Act Report");
         setFocusTraversalPolicyProvider(true);
         setResizable(false);
 
@@ -144,50 +144,50 @@ public class Modif_Acte extends javax.swing.JFrame {
         jPanel_Corps.setBackground(new java.awt.Color(163, 209, 180));
 
         jPanel_InfoPatient.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel_InfoPatient.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Patient"));
+        jPanel_InfoPatient.setBorder(javax.swing.BorderFactory.createTitledBorder("Patient Information"));
 
         jLabel_ID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_ID.setText("Identifiant : ");
+        jLabel_ID.setText("Identifier : ");
 
         jLabel_Nom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nom.setText("Nom : ");
+        jLabel_Nom.setText("Surname : ");
 
         jLabel_Prenom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenom.setText("Prénom : ");
+        jLabel_Prenom.setText("Name : ");
 
         jLabel_DDN.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_DDN.setText("Date de naissance : ");
+        jLabel_DDN.setText("Date of birth : ");
 
         jLabel_Sexe.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Sexe.setText("Sexe : ");
+        jLabel_Sexe.setText("Gender : ");
 
         jLabel_Age.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Age.setText("Age : ");
 
         jLabel_Adresse.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Adresse.setText("Adresse :");
+        jLabel_Adresse.setText("Address :");
 
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idPatient.setText("ID");
 
         nomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPatient.setText("Nom");
+        nomPatient.setText("Surname");
 
         prenomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPatient.setText("Prenom");
+        prenomPatient.setText("Name");
 
         dateNaissancePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        dateNaissancePatient.setText("Date_nais");
+        dateNaissancePatient.setText("Date of birth");
 
         sexePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        sexePatient.setText("Sexe");
+        sexePatient.setText("Gender");
 
         agePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         agePatient.setText("Age");
 
         adressePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         adressePatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adressePatient.setText("Adresse");
+        adressePatient.setText("Address");
         adressePatient.setToolTipText("");
         adressePatient.setAutoscrolls(true);
 
@@ -265,25 +265,25 @@ public class Modif_Acte extends javax.swing.JFrame {
         jPanel_InfoActe.setPreferredSize(new java.awt.Dimension(750, 500));
 
         jLabel_TypeExam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_TypeExam.setText("Type Examen : ");
+        jLabel_TypeExam.setText("Type Exam : ");
 
         jLabel_Nompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nompract.setText("Nom du Praticien : ");
+        jLabel_Nompract.setText("Practitioner's Surname : ");
 
         jLabel_Prenompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenompract.setText("Prénom du Praticien : ");
+        jLabel_Prenompract.setText("Practitioner's Name : ");
 
         jLabel_IDpract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract.setText("ID du Praticien : ");
+        jLabel_IDpract.setText("Practitioner ID : ");
 
         typeExamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         typeExamen.setText("Type_Exam");
 
         nomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPraticien.setText("Nom_pract");
+        nomPraticien.setText("Surname_pract");
 
         prenomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPraticien.setText("Prenom_pract");
+        prenomPraticien.setText("Name_pract");
 
         idPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idPraticien.setText("ID_pract");
@@ -292,19 +292,19 @@ public class Modif_Acte extends javax.swing.JFrame {
         datexam.setText("00/00/0000");
 
         jLabel_LinkWord.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_LinkWord.setText("à");
+        jLabel_LinkWord.setText("at");
 
         heurexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         heurexam.setText("00h00");
 
         jLabel_IDexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDexam.setText("ID examen : ");
+        jLabel_IDexam.setText("Exam ID : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idexamen.setText("ID examen");
+        idexamen.setText("Exam ID");
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Indication.setText("Indication :");
+        jLabel_Indication.setText("Instructions :");
 
         jTextPane_Indication.setEditable(false);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -386,21 +386,21 @@ public class Modif_Acte extends javax.swing.JFrame {
         );
 
         jPanel_InfoSalle.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel_InfoSalle.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Salle"));
+        jPanel_InfoSalle.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Room"));
         jPanel_InfoSalle.setPreferredSize(new java.awt.Dimension(350, 500));
 
         jLabel_Salle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Salle.setText("Salle :");
+        jLabel_Salle.setText("Room :");
 
         jLabel_isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_isNum.setText("Numérique :");
+        jLabel_isNum.setText("Digital :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        isNum.setText("Oui");
+        isNum.setText("Yes");
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Reference.setText("Référence dossier :");
+        jLabel_Reference.setText("File reference :");
         jLabel_Reference.setVisible(false);
 
         jTextField_Refenrece.addActionListener(new java.awt.event.ActionListener() {
@@ -464,10 +464,10 @@ public class Modif_Acte extends javax.swing.JFrame {
         jScrollPane_Technique.setViewportView(jTextArea_Technique);
 
         jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_Technique.setText("Technique imagerie :");
+        jLabel_Technique.setText("Imaging technology :");
 
         jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.setText("Save");
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderActionPerformed(evt);
@@ -475,7 +475,7 @@ public class Modif_Acte extends javax.swing.JFrame {
         });
 
         jButton_SauvegarderFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_SauvegarderFermer.setText("Sauvegarde et fermer");
+        jButton_SauvegarderFermer.setText("Save and close");
         jButton_SauvegarderFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderFermerActionPerformed(evt);
@@ -483,7 +483,7 @@ public class Modif_Acte extends javax.swing.JFrame {
         });
 
         jButton_Imprimer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Imprimer.setText("Imprimer ");
+        jButton_Imprimer.setText("Print ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ImprimerActionPerformed(evt);
@@ -491,7 +491,7 @@ public class Modif_Acte extends javax.swing.JFrame {
         });
 
         jLabel_Com.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_Com.setText("Commentaire :");
+        jLabel_Com.setText("Commentary :");
 
         jTextArea_Com.setColumns(20);
         jTextArea_Com.setLineWrap(true);
@@ -570,18 +570,18 @@ public class Modif_Acte extends javax.swing.JFrame {
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
         String s="";
-        s+="Hôpital Princeton Plainsboro - Service de radiologie\n\n";
-        s+="Rapport d'acte "+idexamen.getText()+" fait le "+datexam.getText()+" "+heurexam.getText()+"\n";
+        s+="Princeton Plainsboro Hospital - Radiology department\n\n";
+        s+="Deed of sale report "+idexamen.getText()+" done on the "+datexam.getText()+" "+heurexam.getText()+"\n";
         s+="DR."+nomPraticien.getText()+" "+prenomPraticien.getText();
-        s+="\n\n"+typeExamen.getText()+" Salle n°"+jComboBox_Salle.getSelectedItem();
-        s+="\nNumérique : "+isNum.getText();
-        if(isNum.getText().equals("Non")){
-            s+="\nRéférence dossier papier : "+jTextField_Refenrece.getText();
+        s+="\n\n"+typeExamen.getText()+" Room n°"+jComboBox_Salle.getSelectedItem();
+        s+="\nNumeric : "+isNum.getText();
+        if(isNum.getText().equals("No")){
+            s+="\nPaper file reference : "+jTextField_Refenrece.getText();
         }
         //s+="\n\n- Patient : \n";
         s+="\n\n---------------------------------------------------------------------------------------------------\n\n"+nomPatient.getText();
 	s+=" "+prenomPatient.getText();
-        s+="\n\n- Indication : \n";
+        s+="\n\n- Instructions : \n";
         s+=jTextPane_Indication.getText();
         s+="\n\n- Technique : \n";
         s+=jTextArea_Technique.getText();
@@ -606,19 +606,19 @@ public class Modif_Acte extends javax.swing.JFrame {
     private void jComboBox_SalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SalleActionPerformed
         // TODO add your handling code here:
         if(jComboBox_Salle.getSelectedItem().equals("1")|jComboBox_Salle.getSelectedItem().equals("2")|jComboBox_Salle.getSelectedItem().equals("3")|jComboBox_Salle.getSelectedItem().equals("4")|jComboBox_Salle.getSelectedItem().equals("5")|jComboBox_Salle.getSelectedItem().equals("6")){
-            isNum.setText("Oui");
+            isNum.setText("Yes");
         }
         else{
-            isNum.setText("Non");
+            isNum.setText("No");
         }
-        if (isNum.getText().equals("Non")) {
+        if (isNum.getText().equals("No")) {
             jTextField_Refenrece.setVisible(true);
             jLabel_Reference.setVisible(true);
 
             jPanel_InfoSalle.repaint();
             jPanel_InfoSalle.revalidate();
 
-        } else if (isNum.getText().equals("Oui")) {
+        } else if (isNum.getText().equals("yes")) {
             jTextField_Refenrece.setVisible(false);
             jLabel_Reference.setVisible(false);
             

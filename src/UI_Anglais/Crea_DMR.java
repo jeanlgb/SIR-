@@ -69,31 +69,31 @@ public class Crea_DMR extends javax.swing.JFrame {
         setAlwaysOnTop(true);
 
         jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel_Base.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Création DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel_Base.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR creation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
         jPanel_DMR.setBackground(new java.awt.Color(163, 209, 180));
 
         jLabel_DateCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_DateCrea.setText("Date de création :");
+        jLabel_DateCrea.setText("Date of creation :");
 
         dateDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
         dateDMR.setText(date.toString());
 
         jLabel_HeureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_HeureCrea.setText("Date de naissance");
+        jLabel_HeureCrea.setText("Date of birth");
 
         jLabel_Nom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Nom.setText("Nom :");
+        jLabel_Nom.setText("Surname :");
 
         jLabel_Prenom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Prenom.setText("Prénom :");
+        jLabel_Prenom.setText("Name :");
 
         jLabel_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Sexe.setText("Sexe :");
+        jLabel_Sexe.setText("Gender :");
 
         jComboBox_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Homme", "Femme" }));
+        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Man", "Woman" }));
         jComboBox_Sexe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SexeActionPerformed(evt);
@@ -101,7 +101,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         });
 
         jButton_SauvegarderFermer.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_SauvegarderFermer.setText("Sauvegarder et créer");
+        jButton_SauvegarderFermer.setText("Save and create");
         jButton_SauvegarderFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderFermerActionPerformed(evt);
@@ -109,10 +109,10 @@ public class Crea_DMR extends javax.swing.JFrame {
         });
 
         jLabel_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_ExamLier.setText("Examen éxistant à lier :");
+        jLabel_ExamLier.setText("Existing exam to be linked :");
 
         jComboBox_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Yes (Digital)", "Yes (Paper)" }));
         jComboBox_ExamLier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_ExamLierActionPerformed(evt);
@@ -120,11 +120,11 @@ public class Crea_DMR extends javax.swing.JFrame {
         });
 
         jLabel_Reference.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Reference.setText("Référence examen :");
+        jLabel_Reference.setText("Exam reference :");
         jLabel_Reference.setVisible(false);
 
         jLabel_IDPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_IDPatient.setText("ID Patient :");
+        jLabel_IDPatient.setText("Patient ID :");
 
         idPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         idPatient.setText(String.valueOf(Gestion_patient.générerIdPatient(connexion)));
@@ -263,14 +263,14 @@ public class Crea_DMR extends javax.swing.JFrame {
 
     private void jComboBox_ExamLierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ExamLierActionPerformed
         // TODO add your handling code here:
-        if (jComboBox_ExamLier.getSelectedItem().equals("Oui (Numérique)") | jComboBox_ExamLier.getSelectedItem().equals("Oui (Papier)")) {
+        if (jComboBox_ExamLier.getSelectedItem().equals("Yes (Digital)") | jComboBox_ExamLier.getSelectedItem().equals("Yes (Paper)")) {
             jTextField_Reference.setVisible(true);
             jLabel_Reference.setVisible(true);
 
             jPanel_DMR.repaint();
             jPanel_DMR.revalidate();
 
-        } else if (jComboBox_ExamLier.getModel().getSelectedItem().equals("Non")) {
+        } else if (jComboBox_ExamLier.getModel().getSelectedItem().equals("No")) {
             jTextField_Reference.setVisible(false);
             jLabel_Reference.setVisible(false);
 
