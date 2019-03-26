@@ -99,7 +99,7 @@ public class Acceuil_ManipRadio extends JFrame{
 
         jLabel_Nom.setText(objet_Courant.getManipulateur_radio().getNom());
 
-        jButton_Deconnexion.setText("Disconnection");
+        jButton_Deconnexion.setText("Log out");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_DeconnexionActionPerformed(evt);

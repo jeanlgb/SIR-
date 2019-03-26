@@ -114,7 +114,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextPane();
         jPanel_Image = new javax.swing.JPanel();
-        jComboBox_Image = new javax.swing.JComboBox<String>();
+        jComboBox_Image = new javax.swing.JComboBox<>();
         imageRadio = new PanelImageRapport(image_courante);
         jButton_Sauvegarder = new javax.swing.JButton();
         jSlider_Luminosite = new javax.swing.JSlider();
@@ -170,7 +170,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(194, 194, 194)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,7 +366,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Technique.setViewportView(jTextPane_Technique);
 
         jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_AddRapport.setText("Ajouter rapport :");
+        jLabel_AddRapport.setText("Rapport :");
 
         jTextArea1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea1.setText(examen_courant.getCR());
@@ -459,7 +459,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Apercu Cliché"));
         jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout imageRadioLayout = new javax.swing.GroupLayout(imageRadio);
         imageRadio.setLayout(imageRadioLayout);
@@ -652,7 +652,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                    .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
                     .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -664,7 +664,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                             .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                    .addGap(0, 91, Short.MAX_VALUE)
+                                    .addGap(0, 0, Short.MAX_VALUE)
                                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jSlider_Luminosite, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jSlider_Contraste, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))

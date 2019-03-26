@@ -110,7 +110,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jLabel_Nom.setText(objet_Courant.getSecretaire_medicale().getNom());
 
-        jButton_Deconnexion.setText("Disconnection");
+        jButton_Deconnexion.setText("Log out");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_DeconnexionActionPerformed(evt);

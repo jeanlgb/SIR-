@@ -352,7 +352,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Indication.setViewportView(jTextPane_Indication);
 
         jLabel_Technique.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Technique.setText("Technique");
+        jLabel_Technique.setText("Technique :");
 
         jTextPane_Technique.setEditable(false);
         jTextPane_Technique.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -360,7 +360,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Technique.setViewportView(jTextPane_Technique);
 
         jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_AddRapport.setText("Add report :");
+        jLabel_AddRapport.setText("Report :");
 
         jTextArea1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea1.setText(examen_courant.getCR());

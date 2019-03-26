@@ -191,7 +191,7 @@ public class Login extends javax.swing.JFrame {
 
         jButtonChangerLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonChangerLangue.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonChangerLangue.setText("Anglais");
+        jButtonChangerLangue.setText("Login in English");
         jButtonChangerLangue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChangerLangueActionPerformed(evt);
@@ -306,7 +306,93 @@ public class Login extends javax.swing.JFrame {
      */
     private void jButtonChangerLangueActionPerformed(java.awt.event.ActionEvent evt) {
         //UI_Anglais.Login;
-        // TODO add your handling code here:
+        NF.Acces_BD bd = new Acces_BD();
+        Connection connexion = bd.connexion;
+
+
+        try {
+            Connexion nouvelle_connexion = new Connexion(Integer.parseInt(txtidentifiant.getText()), String.valueOf(txtmdp.getPassword()));
+            boolean connexion_autorisee = nouvelle_connexion.autorisation_de_connexion();
+
+            if (connexion_autorisee) {
+                label_erreurIdentifiant.setText("Connecté");
+                label_erreurIdentifiant.setForeground(Color.BLUE);
+                label_erreur_mdp.setText("Connecté");
+                label_erreur_mdp.setForeground(Color.BLUE);
+                timer1.start();
+                /**
+                 * Requete permettant d'être redirigé vers l'interface adéquate pour
+                 * chaque utilisateur suivant son métier
+                 */
+                PreparedStatement user;
+                user = connexion.prepareStatement("SELECT metier FROM utilisateur WHERE id_user = ?");
+                int id = Integer.parseInt(txtidentifiant.getText());
+                user.setInt(1, id);
+                ResultSet type_User = user.executeQuery();
+                while (type_User.next()) {
+                    String metier_user = type_User.getString("metier");
+                    if (metier_user.equals("MEDECIN")) {
+                        PreparedStatement med;
+                        med = connexion.prepareStatement("SELECT nom, prenom FROM medecin WHERE id_medecin = ?");
+                        med.setInt(1, id);
+                        ResultSet medQuery = med.executeQuery();
+                        while (medQuery.next()) {
+                            String nom = medQuery.getString("nom");
+                            String prenom = medQuery.getString("prenom");
+                            objet_Courant = new ObjetCourant(new Medecin(id, nom, prenom), connexion);
+                        }
+                        new UI_Anglais.Acceuil_Radiologue(objet_Courant).setVisible(true); //ouvre la fenetre l'accueil radiologue
+                        this.dispose(); //ferme la fenetre de login
+                    } else {
+                        if (type_User.getString("metier").equals("MANIPULATEUR_RADIO")) {
+                            PreparedStatement man;
+                            man = connexion.prepareStatement("SELECT nom, prenom FROM manipulateur_radio WHERE id = ?");
+                            man.setInt(1, id);
+                            ResultSet medQuery = man.executeQuery();
+                            while (medQuery.next()) {
+                                System.out.println("A");
+                                String nom = medQuery.getString("nom");
+                                String prenom = medQuery.getString("prenom");
+                                objet_Courant = new ObjetCourant(new Manipulateur_radio(id, nom, prenom), connexion);
+                            }
+                            new UI_Anglais.Acceuil_ManipRadio(objet_Courant).setVisible(true);
+                            this.dispose();
+                        } else {
+                            if (type_User.getString("metier").equals("SECRETAIRE_MEDICALE")) {
+                                PreparedStatement sec;
+                                sec = connexion.prepareStatement("SELECT nom, prenom FROM secretaire_medicale WHERE id = ?");
+                                sec.setInt(1, id);
+                                ResultSet medQuery = sec.executeQuery();
+                                while (medQuery.next()) {
+                                    String nom = medQuery.getString("nom");
+                                    String prenom = medQuery.getString("prenom");
+                                    objet_Courant = new ObjetCourant(new Secretaire_medicale(id, nom, prenom), connexion);
+                                }
+                                new UI_Anglais.Acceuil_Sec(objet_Courant).setVisible(true);
+                                this.dispose();
+                            }
+                        }
+                    }
+                }
+            } else if (!nouvelle_connexion.isId_ok()) {
+                label_erreurIdentifiant.setText("Erreur dans l'identifiant");
+                label_erreurIdentifiant.setForeground(Color.RED);
+            } else {
+                label_erreur_mdp.setText("Erreur dans le mot de passe");
+                label_erreur_mdp.setForeground(Color.RED);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            connexion = null;
+        }
+        /*catch (SQLException ex){
+         Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);
+         }*/
+        if (connexion != null) {
+            System.out.println("Successfully connected to MySQL database test");
+        }
+
     }
 
     /**

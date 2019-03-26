@@ -108,7 +108,7 @@ public class Acceuil_Radiologue extends JFrame {
 
         jLabel_Nom.setText(objet_Courant.getMedecinCourant().getNom());
 
-        jButton_Deconnexion.setText("Disconnection");
+        jButton_Deconnexion.setText("Log out");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_DeconnexionActionPerformed(evt);
