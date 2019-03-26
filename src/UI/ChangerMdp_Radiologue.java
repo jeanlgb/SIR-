@@ -13,15 +13,15 @@ import javax.swing.JOptionPane;
  *
  * @author porra
  */
-public class ChangerMdp extends javax.swing.JFrame {
+public class ChangerMdp_Radiologue extends javax.swing.JFrame {
 
     private Connection connexion;
     private ObjetCourant objet_Courant;
 
     /**
-     * Creates new form ChangerMdp
+     * Creates new form ChangerMdp_Radiologue
      */
-    public ChangerMdp() {
+    public ChangerMdp_Radiologue() {
         initComponents();
     }
 
@@ -302,20 +302,20 @@ public class ChangerMdp extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChangerMdp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangerMdp_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChangerMdp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangerMdp_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChangerMdp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangerMdp_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChangerMdp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangerMdp_Radiologue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChangerMdp().setVisible(true);
+                new ChangerMdp_Radiologue().setVisible(true);
             }
         });
     }

@@ -659,8 +659,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
-
-            // new Login().setVisible(true); // ouvre la fenetre de connection
+            new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 

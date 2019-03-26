@@ -110,7 +110,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             }
         });
 
-        jButton_Parametres.setText("Parametres");
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -290,6 +289,12 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jButton_Ouvrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_OuvrirActionPerformed(evt);
+            }
+        });
+        jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
             }
         });
 
@@ -646,8 +651,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
-
-            // new Login().setVisible(true); // ouvre la fenetre de connection
+             new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 
@@ -766,6 +770,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         this.setVisible(false);
         allerParametres.setVisible(true);
     }//GEN-LAST:event_jButton_ParametresActionPerformed
+
 
     private void jButton_ImprimerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRActionPerformed
         // TODO add your handling code here:
