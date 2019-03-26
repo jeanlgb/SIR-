@@ -4,19 +4,33 @@
  * and open the template in the editor.
  */
 package UI;
+import BD.Gestion_DMR;
+import BD.Gestion_medecin;
+import BD.Gestion_patient;
 import NF.*;
+import java.sql.Connection;
 /**
  *
  * @author leclemau
  */
 public class choix_recherche extends javax.swing.JFrame {
 
+ 
+    
     /**
      * Creates new form choix_recherche
      */
-    Medecin medecin_courant;
-    Patient patient_courant;
-    public choix_recherche() {
+    private Patient patient_courant;
+    private Medecin medecin_courant;
+    private DMR dmr_courant;
+    private Examen examen_courant;
+    private ObjetCourant objet_Courant;
+    private Connection connexion;
+
+    public choix_recherche(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
+        this.connexion = objet_Courant.getConnexion();
+
         initComponents();
     }
 
@@ -34,6 +48,7 @@ public class choix_recherche extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +65,13 @@ public class choix_recherche extends javax.swing.JFrame {
 
         jLabel2.setText("Id médecin : ");
 
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,6 +85,10 @@ public class choix_recherche extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)))
                 .addContainerGap(261, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,7 +101,9 @@ public class choix_recherche extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(7, 7, 7)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,6 +124,16 @@ public class choix_recherche extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         this.patient_courant = Gestion_patient.rechercher_patient(jTextField1.getText(), connexion);
+        this.medecin_courant = Gestion_medecin.rechercher_medecin(jTextField2.getText(), connexion);
+        this.dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+
+        Crea_Acte newACTE = new Crea_Acte(patient_courant, medecin_courant, dmr_courant, objet_Courant);
+        newACTE.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,12 +165,13 @@ public class choix_recherche extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new choix_recherche().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

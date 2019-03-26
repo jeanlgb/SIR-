@@ -821,8 +821,13 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CreerActionPerformed
         // TODO add your handling code here:
-        Crea_Acte newACTE = new Crea_Acte(patient_courant, medecin_courant, dmr_courant, examen_courant, objet_Courant);
-        newACTE.setVisible(true);
+        
+         // TODO add your handling code here:
+        //Crea_Acte newACTE = new Crea_Acte(patient_courant, medecin_courant, dmr_courant, examen_courant, objet_Courant);
+        choix_recherche choixrech = new choix_recherche(objet_Courant);
+                choixrech.setVisible(true);
+       // newACTE.setVisible(true);
+        
     }//GEN-LAST:event_jButton_CreerActionPerformed
 
     private void remplirTableDMR() {
