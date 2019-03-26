@@ -6,6 +6,7 @@
 package UI;
 
 import NF.Impression;
+import NF.Type_examen;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
