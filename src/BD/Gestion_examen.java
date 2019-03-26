@@ -81,7 +81,7 @@ public class Gestion_examen {
             statement.setInt(1, examen.getId_examen());
             statement.setDate(2, examen.getDate());
             statement.setInt(3, examen.getId_medecin());
-            statement.setString(4, examen.getType_examen().name());
+            statement.setString(4, examen.getType());
             statement.setDouble(5, examen.getDuree_prevue());
             statement.setInt(6, examen.getIdSalle());
             statement.setString(7, examen.getCR());
@@ -91,6 +91,27 @@ public class Gestion_examen {
             statement.setInt(11, examen.getId_historique());
             statement.setDouble(12, examen.getCout_examen());
             statement.setInt(13, examen.getId_dmr());
+
+            int resultat = statement.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("pb dans la connexion à la bd");
+        return false;
+    }
+        /**
+     * modifie l'examen passé en paramètres dans la base de données
+     */
+    public static boolean modifierExamen(Examen examen, Connection connexion) {
+        PreparedStatement statement;
+        try {
+            statement = connexion.prepareStatement("UPDATE examen SET compte_rendu = ? WHERE id_examen =?;");
+            
+            statement.setString(1, examen.getCR());
+            statement.setInt(2, examen.getId_examen());
 
             int resultat = statement.executeUpdate();
             return true;

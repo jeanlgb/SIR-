@@ -18,10 +18,21 @@ import java.util.ArrayList;
  */
 public class Crea_DMR extends javax.swing.JFrame {
 
+    private Patient patient_courant;
+    private DMR dmr_courant;
+    private Connection connexion;
+
     /**
      * Creates new form Param
      */
     public Crea_DMR() {
+        initComponents();
+    }
+
+    public Crea_DMR(DMR dmr_courant, Connection connexion) {
+        this.dmr_courant = dmr_courant;
+        this.connexion = connexion;
+        this.patient_courant = null;
         initComponents();
     }
 
@@ -42,12 +53,12 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_Nom = new javax.swing.JLabel();
         jLabel_Prenom = new javax.swing.JLabel();
         jLabel_Sexe = new javax.swing.JLabel();
-        jComboBox_Sexe = new javax.swing.JComboBox<>();
+        jComboBox_Sexe = new javax.swing.JComboBox<String>();
         jButton_SauvegarderFermer = new javax.swing.JButton();
         jTextField_Nom = new javax.swing.JTextField();
         jTextField_Prenom = new javax.swing.JTextField();
         jLabel_ExamLier = new javax.swing.JLabel();
-        jComboBox_ExamLier = new javax.swing.JComboBox<>();
+        jComboBox_ExamLier = new javax.swing.JComboBox<String>();
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_IDPatient = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
@@ -82,7 +93,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_Sexe.setText("Sexe :");
 
         jComboBox_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme" }));
+        jComboBox_Sexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Homme", "Femme" }));
         jComboBox_Sexe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SexeActionPerformed(evt);
@@ -101,7 +112,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_ExamLier.setText("Examen éxistant à lier :");
 
         jComboBox_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_ExamLier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
         jComboBox_ExamLier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_ExamLierActionPerformed(evt);
@@ -116,7 +127,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_IDPatient.setText("ID Patient :");
 
         idPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        idPatient.setText("ID_Patient");
+        idPatient.setText(String.valueOf(Gestion_patient.générerIdPatient(connexion)));
 
         jTextField_Reference.setVisible(false);
 

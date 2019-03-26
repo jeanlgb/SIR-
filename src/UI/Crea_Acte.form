@@ -153,7 +153,11 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel_Technique" min="-2" max="-2" attributes="0"/>
                                   <Component id="jPanel_InfoActe" alignment="0" pref="503" max="32767" attributes="0"/>
-                                  <Component id="jButton_Imprimer" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jButton_Imprimer" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton_Imprimer1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="jPanel_InfoPatient" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -208,6 +212,7 @@
                           <Component id="jButton_Imprimer" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_SauvegarderFermer" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_Sauvegarder" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_Imprimer1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -924,6 +929,20 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="jButton_Imprimer1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="16" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ajouter une image"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Imprimer1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButton_Imprimer1.setVisible(true);"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

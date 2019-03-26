@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -108,12 +110,12 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Technique = new javax.swing.JLabel();
         jScrollPane_Technique = new javax.swing.JScrollPane();
         jTextPane_Technique = new javax.swing.JTextPane();
-        jPanel_Image = new javax.swing.JPanel();
-        jComboBox_Image = new javax.swing.JComboBox<>();
-        imageRadio = new PanelImageRapport(image_courante);
-        jScrollPane_CR = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel_AddRapport = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextPane();
+        jPanel_Image = new javax.swing.JPanel();
+        jComboBox_Image = new javax.swing.JComboBox<String>();
+        imageRadio = new PanelImageRapport(image_courante);
         jButton_Sauvegarder = new javax.swing.JButton();
         jSlider_Luminosite = new javax.swing.JSlider();
         jButton_RotD = new javax.swing.JButton();
@@ -121,7 +123,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Contraste = new javax.swing.JLabel();
         jButton_Imprimer = new javax.swing.JButton();
         jButton_RotG = new javax.swing.JButton();
-        jCheckBox_Oui = new javax.swing.JCheckBox();
         jSlider_Contraste = new javax.swing.JSlider();
         jPanel_InfoSalle = new javax.swing.JPanel();
         jLabel_Salle = new javax.swing.JLabel();
@@ -130,7 +131,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_Reference1 = new javax.swing.JLabel();
         jLabel_Salle1 = new javax.swing.JLabel();
-        jToggleButton_Sauvegarder1 = new javax.swing.JButton();
+        jButton_Sauvegarder1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -169,7 +170,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(194, 194, 194)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addContainerGap(574, Short.MAX_VALUE))
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,16 +365,25 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jTextPane_Technique.setText(pacs_courant.getDescription());
         jScrollPane_Technique.setViewportView(jTextPane_Technique);
 
+        jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel_AddRapport.setText("Ajouter rapport :");
+
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTextArea1.setText(examen_courant.getCR());
+        jScrollPane2.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel_InfoActeLayout = new javax.swing.GroupLayout(jPanel_InfoActe);
         jPanel_InfoActe.setLayout(jPanel_InfoActeLayout);
         jPanel_InfoActeLayout.setHorizontalGroup(
             jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
+            .addComponent(jSeparator)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoActeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane_Indication)
-                    .addComponent(jScrollPane_Technique, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
+                .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane_Indication, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_Technique, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_InfoActeLayout.createSequentialGroup()
                         .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_Indication)
                             .addComponent(jLabel_Technique)
@@ -398,10 +408,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
                                     .addComponent(typeExamen)
                                     .addComponent(nomPraticien)
                                     .addComponent(idPraticien)
-                                    .addComponent(prenomPraticien))))
+                                    .addComponent(prenomPraticien)))
+                            .addComponent(jLabel_AddRapport))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jSeparator)
         );
         jPanel_InfoActeLayout.setVerticalGroup(
             jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,6 +448,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addComponent(jLabel_Technique)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane_Technique, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_AddRapport)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -445,7 +459,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_Image.setBorder(javax.swing.BorderFactory.createTitledBorder("Apercu Cliché"));
         jPanel_Image.setPreferredSize(new java.awt.Dimension(350, 500));
 
-        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Image.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cliché 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout imageRadioLayout = new javax.swing.GroupLayout(imageRadio);
         imageRadio.setLayout(imageRadioLayout);
@@ -481,24 +495,14 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGap(177, 177, 177))
         );
 
-        jScrollPane_CR.setVisible(false);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane_CR.setViewportView(jTextArea1);
-
-        jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_AddRapport.setText("Ajouter rapport :");
-
         jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.setVisible(true);
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderActionPerformed(evt);
             }
         });
-        jButton_Sauvegarder.setVisible(false);
 
         jSlider_Luminosite.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jSlider_Luminosite.setOpaque(false);
@@ -537,14 +541,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_RotG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RotGActionPerformed(evt);
-            }
-        });
-
-        jCheckBox_Oui.setText("Oui");
-        jCheckBox_Oui.setOpaque(false);
-        jCheckBox_Oui.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox_OuiActionPerformed(evt);
             }
         });
 
@@ -633,11 +629,11 @@ public class Crea_Rapport extends javax.swing.JFrame {
             jLabel_Reference1.setVisible(true);
         }
 
-        jToggleButton_Sauvegarder1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jToggleButton_Sauvegarder1.setText("Inverser gris");
-        jToggleButton_Sauvegarder1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Sauvegarder1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton_Sauvegarder1.setText("Inverser gris");
+        jButton_Sauvegarder1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton_Sauvegarder1ActionPerformed(evt);
+                jButton_Sauvegarder1ActionPerformed(evt);
             }
         });
         jButton_Sauvegarder.setVisible(false);
@@ -655,15 +651,9 @@ public class Crea_Rapport extends javax.swing.JFrame {
             jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
-                        .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane_CR))
-                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                        .addComponent(jLabel_AddRapport)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBox_Oui)))
+                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                    .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,14 +664,14 @@ public class Crea_Rapport extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                             .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                    .addGap(0, 95, Short.MAX_VALUE)
+                                    .addGap(0, 91, Short.MAX_VALUE)
                                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jSlider_Luminosite, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jSlider_Contraste, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(6, 6, 6))
                                 .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jToggleButton_Sauvegarder1)
+                                        .addComponent(jButton_Sauvegarder1)
                                         .addComponent(jLabel_Contraste)
                                         .addComponent(jLabel_Luminosite))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -704,41 +694,34 @@ public class Crea_Rapport extends javax.swing.JFrame {
                     .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox_Oui)
-                            .addComponent(jLabel_AddRapport)
-                            .addComponent(jLabel_Luminosite))
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
+                                .addComponent(jLabel_Luminosite)
+                                .addGap(17, 17, 17)
                                 .addComponent(jLabel_Contraste)
                                 .addGap(18, 18, 18)
-                                .addComponent(jToggleButton_Sauvegarder1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jScrollPane_CR, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton_RotG, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton_RotD, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton_Sauvegarder1))
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addComponent(jSlider_Luminosite, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(jSlider_Contraste, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_Imprimer)
-                            .addComponent(jButton_Sauvegarder))))
-                .addGap(20, 20, 20))
+                                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton_RotG, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton_RotD, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                                        .addComponent(jSlider_Luminosite, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jSlider_Contraste, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
+                                .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton_Imprimer)
+                                    .addComponent(jButton_Sauvegarder)))))
+                    .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         JPanel_Base.add(jPanel_Corps, java.awt.BorderLayout.CENTER);
@@ -751,7 +734,12 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Impression imprimer = new Impression(jTextArea1);
+        //pb avec l'impression ici?
+//        Impression imprimer = new Impression(jTextArea1);
+        JTextArea areaImpression = new JTextArea();
+        areaImpression.setText(jTextArea1.getText());
+        areaImpression.setVisible(false);
+        Impression imprimer = new Impression(areaImpression);
         imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -774,9 +762,9 @@ public class Crea_Rapport extends javax.swing.JFrame {
         s += jTextPane_Indication.getText();
         s += "\n\n- Technique : \n";
         s += jTextPane_Technique.getText();
-        if (jCheckBox_Oui.isSelected()) {
-            s += "\n\n- Rapport : \n" + jTextArea1.getText();
-        }
+//        if (jCheckBox_Oui.isSelected()) {
+//            s += "\n\n- Rapport : \n" + jTextArea1.getText();
+//        }
         /*s+="\n\n- Actes medicaux : ";
          for (int i=0; i<actes.size(); i++) {
          Acte a = actes.get(i);
@@ -792,30 +780,12 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
+        examen_courant.setCR(jTextArea1.getText());
+        Gestion_examen.modifierExamen(examen_courant, connexion);
     }//GEN-LAST:event_jButton_SauvegarderActionPerformed
-
-    private void jCheckBox_OuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_OuiActionPerformed
+    private void jButton_Sauvegarder1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        if (jCheckBox_Oui.isSelected() == true) {
-            jButton_Sauvegarder.setVisible(true);
-            //jButton6.setVisible(true);
-            jScrollPane_CR.setVisible(true);
-
-            jPanel_Corps.repaint();
-            jPanel_Corps.revalidate();
-
-        } else if (jCheckBox_Oui.isSelected() == false) {
-            jButton_Sauvegarder.setVisible(false);
-            //jButton6.setVisible(false);
-            jScrollPane_CR.setVisible(false);
-
-            jPanel_Corps.repaint();
-            jPanel_Corps.revalidate();
-
-        }
-
-    }//GEN-LAST:event_jCheckBox_OuiActionPerformed
-
+    }
     private void jButton_RotDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotDActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
@@ -826,7 +796,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.setContraste(jSlider_Contraste.getValue());
-       imageRadio_panel.augmenter_contraste();
+        imageRadio_panel.augmenter_contraste();
 
 
     }//GEN-LAST:event_jSlider_ContrasteStateChanged
@@ -838,19 +808,19 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imageRadio_panel.setLuminosité(jSlider_Luminosite.getValue());
         //PanelImageRapport.setLuminosité(jSlider_Luminosite.getValue());
 
-         imageRadio_panel.augmenter_luminosite();
+        imageRadio_panel.augmenter_luminosite();
     }//GEN-LAST:event_jSlider_LuminositeStateChanged
 
     private void jButton_RotGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotGActionPerformed
         // TODO add your handling code here:
-                PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
+        PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.rotation_ImageG();
     }//GEN-LAST:event_jButton_RotGActionPerformed
 
     private void jToggleButton_Sauvegarder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_Sauvegarder1ActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
-       imageRadio_panel.inverser_niveaux_de_gris();
+        imageRadio_panel.inverser_niveaux_de_gris();
     }//GEN-LAST:event_jToggleButton_Sauvegarder1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -976,8 +946,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JButton jButton_RotD;
     private javax.swing.JButton jButton_RotG;
     private javax.swing.JButton jButton_Sauvegarder;
-    private javax.swing.JButton jToggleButton_Sauvegarder1;
-    private javax.swing.JCheckBox jCheckBox_Oui;
+    private javax.swing.JButton jButton_Sauvegarder1;
     private javax.swing.JComboBox<String> jComboBox_Image;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel_AddRapport;
@@ -1010,13 +979,13 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_InfoPatient;
     private javax.swing.JPanel jPanel_InfoSalle;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane_CR;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane_Indication;
     private javax.swing.JScrollPane jScrollPane_Technique;
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JSlider jSlider_Contraste;
     private javax.swing.JSlider jSlider_Luminosite;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextPane jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextPane jTextPane_Indication;
     private javax.swing.JTextPane jTextPane_Technique;

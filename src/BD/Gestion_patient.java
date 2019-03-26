@@ -147,7 +147,7 @@ public class Gestion_patient {
     /**
      * génére un nouvel id de dmr non utilisé
      */
-    public int générerIdPatient(Connection connexion){
+    public static int générerIdPatient(Connection connexion){
         //Connaitre le nombre de dmr dans la table pour avoir le numéro du dmr =id_dmr
 
         int nombrepatient = 0;

@@ -115,6 +115,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Com = new javax.swing.JLabel();
         jScrollPane_Com = new javax.swing.JScrollPane();
         jTextArea_Com = new javax.swing.JTextArea();
+        jButton_Imprimer1 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Date : ");
@@ -530,6 +531,15 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextArea_Com.setRows(5);
         jScrollPane_Com.setViewportView(jTextArea_Com);
 
+        jButton_Imprimer1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton_Imprimer1.setText("Ajouter une image");
+        jButton_Imprimer1.setVisible(true);
+        jButton_Imprimer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Imprimer1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_CorpsLayout = new javax.swing.GroupLayout(jPanel_Corps);
         jPanel_Corps.setLayout(jPanel_CorpsLayout);
         jPanel_CorpsLayout.setHorizontalGroup(
@@ -542,7 +552,10 @@ public class Crea_Acte extends javax.swing.JFrame {
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel_Technique)
                             .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                            .addComponent(jButton_Imprimer)
+                            .addGroup(jPanel_CorpsLayout.createSequentialGroup()
+                                .addComponent(jButton_Imprimer)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton_Imprimer1))
                             .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
@@ -582,7 +595,8 @@ public class Crea_Acte extends javax.swing.JFrame {
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Imprimer)
                     .addComponent(jButton_SauvegarderFermer)
-                    .addComponent(jButton_Sauvegarder))
+                    .addComponent(jButton_Sauvegarder)
+                    .addComponent(jButton_Imprimer1))
                 .addGap(22, 22, 22))
         );
 
@@ -710,6 +724,11 @@ public class Crea_Acte extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox_SalleActionPerformed
 
+    private void jButton_Imprimer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Imprimer1ActionPerformed
+        new stocker_image_modifiable();
+        
+    }//GEN-LAST:event_jButton_Imprimer1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -790,6 +809,7 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel idexamen;
     private javax.swing.JLabel isNum;
     private javax.swing.JButton jButton_Imprimer;
+    private javax.swing.JButton jButton_Imprimer1;
     private javax.swing.JButton jButton_Sauvegarder;
     private javax.swing.JButton jButton_SauvegarderFermer;
     private javax.swing.JComboBox<String> jComboBox_Salle;

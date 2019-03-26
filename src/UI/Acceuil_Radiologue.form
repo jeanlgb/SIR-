@@ -494,11 +494,6 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton_RechercherDMR" min="-2" pref="191" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel_NbResult" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel_NbResultDMR" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jButton_OuvrirDMR" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
                               <Component id="jScrollPane_Corps_DMR" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -527,12 +522,7 @@
                                       <Component id="jTextField_RechercheDMR" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton_RechercherDMR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel_NbResult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel_NbResultDMR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="jScrollPane_Corps_DMR" min="-2" pref="369" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel_ApercuDMR" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -545,7 +535,7 @@
                               </Group>
                               <Component id="jButton_OuvrirDMR" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -612,6 +602,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_CreerDMRActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButton_CreerDMR.setVisible(false);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_ImprimerDMR">
                   <Properties>
@@ -655,22 +648,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="jLabel_NbResult">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="16" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Nombre de r&#xe9;sultat :"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel_NbResultDMR">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="16" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Nb_resultat"/>
-                  </Properties>
-                </Component>
                 <Container class="javax.swing.JPanel" name="jPanel_ApercuDMR">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

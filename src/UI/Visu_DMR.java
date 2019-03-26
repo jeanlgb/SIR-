@@ -6,14 +6,18 @@
 package UI;
 
 import BD.Gestion_DMR;
+import BD.Gestion_examen;
 import BD.Gestion_medecin;
 import BD.Gestion_patient;
 import NF.Acces_BD;
+import NF.Compte_rendu;
 import NF.DMR;
+import NF.Examen;
 import NF.Medecin;
 import NF.ObjetCourant;
 import NF.Patient;
 import java.sql.Connection;
+import java.time.LocalDate;
 
 /**
  *
@@ -23,24 +27,17 @@ public class Visu_DMR extends javax.swing.JFrame {
 
     private Patient patient_courant;
     private DMR dmr_courant;
-        private Connection connexion;
-        
-        
-       
+    private Connection connexion;
+
     /**
      * Creates new form Param
      */
-    public Visu_DMR() {
-        initComponents();
-    }
-
-    public Visu_DMR(Patient patient_courant, DMR dmr_courant,  ObjetCourant objet_Courant) {
+    public Visu_DMR(Patient patient_courant, DMR dmr_courant, ObjetCourant objet_Courant) {
         this.patient_courant = patient_courant;
         this.dmr_courant = dmr_courant;
         this.connexion = objet_Courant.getConnexion();
+        initComponents();
     }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +59,7 @@ public class Visu_DMR extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton_Rechercher6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -79,16 +76,16 @@ public class Visu_DMR extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(163, 209, 180));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel1.setText("Date de création :");
+        jLabel1.setText("ID DMR");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setText("Date_DMR");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel3.setText("Heure de création :");
+        jLabel3.setText("Nb examens : ");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel4.setText("Heure_DMR");
+        jLabel4.setText(String.valueOf(dmr_courant.getExamens_patient().size()));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel5.setText("Nom :");
@@ -111,7 +108,7 @@ public class Visu_DMR extends javax.swing.JFrame {
         jLabel6.setText("Examen éxistant à lier :");
 
         jComboBox2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Papier)" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -251,13 +248,9 @@ public class Visu_DMR extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_Rechercher6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Rechercher6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_Rechercher6ActionPerformed
-
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-                if (jComboBox2.getSelectedItem().equals("Oui (Numérique)") | jComboBox2.getSelectedItem().equals("Oui (Papier)") ) {
+        if (jComboBox2.getSelectedItem().equals("Oui (Numérique)") | jComboBox2.getSelectedItem().equals("Oui (Papier)")) {
             jTextField4.setVisible(true);
             jLabel8.setVisible(true);
 
@@ -267,12 +260,29 @@ public class Visu_DMR extends javax.swing.JFrame {
         } else if (jComboBox2.getModel().getSelectedItem().equals("Non")) {
             jTextField4.setVisible(false);
             jLabel8.setVisible(false);
-            
+
             jPanel2.repaint();
             jPanel2.revalidate();
 
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton_Rechercher6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Rechercher6ActionPerformed
+        // TODO add your handling code here:
+        if(jTextField4.getText()!=" "){
+        //Gestion_examen.modifierExamen(null, connexion)
+            //public Examen( double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen)
+           String s = "Papier. Ref : "+ jTextField4.getText();
+           Compte_rendu nouveau_cr = new Compte_rendu(null, s);
+           Examen nouvel_exam = new Examen(Gestion_examen.générerIdExamen(connexion), java.sql.Date.valueOf(LocalDate.now()),null, null, 0, 0, nouveau_cr, 1, 1, 0);
+           nouvel_exam.setId_dmr(dmr_courant.getId_dmr());
+           Gestion_examen.creerExamen(nouvel_exam, connexion);
+           this.dispose();
+        }
+        else{
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton_Rechercher6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,7 +321,6 @@ public class Visu_DMR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Visu_DMR().setVisible(true);
             }
         });
     }

@@ -319,7 +319,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID_Patient"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="String.valueOf(Gestion_patient.g&#xe9;n&#xe9;rerIdPatient(connexion))" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField_Reference">

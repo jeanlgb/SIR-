@@ -32,6 +32,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
     int nblignes;
     Patient patient_courant;
+    DMR dmr_courant;
     String s = "";
     ObjetCourant objet_Courant;
     Connection connexion;
@@ -68,7 +69,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTabbedPane_Corps = new javax.swing.JTabbedPane();
         jPanel_Corps_Exam = new javax.swing.JPanel();
         jLabel_RecherchePar = new javax.swing.JLabel();
-        jComboBox_Recherche = new javax.swing.JComboBox<>();
+        jComboBox_Recherche = new javax.swing.JComboBox<String>();
         jTextField_Recherche = new javax.swing.JTextField();
         jScrollPane_Corps_Exam_Tab = new javax.swing.JScrollPane();
         jTable_Exam = new javax.swing.JTable();
@@ -82,13 +83,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RechercheParDMR = new javax.swing.JLabel();
         jTextField_RechercheDMR = new javax.swing.JTextField();
         jButton_RechercherDMR = new javax.swing.JButton();
-        jComboBox_RechercheDMR = new javax.swing.JComboBox<>();
+        jComboBox_RechercheDMR = new javax.swing.JComboBox<String>();
         jButton_CreerDMR = new javax.swing.JButton();
         jButton_ImprimerDMR = new javax.swing.JButton();
         jScrollPane_Corps_DMR = new javax.swing.JScrollPane();
         jTable_DMR = new javax.swing.JTable();
-        jLabel_NbResult = new javax.swing.JLabel();
-        jLabel_NbResultDMR = new javax.swing.JLabel();
         jPanel_ApercuDMR = new javax.swing.JPanel();
         jScrollPane_ApercuDMR = new javax.swing.JScrollPane();
         jTextArea_ApercuDMR = new javax.swing.JTextArea();
@@ -123,11 +122,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
-        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ParametresActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -201,7 +195,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom", "ID" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -421,7 +415,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_RechercheDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheDMRActionPerformed(evt);
@@ -430,6 +424,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
 
         jButton_CreerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_CreerDMR.setText("Créer DMR");
+        jButton_CreerDMR.setVisible(false);
         jButton_CreerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CreerDMRActionPerformed(evt);
@@ -506,12 +501,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
 
-        jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResult.setText("Nombre de résultat :");
-
-        jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("");
-
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
 
@@ -554,10 +543,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                         .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
-                        .addComponent(jLabel_NbResult)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_NbResultDMR))
                     .addComponent(jButton_OuvrirDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane_Corps_DMR))
                 .addGap(88, 88, 88)
@@ -580,11 +565,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                             .addComponent(jLabel_RechercheParDMR)
                             .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_RechercherDMR))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_NbResult)
-                            .addComponent(jLabel_NbResultDMR))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(36, 36, 36)
                         .addComponent(jScrollPane_Corps_DMR, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_ApercuDMR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -593,7 +574,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                         .addComponent(jButton_CreerDMR)
                         .addComponent(jButton_ImprimerDMR))
                     .addComponent(jButton_OuvrirDMR))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane_Corps.addTab("DMR", jPanel_DMR);
@@ -614,7 +595,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
 
         // TODO add your handling code here:
-        Visu_DMR DMR = new Visu_DMR(patient_courant, patient_courant.getDmr(), objet_Courant);
+        Visu_DMR DMR = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
         DMR.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
@@ -636,12 +617,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 /*
                  Code pour ouvrir exam
                  */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 4)), connexion);
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 0)), connexion);
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
 
-                Visu_DMR visu_dmr = new Visu_DMR(patient_courant, patient_courant.getDmr(), objet_Courant);
+                Visu_DMR visu_dmr = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
                 visu_dmr.setVisible(true);
                 //Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
                 //creaRapport.setVisible(true);
@@ -716,16 +697,16 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable_Exam.getModel();
         jTable_Exam.removeAll();
         ArrayList<Examen> examens = new ArrayList<Examen>();
-        DMR dmr = new DMR(0, null, null);
+        dmr_courant = new DMR(0, null, null);
         if (jComboBox_Recherche.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(), connexion);
-            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
         } else if (jComboBox_Recherche.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
-            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
 
-        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
+        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr_courant.getId_dmr()));
 
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
@@ -737,35 +718,36 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             jTable_Exam.setValueAt(examens.get(i).getId_examen(), i, 4);
             jTable_Exam.setModel(model);
         }
-        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n"
-                + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n"
-                + "\n";
-
-        for (int i = 0; i < examens.size(); i++) {
-            s += examens.get(i).toString();
-            s += "\n";
-        }
-        jTextArea_Apercu.setText(s);
-        s = "";
+//        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n"
+//                + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n"
+//                + "\n";
+//
+//        for (int i = 0; i < examens.size(); i++) {
+//            s += examens.get(i).toString();
+//            s += "\n";
+//        }
+        jTextArea_Apercu.setText(dmr_courant.getExamens_patient().get(0).toString());
+//        s = "";
     }
+
 
     private void remplirTableDMR() {
         DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
         jTable_DMR.removeAll();
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
-        DMR dmr = new DMR(0, null, null);
+        dmr_courant = new DMR(0, null, null);
 
         if (jComboBox_RechercheDMR.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
 
-            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
 
         } else if (jComboBox_RechercheDMR.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
-            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
         DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(dmr.getId_dmr()));
+        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(dmr_courant.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < DMRs.size(); i++) {
@@ -774,26 +756,28 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             jTable_DMR.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
             jTable_DMR.setModel(model);
         }
-        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
-
-        for (int i = 0; i < DMRs.size(); i++) {
-            s += DMRs.get(i).toString();
-            s += "\n";
-        }
-        jTextArea_ApercuDMR.setText(s);
-        s = "";
+//        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
+//
+//        for (int i = 0; i < DMRs.size(); i++) {
+//            s += DMRs.get(i).toString();
+//            s += "\n";
+//        }
+        jTextArea_ApercuDMR.setText(dmr_courant.getExamens_patient().get(0).toString());
+        //s = "";
     }
+    
+    
     private void jTable_ExamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ExamMouseClicked
         // TODO add your handling code here:
         // Selec pour ouvrir ou apercu d'un exam
 
         if (jTable_Exam.getSelectedRowCount() > 0) {
             /*
-
              Code pour apercu exam
-            
-
+           
              */
+ //code pour apercu examen dans l'encadré de droite
+            jTextArea_Apercu.setText(dmr_courant.getExamens_patient().get(jTable_Exam.getSelectedRow()).toString());
 
         }
         if (evt.getClickCount() == 2) {
@@ -899,8 +883,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_Recherche;
     private javax.swing.JComboBox<String> jComboBox_RechercheDMR;
     private javax.swing.JLabel jLabel_Logo;
-    private javax.swing.JLabel jLabel_NbResult;
-    private javax.swing.JLabel jLabel_NbResultDMR;
     private javax.swing.JLabel jLabel_Nom;
     private javax.swing.JLabel jLabel_Prenom;
     private javax.swing.JLabel jLabel_RecherchePar;

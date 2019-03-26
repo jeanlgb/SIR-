@@ -40,19 +40,36 @@ public class Examen {
     public Examen(int id_examen, java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, int idSalle, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
         this.id_examen = id_examen;
         this.date = date;
+        
         this.medecin_en_charge = medecin_en_charge;
+        if(this.medecin_en_charge!=null){
         this.id_medecin = medecin_en_charge.getIdentifiant();
+        }
+        else{
+            this.id_medecin =0;
+        }
+        
         this.type_examen = type_examen;
-        this.type = type_examen.getLibelle_examen();
+        if(this.type_examen!=null){
+             this.type = type_examen.getLibelle_examen();
+        }else{
+            this.type="";
+        }
+        
+
         this.duree_prevue = duree_prevue;
+        
         this.compte_rendu = compte_rendu;
         if (this.compte_rendu != null) {
             this.CR = compte_rendu.getTexte_CR();
         } else {
             this.CR = "";
         }
+        
         this.cout_examen = cout_examen;
+        
         this.idSalle = idSalle;
+        
         if (papier == 1) {
             this.dossier_papier = true;
             this.doss_papier = 1;
@@ -88,7 +105,12 @@ public class Examen {
         }
 
         this.type_examen = type_examen;
-        this.type = type_examen.getLibelle_examen();
+        if(this.type_examen!=null){
+             this.type = type_examen.getLibelle_examen();
+        }else{
+            this.type="";
+        }
+        
         this.duree_prevue = duree_prevue;
 
         this.salle = salle;
