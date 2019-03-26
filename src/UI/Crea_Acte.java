@@ -5,15 +5,7 @@
  */
 package UI;
 
-import BD.Gestion_examen;
-import NF.DMR;
-import NF.Examen;
 import NF.Impression;
-import NF.Medecin;
-import NF.ObjetCourant;
-import NF.PACS;
-import NF.Patient;
-import NF.Type_examen;
 
 import java.awt.Image;
 import java.sql.Connection;
@@ -24,17 +16,7 @@ import javax.swing.ImageIcon;
  *
  * @author camin
  */
-public class Crea_Acte extends javax.swing.JFrame {
-
-    private Patient patient_courant;
-    private Medecin medecin_courant;
-    private DMR dmr_courant;
-    private Examen examen_courant;
-    private Connection connexion;
-
-    public Crea_Acte() {
-        initComponents();
-    }
+public class Modif_Acte extends javax.swing.JFrame {
 
     /**
      * Creates new form Acceuille_Radiologue
@@ -195,26 +177,26 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Adresse.setText("Adresse :");
 
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPatient.setText(String.valueOf(patient_courant.getIdentifiant()));
+        idPatient.setText("ID");
 
         nomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPatient.setText(patient_courant.getNom_d_usage());
+        nomPatient.setText("Nom");
 
         prenomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPatient.setText(patient_courant.getPrenom());
+        prenomPatient.setText("Prenom");
 
         dateNaissancePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        dateNaissancePatient.setText(patient_courant.getDate_de_naissance().toString());
+        dateNaissancePatient.setText("Date_nais");
 
         sexePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        sexePatient.setText(patient_courant.getGenre().toString());
+        sexePatient.setText("Sexe");
 
         agePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        agePatient.setText(String.valueOf(patient_courant.getAge()));
+        agePatient.setText("Age");
 
         adressePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         adressePatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adressePatient.setText(patient_courant.getAdresse().toString());
+        adressePatient.setText("Adresse");
         adressePatient.setToolTipText("");
         adressePatient.setAutoscrolls(true);
 
@@ -304,27 +286,27 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_IDpract.setText("ID du Praticien : ");
 
         nomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPraticien.setText(medecin_courant.getNom());
+        nomPraticien.setText("Nom_pract");
 
         prenomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPraticien.setText(medecin_courant.getPrenom());
+        prenomPraticien.setText("Prenom_pract");
 
         idPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPraticien.setText(String.valueOf(medecin_courant.getIdentifiant()));
+        idPraticien.setText("ID_pract");
 
         datexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        datexam.setText(examen_courant.getDate().toString());
+        datexam.setText("00/00/0000");
 
         jLabel_IDexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_IDexam.setText("ID examen : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idexamen.setText(String.valueOf(examen_courant.getId_examen()));
+        idexamen.setText("ID examen");
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Indication.setText("Indication :");
 
-        jTextPane_Indication.setEditable(true);
+        jTextPane_Indication.setEditable(false);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jScrollPane_Indication.setViewportView(jTextPane_Indication);
 
@@ -414,12 +396,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_isNum.setText("Numérique :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        if (examen_courant.isDossier_papier()){
-            isNum.setText("Non");
-        }
-        else{
-            isNum.setText("Oui");
-        }
+        isNum.setText("Oui");
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -461,7 +438,7 @@ public class Crea_Acte extends javax.swing.JFrame {
                         .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(isNum)
                             .addComponent(jComboBox_Salle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel_InfoSalleLayout.setVerticalGroup(
             jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -484,7 +461,6 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextArea_Technique.setColumns(20);
         jTextArea_Technique.setLineWrap(true);
         jTextArea_Technique.setRows(5);
-        jTextArea_Technique.setLineWrap(true);
         jScrollPane_Technique.setViewportView(jTextArea_Technique);
 
         jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -520,7 +496,6 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextArea_Com.setColumns(20);
         jTextArea_Com.setLineWrap(true);
         jTextArea_Com.setRows(5);
-        jTextArea_Com.setLineWrap(true);
         jScrollPane_Com.setViewportView(jTextArea_Com);
 
         jButton_Imprimer1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -617,16 +592,16 @@ public class Crea_Acte extends javax.swing.JFrame {
             s += "\nRéférence dossier papier : " + jTextField_Refenrece.getText();
         }
         //s+="\n\n- Patient : \n";
-        s += "\n\n---------------------------------------------------------------------------------------------------\n\n" + nomPatient.getText();
-        s += " " + prenomPatient.getText();
-        s += "\n\n- Indication : \n";
-        s += jTextPane_Indication.getText();
-        s += "\n\n- Technique : \n";
-        s += jTextArea_Technique.getText();
+        s+="\n\n---------------------------------------------------------------------------------------------------\n\n"+nomPatient.getText();
+	s+=" "+prenomPatient.getText();
+        s+="\n\n- Indication : \n";
+        s+=jTextPane_Indication.getText();
+        s+="\n\n- Technique : \n";
+        s+=jTextArea_Technique.getText();
         jTextArea2.setText(s);
         Impression imprimer = new Impression(jTextArea2);
         imprimer.print();
-
+        
     }//GEN-LAST:event_jButton_ImprimerActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
@@ -704,9 +679,10 @@ public class Crea_Acte extends javax.swing.JFrame {
 
     private void jComboBox_SalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SalleActionPerformed
         // TODO add your handling code here:
-        if (jComboBox_Salle.getSelectedItem().equals("1") | jComboBox_Salle.getSelectedItem().equals("2") | jComboBox_Salle.getSelectedItem().equals("3") | jComboBox_Salle.getSelectedItem().equals("4") | jComboBox_Salle.getSelectedItem().equals("5") | jComboBox_Salle.getSelectedItem().equals("6")) {
+        if(jComboBox_Salle.getSelectedItem().equals("1")|jComboBox_Salle.getSelectedItem().equals("2")|jComboBox_Salle.getSelectedItem().equals("3")|jComboBox_Salle.getSelectedItem().equals("4")|jComboBox_Salle.getSelectedItem().equals("5")|jComboBox_Salle.getSelectedItem().equals("6")){
             isNum.setText("Oui");
-        } else {
+        }
+        else{
             isNum.setText("Non");
         }
         if (isNum.getText().equals("Non")) {
@@ -719,7 +695,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         } else if (isNum.getText().equals("Oui")) {
             jTextField_Refenrece.setVisible(false);
             jLabel_Reference.setVisible(false);
-
+            
             jPanel_InfoSalle.repaint();
             jPanel_InfoSalle.revalidate();
 
@@ -752,14 +728,46 @@ public class Crea_Acte extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Crea_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modif_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Crea_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modif_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Crea_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modif_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Crea_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modif_Acte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -796,7 +804,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Crea_Acte().setVisible(true);
+                new Modif_Acte().setVisible(true);
             }
         });
     }
