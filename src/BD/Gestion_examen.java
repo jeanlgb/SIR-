@@ -15,9 +15,11 @@ import NF.Salle;
 import NF.Type_examen;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.imageio.ImageIO;
 
 /**
@@ -78,17 +80,17 @@ public class Gestion_examen {
             statement = connexion.prepareStatement("INSERT INTO examen (id_examen, date_examen, id_medecin, type_examen, duree_prevue, salle, compte_rendu, pacs, dossier_papier, examen_termine, historique_modifications, cout_examen, id_dmr) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
             statement.setInt(1, examen.getId_examen());
             statement.setDate(2, examen.getDate());
-            statement.setInt(3, examen.getMedecin_en_charge().getIdentifiant());
+            statement.setInt(3, examen.getId_medecin());
             statement.setString(4, examen.getType_examen().name());
             statement.setDouble(5, examen.getDuree_prevue());
-            statement.setInt(6, examen.getSalle().getNumero_salle());
-            statement.setString(7, examen.getCompte_rendu().getTexte_CR());
-            statement.setInt(8, examen.getLien_pacs().getNumero_archive());
+            statement.setInt(6, examen.getIdSalle());
+            statement.setString(7, examen.getCR());
+            statement.setInt(8, examen.getPacs());
             statement.setBoolean(9, examen.isDossier_papier());
             statement.setBoolean(10, examen.isExamen_termine());
-            statement.setInt(11, examen.getHistorique_modifications().getId_historique());
+            statement.setInt(11, examen.getId_historique());
             statement.setDouble(12, examen.getCout_examen());
-            statement.setInt(13, examen.getDmr().getId_dmr());
+            statement.setInt(13, examen.getId_dmr());
 
             int resultat = statement.executeUpdate();
             return true;
@@ -181,4 +183,69 @@ public class Gestion_examen {
         }
         return image_trouvee;
     }
+    
+        /**
+     * génére un nouvel id d'examen non utilisé
+     */
+    public static int générerIdExamen(Connection connexion){
+        //Connaitre le nombre d'examen dans la table 
+
+        int nombreexamens= 0;
+        try {
+            Statement stat = connexion.createStatement();
+            ResultSet resultSetExamen = stat.executeQuery("SELECT count(id_examen) FROM examen;");
+            while (resultSetExamen.next()) {
+                nombreexamens = (resultSetExamen.getInt(1));
+            }
+            nombreexamens += 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreexamens;
+    }
+    
+        /**
+     * crée le pacs passé en paramètres dans la base de données
+     */
+    public static boolean creerPacs(PACS pacs, Connection connexion) {
+        PreparedStatement statement;
+        try {
+            statement = connexion.prepareStatement("INSERT INTO pacs (numero_archive, mention, description, image) VALUES (?,?,?,?);");
+            statement.setInt(1, pacs.getNumero_archive());
+            statement.setString(2, pacs.getMention());
+            statement.setString(3, pacs.getDescription());
+            statement.setBlob(4, statement.getConnection().createBlob());
+
+            int resultat = statement.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("pb dans la connexion à la bd");
+        return false;
+    }
+    
+            /**
+     * génére un nouvel id d'examen non utilisé
+     */
+    public static int générerIdPacs(Connection connexion){
+        //Connaitre le nombre d'examen dans la table 
+
+        int nombrepacs= 0;
+        try {
+            Statement stat = connexion.createStatement();
+            ResultSet resultSetPacs = stat.executeQuery("SELECT count(*) FROM pacs;");
+            while (resultSetPacs.next()) {
+                nombrepacs = (resultSetPacs.getInt(1));
+            }
+            nombrepacs += 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombrepacs;
+    }
+    
+
 }
