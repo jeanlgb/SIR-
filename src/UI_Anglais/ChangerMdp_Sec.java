@@ -52,7 +52,7 @@ public class ChangerMdp_Sec extends JFrame{
         jPanelSecondaire.setBackground(new java.awt.Color(127, 144, 160));
 
         jLabelTitre.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabelTitre.setText("Changement de mot de passe");
+        jLabelTitre.setText("Change of password");
 
         GroupLayout jPanelSecondaireLayout = new GroupLayout(jPanelSecondaire);
         jPanelSecondaire.setLayout(jPanelSecondaireLayout);
@@ -72,16 +72,16 @@ public class ChangerMdp_Sec extends JFrame{
         );
 
         jLabelMdpActuel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelMdpActuel.setText("Ancient mot de passe :");
+        jLabelMdpActuel.setText("Old password :");
 
         jLabelnewMdp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelnewMdp.setText("Nouveau mot de passe :");
+        jLabelnewMdp.setText("New password :");
 
         jLabelId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelId.setText("Identifiant :");
+        jLabelId.setText("Identifier :");
 
         jLabelconfirmer.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelconfirmer.setText("Confirmer mot de passe :");
+        jLabelconfirmer.setText("Confirm password :");
 
         jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class ChangerMdp_Sec extends JFrame{
 
         jCheckBoxActuel.setBackground(new java.awt.Color(163, 209, 180));
         jCheckBoxActuel.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jCheckBoxActuel.setText("Afficher Mot de Passe");
+        jCheckBoxActuel.setText("Display Password");
         jCheckBoxActuel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxActuelActionPerformed(evt);
@@ -106,7 +106,7 @@ public class ChangerMdp_Sec extends JFrame{
 
         jCheckBoxNew1.setBackground(new java.awt.Color(163, 209, 180));
         jCheckBoxNew1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jCheckBoxNew1.setText("Afficher Mot de Passe");
+        jCheckBoxNew1.setText("Display Password");
         jCheckBoxNew1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxNew1ActionPerformed(evt);
@@ -115,7 +115,7 @@ public class ChangerMdp_Sec extends JFrame{
 
         jButtonValider.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonValider.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonValider.setText("Valider");
+        jButtonValider.setText("Verify");
         jButtonValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonValiderActionPerformed(evt);
@@ -268,7 +268,7 @@ public class ChangerMdp_Sec extends JFrame{
                 }
             }
             if (verif == false) {
-                JOptionPane.showMessageDialog(null, "Verifier le login ou le Mot de passe", "Message d'erreur:", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Check the login or password", "Error message:", JOptionPane.ERROR_MESSAGE);
                 jTextFieldId.setText("");
                 jPasswordFieldmdpActuel.setText("");
             }

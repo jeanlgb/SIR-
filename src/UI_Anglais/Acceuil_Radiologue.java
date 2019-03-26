@@ -88,7 +88,7 @@ public class Acceuil_Radiologue extends JFrame {
         jButton_OuvrirDMR = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Accueil Radiologue (FR)");
+        setTitle("Radiologist Home");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
@@ -102,20 +102,20 @@ public class Acceuil_Radiologue extends JFrame {
 
         jLabel_Logo.setIcon(new ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
 
-        jLabel_UserPost.setText("Radiologue");
+        jLabel_UserPost.setText("Radiologist");
 
         jLabel_Prenom.setText(objet_Courant.getMedecinCourant().getPrenom());
 
         jLabel_Nom.setText(objet_Courant.getMedecinCourant().getNom());
 
-        jButton_Deconnexion.setText("Déconnexion");
+        jButton_Deconnexion.setText("Disconnection");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_DeconnexionActionPerformed(evt);
             }
         });
 
-        jButton_Parametres.setText("Parametres");
+        jButton_Parametres.setText("Parameters");
 
         GroupLayout jPanel_InfoUserLayout = new GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -186,10 +186,10 @@ public class Acceuil_Radiologue extends JFrame {
         jPanel_Corps_Exam.setPreferredSize(new java.awt.Dimension(1089, 585));
 
         jLabel_RecherchePar.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RecherchePar.setText("Recherche par :");
+        jLabel_RecherchePar.setText("Search by :");
 
         jComboBox_Recherche.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new DefaultComboBoxModel<>(new String[] { "Nom", "ID" }));
+        jComboBox_Recherche.setModel(new DefaultComboBoxModel<>(new String[] { "Surname", "ID" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -246,7 +246,7 @@ public class Acceuil_Radiologue extends JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Date", "Salle", "Nom", "Exam", "ID Rapport"
+                "Date", "Room", "Surname", "Exam", "ID Report"
             }
         ) {
             Class[] types = new Class [] {
@@ -287,7 +287,7 @@ public class Acceuil_Radiologue extends JFrame {
         }
 
         jButton_Rechercher.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher.setText("Rechercher");
+        jButton_Rechercher.setText("Search for");
         jButton_Rechercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_RechercherActionPerformed(evt);
@@ -295,7 +295,7 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_Ouvrir.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_Ouvrir.setText("Ouvrir");
+        jButton_Ouvrir.setText("Open");
         jButton_Ouvrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_OuvrirActionPerformed(evt);
@@ -303,7 +303,7 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_Imprimer.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_Imprimer.setText("Imprimer apercu");
+        jButton_Imprimer.setText("Print overview");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_ImprimerActionPerformed(evt);
@@ -385,7 +385,7 @@ public class Acceuil_Radiologue extends JFrame {
         jPanel_DMR.setPreferredSize(new java.awt.Dimension(1089, 585));
 
         jLabel_RechercheParDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RechercheParDMR.setText("Recherche par :");
+        jLabel_RechercheParDMR.setText("Search by :");
 
         jTextField_RechercheDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
         jTextField_RechercheDMR.setToolTipText("");
@@ -401,7 +401,7 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_RechercherDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_RechercherDMR.setText("Rechercher");
+        jButton_RechercherDMR.setText("Search for");
         jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_RechercherDMRActionPerformed(evt);
@@ -417,7 +417,7 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_CreerDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_CreerDMR.setText("Créer DMR");
+        jButton_CreerDMR.setText("Create DMR");
         jButton_CreerDMR.setVisible(false);
         jButton_CreerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -426,7 +426,7 @@ public class Acceuil_Radiologue extends JFrame {
         });
 
         jButton_ImprimerDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_ImprimerDMR.setText("Imprimer apercu");
+        jButton_ImprimerDMR.setText("Print overview");
         jButton_ImprimerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_ImprimerDMRActionPerformed(evt);
@@ -466,7 +466,7 @@ public class Acceuil_Radiologue extends JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Date", "ID", "Nom", "Nombre Exam"
+                "Date", "ID", "Surname", "Number Exam"
             }
         ) {
             Class[] types = new Class [] {
@@ -519,7 +519,7 @@ public class Acceuil_Radiologue extends JFrame {
         );
 
         jButton_OuvrirDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_OuvrirDMR.setText("Ouvrir");
+        jButton_OuvrirDMR.setText("Open");
         jButton_OuvrirDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_OuvrirDMRActionPerformed(evt);
@@ -700,7 +700,7 @@ public class Acceuil_Radiologue extends JFrame {
         if (jComboBox_Recherche.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        } else if (jComboBox_Recherche.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        } else if (jComboBox_Recherche.getSelectedItem() == "Surname") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
@@ -741,7 +741,7 @@ public class Acceuil_Radiologue extends JFrame {
 
             dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
 
-        } else if (jComboBox_RechercheDMR.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        } else if (jComboBox_RechercheDMR.getSelectedItem() == "Surname") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
@@ -813,7 +813,7 @@ public class Acceuil_Radiologue extends JFrame {
     private void jButton_DeconnexionActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton_DeconnexionActionPerformed
         // TODO add your handling code here:
         // log Off + open Login page
-        int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        int retour = JOptionPane.showConfirmDialog(this, "Do you really want to log out?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
             new Login().setVisible(true); // ouvre la fenetre de connection
