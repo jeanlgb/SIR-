@@ -196,7 +196,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         //provisoire
-        jButtonChangerLangue.setVisible(false);
+//        jButtonChangerLangue.setVisible(false);
 
         javax.swing.GroupLayout panel_identificationLayout = new javax.swing.GroupLayout(panel_identification);
         panel_identification.setLayout(panel_identificationLayout);
@@ -215,9 +215,11 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(verifierMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
+                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
-                .addComponent(jButtonChangerLangue)
+                        .addGap(58, 58, 58)
+                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        ).addGap(65, 65, 65))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_identificationLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -233,14 +235,15 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel_identificationLayout.createSequentialGroup()
                                         .addComponent(panel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(labelIdentification))
+                                            .addGap(34, 34, 34)
+                                            .addComponent(labelIdentification))
                                 .addGroup(panel_identificationLayout.createSequentialGroup()
                                         .addContainerGap(261, Short.MAX_VALUE)
                                         .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                //.addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                                                 .addComponent(labelIdentifiant)
-                                                .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
+                                                .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -251,7 +254,9 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(txtmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label_erreur_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
+                        .addGap(33, 33, 33)
+                        )
+               
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -81,7 +81,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextField_Refenrece = new javax.swing.JTextField();
         jComboBox_Salle = new javax.swing.JComboBox<>();
         jScrollPane_Technique = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextArea_Technique = new javax.swing.JTextArea();
         jLabel_Technique = new javax.swing.JLabel();
         jButton_Sauvegarder = new javax.swing.JButton();
         jButton_SauvegarderFermer = new javax.swing.JButton();
@@ -459,10 +459,10 @@ public class Crea_Acte extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane_Technique.setViewportView(jTextArea1);
+        jTextArea_Technique.setColumns(20);
+        jTextArea_Technique.setLineWrap(true);
+        jTextArea_Technique.setRows(5);
+        jScrollPane_Technique.setViewportView(jTextArea_Technique);
 
         jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel_Technique.setText("Technique imagerie :");
@@ -585,7 +585,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         s+="\n\n- Indication : \n";
         s+=jTextPane_Indication.getText();
         s+="\n\n- Technique : \n";
-        s+=jTextArea1.getText();
+        s+=jTextArea_Technique.getText();
         jTextArea2.setText(s);
         Impression imprimer = new Impression(jTextArea2);
         imprimer.print();
@@ -742,9 +742,9 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane_Indication;
     private javax.swing.JScrollPane jScrollPane_Technique;
     private javax.swing.JSeparator jSeparator;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea_Com;
+    private javax.swing.JTextArea jTextArea_Technique;
     private javax.swing.JTextField jTextField_Refenrece;
     private javax.swing.JTextPane jTextPane_Indication;
     private javax.swing.JLabel nomPatient;

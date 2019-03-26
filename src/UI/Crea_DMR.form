@@ -93,7 +93,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextField_Nom1" max="32767" attributes="0"/>
+                                          <Component id="jTextField_DDN" max="32767" attributes="0"/>
                                           <Component id="idPatient" min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBox_Sexe" min="-2" max="-2" attributes="0"/>
                                           <Component id="dateDMR" min="-2" max="-2" attributes="0"/>
@@ -155,7 +155,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField_Nom1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField_DDN" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jTextField_Nom" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
@@ -327,7 +327,7 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_Reference.setVisible(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_Nom1">
+            <Component class="javax.swing.JTextField" name="jTextField_DDN">
             </Component>
           </SubComponents>
         </Container>

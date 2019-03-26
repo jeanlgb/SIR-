@@ -52,7 +52,7 @@ public class Crea_DMR extends javax.swing.JFrame {
         jLabel_IDPatient = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
         jTextField_Reference = new javax.swing.JTextField();
-        jTextField_Nom1 = new javax.swing.JTextField();
+        jTextField_DDN = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -139,7 +139,7 @@ public class Crea_DMR extends javax.swing.JFrame {
                                     .addComponent(jLabel_IDPatient))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField_Nom1)
+                                    .addComponent(jTextField_DDN)
                                     .addComponent(idPatient)
                                     .addComponent(jComboBox_Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dateDMR)
@@ -184,7 +184,7 @@ public class Crea_DMR extends javax.swing.JFrame {
                         .addComponent(jLabel_Nom))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jTextField_Nom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_DDN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -321,8 +321,8 @@ public class Crea_DMR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Sexe;
     private javax.swing.JPanel jPanel_Base;
     private javax.swing.JPanel jPanel_DMR;
+    private javax.swing.JTextField jTextField_DDN;
     private javax.swing.JTextField jTextField_Nom;
-    private javax.swing.JTextField jTextField_Nom1;
     private javax.swing.JTextField jTextField_Prenom;
     private javax.swing.JTextField jTextField_Reference;
     // End of variables declaration//GEN-END:variables
