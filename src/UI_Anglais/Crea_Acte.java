@@ -709,7 +709,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             jPanel_InfoSalle.repaint();
             jPanel_InfoSalle.revalidate();
 
-        } else if (isNum.getText().equals("Oui")) {
+        } else if (isNum.getText().equals("Yes")) {
             jTextField_Refenrece.setVisible(false);
             jLabel_Reference.setVisible(false);
 

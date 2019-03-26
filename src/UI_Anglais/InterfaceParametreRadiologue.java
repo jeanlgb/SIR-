@@ -145,7 +145,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
     private void jButtonLangueActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
 
-        int decoLangue = JOptionPane.showConfirmDialog(this, "Do you really want to change the language ?", "Watch out",
+        int decoLangue = JOptionPane.showConfirmDialog(this, "Do you really want to change the language ?", "Warning",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (decoLangue == JOptionPane.OK_OPTION) {
             Login seConnecter = new Login();
@@ -166,7 +166,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
     private void jButtonMdpActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        int interfaceMdp = JOptionPane.showConfirmDialog(this, "Do you really want to change your password ?", "Watch out",
+        int interfaceMdp = JOptionPane.showConfirmDialog(this, "Do you really want to change your password ?", "Warning",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
             ChangerMdp_Radiologue changementMDP = new ChangerMdp_Radiologue(objet_Courant);

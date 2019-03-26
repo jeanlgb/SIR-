@@ -610,13 +610,13 @@ public class Crea_Rapport extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
         );
 
-        if(isNum.getText().equals("Oui")){
+        if(isNum.getText().equals("Yes")){
             jLabel_Reference.setVisible(false);
         }
         else{
             jLabel_Reference.setVisible(true);
         }
-        if(isNum.getText().equals("Oui")){
+        if(isNum.getText().equals("Yes")){
             jLabel_Reference1.setVisible(false);
         }
         else{
