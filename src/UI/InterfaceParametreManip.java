@@ -151,7 +151,7 @@ public class InterfaceParametreManip extends javax.swing.JFrame {
         int interfaceMdp = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer votre mot de passe ?", "Attention",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
-            ChangerMdp changementMDP = new ChangerMdp();
+            ChangerMdp_Manip changementMDP = new ChangerMdp_Manip();
             this.setVisible(false);
             changementMDP.setVisible(true);
 

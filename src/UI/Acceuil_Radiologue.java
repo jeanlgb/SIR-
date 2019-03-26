@@ -123,6 +123,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_Parametres.setText("Parametres");
+        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ParametresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -828,8 +833,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
-
-            // new Login().setVisible(true); // ouvre la fenetre de connection
+            new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 
