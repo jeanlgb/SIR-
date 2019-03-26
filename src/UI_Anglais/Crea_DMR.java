@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_Anglais;
 
+import BD.Gestion_DMR;
 import BD.Gestion_patient;
 import NF.*;
-import BD.Gestion_DMR;
-import java.sql.Connection;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 /**
@@ -249,7 +249,7 @@ public class Crea_DMR extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox_SexeActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
-        NF.Acces_BD bd = new Acces_BD();
+        Acces_BD bd = new Acces_BD();
         Connection connexion = bd.connexion;
         Gestion_DMR d = new Gestion_DMR();
         Gestion_patient p = new Gestion_patient();

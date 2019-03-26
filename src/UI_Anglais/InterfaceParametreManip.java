@@ -1,20 +1,21 @@
-package UI;
+package UI_Anglais;
+
 
 import NF.ObjetCourant;
-import UI_Anglais.Login;
+import UI.Acceuil_ManipRadio;
+import UI.ChangerMdp_Manip;
+import UI.InterfaceParametreRadiologue;
 
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 
-public class InterfaceParametreSec extends javax.swing.JFrame {
-
+public class InterfaceParametreManip extends javax.swing.JFrame {
     private Connection connexion;
     private ObjetCourant objet_Courant;
-
     /**
      * Creates new form interfaceParametre
      */
-    public InterfaceParametreSec(ObjetCourant objet_Courant) {
+    public InterfaceParametreManip(ObjetCourant objet_Courant) {
         this.objet_Courant = objet_Courant;
         connexion = objet_Courant.getConnexion();
         initComponents();
@@ -63,7 +64,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
         jLabelParametre.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabelParametre.setText("Parametres");
 
-        jButtonFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonFermer.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonFermer.setForeground(new java.awt.Color(72, 91, 122));
         jButtonFermer.setText("Fermer");
         jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
@@ -147,9 +148,9 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Acceuil_Sec retourSec = new Acceuil_Sec(objet_Courant);
-        retourSec.setVisible(true);
-        retourSec.setResizable(false);
+        Acceuil_ManipRadio retourManip = new Acceuil_ManipRadio(objet_Courant);
+        retourManip.setVisible(true);
+        retourManip.setResizable(false);
         this.setVisible(false);
     }
 
@@ -159,7 +160,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
         int interfaceMdp = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer votre mot de passe ?", "Attention",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
-            ChangerMdp_Sec changementMDP = new ChangerMdp_Sec(objet_Courant);
+            ChangerMdp_Manip changementMDP = new ChangerMdp_Manip(objet_Courant);
             this.setVisible(false);
             changementMDP.setVisible(true);
 
@@ -197,7 +198,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(){
+            public void run() {
 
             }
         });
@@ -212,4 +213,5 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration
 }
+
 

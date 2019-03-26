@@ -188,7 +188,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date de cr&#xe9;ation :"/>
+                <Property name="text" type="java.lang.String" value="ID DMR"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -204,7 +204,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Heure de cr&#xe9;ation :"/>
+                <Property name="text" type="java.lang.String" value="Nb examens : "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -212,7 +212,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Heure_DMR"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="String.valueOf(dmr_courant.getExamens_patient().size())" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -264,10 +266,9 @@
                   <Font name="Dialog" size="16" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
+                  <StringArray count="2">
                     <StringItem index="0" value="Non"/>
-                    <StringItem index="1" value="Oui (Num&#xe9;rique)"/>
-                    <StringItem index="2" value="Oui (Papier)"/>
+                    <StringItem index="1" value="Oui (Papier)"/>
                   </StringArray>
                 </Property>
               </Properties>

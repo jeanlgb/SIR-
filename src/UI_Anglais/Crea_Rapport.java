@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_Anglais;
 
 import BD.Gestion_examen;
-import BD.Gestion_patient;
 import NF.*;
 
-import java.awt.Image;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.sql.Connection;
-import java.time.LocalDate;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 
 /**
  *
@@ -72,7 +66,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         Jpanel_Head = new javax.swing.JPanel();
         jLabel_Logo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextArea2 = new JTextArea();
         jPanel_Corps = new javax.swing.JPanel();
         jPanel_InfoPatient = new javax.swing.JPanel();
         jLabel_ID = new javax.swing.JLabel();
@@ -106,13 +100,13 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jSeparator = new javax.swing.JSeparator();
         jLabel_Indication = new javax.swing.JLabel();
         jScrollPane_Indication = new javax.swing.JScrollPane();
-        jTextPane_Indication = new javax.swing.JTextPane();
+        jTextPane_Indication = new JTextPane();
         jLabel_Technique = new javax.swing.JLabel();
         jScrollPane_Technique = new javax.swing.JScrollPane();
-        jTextPane_Technique = new javax.swing.JTextPane();
+        jTextPane_Technique = new JTextPane();
         jLabel_AddRapport = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextPane();
+        jTextArea1 = new JTextPane();
         jPanel_Image = new javax.swing.JPanel();
         jComboBox_Image = new javax.swing.JComboBox<String>();
         imageRadio = new PanelImageRapport(image_courante);
@@ -151,7 +145,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         Jpanel_Head.setBackground(new java.awt.Color(127, 144, 160));
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
+        jLabel_Logo.setIcon(new ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
         jLabel_Logo.setToolTipText("");
 
         jScrollPane1.setVisible(false);
@@ -499,7 +493,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Sauvegarder.setText("Sauvegarder");
         jButton_Sauvegarder.setVisible(true);
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_SauvegarderActionPerformed(evt);
             }
         });
@@ -516,7 +510,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_RotD.setText("D");
         jButton_RotD.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton_RotD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_RotDActionPerformed(evt);
             }
         });
@@ -530,7 +524,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Imprimer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButton_Imprimer.setText("Imprimer ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_ImprimerActionPerformed(evt);
             }
         });
@@ -539,7 +533,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_RotG.setText("G");
         jButton_RotG.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton_RotG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_RotGActionPerformed(evt);
             }
         });
@@ -632,7 +626,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jButton_Sauvegarder1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButton_Sauvegarder1.setText("Inverser gris");
         jButton_Sauvegarder1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_Sauvegarder1ActionPerformed(evt);
             }
         });
@@ -640,7 +634,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         jButton1.setText("Zoom");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
@@ -732,7 +726,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton_ImprimerActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //pb avec l'impression ici?
 //        Impression imprimer = new Impression(jTextArea1);
@@ -743,7 +737,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imprimer.print();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton6ActionPerformed(ActionEvent evt) {
 
         // TODO add your handling code here:
         String s = "";
@@ -778,15 +772,15 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
     }
 
-    private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
+    private void jButton_SauvegarderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
         examen_courant.setCR(jTextArea1.getText());
         Gestion_examen.modifierExamen(examen_courant, connexion);
     }//GEN-LAST:event_jButton_SauvegarderActionPerformed
-    private void jButton_Sauvegarder1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton_Sauvegarder1ActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
-    private void jButton_RotDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotDActionPerformed
+    private void jButton_RotDActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton_RotDActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.rotation_ImageD();
@@ -811,19 +805,19 @@ public class Crea_Rapport extends javax.swing.JFrame {
         imageRadio_panel.augmenter_luminosite();
     }//GEN-LAST:event_jSlider_LuminositeStateChanged
 
-    private void jButton_RotGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RotGActionPerformed
+    private void jButton_RotGActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton_RotGActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.rotation_ImageG();
     }//GEN-LAST:event_jButton_RotGActionPerformed
 
-    private void jToggleButton_Sauvegarder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_Sauvegarder1ActionPerformed
+    private void jToggleButton_Sauvegarder1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jToggleButton_Sauvegarder1ActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.inverser_niveaux_de_gris();
     }//GEN-LAST:event_jToggleButton_Sauvegarder1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         PanelImageRapport imageRadio_panel = (PanelImageRapport) imageRadio;
         imageRadio_panel.zoom();
@@ -836,7 +830,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -985,10 +979,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JSlider jSlider_Contraste;
     private javax.swing.JSlider jSlider_Luminosite;
-    private javax.swing.JTextPane jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextPane jTextPane_Indication;
-    private javax.swing.JTextPane jTextPane_Technique;
+    private JTextPane jTextArea1;
+    private JTextArea jTextArea2;
+    private JTextPane jTextPane_Indication;
+    private JTextPane jTextPane_Technique;
     private javax.swing.JLabel nomPatient;
     private javax.swing.JLabel nomPraticien;
     private javax.swing.JLabel prenomPatient;

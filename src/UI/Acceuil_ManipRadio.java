@@ -7,10 +7,11 @@ package UI;
 
 import BD.Gestion_DMR;
 import BD.Gestion_examen;
+import BD.Gestion_medecin;
 import BD.Gestion_patient;
 import NF.*;
+import UI_Anglais.Login;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -23,8 +24,12 @@ import javax.swing.table.JTableHeader;
  * @author camin
  */
 public class Acceuil_ManipRadio extends javax.swing.JFrame {
+
     int nblignes;
     Patient patient_courant;
+    DMR dmr_courant;
+    Medecin medecin_courant;
+    Examen examen_courant;
     String s = "";
     ObjetCourant objet_Courant;
     Connection connexion;
@@ -60,9 +65,9 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jPanel_Corps_Planning = new javax.swing.JPanel();
         jScrollPane_Corps_Planning = new javax.swing.JScrollPane();
         jTable_Planning = new javax.swing.JTable();
-        jComboBox_SelecSalle = new javax.swing.JComboBox<>();
+        jComboBox_SelecSalle = new javax.swing.JComboBox<String>();
         jLabel_RecherchePar = new javax.swing.JLabel();
-        jComboBox_RecherchePar = new javax.swing.JComboBox<>();
+        jComboBox_RecherchePar = new javax.swing.JComboBox<String>();
         jTextField_Recherche = new javax.swing.JTextField();
         jButton_Rechercher = new javax.swing.JButton();
         jButton_Ouvrir = new javax.swing.JButton();
@@ -73,13 +78,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_RechercheParDMR = new javax.swing.JLabel();
         jTextField_RechercheDMR = new javax.swing.JTextField();
         jButton_RechercherDMR = new javax.swing.JButton();
-        jComboBox_RechercheDMR = new javax.swing.JComboBox<>();
+        jComboBox_RechercheDMR = new javax.swing.JComboBox<String>();
         jButton_CreerDMR = new javax.swing.JButton();
         jButton_ImprimerDMR = new javax.swing.JButton();
         jScrollPane_Corps_DMR = new javax.swing.JScrollPane();
         jTable_DMR = new javax.swing.JTable();
-        jLabel_NbResult = new javax.swing.JLabel();
-        jLabel_NbResultDMR = new javax.swing.JLabel();
         jPanel_ApercuDMR = new javax.swing.JPanel();
         jTextArea_ApercuDMR = new javax.swing.JTextArea();
         jButton_OuvrirDMR = new javax.swing.JButton();
@@ -154,7 +157,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -253,7 +256,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         }
 
         jComboBox_SelecSalle.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_SelecSalle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Salle 1", "Salle 2" }));
+        jComboBox_SelecSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Salle 1", "Salle 2" }));
         jComboBox_SelecSalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SelecSalleActionPerformed(evt);
@@ -264,7 +267,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_RecherchePar.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_RecherchePar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_RecherchePar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_RecherchePar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheParActionPerformed(evt);
@@ -431,10 +434,15 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         });
 
         jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RechercherDMRActionPerformed(evt);
+            }
+        });
         jButton_RechercherDMR.setText("Rerchercher");
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
         jComboBox_RechercheDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheDMRActionPerformed(evt);
@@ -443,6 +451,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jButton_CreerDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButton_CreerDMR.setText("Créer DMR");
+        jButton_CreerDMR.setVisible(false);
         jButton_CreerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CreerDMRActionPerformed(evt);
@@ -519,19 +528,13 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
 
-        jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResult.setText("Nombre de résultat :");
-
-        jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("");
-
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
 
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
-        jTextArea_ApercuDMR.setText("<User Code>\n/*a faire");
+        jTextArea_ApercuDMR.setText("");
         jTextArea_ApercuDMR.setMaximumSize(new java.awt.Dimension(399, 401));
         jTextArea_ApercuDMR.setMinimumSize(new java.awt.Dimension(399, 401));
         jTextArea_ApercuDMR.setPreferredSize(new java.awt.Dimension(399, 401));
@@ -577,10 +580,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
                         .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_DMRLayout.createSequentialGroup()
-                        .addComponent(jLabel_NbResult)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_NbResultDMR))
                     .addComponent(jButton_OuvrirDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane_Corps_DMR))
                 .addGap(88, 88, 88)
@@ -603,11 +602,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
                             .addComponent(jLabel_RechercheParDMR)
                             .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_RechercherDMR))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel_DMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_NbResult)
-                            .addComponent(jLabel_NbResultDMR))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(36, 36, 36)
                         .addComponent(jScrollPane_Corps_DMR, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_ApercuDMR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -654,7 +649,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
-             new Login().setVisible(true); // ouvre la fenetre de connection
+            new Login().setVisible(true); // ouvre la fenetre de connection
         }
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 
@@ -670,19 +665,20 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         remplirTablePanning();
     }
 
-    private void remplirTablePanning(){
+    private void remplirTablePanning() {
         DefaultTableModel model = (DefaultTableModel) jTable_Planning.getModel();
         jTable_Planning.removeAll();
         ArrayList<Examen> examens = new ArrayList<Examen>();
-        DMR dmr = new DMR(0,null,null);
-        if(jComboBox_RecherchePar.getSelectedItem()=="ID"){
-            patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(),connexion);
-            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        }else if(jComboBox_RecherchePar.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        dmr_courant = new DMR(0, null, null);
+        if (jComboBox_RecherchePar.getSelectedItem() == "ID") {
+            patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+
+        } else if (jComboBox_RecherchePar.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
-            dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
-        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
+        examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr_courant.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < examens.size(); i++) {
@@ -693,8 +689,9 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             jTable_Planning.setValueAt(examens.get(i).getCout_examen(), i, 4);
             jTable_Planning.setModel(model);
         }
-        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" +
-                patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
+
+        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n"
+                + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
 
         for (int i = 0; i < examens.size(); i++) {
             s += examens.get(i).toString();
@@ -745,7 +742,12 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
                 /*
                  Code pour ouvrir exam
                  */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 1)), connexion);
+
+                examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 1)), connexion);
+                medecin_courant = Gestion_medecin.rechercher_medecin(String.valueOf(examen_courant.getId_medecin()), connexion);
+                Visu_DMR visu_dmr = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
+                visu_dmr.setVisible(true);
+
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
@@ -758,7 +760,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_OuvrirDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OuvrirDMRActionPerformed
         // TODO add your handling code here:
-        Visu_DMR DMR = new Visu_DMR();
+        Visu_DMR DMR = new Visu_DMR(patient_courant, dmr_courant, objet_Courant);
         DMR.setVisible(true);
     }//GEN-LAST:event_jButton_OuvrirDMRActionPerformed
 
@@ -794,19 +796,19 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         if (jTable_Exam.getSelectedRowCount() > 0) {
             /*
 
-            Code pour apercu exam
+             Code pour apercu exam
 
-            */
+             */
 
         }
         if (evt.getClickCount() == 2) {
 
             if (jTable_Exam.getSelectedRowCount() > 0) {
                 /*
-                Code pour ouvrir exam
-                */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 4)), connexion);
-
+                 Code pour ouvrir exam
+                 */
+                examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 4)), connexion);
+                medecin_courant = Gestion_medecin.rechercher_medecin(String.valueOf(examen_courant.getId_medecin()), connexion);
                 //                Crea_Rapport creaRapport = new Crea_Rapport();
                 //                creaRapport.setPatient_courant(patient_courant);
                 //                creaRapport.setExamen_courant(examen_courant);
@@ -819,25 +821,30 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
     private void jButton_CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CreerActionPerformed
         // TODO add your handling code here:
-        Crea_Acte newACTE = new Crea_Acte();
-        newACTE.setVisible(true);
+        
+         // TODO add your handling code here:
+        //Crea_Acte newACTE = new Crea_Acte(patient_courant, medecin_courant, dmr_courant, examen_courant, objet_Courant);
+        choix_recherche choixrech = new choix_recherche(objet_Courant);
+                choixrech.setVisible(true);
+       // newACTE.setVisible(true);
+        
     }//GEN-LAST:event_jButton_CreerActionPerformed
 
-    private void remplirTableDMR(){
+    private void remplirTableDMR() {
         DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
         jTable_DMR.removeAll();
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
-        DMR dmr = new DMR(0,null,null,null);
-        if(jComboBox_RechercheDMR.getSelectedItem()=="ID"){
+        dmr_courant = new DMR(0, null, null, null);
+        if (jComboBox_RechercheDMR.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
-            dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
 
-        }else if(jComboBox_RechercheDMR.getSelectedItem()=="Nom"){ //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        } else if (jComboBox_RechercheDMR.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
-            dmr= Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()),connexion);
+            dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
         DMR DMRS = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(dmr.getId_dmr()));
+        DMRs = Gestion_DMR.recuperer_DMRs(String.valueOf(dmr_courant.getId_dmr()));
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < DMRs.size(); i++) {
@@ -846,14 +853,15 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             jTable_DMR.setValueAt(DMRs.get(i).getHistorique_modifications(), i, 2);
             jTable_DMR.setModel(model);
         }
-        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
 
-        for (int i = 0; i < DMRs.size(); i++) {
-            s += DMRs.get(i).toString();
-            s += "\n";
-        }
-        jTextArea_ApercuDMR.setText(s);
-        s = "";
+//        String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n" + patient_courant.getDate_de_naissance() + "\n" + patient_courant.getAdresse() + "\n" + "\n";
+//
+//        for (int i = 0; i < DMRs.size(); i++) {
+//            s += DMRs.get(i).toString();
+//            s += "\n";
+//        }
+        jTextArea_ApercuDMR.setText(dmr_courant.getExamens_patient().get(0).toString());
+        //s = "";
     }
 
     /**
@@ -920,8 +928,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_RecherchePar;
     private javax.swing.JComboBox<String> jComboBox_SelecSalle;
     private javax.swing.JLabel jLabel_Logo;
-    private javax.swing.JLabel jLabel_NbResult;
-    private javax.swing.JLabel jLabel_NbResultDMR;
     private javax.swing.JLabel jLabel_Nom;
     private javax.swing.JLabel jLabel_Prenom;
     private javax.swing.JLabel jLabel_RecherchePar;

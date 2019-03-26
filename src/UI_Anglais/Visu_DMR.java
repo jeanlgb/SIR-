@@ -3,19 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_Anglais;
 
-import BD.Gestion_DMR;
 import BD.Gestion_examen;
-import BD.Gestion_medecin;
-import BD.Gestion_patient;
-import NF.Acces_BD;
-import NF.Compte_rendu;
-import NF.DMR;
-import NF.Examen;
-import NF.Medecin;
-import NF.ObjetCourant;
-import NF.Patient;
+import NF.*;
+
 import java.sql.Connection;
 import java.time.LocalDate;
 

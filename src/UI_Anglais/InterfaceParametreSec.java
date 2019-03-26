@@ -1,9 +1,10 @@
-package UI;
+package UI_Anglais;
 
 import NF.ObjetCourant;
-import UI_Anglais.Login;
+import UI.Acceuil_Sec;
+import UI.ChangerMdp_Sec;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.sql.Connection;
 
 public class InterfaceParametreSec extends javax.swing.JFrame {
