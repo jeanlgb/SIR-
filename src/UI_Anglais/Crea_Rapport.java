@@ -135,7 +135,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         datelabel.setText("Date");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Rapport Acte");
+        setTitle("Medical report");
         setFocusTraversalPolicyProvider(true);
         setResizable(false);
 
@@ -188,25 +188,25 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_InfoPatient.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Patient"));
 
         jLabel_ID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_ID.setText("Identifiant : ");
+        jLabel_ID.setText("Patient's Id : ");
 
         jLabel_Nom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nom.setText("Nom : ");
+        jLabel_Nom.setText("Surname : ");
 
         jLabel_Prenom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenom.setText("Prénom : ");
+        jLabel_Prenom.setText("Name : ");
 
         jLabel_DDN.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_DDN.setText("Date de naissance : ");
+        jLabel_DDN.setText("Date of birth : ");
 
         jLabel_Sexe.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Sexe.setText("Sexe : ");
+        jLabel_Sexe.setText("Sex : ");
 
         jLabel_Age.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Age.setText("Age : ");
 
         jLabel_Adresse.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Adresse.setText("Adresse :");
+        jLabel_Adresse.setText("Adress :");
 
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idPatient.setText(String.valueOf(patient_courant.getIdentifiant()));
@@ -224,7 +224,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         sexePatient.setText(patient_courant.getGenre().toString());
 
         agePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        agePatient.setText(String.valueOf(patient_courant.getAge()) + " ans");
+        agePatient.setText(String.valueOf(patient_courant.getAge()) + " years old");
 
         adressePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         adressePatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -305,16 +305,16 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_InfoActe.setPreferredSize(new java.awt.Dimension(750, 500));
 
         jLabel_TypeExam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_TypeExam.setText("Type Examen : ");
+        jLabel_TypeExam.setText("Exam type : ");
 
         jLabel_Nompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nompract.setText("Nom du Praticien : ");
+        jLabel_Nompract.setText("Practitioner's surname : ");
 
         jLabel_Prenompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenompract.setText("Prénom du Praticien : ");
+        jLabel_Prenompract.setText("Pracitioner's name : ");
 
         jLabel_IDpract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract.setText("ID du Praticien : ");
+        jLabel_IDpract.setText("Practitioner's Id : ");
 
         typeExamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         typeExamen.setText(examen_courant.getType_examen().toString());
@@ -332,19 +332,19 @@ public class Crea_Rapport extends javax.swing.JFrame {
         datexam.setText(examen_courant.getDate().toString());
 
         jLabel_LinkWord.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_LinkWord.setText("à");
+        jLabel_LinkWord.setText("at");
 
         heurexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         heurexam.setText("00h00");
 
         jLabel_IDexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDexam.setText("ID examen : ");
+        jLabel_IDexam.setText("Exam Id : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idexamen.setText(String.valueOf(examen_courant.getId_examen()));
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Indication.setText("Indication :");
+        jLabel_Indication.setText("Instructions :");
 
         jTextPane_Indication.setEditable(false);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -360,7 +360,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jScrollPane_Technique.setViewportView(jTextPane_Technique);
 
         jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_AddRapport.setText("Ajouter rapport :");
+        jLabel_AddRapport.setText("Add report :");
 
         jTextArea1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea1.setText(examen_courant.getCR());
@@ -490,7 +490,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         );
 
         jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.setText("Save");
         jButton_Sauvegarder.setVisible(true);
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -507,7 +507,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         });
 
         jButton_RotD.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_RotD.setText("D");
+        jButton_RotD.setText("R");
         jButton_RotD.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton_RotD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -516,13 +516,13 @@ public class Crea_Rapport extends javax.swing.JFrame {
         });
 
         jLabel_Luminosite.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Luminosite.setText("Luminosité");
+        jLabel_Luminosite.setText("Luminosity");
 
         jLabel_Contraste.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Contraste.setText("Contraste");
+        jLabel_Contraste.setText("Contrast");
 
         jButton_Imprimer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Imprimer.setText("Imprimer ");
+        jButton_Imprimer.setText("Print ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_ImprimerActionPerformed(evt);
@@ -530,7 +530,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         });
 
         jButton_RotG.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_RotG.setText("G");
+        jButton_RotG.setText("L");
         jButton_RotG.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton_RotG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -551,10 +551,10 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jPanel_InfoSalle.setPreferredSize(new java.awt.Dimension(350, 500));
 
         jLabel_Salle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Salle.setText("Salle :");
+        jLabel_Salle.setText("Room :");
 
         jLabel_isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_isNum.setText("Numérique :");
+        jLabel_isNum.setText("Numeric :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         isNum.setText(salle_courante.isExamn_num());
@@ -562,7 +562,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Reference.setText("Référence dossier :");
+        jLabel_Reference.setText("File reference :");
         jLabel_Reference.setVisible(false);
 
         jLabel_Reference1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -624,7 +624,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         }
 
         jButton_Sauvegarder1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Sauvegarder1.setText("Inverser gris");
+        jButton_Sauvegarder1.setText("Invert grey levels");
         jButton_Sauvegarder1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton_Sauvegarder1ActionPerformed(evt);
@@ -741,13 +741,13 @@ public class Crea_Rapport extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         String s = "";
-        s += "Hôpital Princeton Plainsboro - Service de radiologie\n\n";
-        s += "Rapport d'acte " + idexamen.getText() + " fait le " + datexam.getText() + " " + heurexam.getText() + "\n";
+        s += "Princeton Plainsboro Hospital - Radiology department\n\n";
+        s += "Medical report " + idexamen.getText() + " done on the " + datexam.getText() + " " + heurexam.getText() + "\n";
         s += "DR." + nomPraticien.getText() + " " + prenomPraticien.getText();
-        s += "\n\n" + typeExamen.getText() + " Salle n°" + jLabel_Salle1.getText();
-        s += "\nNumérique : " + isNum.getText();
-        if (isNum.getText().equals("Non")) {
-            s += "\nRéférence dossier papier : " + jLabel_Reference1.getText();
+        s += "\n\n" + typeExamen.getText() + " Room n°" + jLabel_Salle1.getText();
+        s += "\nNumeric : " + isNum.getText();
+        if (isNum.getText().equals("No")) {
+            s += "\nPaper file reference : " + jLabel_Reference1.getText();
         }
         //s+="\n\n- Patient : \n";
         s += "\n\n---------------------------------------------------------------------------------------------------\n\n" + nomPatient.getText();
