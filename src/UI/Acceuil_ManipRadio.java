@@ -100,11 +100,11 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
 
-        jLabel_UserPost.setText("Radiologue");
+        jLabel_UserPost.setText("Manipulateur Radio");
 
-        jLabel_Prenom.setText("Lary");
+        jLabel_Prenom.setText("<User Code>");
 
-        jLabel_Nom.setText("BAMBEL");
+        jLabel_Nom.setText("<User Code>");
 
         jButton_Deconnexion.setText("Déconnexion");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +156,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -255,7 +255,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jTextArea_Apercu.setColumns(20);
         jTextArea_Apercu.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_Apercu.setRows(5);
-        jTextArea_Apercu.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n/*\n\n\n\nINFO PATIENT / DOSSIER P\n\n\n\n\n*/");
+        jTextArea_Apercu.setText("<User Code>\n/*a faire");
         jScrollPane_Apercu.setViewportView(jTextArea_Apercu);
 
         javax.swing.GroupLayout jPanel_ApercuLayout = new javax.swing.GroupLayout(jPanel_Apercu);
@@ -509,7 +509,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
-        jTextArea_ApercuDMR.setText(">> Apercu\n\nNOM : DUPOND\nPRENOM : AAAAAA\n\n/*\n\nExam 1\nExam 2\nExam 3\n\n\n\n*/");
+        jTextArea_ApercuDMR.setText("<User Code>\n/*a faire");
         jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
 
         javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
