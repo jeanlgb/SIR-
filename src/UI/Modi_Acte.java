@@ -23,7 +23,7 @@ import javax.swing.ImageIcon;
  *
  * @author camin
  */
-public class Crea_Acte extends javax.swing.JFrame {
+public class Modi_Acte extends javax.swing.JFrame {
 
     private Patient patient_courant;
     private Medecin medecin_courant;
@@ -31,14 +31,14 @@ public class Crea_Acte extends javax.swing.JFrame {
     private Examen examen_courant;
     private Connection connexion;
 
-    public Crea_Acte() {
+    public Modi_Acte() {
         initComponents();
     }
 
     /**
      * Creates new form Acceuille_Radiologue
      */
-    public Crea_Acte(Patient patient_courant, Medecin medecin_courant, DMR dmr_courant, Examen examen_courant, ObjetCourant objet_Courant) {
+    public Modi_Acte(Patient patient_courant, Medecin medecin_courant, DMR dmr_courant, Examen examen_courant, ObjetCourant objet_Courant) {
         this.patient_courant = patient_courant;
         this.medecin_courant = medecin_courant;
         this.dmr_courant = dmr_courant;
