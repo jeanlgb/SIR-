@@ -568,7 +568,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         s+="Hôpital Princeton Plainsboro - Service de radiologie\n\n";
         s+="Rapport d'acte "+idexamen.getText()+" fait le "+datexam.getText()+" "+heurexam.getText()+"\n";
         s+="DR."+nomPraticien.getText()+" "+prenomPraticien.getText();
-        s+="\n\n"+typeExamen.getText()+" Salle n°"+jComboBox_Salle.getSelectedItem();
+        s+="\n\n"+jTextField_TypeActe.getText()+" Salle n°"+jComboBox_Salle.getSelectedItem();
         s+="\nNumérique : "+isNum.getText();
         if(isNum.getText().equals("Non")){
             s+="\nRéférence dossier papier : "+jTextField_Refenrece.getText();
