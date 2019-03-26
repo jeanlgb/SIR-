@@ -424,7 +424,12 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jButton_RechercherDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_RechercherDMR.setText("Rerchercher");
+        jButton_RechercherDMR.setText("Rechercher");
+        jButton_RechercherDMR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RechercherDMRActionPerformed(evt);
+            }
+        });
 
         jComboBox_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
@@ -642,7 +647,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 /*
                  Code pour ouvrir exam
                  */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 1)), connexion);
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_DMR.getValueAt(jTable_DMR.getSelectedRow(), 4)), connexion);
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
@@ -696,7 +701,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // auquel cas c'est ajouter rapport
         // + condition sur le fait qu'un elem du tableau doit être sélectionner
 
-        Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)), connexion);
+        Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 4)), connexion);
         Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
 //        creaRapport.setPatient_courant(patient_courant);
 //        creaRapport.setExamen_courant(examen_courant);
@@ -714,6 +719,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private void jButton_RechercherDMRActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         // Code recherche
+     
         remplirTableDMR();
     }
 
@@ -729,7 +735,9 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
             dmr = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
+
         examens = Gestion_DMR.recuperer_Examens(String.valueOf(dmr.getId_dmr()));
+
         //Gestion_patient patient_courant = new Gestion_patient(jTextField_Recherche.getText(),null);
         //Rechercher_Patient patient_courant = new Rechercher_Patient(null,jTextField_Recherche.getText()); faire en fonction de l'état de la combobox un if pour dire qu'on cherche sur le nom ou l'id
         for (int i = 0; i < examens.size(); i++) {
@@ -737,7 +745,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             jTable_Exam.setValueAt(examens.get(i).getIdSalle(), i, 1);
             jTable_Exam.setValueAt(examens.get(i).getMedecin_en_charge().getNom(), i, 2);
             jTable_Exam.setValueAt(examens.get(i).getType_examen(), i, 3);
-            jTable_Exam.setValueAt(examens.get(i).getCout_examen(), i, 4);
+            jTable_Exam.setValueAt(examens.get(i).getId_examen(), i, 4);
             jTable_Exam.setModel(model);
         }
         String s = "DMR de " + patient_courant.getNom_d_usage() + " " + patient_courant.getPrenom() + "\n"
@@ -756,10 +764,11 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable_DMR.getModel();
         jTable_DMR.removeAll();
         ArrayList<DMR> DMRs = new ArrayList<DMR>();
-        DMR dmr = new DMR(0, null, null, null);
+        DMR dmr = new DMR(0, null, null);
+
         if (jComboBox_RechercheDMR.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
-            System.out.println("patient:" + patient_courant);
+
             dmr = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
 
         } else if (jComboBox_RechercheDMR.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
@@ -804,7 +813,8 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 /*
                  Code pour ouvrir exam
                  */
-                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 1)), connexion);
+                Examen examen_courant = Gestion_examen.rechercher_Examen(String.valueOf(jTable_Exam.getValueAt(jTable_Exam.getSelectedRow(), 4)), connexion);
+
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
