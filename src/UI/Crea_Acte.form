@@ -861,6 +861,9 @@
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Technique.setLineWrap(true);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -926,6 +929,9 @@
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Com.setLineWrap(true);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

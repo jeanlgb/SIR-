@@ -89,7 +89,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jScrollPane_Corps_DMR = new javax.swing.JScrollPane();
         jTable_DMR = new javax.swing.JTable();
         jPanel_ApercuDMR = new javax.swing.JPanel();
-        jScrollPane_ApercuDMR = new javax.swing.JScrollPane();
         jTextArea_ApercuDMR = new javax.swing.JTextArea();
         jButton_OuvrirDMR = new javax.swing.JButton();
 
@@ -164,7 +163,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 507, Short.MAX_VALUE)
                 .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -195,7 +194,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom", "ID" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -203,7 +202,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
 
         jTextField_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_Recherche.setText("Recherche à effectuer");
         jTextField_Recherche.setToolTipText("");
         jTextField_Recherche.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -324,13 +322,15 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTextArea_Apercu.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_Apercu.setRows(5);
         jTextArea_Apercu.setText(s);
+        jTextArea_Apercu.setLineWrap(true);
+        jTextArea_Apercu.setWrapStyleWord(true);
         jScrollPane_Apercu.setViewportView(jTextArea_Apercu);
 
         javax.swing.GroupLayout jPanel_ApercuLayout = new javax.swing.GroupLayout(jPanel_Apercu);
         jPanel_Apercu.setLayout(jPanel_ApercuLayout);
         jPanel_ApercuLayout.setHorizontalGroup(
             jPanel_ApercuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_Apercu, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(jScrollPane_Apercu, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
         );
         jPanel_ApercuLayout.setVerticalGroup(
             jPanel_ApercuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,7 +346,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                 .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                         .addComponent(jButton_Ouvrir, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 665, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 694, Short.MAX_VALUE)
                         .addComponent(jButton_Imprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_Corps_ExamLayout.createSequentialGroup()
                         .addGroup(jPanel_Corps_ExamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +359,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane_Corps_Exam_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(88, 88, 88)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel_Apercu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(21, 21, 21))
         );
@@ -393,7 +393,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RechercheParDMR.setText("Recherche par :");
 
         jTextField_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_RechercheDMR.setText("Recherche à effectuer");
         jTextField_RechercheDMR.setToolTipText("");
         jTextField_RechercheDMR.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -501,23 +500,33 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
 
+        jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel_NbResult.setText("Nombre de résultat :");
+
+        jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel_NbResultDMR.setText("");
+
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
+        jPanel_ApercuDMR.setMaximumSize(new java.awt.Dimension(399, 401));
 
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
-        jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
+        jTextArea_ApercuDMR.setMaximumSize(new java.awt.Dimension(399, 401));
+        jTextArea_ApercuDMR.setLineWrap(true);
 
         javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
         jPanel_ApercuDMR.setLayout(jPanel_ApercuDMRLayout);
         jPanel_ApercuDMRLayout.setHorizontalGroup(
             jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(jTextArea_ApercuDMR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
         );
         jPanel_ApercuDMRLayout.setVerticalGroup(
             jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ApercuDMRLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextArea_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
         );
 
         jButton_OuvrirDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -574,7 +583,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
                         .addComponent(jButton_CreerDMR)
                         .addComponent(jButton_ImprimerDMR))
                     .addComponent(jButton_OuvrirDMR))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jTabbedPane_Corps.addTab("DMR", jPanel_DMR);
@@ -635,6 +644,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         // TODO add your handling code here:
         Impression imprimer = new Impression(jTextArea_ApercuDMR);
         imprimer.print();
+        
     }//GEN-LAST:event_jButton_ImprimerDMRActionPerformed
 
     private void jButton_CreerDMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CreerDMRActionPerformed
@@ -895,7 +905,6 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_DMR;
     private javax.swing.JPanel jPanel_InfoUser;
     private javax.swing.JScrollPane jScrollPane_Apercu;
-    private javax.swing.JScrollPane jScrollPane_ApercuDMR;
     private javax.swing.JScrollPane jScrollPane_Corps_DMR;
     private javax.swing.JScrollPane jScrollPane_Corps_Exam_Tab;
     private javax.swing.JTabbedPane jTabbedPane_Corps;
