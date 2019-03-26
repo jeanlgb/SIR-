@@ -106,7 +106,7 @@ public class Acceuil_ManipRadio extends JFrame{
             }
         });
 
-        jButton_Parametres.setText("Parameters");
+        jButton_Parametres.setText("Settings");
         jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ParametresActionPerformed(evt);
