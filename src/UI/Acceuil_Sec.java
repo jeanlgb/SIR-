@@ -261,7 +261,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel_DemandeRDV.setText("Demande de rendez vous en attente :");
 
         jLabel_NbDemandeRDV.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbDemandeRDV.setText("Nb_RDV");
+        jLabel_NbDemandeRDV.setText("");
 
         jScrollPane_Corps_Planning_Tab.setToolTipText("");
         jScrollPane_Corps_Planning_Tab.setPreferredSize(new java.awt.Dimension(453, 369));
@@ -560,7 +560,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel_NbResult.setText("Nombre de résultat :");
 
         jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("Nb_resultat");
+        jLabel_NbResultDMR.setText("");
 
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
