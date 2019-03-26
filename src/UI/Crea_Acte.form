@@ -383,9 +383,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(patient_courant.getIdentifiant())" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="ID"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="nomPatient">
@@ -393,9 +391,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="patient_courant.getNom_d_usage()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nom"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="prenomPatient">
@@ -403,9 +399,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="patient_courant.getPrenom()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Prenom"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="dateNaissancePatient">
@@ -413,9 +407,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="patient_courant.getDate_de_naissance().toString()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Date_nais"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sexePatient">
@@ -423,9 +415,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="patient_courant.getGenre().toString()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Sexe"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="agePatient">
@@ -433,9 +423,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(patient_courant.getAge())" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Age"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="adressePatient">
@@ -444,9 +432,7 @@
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="patient_courant.getAdresse().toString()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Adresse"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="autoscrolls" type="boolean" value="true"/>
                   </Properties>
@@ -508,7 +494,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -593,9 +579,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="medecin_courant.getNom()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nom_pract"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="prenomPraticien">
@@ -603,9 +587,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="medecin_courant.getPrenom()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Prenom_pract"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="idPraticien">
@@ -613,9 +595,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(medecin_courant.getIdentifiant())" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="ID_pract"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="datexam">
@@ -623,9 +603,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="examen_courant.getDate().toString()" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="00/00/0000"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_IDexam">
@@ -641,9 +619,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(examen_courant.getId_examen())" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="ID examen"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator">
@@ -665,9 +641,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane_Indication">
                       <Properties>
-                        <Property name="editable" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="true" type="code"/>
-                        </Property>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="16" style="0"/>
                         </Property>
@@ -739,7 +713,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="105" max="32767" attributes="0"/>
+                          <EmptySpace pref="107" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -785,12 +759,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="isNum">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="if (examen_courant.isDossier_papier()){">
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="}&#xa;else{&#xa;isNum.setText(&quot;Oui&quot;);&#xa;}">
-                      <Connection code="&quot;Non&quot;" type="code"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Oui"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
@@ -850,9 +822,6 @@
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Technique.setLineWrap(true);"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -918,9 +887,6 @@
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Com.setLineWrap(true);"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
