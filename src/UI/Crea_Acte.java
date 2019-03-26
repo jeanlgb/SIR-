@@ -456,6 +456,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextArea_Technique.setColumns(20);
         jTextArea_Technique.setLineWrap(true);
         jTextArea_Technique.setRows(5);
+        jTextArea_Technique.setLineWrap(true);
         jScrollPane_Technique.setViewportView(jTextArea_Technique);
 
         jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -491,6 +492,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         jTextArea_Com.setColumns(20);
         jTextArea_Com.setLineWrap(true);
         jTextArea_Com.setRows(5);
+        jTextArea_Com.setLineWrap(true);
         jScrollPane_Com.setViewportView(jTextArea_Com);
 
         javax.swing.GroupLayout jPanel_CorpsLayout = new javax.swing.GroupLayout(jPanel_Corps);

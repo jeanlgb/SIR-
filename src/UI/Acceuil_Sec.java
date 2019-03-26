@@ -342,7 +342,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jTextField_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_Recherche.setText("Recherche à effectuer");
         jTextField_Recherche.setToolTipText("");
         jTextField_Recherche.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -411,8 +410,8 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)
-                                .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
+                                .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane_Corps_Planning_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
@@ -452,7 +451,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel_RechercheParDMR.setText("Recherche par :");
 
         jTextField_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_RechercheDMR.setText("Recherche à effectuer");
         jTextField_RechercheDMR.setToolTipText("");
         jTextField_RechercheDMR.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -489,6 +487,11 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jButton_ImprimerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ImprimerDMRActionPerformed(evt);
+            }
+        });
+        jButton_ImprimerDMR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton_ImprimerDMRKeyPressed(evt);
             }
         });
 
@@ -567,6 +570,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
         jTextArea_ApercuDMR.setText("<User Code>\n/*a faire\n");
+        jTextArea_ApercuDMR.setLineWrap(true);
         jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
 
         javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
@@ -600,8 +604,8 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
                         .addComponent(jLabel_NbResult)
@@ -865,6 +869,10 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         Crea_DMR newDMR = new Crea_DMR();
         newDMR.setVisible(true);
     }//GEN-LAST:event_jButton_CreerDMRActionPerformed
+
+    private void jButton_ImprimerDMRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_ImprimerDMRKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_ImprimerDMRKeyPressed
 
     /**
      * @param args the command line arguments

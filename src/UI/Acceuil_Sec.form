@@ -246,8 +246,8 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jComboBox_Recherche" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                          <Component id="jTextField_Recherche" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="jTextField_Recherche" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton_Rechercher" min="-2" pref="191" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane_Corps_Planning_Tab" alignment="0" min="-2" pref="559" max="-2" attributes="0"/>
@@ -474,7 +474,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Recherche &#xe0; effectuer"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
@@ -563,8 +562,8 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jComboBox_RechercheDMR" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jTextField_RechercheDMR" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="jTextField_RechercheDMR" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton_RechercherDMR" min="-2" pref="191" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -637,7 +636,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="16" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Recherche &#xe0; effectuer"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
@@ -692,6 +690,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ImprimerDMRActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jButton_ImprimerDMRKeyPressed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane_Corps_DMR">
@@ -781,6 +780,9 @@
                             <Property name="rows" type="int" value="5"/>
                             <Property name="text" type="java.lang.String" value="&lt;User Code&gt;&#xa;/*a faire&#xa;"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_ApercuDMR.setLineWrap(true);"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>

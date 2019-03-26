@@ -79,7 +79,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_NbResult = new javax.swing.JLabel();
         jLabel_NbResultDMR = new javax.swing.JLabel();
         jPanel_ApercuDMR = new javax.swing.JPanel();
-        jScrollPane_ApercuDMR = new javax.swing.JScrollPane();
         jTextArea_ApercuDMR = new javax.swing.JTextArea();
         jButton_OuvrirDMR = new javax.swing.JButton();
 
@@ -110,6 +109,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             }
         });
 
+        jButton_Parametres.setText("Parametres");
 
         javax.swing.GroupLayout jPanel_InfoUserLayout = new javax.swing.GroupLayout(jPanel_InfoUser);
         jPanel_InfoUser.setLayout(jPanel_InfoUserLayout);
@@ -158,13 +158,15 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         );
         Jpanel_HeadLayout.setVerticalGroup(
             Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_HeadLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Jpanel_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Jpanel_HeadLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jPanel_InfoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -268,7 +270,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         });
 
         jTextField_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_Recherche.setText("Recherche à effectuer");
         jTextField_Recherche.setToolTipText("");
         jTextField_Recherche.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -289,12 +290,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jButton_Ouvrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_OuvrirActionPerformed(evt);
-            }
-        });
-        jButton_Parametres.setText("Parametres");
-        jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ParametresActionPerformed(evt);
             }
         });
 
@@ -376,8 +371,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox_RecherchePar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(jTextField_Recherche, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_Rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_Corps_PlanningLayout.createSequentialGroup()
                         .addComponent(jScrollPane_Corps_Planning, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -421,7 +416,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_RechercheParDMR.setText("Recherche par :");
 
         jTextField_RechercheDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jTextField_RechercheDMR.setText("Recherche à effectuer");
         jTextField_RechercheDMR.setToolTipText("");
         jTextField_RechercheDMR.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -522,8 +516,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
             }
         });
         jScrollPane_Corps_DMR.setViewportView(jTable_DMR);
-        Color clr = new Color(200, 100, 255);
-        jTable_DMR.setBackground(clr);
 
         jLabel_NbResult.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel_NbResult.setText("Nombre de résultat :");
@@ -538,17 +530,26 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
         jTextArea_ApercuDMR.setText("<User Code>\n/*a faire");
-        jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
+        jTextArea_ApercuDMR.setMaximumSize(new java.awt.Dimension(399, 401));
+        jTextArea_ApercuDMR.setMinimumSize(new java.awt.Dimension(399, 401));
+        jTextArea_ApercuDMR.setPreferredSize(new java.awt.Dimension(399, 401));
+        jTextArea_ApercuDMR.setLineWrap(true);
 
         javax.swing.GroupLayout jPanel_ApercuDMRLayout = new javax.swing.GroupLayout(jPanel_ApercuDMR);
         jPanel_ApercuDMR.setLayout(jPanel_ApercuDMRLayout);
         jPanel_ApercuDMRLayout.setHorizontalGroup(
             jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addGroup(jPanel_ApercuDMRLayout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jTextArea_ApercuDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
         jPanel_ApercuDMRLayout.setVerticalGroup(
             jPanel_ApercuDMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane_ApercuDMR, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+            .addGroup(jPanel_ApercuDMRLayout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jTextArea_ApercuDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         jButton_OuvrirDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -571,8 +572,8 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(jTextField_RechercheDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_RechercherDMR, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_DMRLayout.createSequentialGroup()
                         .addComponent(jLabel_NbResult)
@@ -931,7 +932,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_DMR;
     private javax.swing.JPanel jPanel_InfoUser;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane_ApercuDMR;
     private javax.swing.JScrollPane jScrollPane_Corps_DMR;
     private javax.swing.JScrollPane jScrollPane_Corps_Planning;
     private javax.swing.JTabbedPane jTabbedPane_Corps;
