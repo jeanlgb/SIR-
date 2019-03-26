@@ -535,8 +535,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
         jTextArea_ApercuDMR.setText("");
-        jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
-        jTextArea_ApercuDMR.setText("<User Code>\n/*a faire");
         jTextArea_ApercuDMR.setMaximumSize(new java.awt.Dimension(399, 401));
         jTextArea_ApercuDMR.setMinimumSize(new java.awt.Dimension(399, 401));
         jTextArea_ApercuDMR.setPreferredSize(new java.awt.Dimension(399, 401));

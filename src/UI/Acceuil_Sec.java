@@ -571,7 +571,6 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jTextArea_ApercuDMR.setColumns(20);
         jTextArea_ApercuDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTextArea_ApercuDMR.setRows(5);
-        jTextArea_ApercuDMR.setText("<User Code>\n/*a faire\n");
         jTextArea_ApercuDMR.setLineWrap(true);
         jTextArea_ApercuDMR.setText("");
         jScrollPane_ApercuDMR.setViewportView(jTextArea_ApercuDMR);
