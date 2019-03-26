@@ -32,7 +32,9 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
     /**
      * Creates new form Acceuille_Radiologue
      */
-    public Acceuil_ManipRadio() {
+    public Acceuil_ManipRadio(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -98,9 +100,9 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
 
         jLabel_UserPost.setText("Manipulateur Radio");
 
-        jLabel_Prenom.setText("<User Code>");
+        jLabel_Prenom.setText(objet_Courant.getManipulateur_radio().getPrenom());
 
-        jLabel_Nom.setText("<User Code>");
+        jLabel_Nom.setText(objet_Courant.getManipulateur_radio().getNom());
 
         jButton_Deconnexion.setText("Déconnexion");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -521,7 +523,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         jLabel_NbResult.setText("Nombre de résultat :");
 
         jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("Nb_resultat");
+        jLabel_NbResultDMR.setText("");
 
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
@@ -767,7 +769,7 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_OuvrirActionPerformed
 
     private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
-        InterfaceParametreManip allerParametres = new InterfaceParametreManip();
+        InterfaceParametreManip allerParametres = new InterfaceParametreManip(objet_Courant);
         this.setVisible(false);
         allerParametres.setVisible(true);
     }//GEN-LAST:event_jButton_ParametresActionPerformed
@@ -899,7 +901,6 @@ public class Acceuil_ManipRadio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acceuil_ManipRadio().setVisible(true);
             }
         });
     }

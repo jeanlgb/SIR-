@@ -22,53 +22,184 @@ public class Examen {
     private boolean examen_termine;
     private Historique_modifications historique_modifications;
     private double cout_examen;
-    private String medecin;
+    //attributs permettant de faire le lien avec la BD
+    private int id_medecin;
     private String CR;
     private String type;
+    private int pacs;
+    private int doss_papier;
+    private int exam_termine;
     private int idSalle;
+    private int id_dmr;
+    private int id_historique;
 
     /**
      * Constructeur qui demande la date de l'examen, le médecin en charge de
      * l'examen et le type de l'examen
      */
-    public Examen(int id_examen,java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, int idSalle, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
+    public Examen(int id_examen, java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, int idSalle, double duree_prevue, Compte_rendu compte_rendu, int papier, int termine, double cout_examen) {
         this.id_examen = id_examen;
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
+        this.id_medecin = medecin_en_charge.getIdentifiant();
         this.type_examen = type_examen;
+        this.type = type_examen.getLibelle_examen();
         this.duree_prevue = duree_prevue;
         this.compte_rendu = compte_rendu;
+        if (this.compte_rendu != null) {
+            this.CR = compte_rendu.getTexte_CR();
+        } else {
+            this.CR = "";
+        }
         this.cout_examen = cout_examen;
         this.idSalle = idSalle;
-        if(papier == 1){
+        if (papier == 1) {
             this.dossier_papier = true;
-        }else{
+            this.doss_papier = 1;
+        } else {
             this.dossier_papier = false;
+            this.doss_papier = 0;
         }
-        if(termine == 1){this.examen_termine = true;
-    }else{
+        if (termine == 1) {
+            this.examen_termine = true;
+            this.exam_termine = 1;
+        } else {
             this.examen_termine = false;
+            this.exam_termine = 0;
         }
     }
 
     public Examen(int id_examen, DMR dmr, java.sql.Date date, Medecin medecin_en_charge, Type_examen type_examen, double duree_prevue, Salle salle, Compte_rendu compte_rendu, PACS lien_pacs, boolean dossier_papier, boolean examen_termine, Historique_modifications historique_modifications, double cout_examen) {
         this.id_examen = id_examen;
+
         this.dmr = dmr;
+        if (this.dmr != null) {
+            this.id_dmr = dmr.getId_dmr();
+        } else {
+            this.id_dmr = 0;
+        }
+
         this.date = date;
         this.medecin_en_charge = medecin_en_charge;
+        if (this.medecin_en_charge != null) {
+            this.id_medecin = medecin_en_charge.getIdentifiant();
+        } else {
+            this.id_medecin = 0;
+        }
+
         this.type_examen = type_examen;
+        this.type = type_examen.getLibelle_examen();
         this.duree_prevue = duree_prevue;
+
         this.salle = salle;
+        if (this.salle != null) {
+            this.idSalle = salle.getNumero_salle();
+        } else {
+            this.idSalle = 0;
+        }
+
         this.compte_rendu = compte_rendu;
+        if (this.compte_rendu != null) {
+            this.CR = compte_rendu.getTexte_CR();
+        } else {
+            this.CR = "";
+        }
+
         this.lien_pacs = lien_pacs;
+        if (this.lien_pacs != null) {
+            this.pacs = lien_pacs.getNumero_archive();
+        } else {
+            this.pacs = 0;
+        }
+
         this.dossier_papier = dossier_papier;
+        if (this.dossier_papier) {
+            this.doss_papier = 1;
+        } else {
+            doss_papier = 0;
+        }
+
         this.examen_termine = examen_termine;
+        if (this.examen_termine) {
+            this.exam_termine = 1;
+        } else {
+            this.exam_termine = 0;
+        }
+
         this.historique_modifications = historique_modifications;
+        if (this.historique_modifications != null) {
+            this.id_historique = historique_modifications.getId_historique();
+        } else {
+            this.id_historique = 0;
+        }
+        
         this.cout_examen = cout_examen;
     }
 
-    
-    
+    public int getId_medecin() {
+        return id_medecin;
+    }
+
+    public void setId_medecin(int id_medecin) {
+        this.id_medecin = id_medecin;
+    }
+
+    public String getCR() {
+        return CR;
+    }
+
+    public void setCR(String CR) {
+        this.CR = CR;
+    }
+
+    public int getId_dmr() {
+        return id_dmr;
+    }
+
+    public void setId_dmr(int id_dmr) {
+        this.id_dmr = id_dmr;
+    }
+
+    public int getExam_termine() {
+        return exam_termine;
+    }
+
+    public void setExam_termine(int exam_termine) {
+        this.exam_termine = exam_termine;
+    }
+
+    public int getDoss_papier() {
+        return doss_papier;
+    }
+
+    public void setDoss_papier(int doss_papier) {
+        this.doss_papier = doss_papier;
+    }
+
+    public int getPacs() {
+        return pacs;
+    }
+
+    public void setPacs(int pacs) {
+        this.pacs = pacs;
+    }
+
+    public int getId_historique() {
+        return id_historique;
+    }
+
+    public void setId_historique(int id_historique) {
+        this.id_historique = id_historique;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     /**
      * @return the date
      */
@@ -187,14 +318,14 @@ public class Examen {
     public boolean isExamen_termine() {
         return examen_termine;
     }
-    
+
     public String Examen_termine() {
-        if(examen_termine == false){
+        if (examen_termine == false) {
             return "L'examen n'est pas terminé.";
-        }else{
+        } else {
             return "L'examen est terminé";
         }
-        
+
     }
 
     /**
@@ -209,6 +340,10 @@ public class Examen {
      */
     public Historique_modifications getHistorique_modifications() {
         return historique_modifications;
+    }
+
+    public void setHistorique_modifications(Historique_modifications historique_modifications) {
+        this.historique_modifications = historique_modifications;
     }
 
     /**

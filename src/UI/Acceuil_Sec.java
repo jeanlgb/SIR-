@@ -25,13 +25,15 @@ public class Acceuil_Sec extends javax.swing.JFrame {
     int nblignes;
     Patient patient_courant;
     String s = "";
-    ObjetCourant objet_Courant;
+    ObjetCourant objet;
     Connection connexion;
 
     /**
      * Creates new form Acceuille_Radiologue
      */
-    public Acceuil_Sec() {
+    public Acceuil_Sec(ObjetCourant objet_Courant) {
+        this.objet = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -101,9 +103,9 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jLabel_UserPost.setText("Secrétaire");
 
-        jLabel_Prenom.setText("<User Code>");
+        jLabel_Prenom.setText(objet.getSecretaire_medicale().getPrenom());
 
-        jLabel_Nom.setText("<User Code>");
+        jLabel_Nom.setText(objet.getSecretaire_medicale().getNom());
 
         jButton_Deconnexion.setText("Déconnexion");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +261,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel_DemandeRDV.setText("Demande de rendez vous en attente :");
 
         jLabel_NbDemandeRDV.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbDemandeRDV.setText("Nb_RDV");
+        jLabel_NbDemandeRDV.setText("");
 
         jScrollPane_Corps_Planning_Tab.setToolTipText("");
         jScrollPane_Corps_Planning_Tab.setPreferredSize(new java.awt.Dimension(453, 369));
@@ -561,7 +563,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jLabel_NbResult.setText("Nombre de résultat :");
 
         jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("Nb_resultat");
+        jLabel_NbResultDMR.setText("");
 
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
@@ -668,7 +670,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_DeconnexionActionPerformed
 
     private void jButton_ParametresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ParametresActionPerformed
-        InterfaceParametreSec allerParametres = new InterfaceParametreSec();
+        InterfaceParametreSec allerParametres = new InterfaceParametreSec(objet);
         this.setVisible(false);
         allerParametres.setVisible(true);
 
@@ -845,7 +847,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 //                Crea_Rapport creaRapport = new Crea_Rapport();
 //                creaRapport.setPatient_courant(patient_courant);
 //                creaRapport.setExamen_courant(examen_courant);
-                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet_Courant);
+                Crea_Rapport creaRapport = new Crea_Rapport(patient_courant, examen_courant, objet);
                 creaRapport.setVisible(true);
                 //System.out.println(examen_courant);
             }
@@ -935,7 +937,8 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acceuil_Sec().setVisible(true);
+
+
             }
         });
     }

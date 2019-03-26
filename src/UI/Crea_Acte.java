@@ -5,9 +5,18 @@
  */
 package UI;
 
+import BD.Gestion_examen;
+import NF.DMR;
+import NF.Examen;
 import NF.Impression;
+import NF.Medecin;
+import NF.ObjetCourant;
+import NF.PACS;
+import NF.Patient;
+import NF.Type_examen;
 
 import java.awt.Image;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,10 +25,27 @@ import javax.swing.ImageIcon;
  */
 public class Crea_Acte extends javax.swing.JFrame {
 
+    private Patient patient_courant;
+    private Medecin medecin_courant;
+    private DMR dmr_courant;
+    private Examen examen_courant;
+    private Connection connexion;
+
+    public Crea_Acte() {
+        initComponents();
+    }
+
     /**
      * Creates new form Acceuille_Radiologue
      */
-    public Crea_Acte() {
+    public Crea_Acte(Patient patient_courant, Medecin medecin_courant, DMR dmr_courant, Examen examen_courant, ObjetCourant objet_Courant) {
+        this.patient_courant = patient_courant;
+        this.medecin_courant = medecin_courant;
+        this.dmr_courant = dmr_courant;
+        this.examen_courant = examen_courant;
+
+        this.connexion = objet_Courant.getConnexion();
+
         initComponents();
     }
 
@@ -47,18 +73,20 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_DDN = new javax.swing.JLabel();
         jLabel_Sexe = new javax.swing.JLabel();
         jLabel_Age = new javax.swing.JLabel();
+        jLabel_Adresse = new javax.swing.JLabel();
         idPatient = new javax.swing.JLabel();
+        nomPatient = new javax.swing.JLabel();
+        prenomPatient = new javax.swing.JLabel();
         dateNaissancePatient = new javax.swing.JLabel();
         sexePatient = new javax.swing.JLabel();
         agePatient = new javax.swing.JLabel();
-        nomPatient = new javax.swing.JTextField();
-        prenomPatient = new javax.swing.JTextField();
-        jButton_RechercherInfo = new javax.swing.JButton();
+        adressePatient = new javax.swing.JLabel();
         jPanel_InfoActe = new javax.swing.JPanel();
         jLabel_TypeExam = new javax.swing.JLabel();
         jLabel_Nompract = new javax.swing.JLabel();
         jLabel_Prenompract = new javax.swing.JLabel();
         jLabel_IDpract = new javax.swing.JLabel();
+        typeExamen = new javax.swing.JLabel();
         nomPraticien = new javax.swing.JLabel();
         prenomPraticien = new javax.swing.JLabel();
         idPraticien = new javax.swing.JLabel();
@@ -71,14 +99,13 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Indication = new javax.swing.JLabel();
         jScrollPane_Indication = new javax.swing.JScrollPane();
         jTextPane_Indication = new javax.swing.JTextPane();
-        jTextField_TypeActe = new javax.swing.JTextField();
         jPanel_InfoSalle = new javax.swing.JPanel();
         jLabel_Salle = new javax.swing.JLabel();
         jLabel_isNum = new javax.swing.JLabel();
         isNum = new javax.swing.JLabel();
         jLabel_Reference = new javax.swing.JLabel();
         jTextField_Refenrece = new javax.swing.JTextField();
-        jComboBox_Salle = new javax.swing.JComboBox<>();
+        jComboBox_Salle = new javax.swing.JComboBox<String>();
         jScrollPane_Technique = new javax.swing.JScrollPane();
         jTextArea_Technique = new javax.swing.JTextArea();
         jLabel_Technique = new javax.swing.JLabel();
@@ -122,7 +149,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(Jpanel_HeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(287, 287, 287))
         );
@@ -164,24 +191,32 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Age.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Age.setText("Age : ");
 
+        jLabel_Adresse.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel_Adresse.setText("Adresse :");
+
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPatient.setText("ID");
+        idPatient.setText(String.valueOf(patient_courant.getIdentifiant()));
+
+        nomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        nomPatient.setText(patient_courant.getNom_d_usage());
+
+        prenomPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        prenomPatient.setText(patient_courant.getPrenom());
 
         dateNaissancePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        dateNaissancePatient.setText("Date_nais");
+        dateNaissancePatient.setText(patient_courant.getDate_de_naissance().toString());
 
         sexePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        sexePatient.setText("Sexe");
+        sexePatient.setText(patient_courant.getGenre().toString());
 
         agePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        agePatient.setText("Age");
+        agePatient.setText(String.valueOf(patient_courant.getAge()));
 
-        jButton_RechercherInfo.setText("Rechercher Patient");
-        jButton_RechercherInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RechercherInfoActionPerformed(evt);
-            }
-        });
+        adressePatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        adressePatient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        adressePatient.setText(patient_courant.getAdresse().toString());
+        adressePatient.setToolTipText("");
+        adressePatient.setAutoscrolls(true);
 
         javax.swing.GroupLayout jPanel_InfoPatientLayout = new javax.swing.GroupLayout(jPanel_InfoPatient);
         jPanel_InfoPatient.setLayout(jPanel_InfoPatientLayout);
@@ -189,7 +224,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoPatientLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_Prenom)
@@ -197,58 +232,58 @@ public class Crea_Acte extends javax.swing.JFrame {
                             .addComponent(jLabel_ID))
                         .addGap(62, 62, 62)
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                                .addComponent(idPatient)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(nomPatient)
                             .addComponent(prenomPatient)
-                            .addComponent(nomPatient)))
+                            .addComponent(idPatient)))
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                        .addComponent(jLabel_DDN)
+                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_DDN)
+                            .addComponent(jLabel_Sexe))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dateNaissancePatient)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sexePatient)
+                            .addComponent(dateNaissancePatient))))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_RechercherInfo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InfoPatientLayout.createSequentialGroup()
+                    .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
+                        .addComponent(jLabel_Age)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(agePatient))
+                    .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_Sexe)
-                            .addComponent(jLabel_Age))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(agePatient)
-                            .addComponent(sexePatient))))
+                            .addComponent(jLabel_Adresse)
+                            .addComponent(adressePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel_InfoPatientLayout.setVerticalGroup(
             jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_ID)
-                            .addComponent(idPatient)))
-                    .addComponent(jButton_RechercherInfo))
+                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_ID)
+                    .addComponent(idPatient)
+                    .addComponent(jLabel_Age)
+                    .addComponent(agePatient))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel_Sexe)
-                        .addComponent(sexePatient))
+                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Nom)
+                    .addComponent(nomPatient)
+                    .addComponent(jLabel_Adresse))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(adressePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_InfoPatientLayout.createSequentialGroup()
-                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_Nom)
-                            .addComponent(nomPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_Prenom)
-                            .addComponent(prenomPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Age)
-                    .addComponent(agePatient)
-                    .addComponent(jLabel_DDN)
-                    .addComponent(dateNaissancePatient))
-                .addContainerGap())
+                            .addComponent(prenomPatient))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_DDN)
+                            .addComponent(dateNaissancePatient))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel_InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_Sexe)
+                            .addComponent(sexePatient)))))
         );
 
         jPanel_InfoActe.setBackground(new java.awt.Color(127, 144, 160));
@@ -268,17 +303,20 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_IDpract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_IDpract.setText("ID du Praticien : ");
 
+        typeExamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        typeExamen.setText(examen_courant.getType());
+
         nomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        nomPraticien.setText("Nom_pract");
+        nomPraticien.setText(medecin_courant.getNom());
 
         prenomPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        prenomPraticien.setText("Prenom_pract");
+        prenomPraticien.setText(medecin_courant.getPrenom());
 
         idPraticien.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idPraticien.setText("ID_pract");
+        idPraticien.setText(String.valueOf(medecin_courant.getIdentifiant()));
 
         datexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        datexam.setText("00/00/0000");
+        datexam.setText(examen_courant.getDate().toString());
 
         jLabel_LinkWord.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_LinkWord.setText("à");
@@ -290,20 +328,14 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_IDexam.setText("ID examen : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        idexamen.setText("ID examen");
+        idexamen.setText(String.valueOf(examen_courant.getId_examen()));
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Indication.setText("Indication :");
 
-        jTextPane_Indication.setEditable(false);
+        jTextPane_Indication.setEditable(true);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jScrollPane_Indication.setViewportView(jTextPane_Indication);
-
-        jTextField_TypeActe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_TypeActeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_InfoActeLayout = new javax.swing.GroupLayout(jPanel_InfoActe);
         jPanel_InfoActe.setLayout(jPanel_InfoActeLayout);
@@ -314,8 +346,16 @@ public class Crea_Acte extends javax.swing.JFrame {
                 .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane_Indication)
                     .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
-                        .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_Indication)
+                            .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
+                                .addComponent(jLabel_TypeExam)
+                                .addGap(57, 57, 57)
+                                .addComponent(typeExamen))
+                            .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
+                                .addComponent(jLabel_Nompract)
+                                .addGap(32, 32, 32)
+                                .addComponent(nomPraticien))
                             .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
                                 .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel_Prenompract)
@@ -333,15 +373,7 @@ public class Crea_Acte extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel_IDexam)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(idexamen))
-                            .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
-                                .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_Nompract)
-                                    .addComponent(jLabel_TypeExam))
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomPraticien)
-                                    .addComponent(jTextField_TypeActe))))
+                                .addComponent(idexamen)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(jSeparator)
@@ -351,7 +383,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(jPanel_InfoActeLayout.createSequentialGroup()
                 .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_TypeExam)
-                    .addComponent(jTextField_TypeActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeExamen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_InfoActeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Nompract)
@@ -391,7 +423,12 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_isNum.setText("Numérique :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        isNum.setText("Oui");
+        if (examen_courant.isDossier_papier()){
+            isNum.setText("Non");
+        }
+        else{
+            isNum.setText("Oui");
+        }
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -405,7 +442,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         });
         jTextField_Refenrece.setVisible(false);
 
-        jComboBox_Salle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox_Salle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
         jComboBox_Salle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SalleActionPerformed(evt);
@@ -433,7 +470,7 @@ public class Crea_Acte extends javax.swing.JFrame {
                         .addGroup(jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(isNum)
                             .addComponent(jComboBox_Salle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel_InfoSalleLayout.setVerticalGroup(
             jPanel_InfoSalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,12 +543,12 @@ public class Crea_Acte extends javax.swing.JFrame {
                     .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel_Technique)
-                            .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                            .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                             .addComponent(jButton_Imprimer)
                             .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
+                                .addGap(46, 46, 46)
                                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jScrollPane_Com, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel_Com, javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,7 +565,7 @@ public class Crea_Acte extends javax.swing.JFrame {
             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addComponent(jPanel_InfoSalle, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,34 +603,85 @@ public class Crea_Acte extends javax.swing.JFrame {
 
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
-        String s="";
-        s+="Hôpital Princeton Plainsboro - Service de radiologie\n\n";
-        s+="Rapport d'acte "+idexamen.getText()+" fait le "+datexam.getText()+" "+heurexam.getText()+"\n";
-        s+="DR."+nomPraticien.getText()+" "+prenomPraticien.getText();
-        s+="\n\n"+jTextField_TypeActe.getText()+" Salle n°"+jComboBox_Salle.getSelectedItem();
-        s+="\nNumérique : "+isNum.getText();
-        if(isNum.getText().equals("Non")){
-            s+="\nRéférence dossier papier : "+jTextField_Refenrece.getText();
+        String s = "";
+        s += "Hôpital Princeton Plainsboro - Service de radiologie\n\n";
+        s += "Rapport d'acte " + idexamen.getText() + " fait le " + datexam.getText() + " " + heurexam.getText() + "\n";
+        s += "DR." + nomPraticien.getText() + " " + prenomPraticien.getText();
+        s += "\n\n" + typeExamen.getText() + " Salle n°" + jComboBox_Salle.getSelectedItem();
+        s += "\nNumérique : " + isNum.getText();
+        if (isNum.getText().equals("Non")) {
+            s += "\nRéférence dossier papier : " + jTextField_Refenrece.getText();
         }
         //s+="\n\n- Patient : \n";
-        s+="\n\n---------------------------------------------------------------------------------------------------\n\n"+nomPatient.getText();
-	s+=" "+nomPatient.getText();
-        s+="\n\n- Indication : \n";
-        s+=jTextPane_Indication.getText();
-        s+="\n\n- Technique : \n";
-        s+=jTextArea_Technique.getText();
+        s += "\n\n---------------------------------------------------------------------------------------------------\n\n" + nomPatient.getText();
+        s += " " + prenomPatient.getText();
+        s += "\n\n- Indication : \n";
+        s += jTextPane_Indication.getText();
+        s += "\n\n- Technique : \n";
+        s += jTextArea_Technique.getText();
         jTextArea2.setText(s);
         Impression imprimer = new Impression(jTextArea2);
         imprimer.print();
-        
+
     }//GEN-LAST:event_jButton_ImprimerActionPerformed
 
     private void jButton_SauvegarderFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderFermerActionPerformed
         // TODO add your handling code here:
+        examen_courant.setCR(jTextArea_Com.getText());
+        examen_courant.setDate(examen_courant.getDate());
+        examen_courant.setId_dmr(this.dmr_courant.getId_dmr());
+        if (examen_courant.isDossier_papier()) {
+            examen_courant.setDoss_papier(1);
+        } else {
+            examen_courant.setDoss_papier(0);
+        }
+
+        examen_courant.setDuree_prevue(examen_courant.getDuree_prevue());
+        examen_courant.setId_historique(examen_courant.getHistorique_modifications().getId_historique());
+        examen_courant.setIdSalle(jComboBox_Salle.getSelectedIndex());
+        examen_courant.setPacs(Integer.parseInt(jTextField_Refenrece.getText()));
+        examen_courant.setId_medecin(medecin_courant.getIdentifiant());
+        examen_courant.setType(examen_courant.getType());
+
+        Gestion_examen.creerExamen(examen_courant, this.connexion);
+        PACS pacs = new PACS(Integer.parseInt(jTextField_Refenrece.getText()), jTextPane_Indication.getText(), jTextArea_Technique.getText());
+        Gestion_examen.creerPacs(pacs, this.connexion);
+
+        //fermer la fenetre
     }//GEN-LAST:event_jButton_SauvegarderFermerActionPerformed
 
     private void jButton_SauvegarderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SauvegarderActionPerformed
         // TODO add your handling code here:
+        PACS pacs = null;
+        examen_courant.setCR(jTextArea_Com.getText());
+        examen_courant.setDate(examen_courant.getDate());
+        examen_courant.setId_dmr(this.dmr_courant.getId_dmr());
+        if (examen_courant.isDossier_papier()) {
+            examen_courant.setDoss_papier(1);
+            examen_courant.setPacs(Integer.parseInt(jTextField_Refenrece.getText()));
+            pacs = new PACS(Integer.parseInt(jTextField_Refenrece.getText()), jTextPane_Indication.getText(), jTextArea_Technique.getText());
+        } else {
+            examen_courant.setDoss_papier(0);
+            //modifier le numero du pacs!!!!
+            examen_courant.setPacs(16);
+            pacs = new PACS(16, jTextPane_Indication.getText(), jTextArea_Technique.getText());
+        }
+
+        examen_courant.setDuree_prevue(examen_courant.getDuree_prevue());
+        //examen_courant.setId_historique(examen_courant.getHistorique_modifications().getId_historique());
+        //modifier le numero de l'historique!!!!
+        examen_courant.setId_historique(1);
+
+        examen_courant.setIdSalle((jComboBox_Salle.getSelectedIndex() + 1));
+        System.out.println((jComboBox_Salle.getSelectedIndex() + 1));
+
+        examen_courant.setId_medecin(medecin_courant.getIdentifiant());
+        examen_courant.setType(examen_courant.getType());
+
+        Gestion_examen.creerExamen(examen_courant, this.connexion);
+
+        Gestion_examen.creerPacs(pacs, this.connexion);
+
     }//GEN-LAST:event_jButton_SauvegarderActionPerformed
 
     private void jTextField_RefenreceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_RefenreceActionPerformed
@@ -602,10 +690,9 @@ public class Crea_Acte extends javax.swing.JFrame {
 
     private void jComboBox_SalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SalleActionPerformed
         // TODO add your handling code here:
-        if(jComboBox_Salle.getSelectedItem().equals("1")|jComboBox_Salle.getSelectedItem().equals("2")|jComboBox_Salle.getSelectedItem().equals("3")|jComboBox_Salle.getSelectedItem().equals("4")|jComboBox_Salle.getSelectedItem().equals("5")|jComboBox_Salle.getSelectedItem().equals("6")){
+        if (jComboBox_Salle.getSelectedItem().equals("1") | jComboBox_Salle.getSelectedItem().equals("2") | jComboBox_Salle.getSelectedItem().equals("3") | jComboBox_Salle.getSelectedItem().equals("4") | jComboBox_Salle.getSelectedItem().equals("5") | jComboBox_Salle.getSelectedItem().equals("6")) {
             isNum.setText("Oui");
-        }
-        else{
+        } else {
             isNum.setText("Non");
         }
         if (isNum.getText().equals("Non")) {
@@ -618,24 +705,12 @@ public class Crea_Acte extends javax.swing.JFrame {
         } else if (isNum.getText().equals("Oui")) {
             jTextField_Refenrece.setVisible(false);
             jLabel_Reference.setVisible(false);
-            
+
             jPanel_InfoSalle.repaint();
             jPanel_InfoSalle.revalidate();
 
         }
     }//GEN-LAST:event_jComboBox_SalleActionPerformed
-
-    private void jButton_RechercherInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RechercherInfoActionPerformed
-        // TODO add your handling code here:
-        /*
-        récupère les info des deux textField
-        prenomPatient & nomPatient pour remplir les infos comme age id et sex
-        */
-    }//GEN-LAST:event_jButton_RechercherInfoActionPerformed
-
-    private void jTextField_TypeActeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_TypeActeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_TypeActeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -706,6 +781,7 @@ public class Crea_Acte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_Base;
     private javax.swing.JPanel Jpanel_Head;
+    private javax.swing.JLabel adressePatient;
     private javax.swing.JLabel agePatient;
     private javax.swing.JLabel dateNaissancePatient;
     private javax.swing.JLabel datelabel;
@@ -716,11 +792,11 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel idexamen;
     private javax.swing.JLabel isNum;
     private javax.swing.JButton jButton_Imprimer;
-    private javax.swing.JButton jButton_RechercherInfo;
     private javax.swing.JButton jButton_Sauvegarder;
     private javax.swing.JButton jButton_SauvegarderFermer;
     private javax.swing.JComboBox<String> jComboBox_Salle;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel_Adresse;
     private javax.swing.JLabel jLabel_Age;
     private javax.swing.JLabel jLabel_Com;
     private javax.swing.JLabel jLabel_DDN;
@@ -753,12 +829,12 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea_Com;
     private javax.swing.JTextArea jTextArea_Technique;
     private javax.swing.JTextField jTextField_Refenrece;
-    private javax.swing.JTextField jTextField_TypeActe;
     private javax.swing.JTextPane jTextPane_Indication;
-    private javax.swing.JTextField nomPatient;
+    private javax.swing.JLabel nomPatient;
     private javax.swing.JLabel nomPraticien;
-    private javax.swing.JTextField prenomPatient;
+    private javax.swing.JLabel prenomPatient;
     private javax.swing.JLabel prenomPraticien;
     private javax.swing.JLabel sexePatient;
+    private javax.swing.JLabel typeExamen;
     // End of variables declaration//GEN-END:variables
 }
