@@ -43,7 +43,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         jButtonLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonLangue.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonLangue.setText("Voulez-vous changer de langue?");
+        jButtonLangue.setText("Do you want to change the language?");
         jButtonLangue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLangueActionPerformed(evt);
@@ -52,7 +52,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         jButtonMdp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jButtonMdp.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonMdp.setText("Voulez-vous changer de Mot de passe?");
+        jButtonMdp.setText("Do you want to change your password?");
         jButtonMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMdpActionPerformed(evt);
@@ -62,11 +62,11 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(127, 144, 160));
 
         jLabelParametre.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabelParametre.setText("Parametres");
+        jLabelParametre.setText("Settings");
 
         jButtonFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonFermer.setForeground(new java.awt.Color(72, 91, 122));
-        jButtonFermer.setText("Fermer");
+        jButtonFermer.setText("Close");
         jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFermerActionPerformed(evt);
@@ -136,7 +136,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
     private void jButtonLangueActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        int decoLangue = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer de langue ?", "Attention",
+        int decoLangue = JOptionPane.showConfirmDialog(this, "Do you really want to change the language ?", "Watch out",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (decoLangue == JOptionPane.OK_OPTION) {
             Login seConnecter = new Login();
@@ -157,7 +157,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
     private void jButtonMdpActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        int interfaceMdp = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer votre mot de passe ?", "Attention",
+        int interfaceMdp = JOptionPane.showConfirmDialog(this, "Do you really want to change your password ?", "Watch out",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
             ChangerMdp_Sec changementMDP = new ChangerMdp_Sec(objet_Courant);

@@ -3,14 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI_Anglais;
+package UI;
 
 import BD.Gestion_examen;
-import NF.*;
-import UI.stocker_image_modifiable;
+import NF.DMR;
+import NF.Examen;
+import NF.Impression;
+import NF.Medecin;
+import NF.ObjetCourant;
+import NF.PACS;
+import NF.Patient;
+import NF.Type_examen;
 
-import javax.swing.*;
+import java.awt.Image;
 import java.sql.Connection;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -108,7 +115,6 @@ public class Crea_Acte extends javax.swing.JFrame {
         jLabel_Com = new javax.swing.JLabel();
         jScrollPane_Com = new javax.swing.JScrollPane();
         jTextArea_Com = new javax.swing.JTextArea();
-        jButton_Imprimer1 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Date : ");
@@ -117,7 +123,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         datelabel.setText("Date");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Medical report");
+        setTitle("Rapport Acte");
         setFocusTraversalPolicyProvider(true);
         setResizable(false);
 
@@ -127,7 +133,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         Jpanel_Head.setBackground(new java.awt.Color(127, 144, 160));
         Jpanel_Head.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel_Logo.setIcon(new ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
         jLabel_Logo.setToolTipText("");
 
         jScrollPane1.setVisible(false);
@@ -168,25 +174,25 @@ public class Crea_Acte extends javax.swing.JFrame {
         jPanel_InfoPatient.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Patient"));
 
         jLabel_ID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_ID.setText("Patient's Id : ");
+        jLabel_ID.setText("Identifiant : ");
 
         jLabel_Nom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nom.setText("Surname : ");
+        jLabel_Nom.setText("Nom : ");
 
         jLabel_Prenom.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenom.setText("Name : ");
+        jLabel_Prenom.setText("Prénom : ");
 
         jLabel_DDN.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_DDN.setText("Date of birth : ");
+        jLabel_DDN.setText("Date de naissance : ");
 
         jLabel_Sexe.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Sexe.setText("Sex : ");
+        jLabel_Sexe.setText("Sexe : ");
 
         jLabel_Age.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel_Age.setText("Age : ");
 
         jLabel_Adresse.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Adresse.setText("Adress :");
+        jLabel_Adresse.setText("Adresse :");
 
         idPatient.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idPatient.setText(String.valueOf(patient_courant.getIdentifiant()));
@@ -286,16 +292,16 @@ public class Crea_Acte extends javax.swing.JFrame {
         jPanel_InfoActe.setPreferredSize(new java.awt.Dimension(750, 500));
 
         jLabel_TypeExam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_TypeExam.setText("Exam type : ");
+        jLabel_TypeExam.setText("Type Examen : ");
 
         jLabel_Nompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Nompract.setText("Practitioner's surname : ");
+        jLabel_Nompract.setText("Nom du Praticien : ");
 
         jLabel_Prenompract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Prenompract.setText("Practitioner's name : ");
+        jLabel_Prenompract.setText("Prénom du Praticien : ");
 
         jLabel_IDpract.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDpract.setText("Practitioner's Id : ");
+        jLabel_IDpract.setText("ID du Praticien : ");
 
         typeExamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         typeExamen.setText(examen_courant.getType());
@@ -313,19 +319,19 @@ public class Crea_Acte extends javax.swing.JFrame {
         datexam.setText(examen_courant.getDate().toString());
 
         jLabel_LinkWord.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_LinkWord.setText("at");
+        jLabel_LinkWord.setText("à");
 
         heurexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         heurexam.setText("00h00");
 
         jLabel_IDexam.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_IDexam.setText("Exam Id : ");
+        jLabel_IDexam.setText("ID examen : ");
 
         idexamen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         idexamen.setText(String.valueOf(examen_courant.getId_examen()));
 
         jLabel_Indication.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Indication.setText("Information :");
+        jLabel_Indication.setText("Indication :");
 
         jTextPane_Indication.setEditable(true);
         jTextPane_Indication.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -411,22 +417,22 @@ public class Crea_Acte extends javax.swing.JFrame {
         jPanel_InfoSalle.setPreferredSize(new java.awt.Dimension(350, 500));
 
         jLabel_Salle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Salle.setText("Room :");
+        jLabel_Salle.setText("Salle :");
 
         jLabel_isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_isNum.setText("Numeric :");
+        jLabel_isNum.setText("Numérique :");
 
         isNum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         if (examen_courant.isDossier_papier()){
-            isNum.setText("No");
+            isNum.setText("Non");
         }
         else{
-            isNum.setText("Yes");
+            isNum.setText("Oui");
         }
         isNum.setToolTipText("");
 
         jLabel_Reference.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel_Reference.setText("File reference :");
+        jLabel_Reference.setText("Référence dossier :");
         jLabel_Reference.setVisible(false);
 
         jTextField_Refenrece.addActionListener(new java.awt.event.ActionListener() {
@@ -491,10 +497,10 @@ public class Crea_Acte extends javax.swing.JFrame {
         jScrollPane_Technique.setViewportView(jTextArea_Technique);
 
         jLabel_Technique.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_Technique.setText("Imaging technique :");
+        jLabel_Technique.setText("Technique imagerie :");
 
         jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Sauvegarder.setText("Save");
+        jButton_Sauvegarder.setText("Sauvegarder");
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderActionPerformed(evt);
@@ -502,7 +508,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         });
 
         jButton_SauvegarderFermer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_SauvegarderFermer.setText("Save and close");
+        jButton_SauvegarderFermer.setText("Sauvegarde et fermer");
         jButton_SauvegarderFermer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderFermerActionPerformed(evt);
@@ -510,7 +516,7 @@ public class Crea_Acte extends javax.swing.JFrame {
         });
 
         jButton_Imprimer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Imprimer.setText("Print ");
+        jButton_Imprimer.setText("Imprimer ");
         jButton_Imprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ImprimerActionPerformed(evt);
@@ -518,22 +524,13 @@ public class Crea_Acte extends javax.swing.JFrame {
         });
 
         jLabel_Com.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel_Com.setText("Comment :");
+        jLabel_Com.setText("Commentaire :");
 
         jTextArea_Com.setColumns(20);
         jTextArea_Com.setLineWrap(true);
         jTextArea_Com.setRows(5);
         jTextArea_Com.setLineWrap(true);
         jScrollPane_Com.setViewportView(jTextArea_Com);
-
-        jButton_Imprimer1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Imprimer1.setText("Add a picture");
-        jButton_Imprimer1.setVisible(true);
-        jButton_Imprimer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Imprimer1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel_CorpsLayout = new javax.swing.GroupLayout(jPanel_Corps);
         jPanel_Corps.setLayout(jPanel_CorpsLayout);
@@ -547,10 +544,7 @@ public class Crea_Acte extends javax.swing.JFrame {
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel_Technique)
                             .addComponent(jPanel_InfoActe, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                            .addGroup(jPanel_CorpsLayout.createSequentialGroup()
-                                .addComponent(jButton_Imprimer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_Imprimer1))
+                            .addComponent(jButton_Imprimer)
                             .addComponent(jPanel_InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_CorpsLayout.createSequentialGroup()
@@ -590,8 +584,7 @@ public class Crea_Acte extends javax.swing.JFrame {
                 .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Imprimer)
                     .addComponent(jButton_SauvegarderFermer)
-                    .addComponent(jButton_Sauvegarder)
-                    .addComponent(jButton_Imprimer1))
+                    .addComponent(jButton_Sauvegarder))
                 .addGap(22, 22, 22))
         );
 
@@ -611,18 +604,18 @@ public class Crea_Acte extends javax.swing.JFrame {
     private void jButton_ImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimerActionPerformed
         // TODO add your handling code here:
         String s = "";
-        s += "Princeton Plainsboro Hospital - Radiology department\n\n";
-        s += "Medical " + idexamen.getText() + " done on the " + datexam.getText() + " " + heurexam.getText() + "\n";
+        s += "Hôpital Princeton Plainsboro - Service de radiologie\n\n";
+        s += "Rapport d'acte " + idexamen.getText() + " fait le " + datexam.getText() + " " + heurexam.getText() + "\n";
         s += "DR." + nomPraticien.getText() + " " + prenomPraticien.getText();
-        s += "\n\n" + typeExamen.getText() + " Room n°" + jComboBox_Salle.getSelectedItem();
-        s += "\nNumeric : " + isNum.getText();
-        if (isNum.getText().equals("No")) {
-            s += "\nPaper file reference : " + jTextField_Refenrece.getText();
+        s += "\n\n" + typeExamen.getText() + " Salle n°" + jComboBox_Salle.getSelectedItem();
+        s += "\nNumérique : " + isNum.getText();
+        if (isNum.getText().equals("Non")) {
+            s += "\nRéférence dossier papier : " + jTextField_Refenrece.getText();
         }
         //s+="\n\n- Patient : \n";
         s += "\n\n---------------------------------------------------------------------------------------------------\n\n" + nomPatient.getText();
         s += " " + prenomPatient.getText();
-        s += "\n\n- Instructions : \n";
+        s += "\n\n- Indication : \n";
         s += jTextPane_Indication.getText();
         s += "\n\n- Technique : \n";
         s += jTextArea_Technique.getText();
@@ -698,11 +691,11 @@ public class Crea_Acte extends javax.swing.JFrame {
     private void jComboBox_SalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SalleActionPerformed
         // TODO add your handling code here:
         if (jComboBox_Salle.getSelectedItem().equals("1") | jComboBox_Salle.getSelectedItem().equals("2") | jComboBox_Salle.getSelectedItem().equals("3") | jComboBox_Salle.getSelectedItem().equals("4") | jComboBox_Salle.getSelectedItem().equals("5") | jComboBox_Salle.getSelectedItem().equals("6")) {
-            isNum.setText("Yes");
+            isNum.setText("Oui");
         } else {
-            isNum.setText("No");
+            isNum.setText("Non");
         }
-        if (isNum.getText().equals("No")) {
+        if (isNum.getText().equals("Non")) {
             jTextField_Refenrece.setVisible(true);
             jLabel_Reference.setVisible(true);
 
@@ -718,11 +711,6 @@ public class Crea_Acte extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jComboBox_SalleActionPerformed
-
-    private void jButton_Imprimer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Imprimer1ActionPerformed
-        new stocker_image_modifiable();
-        
-    }//GEN-LAST:event_jButton_Imprimer1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -804,7 +792,6 @@ public class Crea_Acte extends javax.swing.JFrame {
     private javax.swing.JLabel idexamen;
     private javax.swing.JLabel isNum;
     private javax.swing.JButton jButton_Imprimer;
-    private javax.swing.JButton jButton_Imprimer1;
     private javax.swing.JButton jButton_Sauvegarder;
     private javax.swing.JButton jButton_SauvegarderFermer;
     private javax.swing.JComboBox<String> jComboBox_Salle;
