@@ -455,7 +455,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Apercu.setLineWrap(true);"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea_Apercu.setLineWrap(true);&#xa;jTextArea_Apercu.setWrapStyleWord(true);"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>

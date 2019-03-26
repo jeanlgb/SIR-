@@ -130,7 +130,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jLabel_Reference = new javax.swing.JLabel();
         jLabel_Reference1 = new javax.swing.JLabel();
         jLabel_Salle1 = new javax.swing.JLabel();
-        jButton_Gris = new javax.swing.JButton();
+        jToggleButton_Sauvegarder1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -486,7 +486,6 @@ public class Crea_Rapport extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setLineWrap(true);
         jScrollPane_CR.setViewportView(jTextArea1);
 
         jLabel_AddRapport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -634,11 +633,11 @@ public class Crea_Rapport extends javax.swing.JFrame {
             jLabel_Reference1.setVisible(true);
         }
 
-        jButton_Gris.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButton_Gris.setText("Inverser gris");
-        jButton_Gris.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButton_Sauvegarder1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jToggleButton_Sauvegarder1.setText("Inverser gris");
+        jToggleButton_Sauvegarder1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_GrisActionPerformed(evt);
+                jToggleButton_Sauvegarder1ActionPerformed(evt);
             }
         });
         jButton_Sauvegarder.setVisible(false);
@@ -682,7 +681,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                                     .addGap(6, 6, 6))
                                 .addGroup(jPanel_CorpsLayout.createSequentialGroup()
                                     .addGroup(jPanel_CorpsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton_Gris)
+                                        .addComponent(jToggleButton_Sauvegarder1)
                                         .addComponent(jLabel_Contraste)
                                         .addComponent(jLabel_Luminosite))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -720,7 +719,7 @@ public class Crea_Rapport extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel_Contraste)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton_Gris))
+                                .addComponent(jToggleButton_Sauvegarder1))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CorpsLayout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(jScrollPane_CR, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -973,11 +972,11 @@ public class Crea_Rapport extends javax.swing.JFrame {
     private javax.swing.JPanel imageRadio;
     private javax.swing.JLabel isNum;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton_Gris;
     private javax.swing.JButton jButton_Imprimer;
     private javax.swing.JButton jButton_RotD;
     private javax.swing.JButton jButton_RotG;
     private javax.swing.JButton jButton_Sauvegarder;
+    private javax.swing.JButton jToggleButton_Sauvegarder1;
     private javax.swing.JCheckBox jCheckBox_Oui;
     private javax.swing.JComboBox<String> jComboBox_Image;
     private javax.swing.JLabel jLabel15;

@@ -195,7 +195,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom", "ID" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -324,6 +324,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jTextArea_Apercu.setRows(5);
         jTextArea_Apercu.setText(s);
         jTextArea_Apercu.setLineWrap(true);
+        jTextArea_Apercu.setWrapStyleWord(true);
         jScrollPane_Apercu.setViewportView(jTextArea_Apercu);
 
         javax.swing.GroupLayout jPanel_ApercuLayout = new javax.swing.GroupLayout(jPanel_Apercu);
@@ -503,7 +504,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_NbResult.setText("Nombre de résultat :");
 
         jLabel_NbResultDMR.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbResultDMR.setText("");
+        jLabel_NbResultDMR.setText("Nb_resultat");
 
         jPanel_ApercuDMR.setBackground(new java.awt.Color(163, 209, 180));
         jPanel_ApercuDMR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DMR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24))); // NOI18N
