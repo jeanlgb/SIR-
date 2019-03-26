@@ -166,7 +166,7 @@ public class InterfaceParametreRadiologue extends javax.swing.JFrame {
         int interfaceMdp = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer votre mot de passe ?", "Attention",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
-            ChangerMdp_Radiologue changementMDP = new ChangerMdp_Radiologue();
+            ChangerMdp_Radiologue changementMDP = new ChangerMdp_Radiologue(objet_Courant);
             this.setVisible(false);
             changementMDP.setVisible(true);
 

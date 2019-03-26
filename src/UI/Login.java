@@ -9,10 +9,8 @@ package UI;
  *
  * @author porra
  */
-import NF.Acces_BD;
-import NF.Connexion;
-import NF.Medecin;
-import NF.ObjetCourant;
+import NF.*;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,7 +84,7 @@ public class Login extends javax.swing.JFrame {
     });
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -174,17 +172,17 @@ public class Login extends javax.swing.JFrame {
         panel_logo.setLayout(panel_logoLayout);
         panel_logoLayout.setHorizontalGroup(
                 panel_logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_logoLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(logo_MedTechs, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panel_logoLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(logo_MedTechs, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_logoLayout.setVerticalGroup(
                 panel_logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_logoLayout.createSequentialGroup()
-                        .addContainerGap(15, Short.MAX_VALUE)
-                        .addComponent(logo_MedTechs)
-                        .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_logoLayout.createSequentialGroup()
+                                .addContainerGap(15, Short.MAX_VALUE)
+                                .addComponent(logo_MedTechs)
+                                .addContainerGap())
         );
 
         jButtonChangerLangue.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -202,90 +200,90 @@ public class Login extends javax.swing.JFrame {
         panel_identification.setLayout(panel_identificationLayout);
         panel_identificationLayout.setHorizontalGroup(
                 panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panel_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_identificationLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelIdentifiant)
-                                .addComponent(labelMdp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(verifierMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        ).addGap(65, 65, 65))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_identificationLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(labelIdentification)
+                        .addComponent(panel_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panel_identificationLayout.createSequentialGroup()
+                                .addGap(65, 65, 65)
                                 .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(label_erreur_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(380, 380, 380))
+                                        .addComponent(labelIdentifiant)
+                                        .addComponent(labelMdp))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(verifierMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89)
+                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(58, 58, 58)
+                                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                ).addGap(65, 65, 65))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_identificationLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(labelIdentification)
+                                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(label_erreur_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(380, 380, 380))
         );
         panel_identificationLayout.setVerticalGroup(
                 panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_identificationLayout.createSequentialGroup()
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel_identificationLayout.createSequentialGroup()
-                                        .addComponent(panel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(34, 34, 34)
-                                            .addComponent(labelIdentification))
-                                .addGroup(panel_identificationLayout.createSequentialGroup()
-                                        .addContainerGap(261, Short.MAX_VALUE)
-                                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                //.addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                                                .addComponent(labelIdentifiant)
-                                                .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelMdp)
-                                .addComponent(verifierMdp)
-                                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_erreur_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGroup(panel_identificationLayout.createSequentialGroup()
+                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panel_identificationLayout.createSequentialGroup()
+                                                .addComponent(panel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(34, 34, 34)
+                                                .addComponent(labelIdentification))
+                                        .addGroup(panel_identificationLayout.createSequentialGroup()
+                                                .addContainerGap(261, Short.MAX_VALUE)
+                                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        //.addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                                        .addComponent(labelIdentifiant)
+                                                        .addComponent(txtidentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButtonChangerLangue, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label_erreurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addGroup(panel_identificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelMdp)
+                                        .addComponent(verifierMdp)
+                                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtmdp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label_erreur_mdp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
                         )
-               
+
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(panel_identification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(panel_identification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panel_identification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel_identification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>                        
+    }// </editor-fold>
 
     /**
      * Check mdp
@@ -302,7 +300,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Méthode pour changer de langue renvoyant au login
      */
-    private void jButtonChangerLangueActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+    private void jButtonChangerLangueActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -349,11 +347,30 @@ public class Login extends javax.swing.JFrame {
                         this.dispose(); //ferme la fenetre de login
                     } else {
                         if (type_User.getString("metier").equals("MANIPULATEUR_RADIO")) {
-                            new Acceuil_ManipRadio().setVisible(true);
+                            PreparedStatement man;
+                            man = connexion.prepareStatement("SELECT nom, prenom FROM manipulateur_radio WHERE id = ?");
+                            man.setInt(1, id);
+                            ResultSet medQuery = man.executeQuery();
+                            while (medQuery.next()) {
+                                System.out.println("A");
+                                String nom = medQuery.getString("nom");
+                                String prenom = medQuery.getString("prenom");
+                                objet_Courant = new ObjetCourant(new Manipulateur_radio(id, nom, prenom), connexion);
+                            }
+                            new Acceuil_ManipRadio(objet_Courant).setVisible(true);
                             this.dispose();
                         } else {
                             if (type_User.getString("metier").equals("SECRETAIRE_MEDICALE")) {
-                                new Acceuil_Sec().setVisible(true);
+                                PreparedStatement sec;
+                                sec = connexion.prepareStatement("SELECT nom, prenom FROM secretaire_medicale WHERE id = ?");
+                                sec.setInt(1, id);
+                                ResultSet medQuery = sec.executeQuery();
+                                while (medQuery.next()) {
+                                    String nom = medQuery.getString("nom");
+                                    String prenom = medQuery.getString("prenom");
+                                    objet_Courant = new ObjetCourant(new Secretaire_medicale(id, nom, prenom), connexion);
+                                }
+                                new Acceuil_Sec(objet_Courant).setVisible(true);
                                 this.dispose();
                             }
                         }
