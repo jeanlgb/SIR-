@@ -91,7 +91,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jButton_OuvrirDMR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Accueil Secrétaire  (FR)");
+        setTitle("Reception Secretary ");
         setResizable(false);
 
         jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
@@ -104,20 +104,20 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
         jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Image/medtechs_sansfond_petit.png"))); // NOI18N
 
-        jLabel_UserPost.setText("Secrétaire");
+        jLabel_UserPost.setText("Secretary");
 
         jLabel_Prenom.setText(objet_Courant.getSecretaire_medicale().getPrenom());
 
         jLabel_Nom.setText(objet_Courant.getSecretaire_medicale().getNom());
 
-        jButton_Deconnexion.setText("Déconnexion");
+        jButton_Deconnexion.setText("Disconnection");
         jButton_Deconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_DeconnexionActionPerformed(evt);
             }
         });
 
-        jButton_Parametres.setText("Parametres");
+        jButton_Parametres.setText("Parameters");
         jButton_Parametres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ParametresActionPerformed(evt);
@@ -224,7 +224,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Heure", "Nom", "Exam", "Urgent"
+                "Hour", "Name", "Exam", "Urgent"
             }
         ) {
             Class[] types = new Class [] {
@@ -261,10 +261,10 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         }
 
         jLabel_DemandeRDV.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_DemandeRDV.setText("Demande de rendez vous en attente :");
+        jLabel_DemandeRDV.setText("Request for an appointment pending:");
 
         jLabel_NbDemandeRDV.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_NbDemandeRDV.setText("Nb_RDV");
+        jLabel_NbDemandeRDV.setText(" ");
 
         jScrollPane_Corps_Planning_Tab.setToolTipText("");
         jScrollPane_Corps_Planning_Tab.setPreferredSize(new java.awt.Dimension(453, 369));
@@ -296,7 +296,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Heure", "Nom", "Exam", "Etat"
+                "Hour", "Name", "Exam", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -328,7 +328,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jScrollPane_Corps_Planning_Tab.setViewportView(jTable_Planning);
 
         jComboBox_SelecSalle.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_SelecSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Salle 1", "Salle 2" }));
+        jComboBox_SelecSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Room 1", "Room 2" }));
         jComboBox_SelecSalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_SelecSalleActionPerformed(evt);
@@ -336,10 +336,10 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jLabel_RecherchePar.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RecherchePar.setText("Recherche par :");
+        jLabel_RecherchePar.setText("Search by :");
 
         jComboBox_Recherche.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Name" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
@@ -360,7 +360,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_Rechercher.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_Rechercher.setText("Rerchercher");
+        jButton_Rechercher.setText("Search for");
 
         jComboBox_Date.setFont(new Font("Dialog", 0, 16)); // NOI18N
         jComboBox_Date.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "date j", "date j+1", "date j+2", "date j+3" }));
@@ -371,7 +371,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_Ouvrir.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_Ouvrir.setText("Ouvrir");
+        jButton_Ouvrir.setText("Open");
         jButton_Ouvrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_OuvrirActionPerformed(evt);
@@ -379,7 +379,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_ValiderRequete.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_ValiderRequete.setText("Valider");
+        jButton_ValiderRequete.setText("Verify");
         jButton_ValiderRequete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ValiderRequeteActionPerformed(evt);
@@ -453,7 +453,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         jPanel_DMR.setPreferredSize(new java.awt.Dimension(1089, 585));
 
         jLabel_RechercheParDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jLabel_RechercheParDMR.setText("Recherche par :");
+        jLabel_RechercheParDMR.setText("Search by :");
 
         jTextField_RechercheDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
         jTextField_RechercheDMR.setToolTipText("");
@@ -474,7 +474,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 jButton_RechercherDMRActionPerformed(evt);
             }
         });
-        jButton_RechercherDMR.setText("Rerchercher");
+        jButton_RechercherDMR.setText("Search for");
 
         jComboBox_RechercheDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
         jComboBox_RechercheDMR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nom" }));
@@ -485,7 +485,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_CreerDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_CreerDMR.setText("Créer DMR");
+        jButton_CreerDMR.setText("Create DMR");
         jButton_CreerDMR.setVisible(false);
         jButton_CreerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,7 +494,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         });
 
         jButton_ImprimerDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_ImprimerDMR.setText("Imprimer apercu");
+        jButton_ImprimerDMR.setText("Print overview");
         jButton_ImprimerDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ImprimerDMRActionPerformed(evt);
@@ -539,7 +539,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Date", "ID", "Nom", "Nombre Exam"
+                "Date", "ID", "Name", "Number Exam"
             }
         ) {
             Class[] types = new Class [] {
@@ -590,7 +590,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         );
 
         jButton_OuvrirDMR.setFont(new Font("Dialog", 0, 16)); // NOI18N
-        jButton_OuvrirDMR.setText("Ouvrir");
+        jButton_OuvrirDMR.setText("Open");
         jButton_OuvrirDMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_OuvrirDMRActionPerformed(evt);
@@ -657,7 +657,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
     private void jButton_DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeconnexionActionPerformed
         // TODO add your handling code here:
-        int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment vous déconnecter ?", "Attention", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        int retour = JOptionPane.showConfirmDialog(this, "Do you really want to log out?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (retour == JOptionPane.OK_OPTION) {
             this.dispose(); // ferme la fenetre
             new Login().setVisible(true); // ouvre la fenetre de connection
@@ -678,7 +678,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
             if (jTable_Requete.getSelectedRowCount() > 0) {
 
-                int retour = JOptionPane.showConfirmDialog(this, "L'examen n'existe pas encore, souhaitez vous le créer ?", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int retour = JOptionPane.showConfirmDialog(this, "The exam doesn't exist yet, would you like to create it?", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (retour == JOptionPane.OK_OPTION) {
                     // ouvre la page de création et modifie valeur de la dernière colonne
                 }
@@ -693,7 +693,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
 
             if (jTable_Requete.getSelectedRowCount() > 0) {
 
-                int retour = JOptionPane.showConfirmDialog(this, "L'examen n'existe pas encore, souhaitez vous le créer ?", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int retour = JOptionPane.showConfirmDialog(this, "The exam doesn't exist yet, would you like to create it?", "Information", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (retour == JOptionPane.OK_OPTION) {
                     // ouvre la page de création et modifie valeur de la dernière colonne
                 }
@@ -772,7 +772,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
         if (jComboBox_Recherche.getSelectedItem() == "ID") {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_Recherche.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
-        } else if (jComboBox_Recherche.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        } else if (jComboBox_Recherche.getSelectedItem() == "Surname") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_Recherche.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }
@@ -798,7 +798,7 @@ public class Acceuil_Sec extends javax.swing.JFrame {
             patient_courant = Gestion_patient.rechercher_patient(jTextField_RechercheDMR.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(Gestion_patient.rechercheIdDMR(patient_courant.getIdentifiant(), connexion), connexion);
 
-        } else if (jComboBox_RechercheDMR.getSelectedItem() == "Nom") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
+        } else if (jComboBox_RechercheDMR.getSelectedItem() == "Surname") { //Gestion_patient.rechercher_par_nom_patient(patient_courant.getNom_d_usage()).getDmr().getId_dmr()
             patient_courant = Gestion_patient.rechercher_par_nom_patient(jTextField_RechercheDMR.getText(), connexion);
             dmr_courant = Gestion_DMR.rechercher_DMR(String.valueOf(patient_courant.getIdentifiant()), connexion);
         }

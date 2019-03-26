@@ -50,7 +50,7 @@ public class Ajout_Exam extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel_Base.setBackground(new java.awt.Color(127, 144, 160));
-        jPanel_Base.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ajout Examen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel_Base.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Review", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
         jPanel_Info.setBackground(new java.awt.Color(163, 209, 180));
 
@@ -62,22 +62,22 @@ public class Ajout_Exam extends javax.swing.JFrame {
         dateCreaDMR.setText(date.toString());
 
         jLabel_HeureCrea.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_HeureCrea.setText("Heure de création :");
+        jLabel_HeureCrea.setText("Time of creation :");
 
         heureCreaDMR.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        heureCreaDMR.setText("Heure_DMR");
+        heureCreaDMR.setText("Hour_DMR");
 
         jLabel_Nom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Nom.setText("Nom :");
+        jLabel_Nom.setText("Surname :");
 
         jLabel_Prenom.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Prenom.setText("Prénom :");
+        jLabel_Prenom.setText("Name :");
 
         jLabel_Sexe.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Sexe.setText("Sexe :");
+        jLabel_Sexe.setText("Gender :");
 
         jButton_Sauvegarder.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jButton_Sauvegarder.setText("Sauvegarder");
+        jButton_Sauvegarder.setText("Save");
         jButton_Sauvegarder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SauvegarderActionPerformed(evt);
@@ -85,10 +85,10 @@ public class Ajout_Exam extends javax.swing.JFrame {
         });
 
         jLabel_ExamLier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_ExamLier.setText("Examen éxistant à lier :");
+        jLabel_ExamLier.setText("Existing exam to be linked :");
 
         jComboBox_Lier.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jComboBox_Lier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non", "Oui (Numérique)", "Oui (Papier)" }));
+        jComboBox_Lier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No", "Yes (Digital)", "Yes (Paper)" }));
         jComboBox_Lier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_LierActionPerformed(evt);
@@ -96,25 +96,25 @@ public class Ajout_Exam extends javax.swing.JFrame {
         });
 
         jLabel_Reference.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_Reference.setText("Référence examen :");
+        jLabel_Reference.setText("Exam reference :");
         jLabel_Reference.setVisible(false);
 
         jLabel_IDPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jLabel_IDPatient.setText("ID Patient :");
+        jLabel_IDPatient.setText("Patient ID :");
 
         idPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        idPatient.setText("ID_Patient :");
+        idPatient.setText("Patient ID :");
 
         jTextField_Reference.setVisible(false);
 
         prenomPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        prenomPatient.setText("prenom_patient");
+        prenomPatient.setText("name_patient");
 
         nomPatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        nomPatient.setText("nom_patient");
+        nomPatient.setText("surname_patient");
 
         sexePatient.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        sexePatient.setText("sexe_patient");
+        sexePatient.setText("gender_patient");
 
         javax.swing.GroupLayout jPanel_InfoLayout = new javax.swing.GroupLayout(jPanel_Info);
         jPanel_Info.setLayout(jPanel_InfoLayout);
@@ -230,14 +230,14 @@ public class Ajout_Exam extends javax.swing.JFrame {
 
     private void jComboBox_LierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_LierActionPerformed
         // TODO add your handling code here:
-                if (jComboBox_Lier.getSelectedItem().equals("Oui (Numérique)") | jComboBox_Lier.getSelectedItem().equals("Oui (Papier)") ) {
+                if (jComboBox_Lier.getSelectedItem().equals("Yes (Digital)") | jComboBox_Lier.getSelectedItem().equals("Yes (Paper)") ) {
             jTextField_Reference.setVisible(true);
             jLabel_Reference.setVisible(true);
 
             jPanel_Info.repaint();
             jPanel_Info.revalidate();
 
-        } else if (jComboBox_Lier.getModel().getSelectedItem().equals("Non")) {
+        } else if (jComboBox_Lier.getModel().getSelectedItem().equals("No")) {
             jTextField_Reference.setVisible(false);
             jLabel_Reference.setVisible(false);
             
