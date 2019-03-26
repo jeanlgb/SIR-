@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
-import NF.*;
+package UI_Anglais;
+
+import NF.Medecin;
+import NF.Patient;
+
 /**
  *
  * @author leclemau

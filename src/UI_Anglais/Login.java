@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI_Anglais;
 
 /**
  *
  * @author porra
  */
 import NF.*;
+import UI.Acceuil_ManipRadio;
+import UI.Acceuil_Radiologue;
+import UI.Acceuil_Sec;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
