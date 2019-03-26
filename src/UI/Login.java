@@ -327,11 +327,9 @@ public class Login extends javax.swing.JFrame {
             } else if (!nouvelle_connexion.isId_ok()) {
                 label_erreurIdentifiant.setText("Erreur dans l'identifiant");
                 label_erreurIdentifiant.setForeground(Color.RED);
-                timer1.start();
             } else {
                 label_erreur_mdp.setText("Erreur dans le mot de passe");
                 label_erreur_mdp.setForeground(Color.RED);
-                timer1.start();
             }
 
             /**
