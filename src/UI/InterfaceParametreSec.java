@@ -1,13 +1,21 @@
 package UI;
 
+import NF.ObjetCourant;
+
 import javax.swing.JOptionPane;
+import java.sql.Connection;
 
 public class InterfaceParametreSec extends javax.swing.JFrame {
+
+    private Connection connexion;
+    private ObjetCourant objet_Courant;
 
     /**
      * Creates new form interfaceParametre
      */
-    public InterfaceParametreSec() {
+    public InterfaceParametreSec(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -138,7 +146,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Acceuil_Sec retourSec = new Acceuil_Sec();
+        Acceuil_Sec retourSec = new Acceuil_Sec(objet_Courant);
         retourSec.setVisible(true);
         retourSec.setResizable(false);
         this.setVisible(false);
@@ -150,7 +158,7 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
         int interfaceMdp = JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment changer votre mot de passe ?", "Attention",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (interfaceMdp == JOptionPane.OK_OPTION) {
-            ChangerMdp_Sec changementMDP = new ChangerMdp_Sec();
+            ChangerMdp_Sec changementMDP = new ChangerMdp_Sec(objet_Courant);
             this.setVisible(false);
             changementMDP.setVisible(true);
 
@@ -188,8 +196,8 @@ public class InterfaceParametreSec extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InterfaceParametreSec().setVisible(true);
+            public void run(){
+
             }
         });
     }

@@ -14,7 +14,9 @@ public class ChangerMdp_Sec extends javax.swing.JFrame{
     /**
      * Creates new form ChangerMdp_Radiologue
      */
-    public ChangerMdp_Sec() {
+    public ChangerMdp_Sec(ObjetCourant objet_Courant) {
+        this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -258,8 +260,7 @@ public class ChangerMdp_Sec extends javax.swing.JFrame{
                         stat.executeUpdate();
                     }
 
-                    Acceuil_Sec retourAccueil = new Acceuil_Sec();
-                    retourAccueil.setVisible(true);
+                    new Acceuil_Sec(objet_Courant);setVisible(true);
                     this.dispose();
 
                 }
@@ -308,7 +309,6 @@ public class ChangerMdp_Sec extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChangerMdp_Radiologue().setVisible(true);
             }
         });
     }

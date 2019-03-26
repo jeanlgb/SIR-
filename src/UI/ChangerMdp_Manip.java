@@ -14,7 +14,10 @@ public class ChangerMdp_Manip extends javax.swing.JFrame{
     /**
      * Creates new form ChangerMdp_Radiologue
      */
-    public ChangerMdp_Manip() {
+    public ChangerMdp_Manip(ObjetCourant objet_Courant) {
+
+        this.objet_Courant = objet_Courant;
+        connexion = objet_Courant.getConnexion();
         initComponents();
     }
 
@@ -258,7 +261,7 @@ public class ChangerMdp_Manip extends javax.swing.JFrame{
                         stat.executeUpdate();
                     }
 
-                    Acceuil_ManipRadio retourAccueil = new Acceuil_ManipRadio();
+                    Acceuil_ManipRadio retourAccueil = new Acceuil_ManipRadio(objet_Courant);
                     retourAccueil.setVisible(true);
                     retourAccueil.dispose();
 
@@ -308,7 +311,6 @@ public class ChangerMdp_Manip extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChangerMdp_Radiologue().setVisible(true);
             }
         });
     }
