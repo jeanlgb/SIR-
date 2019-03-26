@@ -201,7 +201,7 @@ public class Acceuil_Radiologue extends javax.swing.JFrame {
         jLabel_RecherchePar.setText("Recherche par :");
 
         jComboBox_Recherche.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nom" }));
+        jComboBox_Recherche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom", "ID" }));
         jComboBox_Recherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_RechercheActionPerformed(evt);
